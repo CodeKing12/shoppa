@@ -130,7 +130,7 @@ const cuteToast = ({ type, message, timer = 5000, title,  vibrate = [], playSoun
         src = script.src.substring(0, script.src.lastIndexOf('/'));
       }
     }
-    console.log(src)
+    // console.log(src)
 
     let templateContainer = document.querySelector('.toast-container');
 
@@ -162,7 +162,7 @@ const cuteToast = ({ type, message, timer = 5000, title,  vibrate = [], playSoun
             </div>
           </div>
         </div>
-        ${img !== '' ? '<div class="toast-timer ' + type + '-timer"  style="animation: timer' + timer + 'ms linear;>' : ''}
+        ${'<div class="toast-timer ' + type + '-timer"  style="animation: timer' + timer + 'ms linear;>'}
       </div>
     </div>
     `;

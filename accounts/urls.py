@@ -5,7 +5,8 @@ from django.conf import settings
 
 urlpatterns = [
     # path('', views.create_account, name='create-account'),
-    # path('login/', views.login_view, name='login_page'),
+    path('login/', views.login_view, name='login_page'),
+    path('profile/', views.user_profile, name="profile")
     # path("activate/<uidb64>/<token>", views.activate_account, name="activate_account"),
     # path('resend/', views.resend_token, name='resend_token'),
     # path('reset_password/', views.reset_password, name='reset_password'),

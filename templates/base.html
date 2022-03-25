@@ -14,6 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script src="{% static 'js/cute-alert.js' %}"></script>
     <link rel="stylesheet" href="{% static 'external/fontawesome-pro-5/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'external/bootstrap-select/css/bootstrap-select.min.css' %}">
     <link rel="stylesheet" href="{% static 'external/slick/slick.min.css' %}">
@@ -87,7 +88,7 @@
                 {% if request.is_authenticated %}
                     Logged In
                 {% else %}
-                    Free Delivery On Your First Order
+                    Free Delivery On Your {{request.user.is_authenticated}} Order
                 {% endif %}
                 </p>
                 <!-- <p class="mb-0 fs-15 font-weight-bold text-secondary text-center letter-spacing-01 text-uppercase">10% off your first order using coupon code: @pamilerinadegoke</p> -->
@@ -541,28 +542,39 @@
                                         <ul
                                             class="navbar-nav flex-row justify-content-xl-end d-flex flex-wrap text-body py-0 navbar-right">
                                             <li class="nav-item">
-                                                <a class="nav-link pr-3 py-0" href="#" data-toggle="modal"
+                                                {% if request.user.is_authenticated %}
+                                                    <a class="nav-link pr-3 py-0" href="#">
+                                                {% else %}
+                                                    <a class="nav-link pr-3 py-0" href="#" data-toggle="modal"
                                                     data-target="#sign-in">
+                                                {% endif %}
                                                     <svg class="icon icon-user-light">
                                                         <use xlink:href="#icon-user-light"></use>
                                                     </svg>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link position-relative px-4 py-0" href="wishlist.html">
+                                                {% if request.user.is_authenticated %}
+                                                    <a class="nav-link position-relative px-4 py-0" href="wishlist.html">
+                                                {% else %}
+                                                    <a class="nav-link position-relative px-4 py-0" href="#" data-toggle="modal" data-target="#sign-in">
+                                                {% endif %}
                                                     <svg class="icon icon-star-light">
                                                         <use xlink:href="#icon-star-light"></use>
                                                     </svg>
                                                     <span class="position-absolute number">0</span></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
+                                                {% if request.user.is_authenticated %}
+                                                    <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
                                                     href="#" data-canvas="true"
                                                     data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
+                                                {% else %}
+                                                    <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
+                                                    href="#" data-toggle="modal" data-target="#sign-in">
+                                                {% endif %}
                                                     <span class="mr-2 font-weight-bold fs-15">$0.00</span>
-                                                    <svg class="icon icon-shopping-bag-open-light">
-                                                        <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                                    </svg>
+                                                    <img class="cart-icon" src="{% static 'icons/cart-2.svg' %}">
                                                     <span class="position-absolute number">0</span>
                                                 </a>
                                             </li>
@@ -591,14 +603,28 @@
                                 <img class="header-icons" src="{% static 'icons/search.svg' %}">
                                 <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span>
                             </a> {% endcomment %}
-                            <a class="nav-link py-0 lower-unshow" href="#" data-toggle="modal"
-                                data-target="#sign-in">
-                                <img class="header-icons" src="{% static 'icons/account.svg' %}">
-                            </a>
-                            <a class="nav-link position-relative py-0 unshow-nav" href="wishlist.html">
+                            {% if request.user.is_authenticated %}
+                                <a class="nav-link py-0 lower-unshow" id="profile-link" href="{% url 'profile' %}">
+                                    <img class="header-icons" src="{% static 'icons/account.svg' %}">
+                                </a>
+                            {% else %}
+                                <a class="nav-link py-0 lower-unshow" id="profile-link" href="#" data-toggle="modal" data-target="#sign-in">
+                                    <img class="header-icons" src="{% static 'icons/account.svg' %}">
+                                </a>
+                            {% endif %}
+                            <a class="nav-link position-relative py-0 unshow-nav" href="#">
                                 <img class="header-icons" src="{% static 'icons/wishlist.svg' %}">
-                                {% comment %} <span class="position-absolute number">0</span> {% endcomment %}
                             </a>
+                            <!-- <div class="dropdown">
+                                <a class="nav-link position-relative py-0 unshow-nav dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img class="header-icons" src="{% static 'icons/wishlist.svg' %}">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div> -->
                             <a class="nav-link position-relative menu-cart py-0 d-inline-flex align-items-center mr-n2" href="#" data-canvas="true" data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
                                     {% comment %} <span class="mr-2 font-weight-bold fs-15">$0.00</span> {% endcomment %}
                                     <img class="cart-icon" src="{% static 'icons/cart-2.svg' %}">
@@ -610,18 +636,42 @@
             </div>
         </div>
     </header>
-
+    
     <main id="content">
         {% if messages %}
-        <ul class="messages">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
+                {% comment %} <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> {% endcomment %}
+                <button id="toast-btn" onclick="testToast()"></button>
+                <script>
+                    function removeLoader() {
+                        document.getElementById("iconloop").style.opacity = 0
+                        setTimeout(()=>{
+                            document.getElementById("slide1").classList.add("slideL")
+                            document.getElementById("slide2").classList.add("slideR")
+                            document.getElementById("iconloop").style.display = "none"
+                        }, 100);
+                        setTimeout(()=>{
+                            document.getElementById("loader").style.display = "none"
+                        }, 1000);
+                        setTimeout(()=>{
+                            document.body.style.overflow = "visible"
+                        }, 500);
+                        document.getElementById("toast-btn").click();
+                    }
+                    function testToast() {
+                        console.log("{{message}}");
+                        cuteToast({
+                            type: "{{message.tags}}",
+                            message: "",
+                            timer: 5500,
+                            title: "{{message}}"
+                        });
+                    }
+                </script>
+                {% endfor %}
         {% endif %}
 
         {% block content %}
-
         {% endblock content %}
     </main>
 
@@ -713,7 +763,6 @@
     <script src="{% static 'external/mapbox-gl/mapbox-gl.js' %}"></script>
     <script src="{% static 'external/isotope/isotope.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/cute-alert.js' %}"></script>
 
     {% comment %} <script src="{% static 'js/submissions.js' %}"></script> {% endcomment %}
 
@@ -1843,10 +1892,7 @@
                             <form name="login" method="POST" id="login-form">
                                 {% csrf_token %}
                                 {% for field in login_form %}
-                                <div class="form-group col-4">
-                                    <label class="col-12">{{ field.label }}</label>
                                     {{ field }}
-                                </div>
                                 {% endfor %}
                                 {% comment %} <input id="email" name="email" type="text" class="form-control border-0 mb-3"
                                     placeholder="Email or Username" required> {% endcomment %}
@@ -1875,21 +1921,26 @@
                                             success: function (response) {
                                                 $("#login-form").trigger('reset');
                                                 $("#email").focus();
-                                                response = JSON.parse(response["Saved Form"]);
-                                                // alert(response[0]['fields']['email'])
+                                                console.log(response)
+                                                var message = response['message']
+                                                var alert_type = response['type']
+                                                console.log(message, alert_type)
+                                                $("#profile-link").attr("data-toggle", "")
+                                                $("#profile-link").attr("data-target", "")
+                                                $("#profile-link").attr("href", "{% url 'profile' %}")
                                                 $(".modal-close").click()
                                                 cuteToast({
-                                                    type: "success",
+                                                    type: alert_type,
                                                     message: "",
-                                                    timer: 6000,
-                                                    title: "Login Successful"
+                                                    timer: 60000,
+                                                    title: message
                                                 })
-                                                $("#login-form").load()
-                                                console.log(response)
+                                                // console.log(result)
                                                 console.log("Successful Submission")
                                             },
                                             error: function (response) {
                                                 alert(response["responseJSON"]["error"]);
+                                                console.log("Failed to send login details")
                                             }
                                         })
                                     })

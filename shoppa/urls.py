@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+import accounts.views as accounts_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('home/ajax/login', views.login, name="login_account"),
+    path('account/', include('accounts.urls')),
+    path('log-me-out/', accounts_views.logout_user, name='logout'),
+    path('login/', accounts_views.login_view, name="login_account"),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

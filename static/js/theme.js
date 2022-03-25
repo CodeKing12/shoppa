@@ -1267,20 +1267,7 @@ for (let icon = 0; icon < loadicons.length; icon++) {
 // }
 
 
-function removeLoader() {
-    document.getElementById("iconloop").style.opacity = 0
-    setTimeout(()=>{
-        document.getElementById("slide1").classList.add("slideL")
-        document.getElementById("slide2").classList.add("slideR")
-        document.getElementById("iconloop").style.display = "none"
-    }, 100);
-    setTimeout(()=>{
-        document.getElementById("loader").style.display = "none"
-    }, 1000);
-    setTimeout(()=>{
-        document.body.style.overflow = "visible"
-    }, 700);
-}
+
 
 // function dontSubmit(element) {
 //     element.preventDefault();
@@ -1295,3 +1282,4 @@ if (document.readyState === "complete") { console.log("Complete") }
 // });
 
 // loadingAnimation()
+// document.getElementById().click()

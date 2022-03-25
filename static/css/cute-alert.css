@@ -326,19 +326,19 @@
 }
 
 .error-bg {
-  background: #d85261;
+  background: #ba0012;
 }
 
 .success-bg {
-  background: #4E7661; /* Another one is 537c67 */
+  background: rgb(78, 118, 97); /* Another one is 537c67 */
 }
 
 .warning-bg {
-  background: #fada5e;
+  background: rgb(130, 88, 5);
 }
 
 .question-bg {
-  background: #779ecb;
+  background: #017284;
 }
 
 .error-btn:hover {
