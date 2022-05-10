@@ -23406,26 +23406,10 @@ body {
     height: auto;
 }
 
-.toast-container {
-    right: 30px !important;
-    left: 15px;
-    width: 370px;
-    max-width:60% !important;
-    margin: 0 auto;
-}
-
-.toast-cancel-icon {
-    height: 17px;
-}
-
-.toast-message {
-    padding-top: 4px;
-}
-
-#toast-btn {
-    display: none;
-}
-
 .canvas-sidebar.cart-canvas .card-body {
     max-width: unset !important;
+}
+
+.notyf__message {
+    font-size: 16px !important;
 }

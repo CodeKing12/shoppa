@@ -1258,7 +1258,23 @@ for (let icon = 0; icon < loadicons.length; icon++) {
     delay_num += 0.3
     loadicons[icon].style.animationDelay = delay_num+"s"
     loadicons[icon].style.animationName = "showface"
-} 
+}
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
     // if (document.readyState !== "loading") {
     //     loading = false
 // }
@@ -1275,11 +1291,28 @@ for (let icon = 0; icon < loadicons.length; icon++) {
 
 if (document.readyState === "complete") { console.log("Complete") }
 
-// $("#login-form").on("submit", function(e) {
-    // e.preventDefault();
-    // console.log("Form Formed Former");
-    // submit_login();
-// });
-
-// loadingAnimation()
-// document.getElementById().click()
+const notyf = new Notyf({
+    duration: 10000,
+    position: {
+        x: 'center',
+        y: 'top',
+    },
+    // dismissible: true,
+    types: [
+        {
+           type: 'warning',
+            background: 'orange',
+            icon: {
+                className: 'material-icons',
+                tagName: 'i',
+                text: 'warning'
+            }
+        },
+        {
+            type: 'error',
+            background: 'indianred',
+            duration: 2000,
+            dismissible: true
+        }
+    ]
+});

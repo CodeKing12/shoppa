@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shoppa',
         'USER': 'root',
-        'PASSWORD': 'King4Change',
+        'PASSWORD': 'Rathedev',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -149,11 +149,16 @@ MEDIA_URL = 'media/'
 
 AUTH_USER_MODEL = 'accounts.CustomAccount'
 
-EMAIL_USE_TLS = False
-EMAIL_HOST = '127.0.0.1'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 1123
+# EMAIL_USE_TLS = False
+# EMAIL_HOST = '127.0.0.1'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_PORT = 1123
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'e658cc8489ba23'
+EMAIL_HOST_PASSWORD = '0871bd7cffb4bc'
+EMAIL_PORT = '2525'
 
 PASSWORD_RESET_TIMEOUT = 3600
 

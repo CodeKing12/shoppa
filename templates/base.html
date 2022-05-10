@@ -25,11 +25,8 @@
     <link rel="stylesheet" href="{% static 'external/fonts/font-phosphor/css/phosphor.min.css' %}">
     <link rel="stylesheet" href="{% static 'external/fonts/tuesday-night/stylesheet.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/cute-alert.css' %}" type="text/css">
-    <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css' %}" type="text/css"> -->
-    {% comment %}
-    <link rel="stylesheet" href="{% static 'css/test.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/themes.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
     <link rel="icon" href="{% static 'logos/favicon.png' %}">
 
@@ -604,7 +601,7 @@
                                 <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span>
                             </a> {% endcomment %}
                             {% if request.user.is_authenticated %}
-                                <a class="nav-link py-0 lower-unshow" id="profile-link" href="{% url 'profile' %}">
+                                <a class="nav-link py-0 lower-unshow" id="profile-link" href="{% url 'dashboard' %}">
                                     <img class="header-icons" src="{% static 'icons/account.svg' %}">
                                 </a>
                             {% else %}
@@ -636,6 +633,24 @@
             </div>
         </div>
     </header>
+
+    <script>
+        function removeLoader() {
+            document.getElementById("iconloop").style.opacity = 0
+            setTimeout(()=>{
+                document.getElementById("slide1").classList.add("slideL")
+                document.getElementById("slide2").classList.add("slideR")
+                document.getElementById("iconloop").style.display = "none"
+            }, 100);
+            setTimeout(()=>{
+                document.getElementById("loader").style.display = "none"
+            }, 1000);
+            setTimeout(()=>{
+                document.body.style.overflow = "visible"
+            }, 500);
+            document.getElementById("toast-btn").click();
+        }
+    </script>
     
     <main id="content">
         {% if messages %}
@@ -643,28 +658,11 @@
                 {% comment %} <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> {% endcomment %}
                 <button id="toast-btn" onclick="testToast()"></button>
                 <script>
-                    function removeLoader() {
-                        document.getElementById("iconloop").style.opacity = 0
-                        setTimeout(()=>{
-                            document.getElementById("slide1").classList.add("slideL")
-                            document.getElementById("slide2").classList.add("slideR")
-                            document.getElementById("iconloop").style.display = "none"
-                        }, 100);
-                        setTimeout(()=>{
-                            document.getElementById("loader").style.display = "none"
-                        }, 1000);
-                        setTimeout(()=>{
-                            document.body.style.overflow = "visible"
-                        }, 500);
-                        document.getElementById("toast-btn").click();
-                    }
                     function testToast() {
-                        console.log("{{message}}");
-                        cuteToast({
+                        notyf.open({
                             type: "{{message.tags}}",
-                            message: "",
-                            timer: 5500,
-                            title: "{{message}}"
+                            message: "{{message}}",
+                            duration: 7000,
                         });
                     }
                 </script>
@@ -763,9 +761,8 @@
     <script src="{% static 'external/mapbox-gl/mapbox-gl.js' %}"></script>
     <script src="{% static 'external/isotope/isotope.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     {% comment %} <script src="{% static 'js/submissions.js' %}"></script> {% endcomment %}
-
     <script src="{% static 'js/theme.js' %}"></script>
     <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1890,7 +1887,6 @@
                             <p class="text-center fs-16 mb-7">Don’t have an account yet? <a href="#nav-register"
                                     class="text-secondary border-bottom text-decoration-none">Sign up</a> for free</p>
                             <form name="login" method="POST" id="login-form">
-                                {% csrf_token %}
                                 {% for field in login_form %}
                                     {{ field }}
                                 {% endfor %}
@@ -1911,36 +1907,83 @@
 
                                 {% block javascript %}
                                 <script>
+                                    // console.log(notyf)
                                     $("#login-form").submit(function (e) {
                                         e.preventDefault();
                                         var serializedData = $(this).serialize();
                                         $.ajax({
                                             type: 'POST',
                                             url: "{% url 'login_account' %}",
+                                            headers: {'X-CSRFToken': csrftoken},
+                                            mode: 'same-origin',
                                             data: serializedData,
                                             success: function (response) {
-                                                $("#login-form").trigger('reset');
-                                                $("#email").focus();
-                                                console.log(response)
-                                                var message = response['message']
-                                                var alert_type = response['type']
-                                                console.log(message, alert_type)
-                                                $("#profile-link").attr("data-toggle", "")
-                                                $("#profile-link").attr("data-target", "")
-                                                $("#profile-link").attr("href", "{% url 'profile' %}")
-                                                $(".modal-close").click()
-                                                cuteToast({
-                                                    type: alert_type,
-                                                    message: "",
-                                                    timer: 60000,
-                                                    title: message
-                                                })
-                                                // console.log(result)
-                                                console.log("Successful Submission")
+                                                let message;
+                                                let alert_type;
+                                                if (typeof(response['responseJSON']) == 'undefined') {
+                                                    message = response['message'];
+                                                    alert_type = response['type'];
+                                                } else {
+                                                    message = response['responseJSON']['message'];
+                                                    alert_type = response['responseJSON']['type'];
+                                                };
+                                                if (typeof(message) == 'object') {
+                                                    for (const error in message) {
+                                                        error_message = message[error]
+                                                        notyf.open({
+                                                            type: alert_type,
+                                                            message: error_message,
+                                                            duration: 7000,
+                                                        });
+                                                    }
+                                                } else if (alert_type === 'success') {
+                                                    $("#profile-link").attr("data-toggle", "");
+                                                    $("#profile-link").attr("data-target", "");
+                                                    $("#profile-link").attr("href", "{% url 'dashboard' %}");
+                                                    $(".modal-close").click();
+                                                    $("#login-form").trigger('reset');
+                                                    $("#email").focus();
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: message,
+                                                        duration: 7000,
+                                                    });
+                                                } else {
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: message,
+                                                        duration: 7000,
+                                                    });
+                                                }
                                             },
                                             error: function (response) {
-                                                alert(response["responseJSON"]["error"]);
-                                                console.log("Failed to send login details")
+                                                let message;
+                                                let alert_type;
+                                                if (typeof(response['responseJSON']) == 'undefined') {
+                                                    message = response['message'];
+                                                    alert_type = response['type'];
+                                                } else {
+                                                    message = response['responseJSON']['message'];
+                                                    alert_type = response['responseJSON']['type'];
+                                                };
+                                                if (typeof(message) == 'undefined') {
+                                                    message = 'An Error Occurred'
+                                                    alert_type = 'error'
+                                                }
+                                                if (typeof(message) == 'object') {
+                                                    for (const error in message) {
+                                                        error_message = message[error]
+                                                        notyf.open({
+                                                            type: alert_type,
+                                                            message: error_message
+                                                        });
+                                                    }
+                                                } else {
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: message
+                                                    });
+                                                }
                                             }
                                         })
                                     })
@@ -1965,25 +2008,27 @@
                             <h4 class="fs-34 text-center mb-6">Sign Up</h4>
                             <p class="text-center fs-16 mb-7">Already have an account? <a href="#nav-log-in"
                                     class="text-secondary border-bottom text-decoration-none">Log in</a></p>
-                            <form>
-                                {% csrf_token %}
-                                <input name="first-name" type="text" class="form-control border-0 mb-3" placeholder="First name" required>
+                            <form name="register" id="register-form" method="POST">
+                                {% comment %} {% csrf_token %} {% endcomment %}
+                                {% comment %} <input name="first-name" type="text" class="form-control border-0 mb-3" placeholder="First name" required>
                                 <input name="last-name" type="text" class="form-control border-0 mb-3" placeholder="Last name" required>
                                 <input name="email" type="email" class="form-control border-0 mb-3" placeholder="Your email" required>
                                 <input name="username" type="text" class="form-control border-0 mb-3" placeholder="Username" required>
                                 <input name="phone" type="number" class="form-control border-0 mb-3" placeholder="Your Phone Number" required>
                                 <input name="password" type="password" class="form-control border-0 mb-3" placeholder="Password" required>
-                                <input name="password2" type="password" class="form-control border-0" placeholder="Confirm Password" required>
-                                <div class="custom-control custom-checkbox mt-4 mb-5 mr-xl-6">
+                                <input name="password2" type="password" class="form-control border-0" placeholder="Confirm Password" required> {% endcomment %}
+                                {% for field in register_form %}
+                                    {{ field }}
+                                {% endfor %}
+                                {% comment %} <input name="password2" type="password" class="form-control border-0" placeholder="Confirm Password" required> {% endcomment %}
+                                <!-- <div class="custom-control custom-checkbox mt-4 mb-5 mr-xl-6">
                                     <input name="agree" type="checkbox" class="custom-control-input" id="termsOfUse">
                                     <label class="custom-control-label text-body" for="termsOfUse">
                                         Yes, I agree with the <a href="#">Privacy Policy</a> and <a href="#">Terms of
                                             Use</a>
                                     </label>
-                                </div>
-                                <button type="submit" value="Login"
-                                    class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Sign
-                                    Up</button>
+                                </div> -->
+                                <button type="submit" value="Login" class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Sign Up</button>
                                 <div class="border-bottom mt-6"></div>
                                 <div class="text-center mt-n2 lh-1 mb-4">
                                     <span class="fs-14 bg-white lh-1 mt-n2 px-4">or Sign Up with</span>
@@ -1997,6 +2042,83 @@
                                             class="fab fa-google mr-2" style="color: #DD4B39"></i>Google</a>
                                 </div>
                             </form>
+
+                            <script>
+                                $("#register-form").submit(function (f) {
+                                    f.preventDefault();
+                                    var registerSerializedData = $(this).serialize();
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "{% url 'register_user' %}",
+                                        headers: {'X-CSRFToken': csrftoken},
+                                        mode: 'same-origin',
+                                        data: registerSerializedData,
+                                        success: function formSuccessFunction(response) {
+                                            console.log(response);
+                                            let message;
+                                            let alert_type;
+                                            if (typeof(response['responseJSON']) == 'undefined') {
+                                                message = response['message'];
+                                                alert_type = response['type'];
+                                            } else {
+                                                message = response['responseJSON']['message'];
+                                                alert_type = response['responseJSON']['type'];
+                                            };
+                                            if (typeof(message) == 'object') {
+                                                for (const error in message) {
+                                                    error_message = message[error]
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: error_message,
+                                                        duration: 7000,
+                                                    });
+                                                }
+                                            } else {
+                                                $("#register-form").trigger('reset');
+                                                $("#register_email").focus();
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                            console.log("Successful Submission");
+                                        },
+                                        error: function (response) {
+                                            let message;
+                                            let alert_type;
+                                            if (typeof(response['responseJSON']) == 'undefined') {
+                                                message = response['message'];
+                                                alert_type = response['type'];
+                                            } else {
+                                                message = response['responseJSON']['message'];
+                                                alert_type = response['responseJSON']['type'];
+                                            };
+                                            if (typeof(message) == 'undefined') {
+                                                message = 'An Error Occurred'
+                                                alert_type = 'error'
+                                            }
+                                            if (typeof(message) == 'object') {
+                                                for (const error in message) {
+                                                    error_message = message[error]
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: error_message,
+                                                        duration: 7000,
+                                                    });
+                                                }
+                                            } else {
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                        }
+                                    })
+                                })
+                            </script>
+
                         </div>
                     </div>
                 </div>

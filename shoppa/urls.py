@@ -24,7 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('account/', include('accounts.urls')),
-    path('log-me-out/', accounts_views.logout_user, name='logout'),
     path('login/', accounts_views.login_view, name="login_account"),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
