@@ -1,0 +1,276 @@
+.account-card {
+    margin-bottom:30px;
+    border-radius:8px;
+    padding:0px 30px 30px;
+    background:var(--white)
+   }
+   .account-title {
+    padding:18px 0px;
+    margin-bottom:25px;
+    position:relative;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center;
+    -webkit-box-pack:justify;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+    border-bottom:1px solid var(--border)
+   }
+   .account-title::before {
+    position:absolute;
+    content:"";
+    bottom:-2px;
+    left:0px;
+    width:50px;
+    height:2px;
+    background:var(--primary)
+   }
+   .account-title h4 {
+    text-transform:capitalize
+   }
+   .account-title button,
+   .account-title a {
+    border:none;
+    font-size: 16px;
+	font-weight: bold;
+	border-radius: 6px;
+	letter-spacing: 0.3px;
+	padding: 5px 22px;
+	white-space: nowrap;
+	text-transform: capitalize;
+    color: rgb(60, 61, 60);
+    background: rgba(78, 118, 97, 0.5);
+    text-shadow:var(--primary-tshadow);
+    transition:all linear .3s;
+    -webkit-transition:all linear .3s;
+    -moz-transition:all linear .3s;
+    -ms-transition:all linear .3s;
+    -o-transition:all linear .3s
+   }
+   .account-title button:hover,
+   .account-title a:hover {
+    color:var(--white);
+    background:var(--primary)
+   }
+   @media (max-width: 575px) {
+    .account-card {
+     padding:0px 15px 15px
+    }
+   }
+   .profile-card {
+    padding:25px;
+    border-radius:8px;
+    margin-bottom:25px;
+    background:#f5f5f5;
+    border:1px solid var(--border);
+    position:relative;
+    cursor:pointer
+   }
+   .profile-card.active {
+    color: #fff;
+   }
+   .profile-card:hover ul {
+    visibility:visible;
+    opacity:1
+   }
+   .profile-card h6 {
+    color:var(--text);
+    margin-bottom:8px;
+    text-transform:capitalize
+   }
+   .profile-card p {
+    text-transform:capitalize
+   }
+   .profile-card ul {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    position:absolute;
+    top:50%;
+    right:15px;
+    opacity:0;
+    visibility:hidden;
+    -webkit-transform:translateY(-50%);
+    transform:translateY(-50%);
+    transition:all linear .3s;
+    -webkit-transition:all linear .3s;
+    -moz-transition:all linear .3s;
+    -ms-transition:all linear .3s;
+    -o-transition:all linear .3s;
+    list-style: none;
+   }
+   .profile-card ul li {
+    margin:5px 0px
+   }
+   .profile-card ul li button {
+    width:30px;
+    height:32px;
+    line-height:32px;
+    border-radius:6px;
+    text-align:center;
+    display:inline-block;
+    background:var(--white);
+    text-shadow:var(--primary-tshadow);
+    -webkit-box-shadow:var(--primary-bshadow);
+    box-shadow:var(--primary-bshadow);
+    transition:all linear .3s;
+    -webkit-transition:all linear .3s;
+    -moz-transition:all linear .3s;
+    -ms-transition:all linear .3s;
+    -o-transition:all linear .3s;
+    border: none;
+   }
+   .profile-card ul .edit {
+    color:var(--green)
+   }
+   .profile-card ul .edit:hover {
+    color:var(--white);
+    background:var(--green)
+   }
+   .profile-card ul .trash {
+    color:var(--red)
+   }
+   .profile-card ul .trash:hover {
+    color:var(--white);
+    background:var(--red)
+   }
+   .profile-card.active {
+    background:rgb(78, 118, 97);
+    border-color:var(--primary);
+   }
+   .payment-card {
+    padding:25px;
+    border-radius:6px;
+    margin-bottom:25px;
+    background: #f5f5f5;
+    border:1px solid var(--border);
+    position:relative;
+    cursor:pointer
+   }
+   .payment-card:hover button {
+    visibility:visible;
+    opacity:1
+   }
+   .payment-card img {
+    margin-bottom:18px
+   }
+   .payment-card h4 {
+    font-size:12px;
+    line-height:20px;
+    margin-bottom:5px;
+    text-transform:capitalize
+   }
+   .payment-card p {
+    color:var(--heading);
+    margin-bottom:5px
+   }
+   .payment-card p span {
+    font-size:20px;
+    margin-right:15px;
+    letter-spacing:2px
+   }
+   .payment-card p sup {
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:2px
+   }
+   .payment-card h5 {
+    font-size:14px;
+    line-height:22px;
+    text-transform:capitalize
+   }
+   .payment-card button {
+    position:absolute;
+    top:15px;
+    right:15px;
+    opacity:0;
+    visibility:hidden;
+    width:30px;
+    height:32px;
+    line-height:32px;
+    border-radius:6px;
+    text-align:center;
+    display:inline-block;
+    background:var(--white);
+    text-shadow:var(--primary-tshadow);
+    -webkit-box-shadow:var(--primary-bshadow);
+    box-shadow:var(--primary-bshadow);
+    transition:all linear .3s;
+    -webkit-transition:all linear .3s;
+    -moz-transition:all linear .3s;
+    -ms-transition:all linear .3s;
+    -o-transition:all linear .3s;
+    border: none;
+   }
+   .payment-card .trash {
+    color:var(--red)
+   }
+   .payment-card .trash:hover {
+    color:var(--white);
+    background:var(--red)
+   }
+   .payment-card.active {
+    background:#f5f5f5;
+    border-color:var(--primary)
+   }
+   @media (max-width: 575px) {
+    .payment-card p span {
+     margin-right:8px
+    }
+   }
+
+   .profile-image {
+       display: flex;
+       justify-content: center;
+   }
+
+   .profile-image span {
+       font-size: 90px;
+       color: #888;
+   }
+
+   .profile-part .form-control:focus {
+       border-color: #046f36;
+   }
+
+   .profile-part .form-control:disabled {
+        background-color: #f0f0f0;
+   }
+
+   .profile-btn a:hover {
+	background: var(--green);
+    text-decoration: none;
+}
+
+.profile-btn a {
+	width: 100%;
+    display: inline-block;
+	height: 45px;
+	line-height: 45px;
+	border-radius: 8px;
+	text-align: center;
+	text-transform: capitalize;
+	color: var(--white);
+	background: var(--primary);
+	transition: all linear .3s;
+	-webkit-transition: all linear .3s;
+	-moz-transition: all linear .3s;
+	-ms-transition: all linear .3s;
+	-o-transition: all linear .3s;
+}
