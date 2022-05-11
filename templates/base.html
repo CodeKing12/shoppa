@@ -513,7 +513,7 @@
                                 <img class="header-icons" src="{% static 'icons/search.svg' %}">
                                 <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span>
                             </a>
-                            <div class="mx-auto"><a class="navbar-brand d-inline-block mr-0 py-5" href="index.html">
+                            <div class="mx-auto"><a class="navbar-brand d-inline-block mr-0 py-5" href="{% url 'home' %}">
                                     <img src="{% static 'logos/logo 2.png' %}" alt="Shoppa Logo">
                                 </a></div>
                             {% comment %} <a href="#search-popup" data-gtf-mfp="true"
@@ -531,7 +531,7 @@
                                     <img class="header-icons" src="{% static 'icons/account.svg' %}">
                                 </a>
                             {% endif %}
-                            <a class="nav-link position-relative py-0 unshow-nav" href="{% url 'wishlist' %}">
+                            <a class="nav-link position-relative py-0 unshow-nav" {% if request.user.is_authenticated %} href="{% url 'wishlist' %}" {% else %} onclick="openLogin('You have to log in to view your wishlist', 'warning')" href="javascript:void()" {% endif %}>
                                 <img class="header-icons" src="{% static 'icons/wishlist.svg' %}">
                             </a>
                             <!-- <div class="dropdown">
@@ -662,7 +662,7 @@
                     </ul>
                 </div>
                 <div class="col-12 col-lg-4 text-md-center order-1 order-lg-2">
-                    <img src="{% static 'images/logo-black-x1.png' %}" alt="Shoppa">
+                    <img style="width:200px;" src="{% static 'logos/logo 2.png' %}" alt="Shoppa">
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 text-md-right order-3 mt-4 mt-md-7 mt-lg-0">
                     <img src="{% static 'images/icon-pay.png' %}" alt="Pay">
@@ -687,15 +687,17 @@
     <script src="{% static 'js/theme.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
 
-    {% if open_login == True %}
+    {% if open_login.2 == True %}
         <script>
             $(document).ready(function() {
                 $('#sign-in').modal();
-                notyf.open({
-                    type: "warning",
-                    message: "You have to log in to view your wishlist",
-                    duration: 8000,
-                });
+                {% if open_login.0 != "" %}
+                    notyf.open({
+                        type: "{{ open_login.1 }}",
+                        message: "{{ open_login.0 }}",
+                        duration: 8000,
+                    });
+                {% endif %}
             });
         </script>
     {% endif %}
@@ -1480,7 +1482,7 @@
             </symbol>
         </defs>
     </svg>
-    <div class="position-fixed pos-fixed-bottom-right p-6 z-index-10">
+    <div class="bt-top position-fixed pos-fixed-bottom-right p-6 z-index-10">
         <a href="#"
             class="gtf-back-to-top text-decoration-none bg-white text-primary hover-white bg-hover-primary shadow p-0 w-48px h-48px rounded-circle fs-20 d-flex align-items-center justify-content-center"
             title="Back To Top"><i class="fal fa-arrow-up"></i></a>
@@ -1903,7 +1905,7 @@
                                                     alert_type = response['responseJSON']['type'];
                                                 };
                                                 if (typeof(message) == 'undefined') {
-                                                    message = 'An Error Occurred'
+                                                    message = 'An Error Occurred. Please Try Again'
                                                     alert_type = 'error'
                                                 }
                                                 if (typeof(message) == 'object') {
@@ -2031,8 +2033,9 @@
                                                 alert_type = response['responseJSON']['type'];
                                             };
                                             if (typeof(message) == 'undefined') {
-                                                message = 'An Error Occurred'
+                                                message = 'An Error Occurred. Please Try Again'
                                                 alert_type = 'error'
+                                                console.log(response)
                                             }
                                             if (typeof(message) == 'object') {
                                                 for (const error in message) {

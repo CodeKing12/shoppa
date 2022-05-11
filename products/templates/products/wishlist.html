@@ -17,7 +17,7 @@
         </section>
         <section>
             <div class="container">
-                <h2 class="text-center mt-9 mb-8">Wishlist</h2>
+                <h2 class="text-center mt-9 mb-8">Your Wishlist</h2>
                 <form class="table-responsive-md pb-8 pb-lg-10">
                     <table class="table border-right border-left mb-0">
                         <tbody>
@@ -26,7 +26,7 @@
                                     <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
                                     <div class="media align-items-center">
                                         <div class="ml-3 mr-4">
-                                            <img src="images/product-07.jpg" alt="Natural Coconut Cleansing Oil"
+                                            <img src="{% static 'images/product-07.jpg' %}" alt="Natural Coconut Cleansing Oil"
                                                 class="mw-75px">
                                         </div>
                                         <div class="media-body mw-210">
@@ -37,7 +37,7 @@
                                                     class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
                                                 <span>$29.00</span>
                                             </p>
-                                            <p class="font-weight-500 mb-0">August 14, 2021</p>
+                                            <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
                                         </div>
                                     </div>
                                 </th>
@@ -53,7 +53,7 @@
                                     <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
                                     <div class="media align-items-center">
                                         <div class="ml-3 mr-4">
-                                            <img src="images/product-05.jpg" alt="Cleansing Balm" class="mw-75px">
+                                            <img src="{% static 'images/product-05.jpg' %}" alt="Cleansing Balm" class="mw-75px">
                                         </div>
                                         <div class="media-body mw-210">
                                             <p class="font-weight-500 text-secondary mb-2 lh-13">Cleansing Balm</p>
@@ -62,15 +62,14 @@
                                                     class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
                                                 <span>$29.00</span>
                                             </p>
-                                            <p class="font-weight-500 mb-0">August 14, 2021</p>
+                                            <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
                                         </div>
                                     </div>
                                 </th>
                                 <td class="align-middle text-right pr-6">
                                     <span class="mr-4">In stock</span>
                                     <a href="#"
-                                        class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Select
-                                        Options</a>
+                                        class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add To Cart</a>
                                 </td>
                             </tr>
                             <tr class="position-relative">
@@ -78,7 +77,7 @@
                                     <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
                                     <div class="media align-items-center">
                                         <div class="ml-3 mr-4">
-                                            <img src="images/product-10.jpg" alt="Super Pure" class="mw-75px">
+                                            <img src="{% static 'images/product-10.jpg' %}" alt="Super Pure" class="mw-75px">
                                         </div>
                                         <div class="media-body mw-210">
                                             <p class="font-weight-500 text-secondary mb-2 lh-13">Super Pure</p>
@@ -87,7 +86,7 @@
                                                     class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
                                                 <span>$29.00</span>
                                             </p>
-                                            <p class="font-weight-500 mb-0">August 14, 2021</p>
+                                            <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
                                         </div>
                                     </div>
                                 </th>
@@ -100,14 +99,17 @@
                             </tr>
                             <tr>
                                 <td class="pl-0 position-relative bg-white" style="left: -1px">
-                                    <button type="submit" value="Countinue Shopping"
-                                        class="btn btn-outline-secondary border-2x border mr-5 border-hover-secondary my-3">
-                                        Countinue Shopping
+                                    <button type="submit" value="Countinue Shopping" class="btn btn-outline-secondary border-2x border mr-5 border-hover-secondary my-3">
+                                        <a class="btn-a text-white" href="{% url 'shop' %}">
+                                            Countinue Shopping
+                                        </a>
                                     </button>
                                 </td>
                                 <td class="text-right pr-0 position-relative bg-white pt-6" style="right: -1px">
-                                    <button type="submit" value="Update Cart"
-                                        class="btn btn-secondary bg-hover-primary border-hover-primary">Update Cart
+                                    <button type="submit" value="Update Cart" class="btn btn-secondary bg-hover-primary border-hover-primary">
+                                        <a class="btn-a text-white" href="{% url 'cart' %}">
+                                            View Cart
+                                        </a>
                                     </button>
                                 </td>
                             </tr>

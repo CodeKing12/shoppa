@@ -28,6 +28,7 @@ class CartDetails(models.Model):
 class Wishlist(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     wish_products = models.ManyToManyField("products.Product", blank=True)
+    date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name = 'Wishlist'

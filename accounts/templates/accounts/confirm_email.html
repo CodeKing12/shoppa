@@ -3,5 +3,7 @@
     Hi {{ user.last_name }},
     Please click on the link below to confirm your registration. Your confirmation link will expire in one hour.
 
+    When your account is activated successfully,you can login.
+
     http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}
 {% endautoescape %}

@@ -59,3 +59,13 @@ function showNotice() {
         duration: 5000,
     });
 }
+
+function openLogin(message, type, duration=8000) {
+    $('#sign-in').modal();
+    notyf.open({
+        type: type,
+        message: message,
+        duration: duration,
+    });
+    console.log("{{open_login}}")
+}

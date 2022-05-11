@@ -23,6 +23,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField()
     previous_price = models.PositiveIntegerField(blank=True)
     percent_off = models.IntegerField()
+    in_stock = models.BooleanField(default=True)
     # Add the stars and reviews
 
 class MoreProductImages(models.Model):

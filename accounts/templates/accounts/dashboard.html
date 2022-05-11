@@ -8,9 +8,13 @@
     main {
         background: rgb(245, 246, 247);
     }
+
+    .bt-top {
+        display: none;
+    }
 </style>
 
-<section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
+<section class="inner-section single-banner" style="background: url({% static 'images/3515447.jpg' %}) no-repeat center;">
     <div class="container">
         <h2>My Dashboard</h2>
         <ol class="breadcrumb">
@@ -19,6 +23,32 @@
         </ol>
     </div>
 </section>
+
+<div class="mobile-menu">
+    <a href="{% url 'dashboard' %}" title="Home Page">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="{% url 'dashboard' %}" class="cate-btn" title="Category List">
+        <i class="fas fa-history"></i>
+        <span>Order History</span>
+    </button>
+    <a href="{% url 'wishlist' %}" class="cart-btn" title="Wishlist">
+        <i class="fas fa-heart"></i>
+        <span>Wishlist</span>
+        <sup>9+</sup>
+    </button>
+    <a href="{% url 'cart' %}" title="Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+        <sup>0</sup>
+    </a>
+    <a href="{% url 'logout' %}" title="Compare List">
+        <i class="fas fa-sign-out"></i>
+        <span>Logout</span>
+        {% comment %} <sup>0</sup> {% endcomment %}
+    </a>
+</div>
 
 <section class="inner-section profile-part">
     <div class="container">
@@ -220,11 +250,11 @@
                     <div class="account-content">
                         <div class="row">
                             <div class="col-md-6 col-lg-4 alert fade show">
-                                <div class="payment-card payment active"><img src="images/payment/png/01.png"
-                                        alt="payment">
+                                <div class="payment-card payment active">
+                                    <img src="{% static 'images/icons/visa.png' %}" alt="payment">
                                     <h4>card number</h4>
                                     <p><span>****</span><span>****</span><span>****</span><sup>1876</sup></p>
-                                    <h5>miron mahmud</h5>
+                                    <h5>Martian Manhunter</h5>
                                     <button class="d-flex justify-content-center align-items-center trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert">
                                         <span class="material-symbols-outlined">
                                             delete_forever
@@ -233,10 +263,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4 alert fade show">
-                                <div class="payment-card payment"><img src="images/payment/png/02.png" alt="payment">
+                                <div class="payment-card payment">
+                                    <img src="{% static 'images/icons/maestro.png' %}" alt="payment">
                                     <h4>card number</h4>
                                     <p><span>****</span><span>****</span><span>****</span><sup>1876</sup></p>
-                                    <h5>miron mahmud</h5>
+                                    <h5>Eyetu Queen</h5>
                                     <button class="d-flex justify-content-center align-items-center trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert">
                                         <span class="material-symbols-outlined">
                                             delete_forever
@@ -245,10 +276,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4 alert fade show">
-                                <div class="payment-card payment"><img src="images/payment/png/03.png" alt="payment">
+                                <div class="payment-card payment">
+                                    <img src="{% static 'images/icons/paypal.png' %}" alt="payment">
                                     <h4>card number</h4>
                                     <p><span>****</span><span>****</span><span>****</span><sup>1876</sup></p>
-                                    <h5>miron mahmud</h5>
+                                    <h5>Eyetu Kingsley</h5>
                                     <button class="d-flex justify-content-center align-items-center trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert">
                                         <span class="material-symbols-outlined">
                                             delete_forever

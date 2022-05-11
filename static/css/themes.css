@@ -23426,3 +23426,25 @@ body {
 .disabled:hover {
     cursor: not-allowed;
 }
+
+.btn-outline-secondary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary) !important;
+}
+
+.btn-a {
+    text-decoration: none;
+}
+
+.btn-a:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+.btn-a.hollow-a {
+    color: black
+}
+
+.btn-outline-secondary:hover .btn-a.hollow-a {
+    color: white;
+}

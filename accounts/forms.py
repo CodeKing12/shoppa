@@ -13,10 +13,10 @@ class CreateAccountForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CreateAccountForm, self).__init__(*args, **kwargs)
-        self.fields['email'].widget = forms.TextInput(attrs={'id':'register_email', 'placeholder':'Email'})
-        self.fields['password'].widget = forms.TextInput(attrs={'id':'register_pass', 'placeholder':'Password'})
-        self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder':'First Name'})
-        self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder':'Last Name'})
-        self.fields['phone_number'].widget = forms.TextInput(attrs={'placeholder':'Phone Number'})
+        self.fields['email'].widget = forms.TextInput(attrs={'id':'register_email', 'placeholder':'Email', 'type': 'email'})
+        self.fields['password'].widget = forms.TextInput(attrs={'id':'register_pass', 'placeholder':'Password', 'type': 'password'})
+        self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder':'First Name', 'type': 'text'})
+        self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder':'Last Name', 'type': 'text'})
+        self.fields['phone_number'].widget = forms.TextInput(attrs={'placeholder':'Phone Number', 'type': 'tel'})
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control border-0 mb-3'
