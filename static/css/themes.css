@@ -23412,4 +23412,17 @@ body {
 
 .notyf__message {
     font-size: 16px !important;
+    font-weight: 600;
+}
+
+#toast-btn {
+    visibility: hidden;
+}
+
+.disabled {
+    font-size: 34px;
+}
+
+.disabled:hover {
+    cursor: not-allowed;
 }

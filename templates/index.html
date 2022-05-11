@@ -168,23 +168,29 @@
                                 <div class="my-auto w-100 content-change-vertical">
                                     <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"
                                         class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                        <svg class="icon icon-shopping-bag-open-light fs-24">
-                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                        </svg>
+                                        <span class="material-symbols-outlined fs-24 icon icon-shopping-bag-open-light">
+                                            add_shopping_cart
+                                        </span>
                                     </a>
                                     <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                         class="preview ml-auto d-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                         <span data-toggle="modal" data-target="#quick-view">
-                                            <svg class="icon icon-eye-light fs-24">
+                                            {% comment %} <svg class="icon icon-eye-light fs-24">
                                                 <use xlink:href="#icon-eye-light"></use>
-                                            </svg>
+                                            </svg> {% endcomment %}
+                                            <span class="material-symbols-outlined icon icon-eye-light fs-24">
+                                                visibility
+                                            </span>
                                         </span>
                                     </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
-                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                        <svg class="icon icon-star-light fs-24">
+                                    <a {% if not request.user.is_authenticated %} onclick="showNotice()" {% endif %} href="javascript:void()" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist {% if request.user.is_authenticated %} hover-white bg-hover-secondary {% else %} disabled {% endif %} ml-auto d-flex align-items-center justify-content-center text-secondary bg-white w-48px h-48px rounded-circle mb-2">
+                                        {% comment %} <svg class="icon icon-star-light fs-24">
                                             <use xlink:href="#icon-star-light"></use>
-                                        </svg>
+                                        </svg> {% endcomment %}
+                                        <span class="material-symbols-outlined icon icon-star-light fs-24">
+                                            star
+                                        </span>
                                     </a>
                                 </div>
                             </div>
@@ -1809,5 +1815,3 @@
         </div>
     </section>
     {% endblock content %}
-
-    

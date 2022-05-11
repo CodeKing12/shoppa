@@ -154,7 +154,8 @@ def cartwish(request):
         user_cart = 'Nothing'
         user_wishlist = 'Nothing'
     elif not request.user.is_authenticated:
-        return redirect('login_page')
+        request.session['open_login'] = True
+        return redirect('home')
     else:
         user_cart = Cart.objects.get(user=request.user)
         user_wishlist = Wishlist.objects.get(user=request.user)

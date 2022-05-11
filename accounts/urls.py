@@ -11,7 +11,7 @@ urlpatterns = [
     path('resend/', views.resend_token, name='resend_token'),
     path('reset_password/', views.reset_password, name='reset_password'),
     path('change_password/<uidb64>/<token>', views.change_password, name='change_password'),
-    path('cartwish/', views.cartwish, name='test_cartwish'),
+    path('my-wishlist/', views.cartwish, name='wishlist'),
     path('logout/', views.logout_user, name='logout'),
     # path('create_vendor', views.create_vendor, name='create_vendor')
 ]

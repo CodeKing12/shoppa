@@ -26,9 +26,13 @@
     <link rel="stylesheet" href="{% static 'external/fonts/tuesday-night/stylesheet.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/themes.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="{% static 'css/notyf.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="icon" href="{% static 'logos/favicon.png' %}">
+
+    <script src="{% static 'external/jquery.min.js' %}"></script>
+    <script src="{% static 'external/jquery-ui/jquery-ui.min.js' %}"></script>
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@">
@@ -81,15 +85,25 @@
                     </li>
                 </ul>
 
-                <p class="mb-0 fs-13 font-weight-bold text-primary letter-spacing-01 text-uppercase">
+                <p onclick="oneFunction()" class="mb-0 fs-13 font-weight-bold text-primary letter-spacing-01 text-uppercase">
                 {% if request.is_authenticated %}
                     Logged In
                 {% else %}
                     Free Delivery On Your {{request.user.is_authenticated}} Order
                 {% endif %}
                 </p>
-                <!-- <p class="mb-0 fs-15 font-weight-bold text-secondary text-center letter-spacing-01 text-uppercase">10% off your first order using coupon code: @pamilerinadegoke</p> -->
 
+                {% comment %} <script>
+                    function oneFunction() {
+                        notyf.open({
+                            type: 'info',
+                            message: 'Test this thing',
+                            duration: 70000,
+                        });
+                    }
+                </script> {% endcomment %}
+
+                <!-- <p class="mb-0 fs-15 font-weight-bold text-secondary text-center letter-spacing-01 text-uppercase">10% off your first order using coupon code: @pamilerinadegoke</p> -->
                 <div class="d-flex">
                     <div class="dropdown">
                         <button class="btn btn-link dropdown-toggle text-uppercase fs-13 letter-spacing-01 py-0"
@@ -124,7 +138,7 @@
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="w-50">
                                     <div class="d-flex mt-3 mt-xl-0 align-items-center w-100">
-                                        <a class="navbar-brand d-inline-block py-0 ml-3" href="index.html">
+                                        <a class="navbar-brand d-inline-block py-0 ml-3" href="{% url 'home' %}">
                                             <img src="{% static 'logos/logo 2.png' %}" alt="Shoppa">
                                         </a>
                                     </div>
@@ -132,7 +146,7 @@
                                 <div class="flex-shrink-0 mx-auto">
                                     <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n5">
                                         <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-home dropdown py-2 py-xl-6 px-0 px-xl-3">
-                                            <a class="nav-link dropdown-toggle p-0" href="index.html"
+                                            <a class="nav-link dropdown-toggle p-0" href="{% url 'home' %}"
                                                 data-toggle="dropdown">
                                                 Home
                                                 <span class="caret"></span>
@@ -141,51 +155,6 @@
                                                 <li class="dropdown-item">
                                                     <a class="dropdown-link" href="home-01.html">
                                                         Home 01
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-02.html">
-                                                        Home 02
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-03.html">
-                                                        Home 03
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-04.html">
-                                                        Home 04
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-05.html">
-                                                        Home 05
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-06.html">
-                                                        Home 06
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-07.html">
-                                                        Home 07
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-08.html">
-                                                        Home 08
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item active">
-                                                    <a class="dropdown-link" href="home-09.html">
-                                                        Home 09
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <a class="dropdown-link" href="home-10.html">
-                                                        Home 10
                                                     </a>
                                                 </li>
                                             </ul>
@@ -410,57 +379,10 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-blog dropdown py-2 py-xl-6 px-0 px-xl-3">
-                                            <a class="nav-link dropdown-toggle p-0" href="#" data-toggle="dropdown">
+                                        <li class="nav-item py-2 py-xl-6 px-0 px-xl-3">
+                                            <a class="nav-link p-0" href="#">
                                                 Blog
-                                                <span class="caret"></span>
                                             </a>
-                                            <ul class="dropdown-menu pt-3 pb-0 pb-xl-3 x-animated x-fadeInUp">
-                                                <li class="dropdown-item dropdown dropright">
-                                                    <a class="dropdown-link dropdown-toggle" href="#"
-                                                        data-toggle="dropdown">
-                                                        Blog Listing
-                                                    </a>
-                                                    <ul
-                                                        class="dropdown-menu dropdown-submenu pt-3 pb-0 pb-xl-3 x-animated x-fadeInLeft">
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-grid.html">Blog Grid</a>
-                                                        </li>
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-grid-sidebar.html">Blog
-                                                                Grid Sidebar</a>
-                                                        </li>
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-masonry.html">Blog
-                                                                Masonsy</a>
-                                                        </li>
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-list.html">Blog List</a>
-                                                        </li>
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-classic.html">Blog
-                                                                Classic</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown-item dropdown dropright">
-                                                    <a class="dropdown-link dropdown-toggle" href="#"
-                                                        data-toggle="dropdown">
-                                                        Blog Detail
-                                                    </a>
-                                                    <ul
-                                                        class="dropdown-menu dropdown-submenu pt-3 pb-0 pb-xl-3 x-animated x-fadeInLeft">
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-detail-01.html">Blog
-                                                                Detail 01</a>
-                                                        </li>
-                                                        <li class="dropdown-item">
-                                                            <a class="dropdown-link" href="blog-detail-02.html">Blog
-                                                                Detail 02</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
                                         </li>
                                         <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-docs dropdown py-2 py-xl-6 px-0 px-xl-3">
                                             <a class="nav-link dropdown-toggle p-0" href="#" data-toggle="dropdown">
@@ -540,7 +462,7 @@
                                             class="navbar-nav flex-row justify-content-xl-end d-flex flex-wrap text-body py-0 navbar-right">
                                             <li class="nav-item">
                                                 {% if request.user.is_authenticated %}
-                                                    <a class="nav-link pr-3 py-0" href="#">
+                                                    <a class="nav-link pr-3 py-0" href="{% url 'dashboard' %}">
                                                 {% else %}
                                                     <a class="nav-link pr-3 py-0" href="#" data-toggle="modal"
                                                     data-target="#sign-in">
@@ -552,7 +474,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 {% if request.user.is_authenticated %}
-                                                    <a class="nav-link position-relative px-4 py-0" href="wishlist.html">
+                                                    <a class="nav-link position-relative px-4 py-0" href="{% url 'wishlist' %}">
                                                 {% else %}
                                                     <a class="nav-link position-relative px-4 py-0" href="#" data-toggle="modal" data-target="#sign-in">
                                                 {% endif %}
@@ -609,7 +531,7 @@
                                     <img class="header-icons" src="{% static 'icons/account.svg' %}">
                                 </a>
                             {% endif %}
-                            <a class="nav-link position-relative py-0 unshow-nav" href="#">
+                            <a class="nav-link position-relative py-0 unshow-nav" href="{% url 'wishlist' %}">
                                 <img class="header-icons" src="{% static 'icons/wishlist.svg' %}">
                             </a>
                             <!-- <div class="dropdown">
@@ -649,22 +571,23 @@
                 document.body.style.overflow = "visible"
             }, 500);
             document.getElementById("toast-btn").click();
+//            function openModal() {
+   //             $('#sign-in').modal();
+      //      }
         }
     </script>
     
     <main id="content">
         {% if messages %}
             {% for message in messages %}
-                {% comment %} <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> {% endcomment %}
-                <button id="toast-btn" onclick="testToast()"></button>
                 <script>
-                    function testToast() {
+                    $(document).ready(function() {
                         notyf.open({
                             type: "{{message.tags}}",
                             message: "{{message}}",
                             duration: 7000,
                         });
-                    }
+                    });
                 </script>
                 {% endfor %}
         {% endif %}
@@ -748,8 +671,6 @@
         </div>
     </footer>
 
-    <script src="{% static 'external/jquery.min.js' %}"></script>
-    <script src="{% static 'external/jquery-ui/jquery-ui.min.js' %}"></script>
     <script src="{% static 'external/bootstrap/bootstrap.bundle.js' %}"></script>
     <script src="{% static 'external/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
     <script src="{% static 'external/slick/slick.min.js' %}"></script>
@@ -761,9 +682,24 @@
     <script src="{% static 'external/mapbox-gl/mapbox-gl.js' %}"></script>
     <script src="{% static 'external/isotope/isotope.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="{% static 'js/notyf.min.js' %}"></script>
     {% comment %} <script src="{% static 'js/submissions.js' %}"></script> {% endcomment %}
     <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    {% if open_login == True %}
+        <script>
+            $(document).ready(function() {
+                $('#sign-in').modal();
+                notyf.open({
+                    type: "warning",
+                    message: "You have to log in to view your wishlist",
+                    duration: 8000,
+                });
+            });
+        </script>
+    {% endif %}
+
     <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
@@ -2202,8 +2138,8 @@
                         <div class="col-md-6 pl-xl-6 pr-xl-8">
                             <p class="d-flex align-items-center mb-3">
                                 <span class="text-line-through">$39.00</span>
-                                <span class="fs-18 text-secondary font-weight-bold ml-3">$29.00</span>
-                                <span class="badge badge-primary fs-16 ml-4 font-weight-600 px-3">20%</span>
+                                <span class="fs-28 text-secondary font-weight-bold ml-3">$29.00</span>
+                                <span class="badge badge-primary fs-16 ml-4 font-weight-600 px-3">-20%</span>
                             </p>
                             <h2 class="fs-24 mb-2">Natural Coconut Cleansing Oil</h2>
                             <div class="d-flex align-items-center flex-wrap mb-3 lh-12">
@@ -2270,20 +2206,12 @@
                                     </div>
                                     <div class="col-sm-8 mb-6 w-100 px-2">
                                         <button type="submit"
-                                            class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Add
-                                            To Bag
+                                            class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Add To Cart
                                         </button>
                                     </div>
                                 </div>
                             </form>
                             <div class="d-flex align-items-center flex-wrap">
-                                <a href="#"
-                                    class="text-decoration-none font-weight-bold fs-16 mr-6 d-flex align-items-center">
-                                    <svg class="icon icon-arrows-left-right-light fs-20">
-                                        <use xlink:href="#icon-arrows-left-right-light"></use>
-                                    </svg>
-                                    <span class="ml-2">Compare</span>
-                                </a>
                                 <a href="#"
                                     class="text-decoration-none font-weight-bold fs-16 mr-6 d-flex align-items-center">
                                     <svg class="icon icon-star-light fs-20">
