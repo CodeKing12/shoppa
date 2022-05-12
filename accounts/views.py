@@ -1,9 +1,11 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
+
+from products.models import Product
 from .forms import LoginForm, CreateAccountForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, forms, login as django_login, logout
-from .models import Cart, Wishlist, CustomAccount
+from .models import Cart, CartDetails, Wishlist, CustomAccount
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .tokens import account_activation_token
@@ -11,6 +13,7 @@ from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
 from django.views.decorators.csrf import csrf_protect
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 # Create your views here.
 def is_ajax(request):
@@ -182,7 +185,7 @@ def login_view(request):
             if user is None:
                 return JsonResponse({'message': 'Your email or password is incorrect', 'type': 'error'}, status=400)
             elif request.user.is_authenticated:
-                return JsonResponse({'message': 'You are already logged in', 'type': 'warning'}, status=400)
+                return JsonResponse({'message': 'You are already logged in to an account', 'type': 'warning'}, status=400)
             else:
                 if user.is_active == True:
                     django_login(request, user)
@@ -221,3 +224,39 @@ def cartview(request):
         user_cart = Cart.objects.get(user=request.user)
         user_wishlist = Wishlist.objects.get(user=request.user)
     return render(request, 'products/cart.html', context={'cart': user_cart, 'wishlist': user_wishlist})
+
+def add_to_cart(request):
+    if is_ajax(request) and request.method == "POST":
+        product_id = request.POST["product_id"]
+        product = Product.objects.get(id=product_id)
+        if "quantity" in request.POST:
+            quantity = request.POST["quantity"]
+        else:
+            quantity = 1
+        if "color" in request.POST:
+            color = request.POST["color"]
+        else:
+            color = "#000000"
+        user_cart = Cart.objects.get(user=request.user)
+        # product_exists = Cart.cart_products.get(product)
+        try:
+            the_p = user_cart.cart_products.get(id=product_id)
+        except MultipleObjectsReturned:
+            all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
+            for item in all_duplicated:
+                user_cart.cart_products.remove(item)
+            messages.info(request, "Multiple items were found in your cart.")
+            return JsonResponse({"message": "Multiple items found in your cart. Deleting.", "type": "info"}, status=200)
+            # return JsonResponse([{"message": "Multiple items were found in your cart."}, {"message": "Extra Items Deleted Successfully.", "type": "success"}], status=200, safe=False)
+        except ObjectDoesNotExist:
+            detailed_cart = CartDetails.objects.create(
+                cart = user_cart,
+                product = product,
+                quantity = quantity,
+                color = color
+            )
+            detailed_cart.save()
+            return JsonResponse({"message": f"Item added to cart", "type": "success"}, status=200)
+        else:
+            return JsonResponse({"message": "This item exists in your cart", "type": "info"}, status=400)
+            # {user_cart.cart_products.all()}

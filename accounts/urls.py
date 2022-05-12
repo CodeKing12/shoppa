@@ -13,6 +13,7 @@ urlpatterns = [
     path('change_password/<uidb64>/<token>', views.change_password, name='change_password'),
     path('my-wishlist/', views.wishlistview, name='wishlist'),
     path('my-cart/', views.cartview, name='cart'),
+    path('add-to-cart/', views.add_to_cart, name="add_to_cart"),
     path('logout/', views.logout_user, name='logout'),
     # path('create_vendor', views.create_vendor, name='create_vendor')
 ]

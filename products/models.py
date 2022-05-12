@@ -19,12 +19,16 @@ class Product(models.Model):
     image = models.ImageField(blank=True)
     description = RichTextUploadingField()
     category = models.ManyToManyField(Category)
-    vendor = models.ForeignKey(acc_models.VendorAccount, on_delete=models.CASCADE)
+    # vendor = models.ForeignKey(acc_models.VendorAccount, on_delete=models.CASCADE, null=True)
     price = models.PositiveIntegerField()
-    previous_price = models.PositiveIntegerField(blank=True)
+    previous_price = models.PositiveIntegerField(blank=True, default=0)
     percent_off = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     # Add the stars and reviews
+
+    def save(self, *args, **kwargs):
+        self.percent_off = int((self.previous_price / self.price) * 100)
+        super(Product, self).save(*args, **kwargs)
 
 class MoreProductImages(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, RegexValidator
 
 # Create your models here.
 class VendorAccount(models.Model):
@@ -17,7 +17,8 @@ class VendorAccount(models.Model):
     nin = models.IntegerField() # Optional but speeds up registration
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=70, null=True, blank=True)
-    phone_number = models.PositiveIntegerField(blank=True, null=True)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     address = models.CharField(max_length=400)
     date_joined = models.DateTimeField(default=timezone.now)
     business_name = models.CharField(max_length=150, unique=True)

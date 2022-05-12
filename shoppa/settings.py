@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'accounts.apps.AccountsConfig',
     'vendors.apps.VendorsConfig',
+    'colorfield'
 ]
 
 MIDDLEWARE = [

@@ -33,8 +33,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     filter_horizontal = ('category',)
-    fields = ['name', 'price', 'product_image', 'in_stock', 'category', 'description']
+    fields = ['name', 'price', 'image', 'in_stock', 'category', 'description', 'previous_price']
     inlines = [MoreProductImagesAdmin]
+    list_display = ('name', 'price', 'in_stock')
 
 
 admin.site.register(Category, CategoryAdmin)

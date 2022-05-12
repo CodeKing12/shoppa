@@ -1,0 +1,486 @@
+{% load static %}
+
+<header class="main-header navbar-light header-sticky header-sticky-smart">
+    <div class="topbar d-none d-sm-block" style="background-color: #92e0c48f">
+        <div class="container-md container-xl d-flex justify-content-between">
+            <ul class="list-inline d-flex align-items-center mb-0">
+                <li class="list-inline-item mr-5"><a href="#" class="fs-14 lh-1"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item mr-5"><a href="#" class="fs-14 lh-1"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item mr-5"><a href="#" class="fs-14 lh-1"><i
+                            class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item mr-5"><a href="#" class="fs-14 lh-1"><i class="fab fa-youtube"></i></a>
+                </li>
+            </ul>
+
+            <p onclick="oneFunction()" class="mb-0 fs-13 font-weight-bold text-primary letter-spacing-01 text-uppercase">
+            {% if request.is_authenticated %}
+                Logged In
+            {% else %}
+                Free Delivery On Your {{request.user.is_authenticated}} Order
+            {% endif %}
+            </p>
+
+            {% comment %} <script>
+                function oneFunction() {
+                    notyf.open({
+                        type: 'info',
+                        message: 'Test this thing',
+                        duration: 70000,
+                    });
+                }
+            </script> {% endcomment %}
+
+            <!-- <p class="mb-0 fs-15 font-weight-bold text-secondary text-center letter-spacing-01 text-uppercase">10% off your first order using coupon code: @pamilerinadegoke</p> -->
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle text-uppercase fs-13 letter-spacing-01 py-0"
+                        type="button" id="dropdown-english" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">english</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-english">
+                        <a class="dropdown-item" href="#">French</a>
+                        <a class="dropdown-item" href="#">Spanish</a>
+                        <a class="dropdown-item" href="#">Korean</a>
+                        <a class="dropdown-item" href="#">Chinese</a>
+                    </div>
+                </div>
+                {% comment %} <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle text-uppercase fs-13 letter-spacing-01 p-0"
+                        type="button" id="dropdown-usd" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">USD</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-usd">
+                        <a class="dropdown-item" href="#">EUR</a>
+                        <a class="dropdown-item" href="#">GBP</a>
+                        <a class="dropdown-item" href="#">JPY</a>
+                        <a class="dropdown-item" href="#">AUD</a>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+    <div class="sticky-area-wrap" style="height: 104.391px;">
+        <div class="sticky-area" style="">
+            <div class="container-md container-xxl">
+                <nav class="navbar navbar-expand-xl px-0 d-block">
+                    <div class="d-none d-xl-block">
+                        <div class="d-flex align-items-center flex-nowrap">
+                            <div class="w-50">
+                                <div class="d-flex mt-3 mt-xl-0 align-items-center w-100">
+                                    <a class="navbar-brand d-inline-block py-0 ml-3" href="{% url 'home' %}">
+                                        <img src="{% static 'logos/logo 2.png' %}" alt="Shoppa">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 mx-auto">
+                                <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n5">
+                                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-home dropdown py-2 py-xl-6 px-0 px-xl-3">
+                                        <a class="nav-link dropdown-toggle p-0" href="{% url 'home' %}"
+                                            data-toggle="dropdown">
+                                            Home
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu pt-3 pb-0 pb-xl-3 x-animated x-fadeInUp">
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-link" href="home-01.html">
+                                                    Home 01
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-shop dropdown py-2 py-xl-6 px-0 px-xl-3">
+                                        <a class="nav-link dropdown-toggle p-0" href="store.html"
+                                            data-toggle="dropdown">
+                                            Shop
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div
+                                            class="dropdown-menu dropdown-menu-xl px-0 pb-10 pt-5 dropdown-menu-listing overflow-hidden x-animated x-fadeInUp">
+                                            <div class="container container-xxl px-xxl-9 d-block">
+                                                <div class="row">
+                                                    <div class="col">
+
+                                                        <h4 class="dropdown-header text-secondary fs-18 mb-1 lh-1">
+                                                            Shop Pages
+                                                        </h4>
+
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="shop-page-01.html">
+                                                                Shop Layout <sup>V1</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="shop-page-02.html">
+                                                                Shop Layout <sup>V2</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="shop-page-03.html">
+                                                                Shop Layout <sup>V3</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="shop-page-04.html">
+                                                                Shop Layout <sup>V4</sup>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="shop-page-05.html">
+                                                                Shop Layout <sup>V5</sup>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+
+                                                        <h4 class="dropdown-header text-secondary fs-18 mb-1 lh-1">
+                                                            Product Page
+                                                        </h4>
+
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-01.html">
+                                                                Product Detail <sup>V1</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-02.html">
+                                                                Product Detail <sup>V2</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-03.html">
+                                                                Product Detail <sup>V3</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-04.html">
+                                                                Product Detail <sup>V4</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-05.html">
+                                                                Product Detail <sup>V5</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-06.html">
+                                                                Product Detail <sup>V6</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-07.html">
+                                                                Product Detail <sup>V7</sup>
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-08.html">
+                                                                Product Detail <sup>V8</sup>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+
+                                                        <h4 class="dropdown-header text-secondary fs-18 mb-1 lh-1">
+                                                            Product Type
+                                                        </h4>
+
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-04.html">
+                                                                Product Simple
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-05.html">
+                                                                Product Variable
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-06.html">
+                                                                Product Time Limit
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="product-detail-08.html">
+                                                                Product Grouped
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+
+                                                        <h4 class="dropdown-header text-secondary fs-18 mb-1 lh-1">
+                                                            Shop Pages
+                                                        </h4>
+
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="shopping-cart.html">
+                                                                Shopping Cart
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="compare.html">
+                                                                Compare
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="wishlist.html">
+                                                                Wishlist
+                                                            </a>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <a class="dropdown-link" href="checkout.html">
+                                                                Checkout
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col h-100">
+                                                        <div class="card border-0 mt-2">
+                                                            <img src="images/bg-mega-menu.jpg" alt="bg mega menu"
+                                                                class="card-img">
+                                                            <div
+                                                                class="card-img-overlay d-flex flex-column pt-xxl-7 pb-3 px-xxl-6">
+                                                                <p
+                                                                    class="text-secondary letter-spacing-01 font-weight-600 mb-2 text-uppercase">
+                                                                    new collection
+                                                                </p>
+                                                                <h3 class="fs-34">Special <br> Offer
+                                                                </h3>
+                                                                <div class="mt-auto">
+                                                                    <a href="shop-page-01.html"
+                                                                        class="btn btn-white hover-white bg-hover-secondary border-hover-secondary">Shop
+                                                                        Sale</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-pages dropdown py-2 py-xl-6 px-0 px-xl-3">
+                                        <a class="nav-link dropdown-toggle p-0" href="#" data-toggle="dropdown">
+                                            Pages
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu pt-3 pb-0 pb-xl-3 x-animated x-fadeInUp">
+                                            <li class="dropdown-item dropdown dropright">
+                                                <a class="dropdown-link dropdown-toggle" href="#"
+                                                    data-toggle="dropdown">
+                                                    About Us
+                                                </a>
+                                                <ul
+                                                    class="dropdown-menu dropdown-submenu pt-3 pb-0 pb-xl-3 x-animated x-fadeInLeft">
+                                                    <li class="dropdown-item">
+                                                        <a class="dropdown-link" href="about-us-01.html">About Us
+                                                            01</a>
+                                                    </li>
+                                                    <li class="dropdown-item">
+                                                        <a class="dropdown-link" href="about-us-02.html">About Us
+                                                            02</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item dropdown dropright">
+                                                <a class="dropdown-link dropdown-toggle" href="#"
+                                                    data-toggle="dropdown">
+                                                    Contact us
+                                                </a>
+                                                <ul
+                                                    class="dropdown-menu dropdown-submenu pt-3 pb-0 pb-xl-3 x-animated x-fadeInLeft">
+                                                    <li class="dropdown-item">
+                                                        <a class="dropdown-link" href="contact-us-01.html">Contact
+                                                            Us 01</a>
+                                                    </li>
+                                                    <li class="dropdown-item">
+                                                        <a class="dropdown-link" href="contact-us-02.html">Contact
+                                                            Us 02</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-link" href="faqs.html">
+                                                    FAQs
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-link" href="find-a-store.html">
+                                                    Store
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item py-2 py-xl-6 px-0 px-xl-3">
+                                        <a class="nav-link p-0" href="#">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" aria-expanded="false" class="nav-item dropdown-item-docs dropdown py-2 py-xl-6 px-0 px-xl-3">
+                                        <a class="nav-link dropdown-toggle p-0" href="#" data-toggle="dropdown">
+                                            Docs
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div
+                                            class="dropdown-menu px-0 pt-3 dropdown-menu-docs x-animated x-fadeInUp">
+                                            <div class="dropdown-body">
+                                                <a class="dropdown-item py-1"
+                                                    href="docs/getting-started/dev-environment-setup.html">
+                                                    <div class="media">
+                                                        <div class="fs-20 mr-3">
+                                                            <i class="fal fa-file-alt"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <span class="d-block lh-15">Documentation</span>
+                                                            <small class="d-block">Kick-start customization</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="dropdown-divider m-0"></div>
+                                                <a class="dropdown-item py-1" href="docs/content/typography.html">
+                                                    <div class="media">
+                                                        <div class="fs-20 mr-3">
+                                                            <i class="fal fa-layer-group"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <span class="d-block lh-15">UI Kit<span
+                                                                    class="badge badge-danger ml-2">50+</span></span>
+                                                            <small class="d-block">Flexible components</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="dropdown-divider m-0"></div>
+                                                <a class="dropdown-item py-1"
+                                                    href="docs/getting-started/changelog.html">
+                                                    <div class="media">
+                                                        <div class="fs-20 mr-3">
+                                                            <i class="fal fa-edit"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <span class="d-block lh-15">Changelog<span
+                                                                    class="badge badge-success ml-2">v1.1.0</span></span>
+                                                            <small class="d-block">Regular updates</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="dropdown-divider m-0"></div>
+                                                <a class="dropdown-item py-1" href="https://sp.g5plus.net/"
+                                                    target="_blank">
+                                                    <div class="media">
+                                                        <div class="fs-20 mr-3">
+                                                            <i class="fal fa-life-ring"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <span class="d-block lh-15">Support</span>
+                                                            <small class="d-block">https://sp.g5plus.net/</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-50 mr-3">
+                                <div class="d-flex align-items-center justify-content-end">
+                                    <a href="#search-popup" data-gtf-mfp="true"
+                                        data-mfp-options="{&quot;type&quot;:&quot;inline&quot;,&quot;focus&quot;: &quot;#keyword&quot;,&quot;mainClass&quot;: &quot;mfp-search-form mfp-move-from-top mfp-align-top&quot;}"
+                                        class="nav-search d-flex align-items-center pr-3">
+                                        <svg class="icon icon-magnifying-glass-light fs-28">
+                                            <use xlink:href="#icon-magnifying-glass-light"></use>
+                                        </svg>
+                                    </a>
+                                    <ul
+                                        class="navbar-nav flex-row justify-content-xl-end d-flex flex-wrap text-body py-0 navbar-right">
+                                        <li class="nav-item">
+                                            {% if request.user.is_authenticated %}
+                                                <a class="nav-link pr-3 py-0" href="{% url 'dashboard' %}">
+                                            {% else %}
+                                                <a class="nav-link pr-3 py-0" href="#" data-toggle="modal"
+                                                data-target="#sign-in">
+                                            {% endif %}
+                                                <svg class="icon icon-user-light">
+                                                    <use xlink:href="#icon-user-light"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            {% if request.user.is_authenticated %}
+                                                <a class="nav-link position-relative px-4 py-0" href="{% url 'wishlist' %}">
+                                            {% else %}
+                                                <a class="nav-link position-relative px-4 py-0" href="#" data-toggle="modal" data-target="#sign-in">
+                                            {% endif %}
+                                                <svg class="icon icon-star-light">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                                <span class="position-absolute number">0</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            {% if request.user.is_authenticated %}
+                                                <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
+                                                href="#" data-canvas="true"
+                                                data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
+                                            {% else %}
+                                                <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
+                                                href="#" data-toggle="modal" data-target="#sign-in">
+                                            {% endif %}
+                                                <span class="mr-2 font-weight-bold fs-15">$0.00</span>
+                                                <img class="cart-icon" src="{% static 'icons/cart-2.svg' %}">
+                                                <span class="position-absolute number">0</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center d-xl-none">
+                        <button class="navbar-toggler border-0 px-0 canvas-toggle" type="button" data-canvas="true"
+                            data-canvas-options="{&quot;width&quot;:&quot;250px&quot;,&quot;container&quot;:&quot;.sidenav&quot;}">
+                            <span class="fs-24 toggle-icon"></span>
+                        </button>
+                        <a href="#search-popup" data-gtf-mfp="true"
+                            data-mfp-options="{&quot;type&quot;:&quot;inline&quot;,&quot;focus&quot;: &quot;#keyword&quot;,&quot;mainClass&quot;: &quot;mfp-search-form mfp-move-from-top mfp-align-top&quot;}"
+                            class="nav-search d-flex align-items-center unshow-nav" style="padding: 0 1.6rem;">
+                            <img class="header-icons" src="{% static 'icons/search.svg' %}">
+                            <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span>
+                        </a>
+                        <div class="mx-auto"><a class="navbar-brand d-inline-block mr-0 py-5" href="{% url 'home' %}">
+                                <img src="{% static 'logos/logo 2.png' %}" alt="Shoppa Logo">
+                            </a></div>
+                        {% comment %} <a href="#search-popup" data-gtf-mfp="true"
+                            data-mfp-options="{&quot;type&quot;:&quot;inline&quot;,&quot;focus&quot;: &quot;#keyword&quot;,&quot;mainClass&quot;: &quot;mfp-search-form mfp-move-from-top mfp-align-top&quot;}"
+                            class="nav-search d-flex align-items-center" style="padding: 0 0.7rem;">
+                            <img class="header-icons" src="{% static 'icons/search.svg' %}">
+                            <span class="d-none d-xl-inline-block ml-2 font-weight-500">Search</span>
+                        </a> {% endcomment %}
+                        {% if request.user.is_authenticated %}
+                            <a class="nav-link py-0 lower-unshow" id="profile-link" href="{% url 'dashboard' %}">
+                                <img class="header-icons" src="{% static 'icons/account.svg' %}">
+                            </a>
+                        {% else %}
+                            <a class="nav-link py-0 lower-unshow" id="profile-link" href="#" data-toggle="modal" data-target="#sign-in">
+                                <img class="header-icons" src="{% static 'icons/account.svg' %}">
+                            </a>
+                        {% endif %}
+                        <a class="nav-link position-relative py-0 unshow-nav" {% if request.user.is_authenticated %} href="{% url 'wishlist' %}" {% else %} onclick="openLogin('You have to log in to view your wishlist', 'warning')" href="javascript:void()" {% endif %}>
+                            <img class="header-icons" src="{% static 'icons/wishlist.svg' %}">
+                        </a>
+                        <!-- <div class="dropdown">
+                            <a class="nav-link position-relative py-0 unshow-nav dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="header-icons" src="{% static 'icons/wishlist.svg' %}">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div> -->
+                        <a class="nav-link position-relative menu-cart py-0 d-inline-flex align-items-center mr-n2" href="#" data-canvas="true" data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
+                                {% comment %} <span class="mr-2 font-weight-bold fs-15">$0.00</span> {% endcomment %}
+                                <img class="cart-icon" src="{% static 'icons/cart-2.svg' %}">
+                            {% comment %} <span class="position-absolute number">0</span> {% endcomment %}
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

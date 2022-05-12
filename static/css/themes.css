@@ -23448,3 +23448,12 @@ body {
 .btn-outline-secondary:hover .btn-a.hollow-a {
     color: white;
 }
+
+.product a:hover {
+    text-decoration: none !important;
+}
+
+.product .card-img-overlay a.bg-hover-secondary:focus {
+    background-color: #fff !important;
+    color: #000 !important;
+}

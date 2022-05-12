@@ -1,0 +1,267 @@
+{% load static %}
+
+<div class="modal sign-in" id="sign-in" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0 p-6">
+                <nav class="w-100">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="nav-log-in-tab" data-toggle="tab" href="#nav-log-in"
+                            role="tab" aria-controls="nav-log-in" aria-selected="true">Log in</a>
+                        <a class="nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab"
+                            aria-controls="nav-register" aria-selected="false">Register</a>
+                    </div>
+                </nav>
+                <button type="button" class="modal-close close opacity-10 fs-32 pt-1 position-absolute" data-dismiss="modal"
+                    aria-label="Close" style="right: 30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-6 px-md-9 pb-8">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-log-in" role="tabpanel"
+                        aria-labelledby="nav-log-in-tab">
+                        <h4 class="fs-34 text-center mb-6">Sign In</h4>
+                        <p class="text-center fs-16 mb-7">Don’t have an account yet? <a href="#nav-register"
+                                class="text-secondary border-bottom text-decoration-none">Sign up</a> for free</p>
+                        <form name="login" method="POST" id="login-form">
+                            {% for field in login_form %}
+                                {{ field }}
+                            {% endfor %}
+                            {% comment %} <input id="email" name="email" type="text" class="form-control border-0 mb-3"
+                                placeholder="Email or Username" required> {% endcomment %}
+                            {% comment %} <input name="password" type="password" class="form-control border-0"
+                                placeholder="Password" required> {% endcomment %}
+                            <div class="d-flex align-items-center justify-content-between mt-5 mb-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input name="stay-signed-in" type="checkbox" class="custom-control-input"
+                                        id="staySignedIn">
+                                    <label class="custom-control-label text-body" for="staySignedIn">Stay signed
+                                        in</label>
+                                </div>
+                                <a href="#" class="text-secondary">Forgot your password?</a>
+                            </div>
+                            <button type="submit" value="Login" class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Log In</button>
+
+                            {% block javascript %}
+                            <script>
+                                // console.log(notyf)
+                                $("#login-form").submit(function (e) {
+                                    e.preventDefault();
+                                    var serializedData = $(this).serialize();
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: "{% url 'login_account' %}",
+                                        headers: {'X-CSRFToken': csrftoken},
+                                        mode: 'same-origin',
+                                        data: serializedData,
+                                        success: function (response) {
+                                            let message;
+                                            let alert_type;
+                                            if (typeof(response['responseJSON']) == 'undefined') {
+                                                message = response['message'];
+                                                alert_type = response['type'];
+                                            } else {
+                                                message = response['responseJSON']['message'];
+                                                alert_type = response['responseJSON']['type'];
+                                            };
+                                            if (typeof(message) == 'object') {
+                                                for (const error in message) {
+                                                    error_message = message[error]
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: error_message,
+                                                        duration: 7000,
+                                                    });
+                                                }
+                                            } else if (alert_type === 'success') {
+                                                $("#profile-link").attr("data-toggle", "");
+                                                $("#profile-link").attr("data-target", "");
+                                                $("#profile-link").attr("href", "{% url 'dashboard' %}");
+                                                $(".modal-close").click();
+                                                $("#login-form").trigger('reset');
+                                                $("#email").focus();
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: message,
+                                                    duration: 7000,
+                                                });
+                                            } else {
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                        },
+                                        error: function (response) {
+                                            let message;
+                                            let alert_type;
+                                            if (typeof(response['responseJSON']) == 'undefined') {
+                                                message = response['message'];
+                                                alert_type = response['type'];
+                                            } else {
+                                                message = response['responseJSON']['message'];
+                                                alert_type = response['responseJSON']['type'];
+                                            };
+                                            if (typeof(message) == 'undefined') {
+                                                message = 'An Error Occurred. Please Try Again'
+                                                alert_type = 'error'
+                                            }
+                                            if (typeof(message) == 'object') {
+                                                for (const error in message) {
+                                                    error_message = message[error]
+                                                    notyf.open({
+                                                        type: alert_type,
+                                                        message: error_message
+                                                    });
+                                                }
+                                            } else {
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: message
+                                                });
+                                            }
+                                        }
+                                    })
+                                })
+                            </script>
+                            {% endblock javascript %}
+
+                            <div class="border-bottom mt-6"></div>
+                            <div class="text-center mt-n2 lh-1 mb-4">
+                                <span class="fs-14 bg-white lh-1 mt-n2 px-4">or Log-in with</span>
+                            </div>
+                            <div class="d-flex">
+                                <a href="#"
+                                    class="btn btn-outline-secondary btn-block border-2x border mr-5 border-hover-secondary"><i
+                                        class="fab fa-facebook-f mr-2" style="color: #2E58B2"></i>Facebook</a>
+                                <a href="#"
+                                    class="btn btn-outline-secondary btn-block border-2x border mt-0 border-hover-secondary"><i
+                                        class="fab fa-google mr-2" style="color: #DD4B39"></i>Google</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+                        <h4 class="fs-34 text-center mb-6">Sign Up</h4>
+                        <p class="text-center fs-16 mb-7">Already have an account? <a href="#nav-log-in"
+                                class="text-secondary border-bottom text-decoration-none">Log in</a></p>
+                        <form name="register" id="register-form" method="POST">
+                            {% comment %} {% csrf_token %} {% endcomment %}
+                            {% comment %} <input name="first-name" type="text" class="form-control border-0 mb-3" placeholder="First name" required>
+                            <input name="last-name" type="text" class="form-control border-0 mb-3" placeholder="Last name" required>
+                            <input name="email" type="email" class="form-control border-0 mb-3" placeholder="Your email" required>
+                            <input name="username" type="text" class="form-control border-0 mb-3" placeholder="Username" required>
+                            <input name="phone" type="number" class="form-control border-0 mb-3" placeholder="Your Phone Number" required>
+                            <input name="password" type="password" class="form-control border-0 mb-3" placeholder="Password" required>
+                            <input name="password2" type="password" class="form-control border-0" placeholder="Confirm Password" required> {% endcomment %}
+                            {% for field in register_form %}
+                                {{ field }}
+                            {% endfor %}
+                            {% comment %} <input name="password2" type="password" class="form-control border-0" placeholder="Confirm Password" required> {% endcomment %}
+                            <!-- <div class="custom-control custom-checkbox mt-4 mb-5 mr-xl-6">
+                                <input name="agree" type="checkbox" class="custom-control-input" id="termsOfUse">
+                                <label class="custom-control-label text-body" for="termsOfUse">
+                                    Yes, I agree with the <a href="#">Privacy Policy</a> and <a href="#">Terms of
+                                        Use</a>
+                                </label>
+                            </div> -->
+                            <button type="submit" value="Login" class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Sign Up</button>
+                            <div class="border-bottom mt-6"></div>
+                            <div class="text-center mt-n2 lh-1 mb-4">
+                                <span class="fs-14 bg-white lh-1 mt-n2 px-4">or Sign Up with</span>
+                            </div>
+                            <div class="d-flex">
+                                <a href="#"
+                                    class="btn btn-outline-secondary btn-block border-2x border mr-5 border-hover-secondary"><i
+                                        class="fab fa-facebook-f mr-2" style="color: #2E58B2"></i>Facebook</a>
+                                <a href="#"
+                                    class="btn btn-outline-secondary btn-block border-2x border mt-0 border-hover-secondary"><i
+                                        class="fab fa-google mr-2" style="color: #DD4B39"></i>Google</a>
+                            </div>
+                        </form>
+
+                        <script>
+                            $("#register-form").submit(function (f) {
+                                f.preventDefault();
+                                var registerSerializedData = $(this).serialize();
+                                $.ajax({
+                                    type: 'POST',
+                                    url: "{% url 'register_user' %}",
+                                    headers: {'X-CSRFToken': csrftoken},
+                                    mode: 'same-origin',
+                                    data: registerSerializedData,
+                                    success: function formSuccessFunction(response) {
+                                        console.log(response);
+                                        let message;
+                                        let alert_type;
+                                        if (typeof(response['responseJSON']) == 'undefined') {
+                                            message = response['message'];
+                                            alert_type = response['type'];
+                                        } else {
+                                            message = response['responseJSON']['message'];
+                                            alert_type = response['responseJSON']['type'];
+                                        };
+                                        if (typeof(message) == 'object') {
+                                            for (const error in message) {
+                                                error_message = message[error]
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: error_message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                        } else {
+                                            $("#register-form").trigger('reset');
+                                            $("#register_email").focus();
+                                            notyf.open({
+                                                type: alert_type,
+                                                message: message,
+                                                duration: 7000,
+                                            });
+                                        }
+                                        console.log("Successful Submission");
+                                    },
+                                    error: function (response) {
+                                        let message;
+                                        let alert_type;
+                                        if (typeof(response['responseJSON']) == 'undefined') {
+                                            message = response['message'];
+                                            alert_type = response['type'];
+                                        } else {
+                                            message = response['responseJSON']['message'];
+                                            alert_type = response['responseJSON']['type'];
+                                        };
+                                        if (typeof(message) == 'undefined') {
+                                            message = 'An Error Occurred. Please Try Again'
+                                            alert_type = 'error'
+                                            console.log(response)
+                                            location.reload()
+                                        }
+                                        if (typeof(message) == 'object') {
+                                            for (const error in message) {
+                                                error_message = message[error]
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: error_message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                        } else {
+                                            notyf.open({
+                                                type: alert_type,
+                                                message: message,
+                                                duration: 7000,
+                                            });
+                                        }
+                                    }
+                                })
+                            })
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
