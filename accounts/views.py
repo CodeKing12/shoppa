@@ -261,9 +261,20 @@ def add_to_cart(request):
                 detailed_cart.save()
                 return JsonResponse({"message": "Item added to cart", "type": "success"}, status=200)
             else:
-                return JsonResponse({"message": "This item exists in your cart", "type": "info"}, status=400)
+                complete_cart = CartDetails.objects.get(cart=user_cart, product=product)
+                complete_cart.quantity += quantity
+                complete_cart.save()
+                return JsonResponse({"message": "Cart Updated", "type": "success"}, status=200)
         else:
-            get_cart = request.COOKIES['anonymous-cart']
-            user_cart = json.loads(get_cart)
-            return JsonResponse({"message": f"Your Cart: {user_cart}", "type": "success"}, status=200)
+            cart = request.session.get("user-cart", json.dumps({}))
+            user_cart = json.loads(cart)
+            if product_id in user_cart:
+                product = user_cart[product_id]
+                product[0] += 1
+            else:
+                user_cart[int(product_id)] = [quantity,color.strip("#")]
+            request.session['user-cart'] = json.dumps(user_cart)
+            return JsonResponse({"message": f"Your Cart Has Been Created: {request.session['user-cart']}", "type": "success"}, status=200)
+
+            # If a user clicks the add_to_cart button again, it should increase the quantity instead
             # {user_cart.cart_products.all()}

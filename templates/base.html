@@ -127,26 +127,6 @@
             // document.getElementById("toast-btn").click();
 
         }
-        
-        let cart = getCookie("anonymous-cart")
-
-        if (cart == null || cart == undefined) {
-            cart = JSON.stringify({});
-            var date = new Date();
-            var days=1825;
-            date.setTime(date.getTime()+(days*24*60*60*1000));
-            var expires = date.toGMTString();
-            document.cookie = 'anonymous-cart=' + cart + "; expires=" + expires + "; path=/account; secure"
-            // console.log('anonymous-cart=' + cart + "; expires=" + expires + "; path=/account; secure")
-            console.log(cart)
-        }
-
-        $.get(
-            "{% url 'register_user' %}",
-           /* function(response) {
-                console.log(response)
-            } */
-        )
     </script>
 
     {% if open_login.2 == True %}
@@ -203,6 +183,82 @@
     {% include 'auth-modal.html' %}
     
     {% include "quickview-product.html" %}
+
+    <script>
+        function addToCart(product_id) {
+            console.log(product_id)
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'add_to_cart' %}",
+                headers: {'X-CSRFToken': csrftoken},
+                mode: 'same-origin',
+                data: {
+                    "product_id": product_id
+                },
+                success: function formSuccessFunction(response) {
+                    console.log(response);
+                    let message;
+                    let alert_type;
+                    if (typeof(response['responseJSON']) == 'undefined') {
+                        message = response['message'];
+                        alert_type = response['type'];
+                    } else {
+                        message = response['responseJSON']['message'];
+                        alert_type = response['responseJSON']['type'];
+                    };
+                    if (typeof(message) == 'object') {
+                        for (const error in message) {
+                            error_message = message[error]
+                            notyf.open({
+                                type: alert_type,
+                                message: error_message,
+                                duration: 7000,
+                            });
+                        }
+                    } else {
+                        notyf.open({
+                            type: alert_type,
+                            message: message,
+                            duration: 7000,
+                        });
+                    }
+                    console.log("Successful Submission");
+                },
+                error: function (response) {
+                    let message;
+                    let alert_type;
+                    if (typeof(response['responseJSON']) == 'undefined') {
+                        message = response['message'];
+                        alert_type = response['type'];
+                    } else {
+                        message = response['responseJSON']['message'];
+                        alert_type = response['responseJSON']['type'];
+                    };
+                    if (typeof(message) == 'undefined') {
+                        message = 'An Error Occurred. Please Try Again'
+                        alert_type = 'error'
+                        console.log(response)
+                    }
+                    if (typeof(message) == 'object') {
+                        for (const error in message) {
+                            error_message = message[error]
+                            notyf.open({
+                                type: alert_type,
+                                message: error_message,
+                                duration: 7000,
+                            });
+                        }
+                    } else {
+                        notyf.open({
+                            type: alert_type,
+                            message: message,
+                            duration: 7000,
+                        });
+                    }
+                }
+            })
+        }
+    </script>
 
 </body>
 

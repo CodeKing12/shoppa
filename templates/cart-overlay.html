@@ -17,36 +17,69 @@
                 cart is saved for the next <span class="text-secondary">4m34s</span></p> {% endcomment %}
         </div>
         <div class="card-body px-6 pt-7 overflow-y-auto cart-main">
-            {% for item in cart_details %}
-                <div class="mb-4 d-flex">
-                    <a href="#" class="d-flex align-items-center mr-2 text-muted"><i class="fal fa-times"></i></a>
-                    <div class="media w-100">
-                        <div class="w-60px mr-3">
-                            <img src="{{ domain }}{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                        </div>
-                        <div class="media-body d-flex">
-                            <div class="cart-price pr-6">
-                                <p class="fs-16 font-weight-bold text-secondary mb-1">
-                                    <span class="font-weight-500 fs-13 text-line-through text-body mr-1">{% if item.product.previous_price > 0 %}₦{{ item.product.previous_price }}{% endif %}</span>
-                                    ₦{{ item.product.price }}
-                                </p>
-                                <a href="#" class="text-secondary">{{ item.product.name }}</a>
+            {% if request.user.is_authenticated %}
+                {% for item in cart_details %}
+                    <div class="mb-4 d-flex">
+                        <a href="#" class="d-flex align-items-center mr-2 text-muted"><i class="fal fa-times"></i></a>
+                        <div class="media w-100">
+                            <div class="w-60px mr-3">
+                                <img src="{{ domain }}{{ item.product.image.url }}" alt="{{ item.product.name }}">
                             </div>
-                            <div class="position-relative ml-auto">
-                                <div class="input-group">
-                                    <a href="#" class="down position-absolute pos-fixed-left-center pl-2"><i
-                                            class="far fa-minus"></i></a>
-                                    <input type="number"
-                                        class="number-cart w-90px px-6 text-center h-40px bg-input border-0" value="{{ item.quantity }}">
-                                    <a href="#" class="up position-absolute pos-fixed-right-center pr-2"><i
-                                            class="far fa-plus"></i>
-                                    </a>
+                            <div class="media-body d-flex">
+                                <div class="cart-price pr-6">
+                                    <p class="fs-16 font-weight-bold text-secondary mb-1">
+                                        <span class="font-weight-500 fs-13 text-line-through text-body mr-1">{% if item.product.previous_price > 0 %}₦{{ item.product.previous_price }}{% endif %}</span>
+                                        ₦{{ item.product.price }}
+                                    </p>
+                                    <a href="#" class="text-secondary">{{ item.product.name }}</a>
+                                </div>
+                                <div class="position-relative ml-auto">
+                                    <div class="input-group">
+                                        <a href="#" class="down position-absolute pos-fixed-left-center pl-2"><i
+                                                class="far fa-minus"></i></a>
+                                        <input type="number"
+                                            class="number-cart w-90px px-6 text-center h-40px bg-input border-0" value="{{ item.quantity }}">
+                                        <a href="#" class="up position-absolute pos-fixed-right-center pr-2"><i
+                                                class="far fa-plus"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                {% for item in cart_details %}
+                    <div class="mb-4 d-flex">
+                        <a href="#" class="d-flex align-items-center mr-2 text-muted"><i class="fal fa-times"></i></a>
+                        <div class="media w-100">
+                            <div class="w-60px mr-3">
+                                <img src="{{ domain }}{{ item.0.image.url }}" alt="{{ item.0.name }}">
+                            </div>
+                            <div class="media-body d-flex">
+                                <div class="cart-price pr-6">
+                                    <p class="fs-16 font-weight-bold text-secondary mb-1">
+                                        <span class="font-weight-500 fs-13 text-line-through text-body mr-1">{% if item.0.previous_price > 0 %}₦{{ item.0.previous_price }}{% endif %}</span>
+                                        ₦{{ item.0.price }}
+                                    </p>
+                                    <a href="#" class="text-secondary fs-16">{{ item.0.name }}</a>
+                                </div>
+                                <div class="position-relative ml-auto">
+                                    <div class="input-group">
+                                        <a href="#" class="down position-absolute pos-fixed-left-center pl-2"><i
+                                                class="far fa-minus"></i></a>
+                                        <input type="number"
+                                            class="number-cart w-90px px-6 text-center h-40px bg-input border-0" value="{{ item.1 }}">
+                                        <a href="#" class="up position-absolute pos-fixed-right-center pr-2"><i
+                                                class="far fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
             <a class="save-cart btn btn-secondary btn-block mb-3 bg-hover-primary border-hover-primary">Save Changes</a>
         </div>
         <div class="card-footer mt-auto border-0 bg-transparent px-6 pb-0 pt-5">
