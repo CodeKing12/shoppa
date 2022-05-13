@@ -229,8 +229,8 @@
     background:var(--red)
    }
    .payment-card.active {
-    background:#f5f5f5;
-    border-color:var(--primary)
+    background:rgba(154, 231, 190, 0.5);
+    border: 2px solid var(--primary);
    }
    @media (max-width: 575px) {
     .payment-card p span {

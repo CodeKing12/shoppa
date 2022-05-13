@@ -14,6 +14,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
 from django.views.decorators.csrf import csrf_protect
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
+import json
 
 # Create your views here.
 def is_ajax(request):
@@ -59,6 +60,8 @@ def create_account(request):
             
         else:
             return JsonResponse({'message': registration_form.errors, 'type': 'error'}, status=400)
+    elif is_ajax(request) and request.method == 'GET':
+        return JsonResponse({'message': 'Cart Created Successfully', 'type': 'success'}, status=200)
     return JsonResponse({'message': 'An Unknown Error Occurred', 'type': 'error'}, status=400)
     # return render(request, 'accounts/create-account.html', {'form': the_form})
 
@@ -237,26 +240,30 @@ def add_to_cart(request):
             color = request.POST["color"]
         else:
             color = "#000000"
-        user_cart = Cart.objects.get(user=request.user)
         # product_exists = Cart.cart_products.get(product)
-        try:
-            the_p = user_cart.cart_products.get(id=product_id)
-        except MultipleObjectsReturned:
-            all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
-            for item in all_duplicated:
-                user_cart.cart_products.remove(item)
-            messages.info(request, "Multiple items were found in your cart.")
-            return JsonResponse({"message": "Multiple items found in your cart. Deleting.", "type": "info"}, status=200)
-            # return JsonResponse([{"message": "Multiple items were found in your cart."}, {"message": "Extra Items Deleted Successfully.", "type": "success"}], status=200, safe=False)
-        except ObjectDoesNotExist:
-            detailed_cart = CartDetails.objects.create(
-                cart = user_cart,
-                product = product,
-                quantity = quantity,
-                color = color
-            )
-            detailed_cart.save()
-            return JsonResponse({"message": f"Item added to cart", "type": "success"}, status=200)
+        if request.user.is_authenticated:
+            user_cart = Cart.objects.get(user=request.user)
+            try:
+                the_p = user_cart.cart_products.get(id=product_id)
+            except MultipleObjectsReturned:
+                all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
+                for item in all_duplicated:
+                    user_cart.cart_products.remove(item)
+                return JsonResponse({"message": "Multiple items found in your cart. Deleting Now.", "type": "info"}, status=200)
+                # return JsonResponse([{"message": "Multiple items were found in your cart."}, {"message": "Extra Items Deleted Successfully.", "type": "success"}], status=200, safe=False)
+            except ObjectDoesNotExist:
+                detailed_cart = CartDetails.objects.create(
+                    cart = user_cart,
+                    product = product,
+                    quantity = quantity,
+                    color = color
+                )
+                detailed_cart.save()
+                return JsonResponse({"message": "Item added to cart", "type": "success"}, status=200)
+            else:
+                return JsonResponse({"message": "This item exists in your cart", "type": "info"}, status=400)
         else:
-            return JsonResponse({"message": "This item exists in your cart", "type": "info"}, status=400)
+            get_cart = request.COOKIES['anonymous-cart']
+            user_cart = json.loads(get_cart)
+            return JsonResponse({"message": f"Your Cart: {user_cart}", "type": "success"}, status=200)
             # {user_cart.cart_products.all()}

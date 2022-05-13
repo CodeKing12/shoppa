@@ -26,6 +26,9 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     # Add the stars and reviews
 
+    def __str__(self):
+        return self.name
+
     def save(self, *args, **kwargs):
         self.percent_off = int((self.previous_price / self.price) * 100)
         super(Product, self).save(*args, **kwargs)

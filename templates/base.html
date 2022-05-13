@@ -43,7 +43,7 @@
 
     <meta property="og:url" content="home-04.html">
     <meta property="og:title" content="Home 04">
-    <meta property="og:description" content="Shoppa Shop Html Template">
+    <meta property="og:description" content="Shoppa | Nigeria's Most Reliable E-Market">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{% static 'images/logo_01.png' %}">
     <meta property="og:image:type" content="image/png">
@@ -72,24 +72,6 @@
     </section>
 
     {% include "header.html" %}
-
-    <script>
-        function removeLoader() {
-            document.getElementById("iconloop").style.opacity = 0
-            setTimeout(()=>{
-                document.getElementById("slide1").classList.add("slideL")
-                document.getElementById("slide2").classList.add("slideR")
-                document.getElementById("iconloop").style.display = "none"
-            }, 100);
-            setTimeout(()=>{
-                document.getElementById("loader").style.display = "none"
-            }, 1000);
-            setTimeout(()=>{
-                document.body.style.overflow = "visible"
-            }, 500);
-            document.getElementById("toast-btn").click();
-        }
-    </script>
     
     <main id="content">
         {% if messages %}
@@ -127,6 +109,45 @@
     {% comment %} <script src="{% static 'js/submissions.js' %}"></script> {% endcomment %}
     <script src="{% static 'js/theme.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+
+    <script>
+        function removeLoader() {
+            document.getElementById("iconloop").style.opacity = 0
+            setTimeout(()=>{
+                document.getElementById("slide1").classList.add("slideL")
+                document.getElementById("slide2").classList.add("slideR")
+                document.getElementById("iconloop").style.display = "none"
+            }, 100);
+            setTimeout(()=>{
+                document.getElementById("loader").style.display = "none"
+            }, 1000);
+            setTimeout(()=>{
+                document.body.style.overflow = "visible"
+            }, 500);
+            // document.getElementById("toast-btn").click();
+
+        }
+        
+        let cart = getCookie("anonymous-cart")
+
+        if (cart == null || cart == undefined) {
+            cart = JSON.stringify({});
+            var date = new Date();
+            var days=1825;
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            var expires = date.toGMTString();
+            document.cookie = 'anonymous-cart=' + cart + "; expires=" + expires + "; path=/account; secure"
+            // console.log('anonymous-cart=' + cart + "; expires=" + expires + "; path=/account; secure")
+            console.log(cart)
+        }
+
+        $.get(
+            "{% url 'register_user' %}",
+           /* function(response) {
+                console.log(response)
+            } */
+        )
+    </script>
 
     {% if open_login.2 == True %}
         <script>

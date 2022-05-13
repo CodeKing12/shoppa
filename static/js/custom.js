@@ -67,5 +67,5 @@ function openLogin(message, type, duration=8000) {
         message: message,
         duration: duration,
     });
-    console.log("{{open_login}}")
+    // console.log("{{open_login}}")
 }

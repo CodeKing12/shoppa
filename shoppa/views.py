@@ -5,6 +5,7 @@ from accounts.forms import LoginForm, CreateAccountForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, forms, login as django_login, logout
 from django.views.decorators.csrf import csrf_protect
+from accounts.models import Cart, CartDetails
 from products.models import Product
 
 @csrf_protect
@@ -34,6 +35,17 @@ def home(request):
     discounted_list = Product.objects.all()
     current_site = request.build_absolute_uri()
     current_site = str(current_site.strip("/"))
-    return render(request, 'index.html', {'login_form': login, "register_form": register, "open_login": open_login, "discounted": discounted_list, "domain": current_site})
+    sub_total = 0
+    if request.user.is_authenticated:
+        cart = Cart.objects.get(user=request.user)
+        cart_details = CartDetails.objects.filter(cart=cart)
+        for item in cart_details:
+            sub_total += item.product.price
+    else:
+        cart = None
+        cart_details = None
+        subtotal = "Un"
+    
+    return render(request, 'index.html', {'login_form': login, "register_form": register, "open_login": open_login, "discounted": discounted_list, "domain": current_site, "cart": cart, "cart_details": cart_details, "cart_total": sub_total})
 
 # When the user is authenticated, the authenticated info will be sent the page in json and the success function will add them to their respective divs e.g. cart items will be sent and the JS will add them to the cart
