@@ -185,78 +185,77 @@
     {% include "quickview-product.html" %}
 
     <script>
-        function addToCart(product_id) {
-            console.log(product_id)
+        function addToCart(product_id, quantity, color) {
+            // console.log(product_id)
             $.ajax({
                 type: 'POST',
                 url: "{% url 'add_to_cart' %}",
                 headers: {'X-CSRFToken': csrftoken},
                 mode: 'same-origin',
                 data: {
-                    "product_id": product_id
+                    "product_id": product_id,
+                    "quantity": quantity,
+                    "color": color
                 },
-                success: function formSuccessFunction(response) {
-                    console.log(response);
-                    let message;
-                    let alert_type;
-                    if (typeof(response['responseJSON']) == 'undefined') {
-                        message = response['message'];
-                        alert_type = response['type'];
-                    } else {
-                        message = response['responseJSON']['message'];
-                        alert_type = response['responseJSON']['type'];
-                    };
-                    if (typeof(message) == 'object') {
-                        for (const error in message) {
-                            error_message = message[error]
-                            notyf.open({
-                                type: alert_type,
-                                message: error_message,
-                                duration: 7000,
-                            });
+                success: function(response) {
+                    success = processResponse(response)
+                    if (success == true) {
+                        if ($(".abscence-text").length) {
+                            $(".abscence-text").remove()
+                            console.log($(".save-cart"))
+                            $(".save-cart").removeClass("remove")
                         }
-                    } else {
-                        notyf.open({
-                            type: alert_type,
-                            message: message,
-                            duration: 7000,
-                        });
+                        if ($(`.item${product_id}`).length) {
+                            console.log("This is processed")
+                            quantity_field = $(`.number-cart${product_id}`)
+                            current_value = quantity_field.val()
+                            newValue = parseInt(current_value) + quantity
+                            quantity_field.val(newValue)
+                            console.log(quantity_field)
+                        } else {
+                            prefix = "pro" + product_id
+                            imgUrl = $(`.${prefix}-image`).attr("src")
+                            prevPrice = $(`.${prefix}-prevPrice`).text()
+                            price = $(`.${prefix}-price`).text()
+                            name = $(`.${prefix}-name`).text()
+                            // console.log(imgUrl, prevPrice, price, name)
+                            $(`<div class='mb-4 d-flex item${product_id}'><a onclick='removeFromCart(${product_id})' class='cursor-pointer d-flex align-items-center mr-2 text-muted'><i class='fal fa-times'></i></a><div class='media w-100'><div class='w-60px mr-3'><img src='${imgUrl}' alt='${name}'></div><div class='media-body d-flex'><div class='cart-price pr-6'><p class='fs-16 font-weight-bold text-secondary mb-1'><span class='font-weight-500 fs-13 text-line-through text-body mr-1'>${prevPrice}</span>${price}</p><a href='#' class='text-secondary'>${name}</a></div><div class='position-relative ml-auto'><div class='input-group'><a href='#' class='down position-absolute pos-fixed-left-center pl-2'><i class='far fa-minus'></i></a><input type='number' class='number-cart${product_id} w-90px px-6 text-center h-40px bg-input border-0' value='${quantity}'><a href='#' class='up position-absolute pos-fixed-right-center pr-2'><i class='far fa-plus'></i></a></div></div></div></div></div>`).insertBefore($(".save-cart"))
+                        }
                     }
-                    console.log("Successful Submission");
                 },
-                error: function (response) {
-                    let message;
-                    let alert_type;
-                    if (typeof(response['responseJSON']) == 'undefined') {
-                        message = response['message'];
-                        alert_type = response['type'];
-                    } else {
-                        message = response['responseJSON']['message'];
-                        alert_type = response['responseJSON']['type'];
-                    };
-                    if (typeof(message) == 'undefined') {
-                        message = 'An Error Occurred. Please Try Again'
-                        alert_type = 'error'
-                        console.log(response)
-                    }
-                    if (typeof(message) == 'object') {
-                        for (const error in message) {
-                            error_message = message[error]
-                            notyf.open({
-                                type: alert_type,
-                                message: error_message,
-                                duration: 7000,
-                            });
-                        }
-                    } else {
-                        notyf.open({
-                            type: alert_type,
-                            message: message,
-                            duration: 7000,
-                        });
-                    }
+                error: function(response) {
+                    processResponse(response)
                 }
             })
+        }
+
+        function removeFromCart(product_id) {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'remove_from_cart' %}",
+                headers: {'X-CSRFToken': csrftoken},
+                mode: 'same-origin',
+                data: {
+                    "product_id": product_id
+                },
+                success: function(response) {
+                    success = processResponse(response)
+                    if (success == true) {
+                        $(`.item${product_id}`).remove()
+                        if ($(`.the-cart`).children().length < 2) {
+                            $(".save-cart").addClass("remove")
+                            $(".the-cart").prepend("<p class='fs-15 font-weight-500 text-body mb-5 abscence-text'><span class='d-inline-block mr-2 fs-18 text-secondary'>You haven't added any item to your cart</p>")
+                        }
+                    }
+                },
+                error: function(response) {
+                    processResponse(response)
+                }
+            })
+        }
+
+        function test() {
+            console.log("Test")
         }
     </script>
 

@@ -413,14 +413,7 @@
                                                 <span class="position-absolute number">0</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            {% if request.user.is_authenticated %}
-                                                <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
-                                                href="#" data-canvas="true"
-                                                data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
-                                            {% else %}
-                                                <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2"
-                                                href="#" data-toggle="modal" data-target="#sign-in">
-                                            {% endif %}
+                                            <a class="nav-link position-relative px-4 menu-cart py-0 d-inline-flex align-items-center mr-n2" href="#" data-canvas="true" data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
                                                 <span class="mr-2 font-weight-bold fs-15">$0.00</span>
                                                 <img class="cart-icon" src="{% static 'icons/cart-2.svg' %}">
                                                 <span class="position-absolute number">0</span>
@@ -473,7 +466,7 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </div> -->
-                        <a class="nav-link position-relative menu-cart py-0 d-inline-flex align-items-center mr-n2" href="#" data-canvas="true" data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
+                        <a class="nav-link position-relative menu-cart py-0 d-inline-flex align-items-center mr-n2 cursor-pointer" data-canvas="true" data-canvas-options="{&quot;container&quot;:&quot;.cart-canvas&quot;}">
                                 {% comment %} <span class="mr-2 font-weight-bold fs-15">$0.00</span> {% endcomment %}
                                 <img class="cart-icon" src="{% static 'icons/cart-2.svg' %}">
                             {% comment %} <span class="position-absolute number">0</span> {% endcomment %}

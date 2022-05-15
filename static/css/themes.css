@@ -23295,8 +23295,10 @@ body {
 }
 
 .home-products-slider .card img {
-    width: 231px;
-    height: 231px;
+    /* width: 231px;
+    height: 231px; */
+    width: 220px;
+    height: 220px;
 }
 
 .card-text span {
@@ -23471,4 +23473,8 @@ body {
 .save-cart {
     width: fit-content !important;
     margin-left: auto;
+}
+
+.remove {
+    visibility: hidden !important;
 }

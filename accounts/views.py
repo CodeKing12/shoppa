@@ -233,7 +233,7 @@ def add_to_cart(request):
         product_id = request.POST["product_id"]
         product = Product.objects.get(id=product_id)
         if "quantity" in request.POST:
-            quantity = request.POST["quantity"]
+            quantity = int(request.POST["quantity"])
         else:
             quantity = 1
         if "color" in request.POST:
@@ -249,8 +249,8 @@ def add_to_cart(request):
                 all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
                 for item in all_duplicated:
                     user_cart.cart_products.remove(item)
-                return JsonResponse({"message": "Multiple items found in your cart. Deleting Now.", "type": "info"}, status=200)
-                # return JsonResponse([{"message": "Multiple items were found in your cart."}, {"message": "Extra Items Deleted Successfully.", "type": "success"}], status=200, safe=False)
+                message = "Multiple items found in your cart. Deleting Now."
+                message_type = "info"
             except ObjectDoesNotExist:
                 detailed_cart = CartDetails.objects.create(
                     cart = user_cart,
@@ -259,22 +259,65 @@ def add_to_cart(request):
                     color = color
                 )
                 detailed_cart.save()
-                return JsonResponse({"message": "Item added to cart", "type": "success"}, status=200)
+                message = "Item added to cart"
+                message_type = "success"
             else:
                 complete_cart = CartDetails.objects.get(cart=user_cart, product=product)
                 complete_cart.quantity += quantity
                 complete_cart.save()
-                return JsonResponse({"message": "Cart Updated", "type": "success"}, status=200)
+                quantity = complete_cart.quantity
+                message = "Cart Updated Successfully"
+                message_type = "success"
+            return JsonResponse({"message": message, "type": message_type}, status=200)
         else:
             cart = request.session.get("user-cart", json.dumps({}))
             user_cart = json.loads(cart)
             if product_id in user_cart:
                 product = user_cart[product_id]
                 product[0] += 1
+                message = "Cart Updated Successfully"
+                quantity = product[0]
             else:
                 user_cart[int(product_id)] = [quantity,color.strip("#")]
+                message = "Item Added To Cart"
             request.session['user-cart'] = json.dumps(user_cart)
-            return JsonResponse({"message": f"Your Cart Has Been Created: {request.session['user-cart']}", "type": "success"}, status=200)
+            return JsonResponse({"message": message, "type": "success"}, status=200)
 
-            # If a user clicks the add_to_cart button again, it should increase the quantity instead
-            # {user_cart.cart_products.all()}
+def remove_from_cart(request):
+    if is_ajax(request) and request.method == "POST":
+        product_id = request.POST["product_id"]
+        product = Product.objects.get(id=product_id)
+        # product_exists = Cart.cart_products.get(product)
+        if request.user.is_authenticated:
+            user_cart = Cart.objects.get(user=request.user)
+            try:
+                the_p = user_cart.cart_products.get(id=product_id)
+            except MultipleObjectsReturned:
+                all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
+                for item in all_duplicated:
+                    user_cart.cart_products.remove(item)
+                message = "Multiple items found in your cart. Deleting All Now."
+                message_type = "info"
+                messages.success("All Items Deleted")
+            except ObjectDoesNotExist:
+                message = "You have not added this item to your cart"
+                message_type = "error"
+            else:
+                complete_cart = CartDetails.objects.get(cart=user_cart, product=product)
+                user_cart.cart_products.remove(complete_cart)
+                message = "Item Removed From Cart"
+                message_type = "success"
+            return JsonResponse({"message": message, "type": message_type}, status=200)
+        else:
+            cart = request.session.get("user-cart", json.dumps({}))
+            user_cart = json.loads(cart)
+            if product_id in user_cart:
+                del user_cart[product_id]
+                message = "Item Removed From Cart"
+                message_type = "success"
+                print(user_cart)
+            else:
+                message = "You have not added this item to your cart"
+                message_type = "success"
+            request.session['user-cart'] = json.dumps(user_cart)
+            return JsonResponse({"message": message, "type": "success"}, status=200)

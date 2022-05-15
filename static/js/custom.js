@@ -69,3 +69,39 @@ function openLogin(message, type, duration=8000) {
     });
     // console.log("{{open_login}}")
 }
+
+function processResponse(response) {
+    // console.log(response);
+    let message;
+    let alert_type;
+    if (typeof(response['responseJSON']) == 'undefined') {
+        message = response['message'];
+        alert_type = response['type'];
+    } else {
+        message = response['responseJSON']['message'];
+        alert_type = response['responseJSON']['type'];
+    };
+    if (typeof(message) == 'undefined') {
+        message = 'An Error Occurred. Please Try Again'
+        alert_type = 'error'
+        console.log(response)
+        // location.reload()
+    }
+    if (typeof(message) == 'object') {
+        for (const error in message) {
+            error_message = message[error]
+            notyf.open({
+                type: alert_type,
+                message: error_message,
+                duration: 7000,
+            });
+        }
+    } else {
+        notyf.open({
+            type: alert_type,
+            message: message,
+            duration: 7000,
+        });
+    }
+    return true;
+}
