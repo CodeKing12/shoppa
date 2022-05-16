@@ -111,4 +111,7 @@ function showForm(modalName) {
     $(`#${modalName}`).modal();
 }
 
-// http://127.0.0.1:1112/account/change-password/MTA/b5hzij-5bb9294c89210100fe114fe18e3186b5
+function migrateToCart(product_id, quantity, color) {
+    addToCart(product_id, quantity, color);
+    $(`.wish-item${product_id}`).remove()
+}

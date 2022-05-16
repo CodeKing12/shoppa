@@ -76,17 +76,20 @@
                                                     });
                                                 }
                                             } else if (alert_type === 'success') {
-                                                $("#profile-link").attr("data-toggle", "");
+                                                /* $("#profile-link").attr("data-toggle", "");
                                                 $("#profile-link").attr("data-target", "");
                                                 $("#profile-link").attr("href", "{% url 'dashboard' %}");
                                                 $(".modal-close").click();
                                                 $("#login-form").trigger('reset');
-                                                $("#email").focus();
+                                                $("#email").focus(); */
                                                 notyf.open({
                                                     type: alert_type,
                                                     message: message,
                                                     duration: 7000,
                                                 });
+                                                setTimeout(function() {
+                                                    location.reload()
+                                                }, 1600);
                                             } else {
                                                 notyf.open({
                                                     type: alert_type,

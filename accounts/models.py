@@ -6,6 +6,8 @@ from django.conf import settings
 from colorfield.fields import ColorField
 from django.core.validators import RegexValidator
 
+from products.models import Product
+
 # Remember to remove the blank=true from important model fields before you go live
 
 # Create your models here.
@@ -30,7 +32,7 @@ class CartDetails(models.Model):
 
 class Wishlist(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    wish_products = models.ManyToManyField("products.Product", blank=True)
+    wish_products = models.ManyToManyField(Product, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:

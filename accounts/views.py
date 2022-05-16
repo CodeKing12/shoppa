@@ -14,7 +14,9 @@ from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
 from django.views.decorators.csrf import csrf_protect
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
+from accounts.decorators import insert_cart
 import json
+from shoppa.views import get_cart
 
 # Create your views here.
 def is_ajax(request):
@@ -163,17 +165,19 @@ def change_password(request, uidb64, token):
         request.session['action_message'] = ["Confirmation Link is Invalid", "error"]
         return redirect('home')
 
+@insert_cart
 def wishlist(request):
     if request.user.is_superuser:
-        user_cart = 'Nothing'
         user_wishlist = 'Nothing'
+        all_products = []
     elif not request.user.is_authenticated:
         request.session['open_login'] = ["You have to log in to view your wishlist", "warning", True]
         return redirect('home')
     else:
-        user_cart = Cart.objects.get(user=request.user)
+        cart_details, sub_total = get_cart(request)
         user_wishlist = Wishlist.objects.get(user=request.user)
-    return render(request, 'products/wishlist.html', context={'cart': user_cart, 'wishlist': user_wishlist})
+        all_products = user_wishlist.wish_products.all()
+    return render(request, 'products/wishlist.html', context={'cart_details': cart_details, 'wishlist': user_wishlist, 'cart_total': sub_total})
 
 @csrf_protect
 def login_view(request):

@@ -23484,3 +23484,19 @@ body {
     margin: 100px auto;
     padding: 0 28px;
 }
+
+.wish-cont {
+    border-color: #000 !important;
+}
+
+.wish-cont:hover .btn-a {
+    color: #fff !important;
+}
+
+.btn-border-darken {
+    border-color: #000 !important;
+}
+
+.btn-border-darkish {
+    border-color: #999 !important;
+}

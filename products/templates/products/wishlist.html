@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
     {% block content %}
-    <main id="content">
         <section class="py-2 bg-gray-2">
             <div class="container">
                 <nav aria-label="breadcrumb">
@@ -21,39 +20,35 @@
                 <form class="table-responsive-md pb-8 pb-lg-10">
                     <table class="table border-right border-left mb-0">
                         <tbody>
-                            {% for item in user_wishlist %}
-                                <tr class="position-relative">
+                            {% for item in wishlist.wish_products.all %}
+                                <tr class="position-relative wish-item{{item.id}}">
                                     <th scope="row" class="pl-xl-6 py-4 d-flex align-items-center">
                                         <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
                                         <div class="media align-items-center">
                                             <div class="ml-3 mr-4">
-                                                <img src="{{domain}}{{item.image.url}}" alt="Natural Coconut Cleansing Oil"
-                                                    class="mw-75px">
+                                                <img src="{{domain}}{{item.image.url}}" alt="Natural Coconut Cleansing Oil" class="mw-75px pro{{item.id}}-image">
                                             </div>
                                             <div class="media-body mw-210">
-                                                <p class="font-weight-500 text-secondary mb-2 lh-13">{{item.name}}</p>
+                                                <p class="font-weight-500 text-secondary mb-2 lh-13 pro{{item.id}}-name">{{item.name}}</p>
                                                 <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                                    <span
-                                                        class="fs-13 font-weight-500 text-decoration-through text-body pr-1">${{item.previous_price}}</span>
-                                                    <span>${{item.price}}</span>
+                                                    <span class="fs-13 font-weight-500 text-decoration-through text-body pr-1 pro{{item.id}}-prevPrice">${{item.previous_price}}</span>
+                                                    <span class="pro{{item.id}}-price">${{item.price}}</span>
                                                 </p>
-                                                <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
+                                                {% comment %} <p class="font-weight-500 mb-0">Added: August 14, 2021</p> {% endcomment %}
                                             </div>
                                         </div>
                                     </th>
                                     <td class="align-middle text-right pr-6">
-                                        <span class="mr-4">{% if item.in_stocl %}In stock{% else %} Out Of Stock {% endif %}</span>
-                                        <a href="#"
-                                            class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add
-                                            To Cart</a>
+                                        <span class="mr-4">{% if item.in_stock %}In stock{% else %} Out Of Stock {% endif %}</span>
+                                        <a onclick="migrateToCart({{item.id}}, 1, '#000000')" class="cursor-pointer btn-border-darkish btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add To Cart</a>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td class="pl-0 position-relative bg-white" style="left: -1px">
-                                    <button type="submit" value="Countinue Shopping" class="btn btn-outline-secondary border-2x border mr-5 border-hover-secondary my-3">
-                                        <a class="btn-a text-white" href="{% url 'all_products' %}">
-                                            Countinue Shopping
+                                    <button type="submit" value="Continue Shopping" class="wish-cont btn btn-outline-secondary border-2x border mr-5 border-hover-secondary my-3">
+                                        <a class="btn-a" href="{% url 'all_products' %}">
+                                            Continue Shopping
                                         </a>
                                     </button>
                                 </td>
@@ -70,5 +65,4 @@
                 </form>
             </div>
         </section>
-    </main>
     {% endblock content %}
