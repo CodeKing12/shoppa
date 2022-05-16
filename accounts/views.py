@@ -150,17 +150,9 @@ def change_password(request, uidb64, token):
         user = None
 
     if user is not None and account_activation_token.check_token(user, token):
-        if is_ajax(request) and request.method == 'POST':
-            password1 = request.POST['new_pass1']
-            password2 = request.POST['new_pass2']
-            if password1 == password2:
-                user.set_password(password1)
-                user.save()
-                return JsonResponse({'message': 'Password changed successfully', 'type': 'success'}, status=200)
-            else:
-                return JsonResponse({'message': 'Your passwords don\'t match', 'type': 'error'}, status=200)
-        else:
-            return render(request, 'accounts/change_password.html', {"uid": uidb64, "token": token})
+        request.session["confirmed"] = True
+        request.session["uid"] = uid
+        return redirect('update_password')
     else:
         request.session['action_message'] = ["Confirmation Link is Invalid", "error"]
         return redirect('home')
@@ -325,3 +317,26 @@ def add_to_wishlist(request):
 
 def remove_from_wishlist(request):
     pass
+
+def update_password(request):
+    if is_ajax(request) and request.method == 'POST':
+        uid = request.POST["uid"]
+        user = CustomAccount.objects.get(pk=uid)
+        password1 = request.POST['new_pass1']
+        password2 = request.POST['new_pass2']
+        if password1 == password2:
+            user.set_password(password1)
+            user.save()
+            return JsonResponse({'message': 'Password changed successfully. You can now login', 'type': 'success'}, status=200)
+            # request.session['open_login'] = ["Password changed successfully. You can now login", "success", True]
+            # return redirect('home')
+        else:
+            return JsonResponse({'message': 'Your passwords don\'t match', 'type': 'error'}, status=200)
+    else:
+        if "confirmed" in request.session:
+            del request.session['confirmed']
+            uid = request.session["uid"]
+            return render(request, 'accounts/change_password.html', context={"user_id": uid})
+        else:
+            request.session['action_message'] = ["Invalid Request", "error"]
+            return redirect('home')
