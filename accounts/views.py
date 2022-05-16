@@ -315,7 +315,6 @@ def remove_from_cart(request):
                 del user_cart[product_id]
                 message = "Item Removed From Cart"
                 message_type = "success"
-                print(user_cart)
             else:
                 message = "You have not added this item to your cart"
                 message_type = "success"

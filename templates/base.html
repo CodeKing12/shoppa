@@ -242,7 +242,14 @@
                     success = processResponse(response)
                     if (success == true) {
                         $(`.item${product_id}`).remove()
-                        if ($(`.the-cart`).children().length < 2) {
+                        let children = $(".the-cart").children()
+                        console.log($(".the-cart").children().length)
+                        if ($(".empty-fixer").length) {
+                            lengthCheck = 3
+                        } else {
+                            lengthCheck = 2
+                        }
+                        if ($(".the-cart").children().length < lengthCheck) {
                             $(".save-cart").addClass("remove")
                             $(".the-cart").prepend("<p class='fs-15 font-weight-500 text-body mb-5 abscence-text'><span class='d-inline-block mr-2 fs-18 text-secondary'>You haven't added any item to your cart</p>")
                         }
