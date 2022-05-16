@@ -6,6 +6,8 @@ from django.conf import settings
 from colorfield.fields import ColorField
 from django.core.validators import RegexValidator
 
+# Remember to remove the blank=true from important model fields before you go live
+
 # Create your models here.
 class Cart(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -71,15 +73,25 @@ class CustomAccountManager(BaseUserManager):
             raise ValueError(('Vendor must have is_vendor=True.'))
 
         return self.create_user(first_name=first_name, last_name=last_name, email=email, password=password, phone_number=phone_number, **extra_fields)
+    
+phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+
+# class PhoneBook(models.Model):
+#     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+#     phone_numbers = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+
+# class AddressBook(models.Model):
+#     address = models.CharField(max_length=250)
 
 class CustomAccount(AbstractUser, PermissionsMixin):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=70, null=True, blank=True)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+    # phone_number = models.ForeignKey(PhoneBook, on_delete=models.CASCADE, blank=True)
     date_joined = models.DateTimeField(default=timezone.now)
+    address = models.CharField(max_length=250, blank=True)
 
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

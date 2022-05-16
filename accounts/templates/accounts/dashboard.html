@@ -32,7 +32,7 @@
     <a href="{% url 'dashboard' %}" class="cate-btn" title="Category List">
         <i class="fas fa-history"></i>
         <span>Order History</span>
-    </button>
+    </a>
     <a href="{% url 'wishlist' %}" class="cart-btn" title="Wishlist">
         <i class="fas fa-heart"></i>
         <span>Wishlist</span>
@@ -70,16 +70,16 @@
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group"><label class="form-label">Name</label>
-                                    <input class="form-control" type="text" value="Eyetu Kingsley" disabled>
+                                    <input class="form-control" type="text" value="{{user.get_full_name}}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group"><label class="form-label">Email</label>
-                                    <input class="form-control" type="email" value="eyetukingsley330@gmail.com" disabled>
+                                    <input class="form-control" type="email" value="{{user.email}}" disabled>
                                 </div>
                             </div>
                             <div class="col-lg-2 d-flex align-items-center">
-                                <div class="profile-btn w-100"><a href="change-password.html">change password</a></div>
+                                <div class="profile-btn w-100"><a href="{% url 'reset_password' %}">change password</a></div>
                             </div>
                         </div>
                     </div>
@@ -88,15 +88,15 @@
             <div class="col-lg-12">
                 <div class="account-card">
                     <div class="account-title">
-                        <h4>contact number</h4><button data-bs-toggle="modal" data-bs-target="#contact-add">add
-                            contact</button>
+                        <h4>Contact Details</h4>
+                        <button data-bs-toggle="modal" data-bs-target="#contact-add">add contact</button>
                     </div>
                     <div class="account-content">
                         <div class="row">
                             <div class="col-md-6 col-lg-4 alert fade show">
                                 <div class="profile-card contact active">
-                                    <h6>primary</h6>
-                                    <p>+8801838288389</p>
+                                    <h6>Phone</h6>
+                                    <p>{{user.phone_number}}</p>
                                     <ul>
                                         <li>
                                             <button class="d-flex align-items-center justify-content-center edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit">
@@ -116,6 +116,28 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4 alert fade show">
+                                <div class="profile-card address active">
+                                    <h6>Address</h6>
+                                    <p>{{user.address}}</p>
+                                    <ul>
+                                        <li>
+                                            <button class="d-flex align-items-center justify-content-center edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit">
+                                                <span class="material-symbols-outlined">
+                                                    edit_note
+                                                </span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="d-flex align-items-center justify-content-center trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert">
+                                                <span class="material-symbols-outlined">
+                                                    delete_forever
+                                                </span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% comment %} <div class="col-md-6 col-lg-4 alert fade show">
                                 <div class="profile-card contact">
                                     <h6>secondary</h6>
                                     <p>+8801941101915</p>
@@ -136,34 +158,12 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 alert fade show">
-                                <div class="profile-card contact">
-                                    <h6>secondary</h6>
-                                    <p>+8801747875727</p>
-                                    <ul>
-                                        <li>
-                                            <button class="d-flex align-items-center justify-content-center edit icofont-edit" title="Edit This" data-bs-toggle="modal" data-bs-target="#contact-edit">
-                                                <span class="material-symbols-outlined">
-                                                    edit_note
-                                                </span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button class="d-flex align-items-center justify-content-center trash icofont-ui-delete" title="Remove This" data-bs-dismiss="alert">
-                                                <span class="material-symbols-outlined">
-                                                    delete_forever
-                                                </span>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
+            {% comment %} <div class="col-lg-12">
                 <div class="account-card">
                     <div class="account-title">
                         <h4>delivery address</h4><button data-bs-toggle="modal" data-bs-target="#address-add">add
@@ -240,7 +240,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <div class="col-lg-12">
                 <div class="account-card mb-0">
                     <div class="account-title">

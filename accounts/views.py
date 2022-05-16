@@ -116,6 +116,9 @@ def resend_token(request):
                 email.send()
 
                 return JsonResponse({'message': 'An Activation Link Has Been Sent to Your E-mail', 'type': 'success'}, status=200)
+    else:
+        request.session['action_message'] = ["Invalid Request", "error"]
+        return redirect('home')
 
 def reset_password(request):
     if is_ajax(request) and request.method == 'POST':
@@ -140,6 +143,9 @@ def reset_password(request):
                 email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
                 return JsonResponse({'message': 'Your confirmation link has been sent', 'type': 'success'}, status=200)
+    else:
+        request.session['action_message'] = ["Invalid Request", "error"]
+        return redirect('home')
 
 def change_password(request, uidb64, token):
     try:
@@ -197,7 +203,8 @@ def login_view(request):
 
 def user_dashboard(request):
     if request.user.is_authenticated:
-        return render(request, "accounts/dashboard.html")
+        user_details = CustomAccount.objects.get(email=request.user.email)
+        return render(request, "accounts/dashboard.html", context={"user": user_details})
     elif not request.user.is_authenticated:
         request.session['open_login'] = ["You have to log in to view your dashboard", "warning", True]
         return redirect('home')
@@ -274,6 +281,9 @@ def add_to_cart(request):
                 message = "Item Added To Cart"
             request.session['user-cart'] = json.dumps(user_cart)
             return JsonResponse({"message": message, "type": "success"}, status=200)
+    else:
+        request.session['action_message'] = ["Invalid Request", "error"]
+        return redirect('home')
 
 def remove_from_cart(request):
     if is_ajax(request) and request.method == "POST":
@@ -311,13 +321,44 @@ def remove_from_cart(request):
                 message_type = "success"
             request.session['user-cart'] = json.dumps(user_cart)
             return JsonResponse({"message": message, "type": "success"}, status=200)
+    else:
+        request.session['action_message'] = ["Invalid Request", "error"]
+        return redirect('home')
 
 def add_to_wishlist(request):
-    pass
+    if is_ajax(request) and request.method == "POST":
+        product_id = request.POST["product_id"]
+        product = Product.objects.get(id=product_id)
+        if request.user.is_authenticated:
+            user_wishlist = Wishlist.objects.get_or_create(user=request.user)[0]
+            print(user_wishlist)
+            try:
+                the_p = user_wishlist.wish_products.get(id=product_id)
+            except MultipleObjectsReturned:
+                all_duplicated = user_wishlist.wish_products.filter(id=product_id)[1:]
+                for item in all_duplicated:
+                    user_wishlist.wish_products.remove(item)
+                message = "Multiple items found in your Wishlist. Deleting Now."
+                message_type = "info"
+            except ObjectDoesNotExist:
+                user_wishlist.wish_products.add(product)
+                user_wishlist.save()
+                message = "Item added to Wishlist"
+                message_type = "success"
+            else:
+                message = "This item already exists in your wishlist"
+                message_type = "info"
+        else:
+            message = "You have to create an account to add items to your wishlist"
+            message_type = "info"
+        return JsonResponse({"message": message, "type": message_type}, status=200)
+    else:
+        request.session['action_message'] = ["Invalid Request", "error"]
+        return redirect('home')
 
 def remove_from_wishlist(request):
     pass
-
+    
 def update_password(request):
     if is_ajax(request) and request.method == 'POST':
         uid = request.POST["uid"]

@@ -286,7 +286,7 @@
     border-color: var(--primary);
     color: var(--primary);
     background-color: #e8e8e8;
-    font-weight: bold;
+    /* font-weight: bold; */
     transition: all ease-out 0.1s;
 }
 
@@ -444,4 +444,9 @@ font-size:18px
     display:-ms-flexbox;
     display:flex
 } */
+}
+
+.inner-section.single-banner .container {
+    position: relative;
+    z-index: 10;
 }

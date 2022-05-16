@@ -14,7 +14,7 @@ class CustomAccountAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')})
     )
     fieldsets = (
-        ('Edit Info', {'fields': ('first_name', 'last_name', 'email', 'password', 'phone_number')}),
+        ('Edit Info', {'fields': ('first_name', 'last_name', 'email', 'password', 'phone_number', 'address')}),
         ('Permissions', {'fields': ('is_active',)})
     )
 
