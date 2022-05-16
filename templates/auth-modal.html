@@ -12,7 +12,7 @@
                             aria-controls="nav-register" aria-selected="false">Register</a>
                     </div>
                 </nav>
-                <button type="button" class="modal-close close opacity-10 fs-32 pt-1 position-absolute" data-dismiss="modal"
+                <button type="button" class="modal-close close opacity-10 fs-32 pt-1 position-absolute sign-in-modal-close" data-dismiss="modal"
                     aria-label="Close" style="right: 30px">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -33,13 +33,14 @@
                             {% comment %} <input name="password" type="password" class="form-control border-0"
                                 placeholder="Password" required> {% endcomment %}
                             <div class="d-flex align-items-center justify-content-between mt-5 mb-4">
-                                <div class="custom-control custom-checkbox">
+                                {% comment %} <div class="custom-control custom-checkbox">
                                     <input name="stay-signed-in" type="checkbox" class="custom-control-input"
                                         id="staySignedIn">
                                     <label class="custom-control-label text-body" for="staySignedIn">Stay signed
                                         in</label>
-                                </div>
-                                <a href="#" class="text-secondary">Forgot your password?</a>
+                                </div> {% endcomment %}
+                                <a onclick="showForm('activate-account')" class="text-secondary cursor-pointer">Activate Account Here</a>
+                                <a onclick="showForm('change-password')" class="text-secondary cursor-pointer">Forgot your password?</a>
                             </div>
                             <button type="submit" value="Login" class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Log In</button>
 
@@ -229,6 +230,174 @@
                             })
                         </script>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal sign-in activate-account" id="activate-account" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog d-flex" role="document">
+        <div class="modal-content my-auto">
+            <div class="modal-header border-0 p-6">
+                <button type="button" class="activation-modal-close close opacity-10 fs-32 pt-1 position-absolute" data-dismiss="modal"
+                    aria-label="Close" style="right: 30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-6 px-md-9 pb-8">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-log-in" role="tabpanel"
+                        aria-labelledby="nav-log-in-tab">
+                        <h4 class="fs-34 text-center mb-6">Activate Your Account</h4>
+                        <p class="text-secondary text-center">An activation link will be sent to your email</p>
+                        <p class="text-center fs-16 mb-7">Don’t have an account yet? <a href="#nav-register"
+                                class="text-secondary border-bottom text-decoration-none">Sign up</a> for free</p>
+                        <form name="activate-account" method="POST" id="activation-form">
+                            <input id="activation-email" name="activation-email" type="email" class="form-control border-0 mb-3" placeholder="Email" required>
+                            <button type="submit" value="Resend Activation Token" class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Resend Activation Link</button>
+                            <div class="border-bottom mt-6"></div>
+                        </form>
+                        <script>
+                            $("#activation-form").submit(function (e) {
+                                e.preventDefault();
+                                var serializedData = $(this).serialize();
+                                var email = $("#activation-email").val()
+                                $.ajax({
+                                    type: 'POST',
+                                    url: "{% url 'resend_token' %}",
+                                    headers: {'X-CSRFToken': csrftoken},
+                                    mode: 'same-origin',
+                                    data: {
+                                        "user_email": email
+                                    },
+                                    success: function (response) {
+                                        let message;
+                                        let alert_type;
+                                        if (typeof(response['responseJSON']) == 'undefined') {
+                                            message = response['message'];
+                                            alert_type = response['type'];
+                                        } else {
+                                            message = response['responseJSON']['message'];
+                                            alert_type = response['responseJSON']['type'];
+                                        };
+                                        if (typeof(message) == 'object') {
+                                            for (const error in message) {
+                                                error_message = message[error]
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: error_message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                        } else if (alert_type === 'success') {
+                                            $(".activation-modal-close").click();
+                                            $("#activation-form").trigger('reset');
+                                            $("#activation-email").focus();
+                                            notyf.open({
+                                                type: alert_type,
+                                                message: message,
+                                                duration: 7000,
+                                            });
+                                        } else {
+                                            notyf.open({
+                                                type: alert_type,
+                                                message: message,
+                                                duration: 7000,
+                                            });
+                                        }
+                                    },
+                                    error: function (response) {
+                                        processResponse(response)
+                                    }
+                                })
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal sign-in change-password" id="change-password" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog d-flex" role="document">
+        <div class="modal-content my-auto">
+            <div class="modal-header border-0 p-6">
+                <button type="button" class="change-password-modal-close close opacity-10 fs-32 pt-1 position-absolute" data-dismiss="modal"
+                    aria-label="Close" style="right: 30px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-6 px-md-9 pb-8">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-log-in" role="tabpanel"
+                        aria-labelledby="nav-log-in-tab">
+                        <h4 class="fs-34 text-center mb-6">Change Your Password</h4>
+                        <p class="text-secondary text-center">Request a verification link to be sent to your email</p>
+                        <p class="text-center fs-16 mb-7">Don’t have an account yet? <a href="#nav-register"
+                                class="text-secondary border-bottom text-decoration-none">Sign up</a> for free</p>
+                        <form name="change-password" method="POST" id="change-password-form">
+                            <input id="change-password-email" name="change-password-email" type="email" class="form-control border-0 mb-3" placeholder="Email" required>
+                            <button type="submit" value="Verify My Identity" class="btn btn-secondary btn-block bg-hover-primary border-hover-primary">Verify My Identity</button>
+                            <div class="border-bottom mt-6"></div>
+                        </form>
+                        <script>
+                            $("#change-password-form").submit(function (e) {
+                                e.preventDefault();
+                                var serializedData = $(this).serialize();
+                                var email = $("#change-password-email").val()
+                                $.ajax({
+                                    type: 'POST',
+                                    url: "{% url 'reset_password' %}",
+                                    headers: {'X-CSRFToken': csrftoken},
+                                    mode: 'same-origin',
+                                    data: {
+                                        "email_identity": email
+                                    },
+                                    success: function (response) {
+                                        let message;
+                                        let alert_type;
+                                        if (typeof(response['responseJSON']) == 'undefined') {
+                                            message = response['message'];
+                                            alert_type = response['type'];
+                                        } else {
+                                            message = response['responseJSON']['message'];
+                                            alert_type = response['responseJSON']['type'];
+                                        };
+                                        if (typeof(message) == 'object') {
+                                            for (const error in message) {
+                                                error_message = message[error]
+                                                notyf.open({
+                                                    type: alert_type,
+                                                    message: error_message,
+                                                    duration: 7000,
+                                                });
+                                            }
+                                        } else if (alert_type === 'success') {
+                                            $(".change-password-modal-close").click();
+                                            $("#change-password-form").trigger('reset');
+                                            $("#change-password-email").focus();
+                                            notyf.open({
+                                                type: alert_type,
+                                                message: message,
+                                                duration: 7000,
+                                            });
+                                        } else {
+                                            notyf.open({
+                                                type: alert_type,
+                                                message: message,
+                                                duration: 7000,
+                                            });
+                                        }
+                                    },
+                                    error: function (response) {
+                                        processResponse(response)
+                                    }
+                                })
+                            })
+                        </script>
                     </div>
                 </div>
             </div>

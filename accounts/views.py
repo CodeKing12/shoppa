@@ -78,7 +78,7 @@ def activate_account(request, uidb64, token):
         if request.user.is_authenticated:
             request.session["open_login"] = ["You cannot authenticate an account while logged in", "warning", True]
         elif user.is_active == True:
-            request.session["open_login"] = ["Your account has been activated already", "warning", True]
+            request.session["open_login"] = ["This account has been activated already", "warning", True]
         else:
             user.is_active = True
             user.save()
@@ -93,15 +93,15 @@ def activate_account(request, uidb64, token):
         return redirect('home')
 
 def resend_token(request):
-    if request.method == 'POST':
+    if is_ajax(request) and request.method == 'POST':
         email = request.POST['user_email']
         try:
             user = CustomAccount.objects.get(email=email)
         except CustomAccount.DoesNotExist:
-            return HttpResponse('That user does not exist')
+            return JsonResponse({'message': 'This user does not exist', 'type': 'error'}, status=200)
         else:
             if user.is_active == True:
-                return HttpResponse('This user has already been activated')
+                return JsonResponse({'message': 'This user has already been activated', 'type': 'warning'}, status=200)
             else:
                 current_site = get_current_site(request)
                 mail_subject = 'Activate your account'
@@ -114,19 +114,19 @@ def resend_token(request):
                 to_email = user.email
                 email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
-                return HttpResponse('Your confirmation link has been sent')
-    return render(request, 'accounts/resend_token.html')
+
+                return JsonResponse({'message': 'An Activation Link Has Been Sent to Your E-mail', 'type': 'success'}, status=200)
 
 def reset_password(request):
-    if request.method == 'POST':
+    if is_ajax(request) and request.method == 'POST':
         email = request.POST['email_identity']
         try:
             user = CustomAccount.objects.get(email=email)
         except CustomAccount.DoesNotExist:
-            return HttpResponse('That user does not exist')
+            return JsonResponse({'message': 'That user does not exist', 'type': 'error'}, status=200)
         else:
             if user.is_active == False:
-                return HttpResponse('This user has not been confirmed. Please request an activation token on the login page')
+                return JsonResponse({'message': 'This user has not been confirmed. Please request an activation token on the login page', 'type': 'warning'}, status=200)
             else:
                 current_site = get_current_site(request)
                 mail_subject = 'Activate your account'
@@ -139,8 +139,7 @@ def reset_password(request):
                 to_email = user.email
                 email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
-                return HttpResponse('Your confirmation link has been sent')
-    return render(request, 'accounts/reset_password.html')
+                return JsonResponse({'message': 'Your confirmation link has been sent', 'type': 'success'}, status=200)
 
 def change_password(request, uidb64, token):
     try:
@@ -150,22 +149,23 @@ def change_password(request, uidb64, token):
     except (TypeError, ValueError, OverflowError, CustomAccount.DoesNotExist):
         user = None
 
-    if request.method == 'POST':
-        password1 = request.POST['change_password1']
-        password2 = request.POST['change_password2']
-        if password1 == password2:
-            user.set_password(password1)
-            user.save()
-            return HttpResponse('Password changed successfully')
-        else:
-            return HttpResponse('Your passwords don\'t match')
-
     if user is not None and account_activation_token.check_token(user, token):
-        return render(request, 'accounts/change_password.html')
+        if is_ajax(request) and request.method == 'POST':
+            password1 = request.POST['new_pass1']
+            password2 = request.POST['new_pass2']
+            if password1 == password2:
+                user.set_password(password1)
+                user.save()
+                return JsonResponse({'message': 'Password changed successfully', 'type': 'success'}, status=200)
+            else:
+                return JsonResponse({'message': 'Your passwords don\'t match', 'type': 'error'}, status=200)
+        else:
+            return render(request, 'accounts/change_password.html', {"uid": uidb64, "token": token})
     else:
-        return HttpResponse("Activation Link is Invalid")
-            
-def wishlistview(request):
+        request.session['action_message'] = ["Confirmation Link is Invalid", "error"]
+        return redirect('home')
+
+def wishlist(request):
     if request.user.is_superuser:
         user_cart = 'Nothing'
         user_wishlist = 'Nothing'
@@ -319,3 +319,9 @@ def remove_from_cart(request):
                 message_type = "success"
             request.session['user-cart'] = json.dumps(user_cart)
             return JsonResponse({"message": message, "type": "success"}, status=200)
+
+def add_to_wishlist(request):
+    pass
+
+def remove_from_wishlist(request):
+    pass

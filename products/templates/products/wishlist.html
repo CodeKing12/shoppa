@@ -21,86 +21,38 @@
                 <form class="table-responsive-md pb-8 pb-lg-10">
                     <table class="table border-right border-left mb-0">
                         <tbody>
-                            <tr class="position-relative">
-                                <th scope="row" class="pl-xl-6 py-4 d-flex align-items-center">
-                                    <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
-                                    <div class="media align-items-center">
-                                        <div class="ml-3 mr-4">
-                                            <img src="{% static 'images/product-07.jpg' %}" alt="Natural Coconut Cleansing Oil"
-                                                class="mw-75px">
+                            {% for item in user_wishlist %}
+                                <tr class="position-relative">
+                                    <th scope="row" class="pl-xl-6 py-4 d-flex align-items-center">
+                                        <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
+                                        <div class="media align-items-center">
+                                            <div class="ml-3 mr-4">
+                                                <img src="{{domain}}{{item.image.url}}" alt="Natural Coconut Cleansing Oil"
+                                                    class="mw-75px">
+                                            </div>
+                                            <div class="media-body mw-210">
+                                                <p class="font-weight-500 text-secondary mb-2 lh-13">{{item.name}}</p>
+                                                <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
+                                                    <span
+                                                        class="fs-13 font-weight-500 text-decoration-through text-body pr-1">${{item.previous_price}}</span>
+                                                    <span>${{item.price}}</span>
+                                                </p>
+                                                <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
+                                            </div>
                                         </div>
-                                        <div class="media-body mw-210">
-                                            <p class="font-weight-500 text-secondary mb-2 lh-13">Natural Coconut
-                                                Cleansing Oil</p>
-                                            <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                                <span
-                                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                                <span>$29.00</span>
-                                            </p>
-                                            <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="align-middle text-right pr-6">
-                                    <span class="mr-4">In stock</span>
-                                    <a href="#"
-                                        class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add
-                                        To Cart</a>
-                                </td>
-                            </tr>
-                            <tr class="position-relative">
-                                <th scope="row" class="pl-xl-6 py-4 d-flex align-items-center">
-                                    <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
-                                    <div class="media align-items-center">
-                                        <div class="ml-3 mr-4">
-                                            <img src="{% static 'images/product-05.jpg' %}" alt="Cleansing Balm" class="mw-75px">
-                                        </div>
-                                        <div class="media-body mw-210">
-                                            <p class="font-weight-500 text-secondary mb-2 lh-13">Cleansing Balm</p>
-                                            <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                                <span
-                                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                                <span>$29.00</span>
-                                            </p>
-                                            <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="align-middle text-right pr-6">
-                                    <span class="mr-4">In stock</span>
-                                    <a href="#"
-                                        class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add To Cart</a>
-                                </td>
-                            </tr>
-                            <tr class="position-relative">
-                                <th scope="row" class="pl-xl-6 py-4 d-flex align-items-center">
-                                    <a href="#" class="d-block"><i class="fal fa-times text-body"></i></a>
-                                    <div class="media align-items-center">
-                                        <div class="ml-3 mr-4">
-                                            <img src="{% static 'images/product-10.jpg' %}" alt="Super Pure" class="mw-75px">
-                                        </div>
-                                        <div class="media-body mw-210">
-                                            <p class="font-weight-500 text-secondary mb-2 lh-13">Super Pure</p>
-                                            <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                                <span
-                                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                                <span>$29.00</span>
-                                            </p>
-                                            <p class="font-weight-500 mb-0">Added: August 14, 2021</p>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="align-middle text-right pr-6">
-                                    <span class="mr-4">In stock</span>
-                                    <a href="#"
-                                        class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add
-                                        To Cart</a>
-                                </td>
-                            </tr>
+                                    </th>
+                                    <td class="align-middle text-right pr-6">
+                                        <span class="mr-4">{% if item.in_stocl %}In stock{% else %} Out Of Stock {% endif %}</span>
+                                        <a href="#"
+                                            class="btn btn-outline-secondary border-2x border border-hover-secondary py-1 w-150px px-0 my-3">Add
+                                            To Cart</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                             <tr>
                                 <td class="pl-0 position-relative bg-white" style="left: -1px">
                                     <button type="submit" value="Countinue Shopping" class="btn btn-outline-secondary border-2x border mr-5 border-hover-secondary my-3">
-                                        <a class="btn-a text-white" href="{% url 'shop' %}">
+                                        <a class="btn-a text-white" href="{% url 'all_products' %}">
                                             Countinue Shopping
                                         </a>
                                     </button>

@@ -23478,3 +23478,9 @@ body {
 .remove {
     visibility: hidden !important;
 }
+
+.change-pass-outer {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 0 28px;
+}

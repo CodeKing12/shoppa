@@ -105,3 +105,10 @@ function processResponse(response) {
     }
     return true;
 }
+
+function showForm(modalName) {
+    $(".sign-in-modal-close").click();
+    $(`#${modalName}`).modal();
+}
+
+// http://127.0.0.1:1112/account/change-password/MTA/b5hzij-5bb9294c89210100fe114fe18e3186b5
