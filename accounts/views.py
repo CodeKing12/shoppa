@@ -298,13 +298,12 @@ def remove_from_cart(request):
                     user_cart.cart_products.remove(item)
                 message = "Multiple items found in your cart. Deleting All Now."
                 message_type = "info"
-                messages.success("All Items Deleted")
+                messages.success(message="All Items Deleted")
             except ObjectDoesNotExist:
                 message = "You have not added this item to your cart"
                 message_type = "error"
             else:
-                complete_cart = CartDetails.objects.get(cart=user_cart, product=product)
-                user_cart.cart_products.remove(complete_cart)
+                user_cart.cart_products.remove(product)
                 message = "Item Removed From Cart"
                 message_type = "success"
             return JsonResponse({"message": message, "type": message_type}, status=200)
