@@ -385,3 +385,4 @@ def update_password(request):
         else:
             request.session['action_message'] = ["Invalid Request", "error"]
             return redirect('home')
+

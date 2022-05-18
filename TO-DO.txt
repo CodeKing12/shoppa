@@ -1,0 +1,32 @@
+TO DO FOR WEB-APP
+
+1. Make the wishlist show that it is empty when it's empty, even if the user just migrated/removed a product
+2. Make the get_cart function into a decorator that you can pass into all your views
+3. Implement the 'remove from wishlist' functionality
+4. Make the 'migrate from cart' functionality not to add quantity to the cart item (default action) if the item already exists in the cart. (You can do this by setting quantity=0 if item-class exists in the DOM or cart parent element.)
+Let the software be for only technology products
+
+Let the categories be for:
+Phones
+Laptops
+Refurbished Goods
+Tech Accessories
+Office Appliances
+Games
+
+Let there be specific information for each product when their category is selected e.g. ram, phone brand, model, rom, battery life, etc with help text
+
+This info will be displayed when a user is about to purchase
+
+Your reference should be ebay/bestbuy/walmart (I don't know which)
+
+Let games only be purchased in two formats: CD or/and flash drive
+Let there be advantages for CD and for flash drive
+
+Change the fonts used for the website
+
+Add a section for popular brands in the homepage
+
+Let each form for a product include an option for the company that made it so that you can fiter
+
+Let users be able to add custom fields for each product

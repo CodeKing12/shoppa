@@ -1,0 +1,5 @@
+TO DO FOR WEB-APP
+
+1. Make the wishlist show that it is empty when it's empty, even if the user just migrated/removed a product
+2. Make the get_cart function into a decorator that you can pass into all your views
+3. Implement the 'remove from wishlist' functionality
