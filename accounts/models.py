@@ -67,14 +67,6 @@ class CustomAccountManager(BaseUserManager):
             raise ValueError(('Superuser must have is_vendor=True.'))
 
         return self.create_user(first_name=first_name, last_name=last_name, email=email, password=password, phone_number=phone_number, **extra_fields)
-
-    def create_vendor(self, email, first_name, last_name, password, phone_number, **extra_fields):
-        extra_fields.setdefault('is_vendor', True)
-
-        if extra_fields.get('is_vendor') is not True:
-            raise ValueError(('Vendor must have is_vendor=True.'))
-
-        return self.create_user(first_name=first_name, last_name=last_name, email=email, password=password, phone_number=phone_number, **extra_fields)
     
 phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
 
@@ -98,7 +90,6 @@ class CustomAccount(AbstractUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    is_vendor = models.BooleanField(default=False)
 
     def get_full_name(self):
         return "%s %s"%(self.first_name, self.last_name)

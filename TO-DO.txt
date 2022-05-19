@@ -30,3 +30,19 @@ Add a section for popular brands in the homepage
 Let each form for a product include an option for the company that made it so that you can fiter
 
 Let users be able to add custom fields for each product
+
+Model Fields for the phone should be:
+Ram, Storage, Manufacturer, Model, Weight, Screen Size (let there be a selector for measurement type), OS, CPU, GPU, Sim Slot, Selfie Camera, Main Camera, Battery, Color(s), BlueTooth, Wifi, GPS, Torch, Dust Resistance, Water Resistance, Heat Resistance, Build, Fingerprint, Face Unlock, Accelerometer, Gyro, Compass, Network (4G,5G,3G), SD Card Support
+
+
+Model Fields for the Laptop should be:
+Memory (Ram), Storage, Graphics Card, Screen Size, Manufacturer, CPU, Display Size, Hard Disk (SSD or HDD), Weight, Battery Life, motherboard, OS, Processor (Intel Core i?), 64/32 bit
+
+Game Spec requirements
+
+
+Show at least 4 details for each product on their card e.g. ram, storage, graphics card, camera quality
+
+Let there be a laptops that can run it in the page for a game and a 'games that it can run' section for a laptop description
+
+Let there be a phones/laptops from this manufacturer section in the page for the product from a manufacture

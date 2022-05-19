@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import display
-from .models import Category, Product, MoreProductImages, ProductReviews
+from .models import MoreProductImages, ProductReviews
 
 # Register your models here.   
 
-# class ProductReviewsAdmin(admin.ModelAdmin):
-#     pass
-# class ProductReviewsAdmin(admin.StackedInline):
-#     model = ProductReviews
+class ProductReviewsAdmin(admin.ModelAdmin):
+    pass
+class ProductReviewsAdmin(admin.StackedInline):
+    model = ProductReviews
 
 class MoreProductImagesAdmin(admin.ModelAdmin):
     pass
@@ -27,19 +27,7 @@ class MoreProductImagesAdmin(admin.StackedInline):
 #     extra = 1
 #     verbose_name_plural = 'Available Colors'
 
-class CategoryAdmin(admin.ModelAdmin):
-    def __str__(self):
-        return 'Categories'
 
-class ProductAdmin(admin.ModelAdmin):
-    filter_horizontal = ('category',)
-    fields = ['name', 'price', 'image', 'in_stock', 'category', 'description', 'previous_price']
-    inlines = [MoreProductImagesAdmin]
-    list_display = ('name', 'price', 'in_stock')
-
-
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Product, ProductAdmin)
 admin.register(MoreProductImages, MoreProductImagesAdmin)
 # admin.register(AvailableColors, AvailableColorsAdmin)
-# admin.register(ProductReviews, ProductReviewsAdmin)
+admin.register(ProductReviews, ProductReviewsAdmin)
