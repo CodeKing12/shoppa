@@ -6,6 +6,7 @@ TO DO FOR WEB-APP
 4. Make the 'migrate from cart' functionality not to add quantity to the cart item (default action) if the item already exists in the cart. (You can do this by setting quantity=0 if item-class exists in the DOM or cart parent element.)
 Let the software be for only technology products
 
+DONE
 Let the categories be for:
 Phones
 Laptops
@@ -14,9 +15,8 @@ Tech Accessories
 Office Appliances
 Games
 
+DONE
 Let there be specific information for each product when their category is selected e.g. ram, phone brand, model, rom, battery life, etc with help text
-
-This info will be displayed when a user is about to purchase
 
 Your reference should be ebay/bestbuy/walmart (I don't know which)
 

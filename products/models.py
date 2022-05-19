@@ -289,7 +289,29 @@ class PC(models.Model):
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")
     min_ram = models.IntegerField()
-    max_ram = models.IntegerField()
+    recom_ram = models.IntegerField()
+    min_processor = models.CharField(max_length=100)
+    recom_processor = models.CharField(max_length=100)
+    processor_type = models.CharField(max_length=20, choices=[
+        ('64-Bit', '64-Bit'),
+        ('32-Bit', '32-Bit')
+    ])
+    min_storage = models.IntegerField()
+    recom_storage = models.IntegerField()
+    GAME_OS_CHOICES = [
+        ('Linux', 'Linux'),
+        ('macOS', 'macOS'),
+        ('Windows 10', 'Windows 10'),
+        ('Windows 7', 'Windows 7'),
+        ('Windows 8', 'Windows 8'),
+        ('Windows Vista', 'Windows Vista'),
+    ]
+    os_type = models.CharField(max_length=50, choices=GAME_OS_CHOICES)
+    min_dx_version = models.IntegerField()
+    recom_dx_version = models.IntegerField()
+    size = models.IntegerField()
+
+    # Look for how to do a multiselect field for model choices like the processor type, os_type
 
 class MoreProductImages(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
