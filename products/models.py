@@ -178,6 +178,28 @@ GAME_OS_CHOICES = [
     ('Windows Vista', 'Windows Vista'),
 ]
 
+SIM_SLOT_CHOICES =  [
+    ('Single Sim', 'Single Sim'),
+    ('Dual Sim', 'Dual Sim')
+]
+
+NETWORK_CHOICES = [
+    ('2G', '2G'),
+    ('3G', '3G'),
+    ('4G', '4G'),
+    ('5G', '5G')
+]
+
+HARD_DISK_CHOICES = [
+    ('SSD', 'SSD'),
+    ('HDD', 'HDD')
+]
+
+PROCESSOR_TYPE_CHOICES = [
+    ('64-Bit', '64-Bit'),
+    ('32-Bit', '32-Bit')
+]
+
 class Product(models.Model):
     name = models.CharField(max_length=250, help_text="Name of Product")
     image = models.ImageField(blank=True)
@@ -187,7 +209,7 @@ class Product(models.Model):
     percent_off = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     PHONE = 'PHONE'
-    LAPTOP = 'LAPTOP'
+    PC = 'PC'
     REFURBISHED = 'REFURBISHED'
     ACCESSORIES = 'ACCESSORY'
     APPLIANCES = 'APPLIANCE'
@@ -195,7 +217,7 @@ class Product(models.Model):
 
     PRODUCT_CHOICES = [
         (PHONE, 'PHONE'),
-        (LAPTOP, 'LAPTOP'),
+        (PC, 'LAPTOP'),
         (REFURBISHED, 'REFURBISHED PRODUCT'),
         (ACCESSORIES, 'TECH ACCESSORY'),
         (APPLIANCES, 'OFFICE APPLIANCE'),
@@ -217,17 +239,14 @@ class Phone(models.Model):
     storage = models.IntegerField()
     manufacturer = models.CharField(max_length=60, choices=PHONE_MANUFACTURER_CHOICES, default='SAMSUNG')
     model = models.CharField(max_length=100)
-    weight = models.CharField(max_length=40) # Measured in grams
+    weight = models.FloatField(max_length=40) # Measured in grams
     screen_size = models.FloatField() # Measured  in inches
     resolution = models.CharField(max_length=40) # Measured in pixels
     os_type = models.CharField(max_length=50, choices=PHONE_OS_CHOICES)
     os_version = models.FloatField()
     cpu = models.CharField(max_length=100)
     gpu = models.CharField(max_length=100)
-    sim_slots = models.CharField(max_length=50, choices = [
-        ('Single Sim', 'Single Sim'),
-        ('Dual Sim', 'Dual Sim')
-    ])
+    sim_slots = models.CharField(max_length=50, choices=SIM_SLOT_CHOICES)
     front_camera = models.IntegerField() # Measured in MP
     back_camera = models.IntegerField() # Measured in MP
     battery = models.IntegerField() # Measured in mAh
@@ -240,12 +259,7 @@ class Phone(models.Model):
     accelerometer = models.BooleanField()
     gyro = models.BooleanField()
     compass = models.BooleanField()
-    network = models.CharField(max_length=10, choices = [
-        ('2G', '2G'),
-        ('3G', '3G'),
-        ('4G', '4G'),
-        ('5G', '5G'),
-    ])
+    network = models.CharField(max_length=10, choices=NETWORK_CHOICES)
     sd_card = models.BooleanField()
     water_proof = models.BooleanField()
     water_resistant = models.BooleanField()
@@ -262,10 +276,7 @@ class PC(models.Model):
     manufacturer = models.CharField(max_length=60, choices=PC_MANUFACTURER_CHOICES, default='SAMSUNG')
     model = models.CharField(max_length=100)
     graphics_card = models.CharField(max_length=150)
-    hard_disk = models.CharField(max_length=25, choices=[
-        ('SSD', 'SSD'),
-        ('HDD', 'HDD')
-    ])
+    hard_disk = models.CharField(max_length=25, choices=HARD_DISK_CHOICES)
     weight = models.CharField(max_length=40) # Measured in grams
     screen_size = models.FloatField() # Measured  in inches
     resolution = models.CharField(max_length=40) # Measured in pixels
@@ -281,16 +292,8 @@ class PC(models.Model):
     fingerprint = models.BooleanField()
     face_unlock = models.BooleanField()
     processor = models.CharField(max_length=100)
-    processor_type = models.CharField(max_length=20, choices=[
-        ('64-Bit', '64-Bit'),
-        ('32-Bit', '32-Bit')
-    ])
-    network = models.CharField(max_length=10, choices = [
-        ('2G', '2G'),
-        ('3G', '3G'),
-        ('4G', '4G'),
-        ('5G', '5G'),
-    ])
+    processor_type = models.CharField(max_length=20, choices=PROCESSOR_TYPE_CHOICES)
+    network = models.CharField(max_length=10, choices=NETWORK_CHOICES)
     sd_card_slot = models.BooleanField()
     water_proof = models.BooleanField()
     water_resistant = models.BooleanField()
@@ -302,19 +305,19 @@ class PC(models.Model):
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")
     min_ram = models.IntegerField()
+    developers = models.CharField(max_length=120)
     recom_ram = models.IntegerField()
     min_processor = models.CharField(max_length=100)
     recom_processor = models.CharField(max_length=100)
-    processor_type = models.CharField(max_length=20, choices=[
-        ('64-Bit', '64-Bit'),
-        ('32-Bit', '32-Bit')
-    ])
+    processor_type = models.CharField(max_length=20, choices=PROCESSOR_TYPE_CHOICES)
     min_storage = models.IntegerField()
     recom_storage = models.IntegerField()
     os_type = models.CharField(max_length=50, choices=GAME_OS_CHOICES)
     min_dx_version = models.IntegerField()
     recom_dx_version = models.IntegerField()
     size = models.IntegerField()
+    min_graphics_card = models.CharField(max_length=120)
+    recom_graphics_card = models.CharField(max_length=120)
 
     # Look for how to do a multiselect field for model choices like the processor type, os_type
 

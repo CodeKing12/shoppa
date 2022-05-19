@@ -1,0 +1,13 @@
+{
+    "Phone": [
+        {
+            "name": "",
+            "image": "",
+            "description": "",
+            "price": 1,
+            "previous_price": 1,
+            "in_stock": "",
+            "product_type": "PHONE"
+        }
+    ]
+}

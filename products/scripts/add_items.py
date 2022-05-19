@@ -1,5 +1,4 @@
 import random
-from products.models import PHONE_MANUFACTURER_CHOICES, PHONE_OS_CHOICES, PC_OS_CHOICES, PC_MANUFACTURER_CHOICES, GAME_OS_CHOICES
 
 def generate_price(device):
     if device == "phone":
@@ -27,30 +26,14 @@ def generate_price(device):
 
     return price, previous_price
 
-def is_in_stock():
+def get_bool():
     return random.choice([True, False])
 
-def generate_description():
-    length = random.randrange(300, 1000)
+def generate_text(start=300, stop=1000, step=50):
+    length = random.randrange(start, stop, step)
 
-def get_manufacturer(device):
-    if device == "phone":
-        choice_list = PHONE_MANUFACTURER_CHOICES
-    elif device == 'pc':
-        choice_list = PC_MANUFACTURER_CHOICES
-    else:
-        choice_list = ["No Manufacturer"]
+def get_choice(choice_list):
     choice_tuple = random.choice(choice_list)
     return choice_tuple[0]
 
-def get_os(device):
-    if device == "phone":
-        choice_list = PHONE_OS_CHOICES
-    elif device == 'pc':
-        choice_list = PC_OS_CHOICES
-    elif device == 'game':
-        choice_list = GAME_OS_CHOICES
-    else:
-        choice_list = ["No Operating System Installed"]
-    choice_tuple = random.choice(choice_list)
-    return choice_tuple[0]
+# Let all other values like weight, faceunlock, accelerometer, be generated on the spot so they can be different
