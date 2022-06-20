@@ -50,7 +50,7 @@ def home(request):
         open_login = ["", "", False]
     # messages.success(request, f"Form submitted successfully. Your email is {data}")
 
-    discounted_list = Product.objects.all()
+    discounted_list = Product.objects.all().order_by('-id')
     current_site = request.build_absolute_uri()
     current_site = str(current_site.strip("/"))
     sub_total = 0

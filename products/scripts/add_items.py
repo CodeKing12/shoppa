@@ -1,4 +1,5 @@
 import random
+from lorem_text import lorem
 
 def generate_price(device):
     if device == "phone":
@@ -29,8 +30,22 @@ def generate_price(device):
 def get_bool():
     return random.choice([True, False])
 
-def generate_text(start=300, stop=1000, step=50):
-    length = random.randrange(start, stop, step)
+def generate_text(length, type):
+    if isinstance(length, list):
+        the_length = random.randrange(length[0], length[1])
+    else:
+        the_length = length
+
+    if type == 'words':
+        text = lorem.words(the_length)
+    elif type == 'sentences':
+        text = lorem.sentence(the_length)
+    elif type == 'paragraphs':
+        text = lorem.paragraphs(the_length)
+    else:
+        text = 'Invalid Input for Type'
+    
+    return text
 
 def get_choice(choice_list):
     choice_tuple = random.choice(choice_list)

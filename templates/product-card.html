@@ -1,0 +1,49 @@
+{% load static %}
+<div class="box product">
+    <div class="card border-0 product" data-animate="fadeInUp">
+        <div class="position-relative product-wrapper">
+            {% if product.image %}<img class="pro{{product.id}}-image product-img" src="{{domain}}{{product.image.url}}" alt="{{ product.name }}">{% endif %}
+            <div class="card-img-overlay d-flex p-3">
+                {% if product.percent_off > 5 %}
+                <div>
+                    <span class="pro{{product.id}}-percent badge badge-primary">-{{ product.percent_off }}%</span>
+                </div>
+                {% endif %}
+                <div class="my-auto w-100 content-change-vertical">
+                    <a onclick="addToCart({{product.id}}, 1, '#000000')" data-toggle="tooltip" data-placement="left" title="Add to Cart"
+                        class="add-to-cart cursor-pointer ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                        <img class="product-icon" src="{% static 'icons/add_to_cart.svg' %}">
+                    </a>
+                    <a {% if not request.user.is_authenticated %} onclick="showNotice()" {% else %} onclick="addToWishlist({{product.id}})" {% endif %} data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                        class="add-to-wishlist cursor-pointer {% if request.user.is_authenticated %} hover-white bg-hover-secondary {% else %} disabled {% endif %} ml-auto d-flex align-items-center justify-content-center text-secondary bg-white w-48px h-48px rounded-circle mb-2">
+                        <span class="material-symbols-outlined icon icon-star-light fs-24">
+                            star
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body pt-4 text-center px-0">
+            <h2 class="card-title fs-15 font-weight-500 mb-2"><a class="pro{{product.id}}-name" href="product-detail-01.html">{{ product.name }}</a></h2>
+            <p class="card-text font-weight-bold mb-1 text-secondary">
+                {% if product.previous_price > 0 %}<span class="fs-13 font-weight-500 text-decoration-through text-body pr-1 pro{{product.id}}-prevPrice">₦{{ product.previous_price }}</span>{% endif %}
+                <span class="pro{{product.id}}-price">₦{{ product.price }}</span>
+            </p>
+            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                <ul class="list-inline mb-0 lh-1">
+                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                    </li>
+                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                    </li>
+                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                    </li>
+                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                    </li>
+                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                    </li>
+                </ul>
+                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+            </div>
+        </div>
+    </div>
+</div>

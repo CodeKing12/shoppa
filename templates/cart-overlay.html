@@ -23,7 +23,7 @@
                         <a onclick="removeFromCart({{item.product.id}})" class="cursor-pointer d-flex align-items-center mr-2 text-muted"><i class="fal fa-times"></i></a>
                         <div class="media w-100">
                             <div class="w-60px mr-3">
-                                <img src="{{ domain }}{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% if product.image %}<img src="{{ domain }}{{ item.product.image.url }}" alt="{{ item.product.name }}">{% endif %}
                             </div>
                             <div class="media-body d-flex">
                                 <div class="cart-price pr-6">
@@ -62,7 +62,7 @@
                         <a onclick="removeFromCart({{item.0.id}})" class="cursor-pointer d-flex align-items-center mr-2 text-muted"><i class="fal fa-times"></i></a>
                         <div class="media w-100">
                             <div class="w-60px mr-3">
-                                <img src="{{ domain }}{{ item.0.image.url }}" alt="{{ item.0.name }}">
+                                {% if product.image %}<img src="{{ domain }}{{ item.0.image.url }}" alt="{{ item.0.name }}">{% endif %}
                             </div>
                             <div class="media-body d-flex">
                                 <div class="cart-price pr-6">

@@ -202,7 +202,7 @@ PROCESSOR_TYPE_CHOICES = [
 
 class Product(models.Model):
     name = models.CharField(max_length=250, help_text="Name of Product")
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to="products_images/", blank=True)
     description = RichTextUploadingField()
     price = models.PositiveIntegerField()
     previous_price = models.PositiveIntegerField(blank=True, default=0)
@@ -224,13 +224,53 @@ class Product(models.Model):
         (GAMES, 'VIDEO GAME'),
     ]
     product_type = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
+    
     # Add the stars and reviews
-
+    is_cleaned = False
+    
     def __str__(self):
         return self.name
 
+    def clean(self):
+        self.is_cleaned = True
+
+        if self.previous_price > 0 and self.previous_price < self.price:
+            self.percent_off = int((self.price / self.previous_price) * 100)
+        else:
+            self.percent_off = 0
+        
+        folder = ""
+        image_url = ""
+        if self.product_type == 'PHONE': 
+            folder = "phone_products"
+        elif self.product_type == 'LAPTOP':
+            print('\nWorking\n')
+            folder = "laptop_products"
+        elif self.product_type == 'REFURBISHED PRODUCT':
+            folder = "refurbished_products"
+        elif self.product_type == 'TECH ACCESSORY':
+            folder = "accessory_products"
+        elif self.product_type == 'OFFICE APPLIANCE':
+            folder = "appliance_products"
+        elif self.product_type == 'VIDEO GAME':
+            folder = "game_products"
+        else:
+            raise ValueError
+
+        if folder not in image_url:
+            image_url = self.image.url
+            if 'products_images' not in image_url:
+                folder = 'products_images/' + folder
+            folders_list = image_url.split('/')
+            media_index = folders_list.index('media')
+            folders_list[media_index] =  folder
+            self.image = '/'.join(folders_list)
+
+        super(Product, self).clean()
+
     def save(self, *args, **kwargs):
-        self.percent_off = int((self.price / self.previous_price) * 100)
+        if not self.is_cleaned:
+            self.clean()
         super(Product, self).save(*args, **kwargs)
 
 class Phone(models.Model):
@@ -239,7 +279,7 @@ class Phone(models.Model):
     storage = models.IntegerField()
     manufacturer = models.CharField(max_length=60, choices=PHONE_MANUFACTURER_CHOICES, default='SAMSUNG')
     model = models.CharField(max_length=100)
-    weight = models.FloatField(max_length=40) # Measured in grams
+    weight = models.FloatField() # Measured in grams
     screen_size = models.FloatField() # Measured  in inches
     resolution = models.CharField(max_length=40) # Measured in pixels
     os_type = models.CharField(max_length=50, choices=PHONE_OS_CHOICES)
@@ -305,7 +345,7 @@ class PC(models.Model):
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")
     min_ram = models.IntegerField()
-    developers = models.CharField(max_length=120)
+    developers = models.CharField(max_length=80)
     recom_ram = models.IntegerField()
     min_processor = models.CharField(max_length=100)
     recom_processor = models.CharField(max_length=100)
@@ -316,8 +356,8 @@ class Game(models.Model):
     min_dx_version = models.IntegerField()
     recom_dx_version = models.IntegerField()
     size = models.IntegerField()
-    min_graphics_card = models.CharField(max_length=120)
-    recom_graphics_card = models.CharField(max_length=120)
+    min_graphics_card = models.CharField(max_length=130)
+    recom_graphics_card = models.CharField(max_length=130)
 
     # Look for how to do a multiselect field for model choices like the processor type, os_type
 

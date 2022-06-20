@@ -16249,7 +16249,8 @@ a.text-white:focus {
 }
 
 .text-body {
-    color: #7e7e7e !important
+    color: #7e7e7e !important;
+    /* color: #ffffff; */
 }
 
 .text-muted {
@@ -23520,8 +23521,17 @@ body {
     background: var(--primary);
 }
 
-.box:hover {
-    -webkit-box-shadow: 0 10px 30px rgba(0,0,0,.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+/* .box:hover {
+    /* -webkit-box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,.1); 
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 20px 0px;
     transition: all 0.6s ease;
+} */
+
+footer > * {
+    color: white !important;
+}
+
+.product-img {
+    object-fit: contain;
 }

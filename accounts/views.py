@@ -169,6 +169,8 @@ def change_password(request, uidb64, token):
 def wishlist(request):
     if request.user.is_superuser:
         user_wishlist = 'Nothing'
+        cart_details = 'Nothing'
+        sub_total = 0
         all_products = []
     elif not request.user.is_authenticated:
         request.session['open_login'] = ["You have to log in to view your wishlist", "warning", True]
@@ -386,3 +388,5 @@ def update_password(request):
             request.session['action_message'] = ["Invalid Request", "error"]
             return redirect('home')
 
+def checkout(request):
+    pass
