@@ -1,0 +1,114 @@
+.user-img {
+    margin-left: 25px;
+    width: 30px;
+}
+
+@media (max-width: 766px) {
+    .user-img {
+        width: 30px;
+    }
+
+    .wish-img {
+        width: 32px;
+    }
+}
+
+.wish-img {
+    margin-left: 25px;
+    width: 32px;
+}
+
+.search-img {
+    margin: 0 6px 0 10px;
+}
+
+@media (max-width: 576px) {
+    .user-img, .wish-img {
+        display: none;
+    }
+}
+
+.home-slider-6 {
+    margin-top: 7px
+}
+
+.product-slider-section {
+    padding: 100px 0 !important;
+    background-color: #eee;
+}
+
+.product-slider-section .product-card {
+    border: 2px solid #d43b3b;
+    background-color: #fff;
+    padding: 14px 12px;
+    padding-bottom: 18px;
+}
+
+.product-img {
+    height: 175px;
+    width: 175px;
+    width: auto;
+    object-fit: contain;
+}
+
+p-0 {
+    padding: 0 !important;
+}
+
+/* Imported */
+/* footer style-2 products css */
+.footer-style-2-pro{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -30px;
+}
+.footer-style-2-pro .header-style-pro{
+    width: calc(50% - 30px);
+    margin-left: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-style-2-pro .header-style-pro:nth-child(1),
+.footer-style-2-pro .header-style-pro:nth-child(2){
+    margin-top: 0px;
+}
+.footer-style-2-pro .header-style-pro .tred-pro{
+    width: 35%;
+}
+.footer-style-2-pro .header-style-pro .caption{
+    width: calc(65% - 20px);
+    margin-left: 20px;
+    padding-top: 0px;
+}
+.footer-style-2-pro .header-style-pro .caption h3 a{
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.footer-style-2-pro .pro-icn{
+    position: unset;
+    margin-top: 12px;
+}
+.footer-style-2-pro .pro-icn a.w-c-q-icn i{
+    background-color: #fff;
+    color: #333;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.footer-style-2-pro .pro-icn a.w-c-q-icn:hover i {
+    background-color: #5fa800;
+    color: #fff;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}

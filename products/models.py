@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.validators import MaxValueValidator
 from vendors import models as acc_models
+from django.utils.text import slugify
 
 PHONE_MANUFACTURER_CHOICES = [
     ('SAMSUNG', 'SAMSUNG'),
@@ -208,6 +209,7 @@ class Product(models.Model):
     previous_price = models.PositiveIntegerField(blank=True, default=0)
     percent_off = models.IntegerField()
     in_stock = models.BooleanField(default=True)
+    slug = models.SlugField(auto_created=True, blank=True, max_length=300)
     PHONE = 'PHONE'
     PC = 'PC'
     REFURBISHED = 'REFURBISHED'
@@ -223,7 +225,7 @@ class Product(models.Model):
         (APPLIANCES, 'OFFICE APPLIANCE'),
         (GAMES, 'VIDEO GAME'),
     ]
-    product_type = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
+    category = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
     
     # Add the stars and reviews
     is_cleaned = False
@@ -241,18 +243,17 @@ class Product(models.Model):
         
         folder = ""
         image_url = ""
-        if self.product_type == 'PHONE': 
+        if self.category == 'PHONE': 
             folder = "phone_products"
-        elif self.product_type == 'LAPTOP':
-            print('\nWorking\n')
+        elif self.category == 'LAPTOP':
             folder = "laptop_products"
-        elif self.product_type == 'REFURBISHED PRODUCT':
+        elif self.category == 'REFURBISHED PRODUCT':
             folder = "refurbished_products"
-        elif self.product_type == 'TECH ACCESSORY':
+        elif self.category == 'TECH ACCESSORY':
             folder = "accessory_products"
-        elif self.product_type == 'OFFICE APPLIANCE':
+        elif self.category == 'OFFICE APPLIANCE':
             folder = "appliance_products"
-        elif self.product_type == 'VIDEO GAME':
+        elif self.category == 'VIDEO GAME':
             folder = "game_products"
         else:
             raise ValueError
@@ -265,6 +266,9 @@ class Product(models.Model):
             media_index = folders_list.index('media')
             folders_list[media_index] =  folder
             self.image = '/'.join(folders_list)
+
+        self.slug = slugify(self.name)
+        # self.category_slug = slugify(self.)
 
         super(Product, self).clean()
 

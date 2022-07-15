@@ -68,6 +68,6 @@ def home(request):
             cart_product = Product.objects.get(id=product_id)
             cart_details.append([cart_product, details[0], details[1]])
             
-    return render(request, 'index.html', {'login_form': login, "register_form": register, "open_login": open_login, "discounted": discounted_list, "domain": current_site, "cart_details": cart_details, "cart_total": sub_total})
+    return render(request, 'index.html', {'login_form': login, "register_form": register, "open_login": open_login, "discounted_products": discounted_list, "domain": current_site, "cart_details": cart_details, "cart_total": sub_total})
 
 # When the user is authenticated, the authenticated info will be sent the page in json and the success function will add them to their respective divs e.g. cart items will be sent and the JS will add them to the cart

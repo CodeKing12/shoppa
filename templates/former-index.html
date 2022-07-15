@@ -1,0 +1,1434 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load product_card %}
+
+    {% block content %}
+        <section class="hero-slides mx-0 slick-slider dots-inner-center slider"
+        data-slick-options='{"slidesToShow": 1,"infinite":true,"autoplay":true,"dots":true,"arrows":false,"fade":true,"cssEase":"ease-in-out","speed":600}'>
+        <div class="box px-0">
+            <div class="container-xl">
+                <div class="row hero-bg bg-img-cover-center"
+                    style="background-image: url('{% static 'images/illustrations/sepia-plasterboard-texture.jpg' %}');">
+                    <div class="col-6">
+                        <div class="pt-4 mb-6" data-animate="fadeInDown">
+                            <h1 class="mb-3 fs-46 fs-md-56 lh-128">Affordable and Quality Products</h1>
+                            <p class="fs-18 lh-166" style="max-width: 454px">Imported from 30 different countries at the best prices and quality for you.
+                            </p>
+                        </div>
+                        <div class="mb-1" data-animate="fadeInUp">
+                            <p class="fs-20 font-weight-600 text-secondary mb-4">Starting at $77.99 </p>
+                            <a href="shop-page-04.html" class="btn btn-secondary rounded bg-hover-primary border-0">Shop
+                                Now</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'images/illustrations/Cell phone-bro (1).svg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box px-0">
+            <div class="container-xl">
+                <div class="row hero-bg bg-img-cover-center"
+                    style="background-image: url('{% static 'images/illustrations/pexels-sasha-martynov-1260727.jpg' %}');">
+                    <div class="col-6">
+                        <div class="pt-4 mb-6" data-animate="fadeInDown">
+                            <h1 class="mb-3 fs-46 fs-md-56 lh-128">Fast and Safe Delivery</h1>
+                            <p class="fs-18 lh-166" style="max-width: 454px">Made using clean, non-toxic ingredients,
+                                our products are designed for everyone.
+                            </p>
+                        </div>
+                        <div class="mb-1" data-animate="fadeInUp">
+                            <p class="fs-20 font-weight-600 text-secondary mb-4">Starting at $7.99 </p>
+                            <a href="shop-page-04.html" class="btn btn-secondary rounded bg-hover-primary border-0">Shop
+                                Now</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'images/illustrations/In no time-bro.svg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box px-0">
+            <div class="container-xl">
+                <div class="row hero-bg bg-img-cover-center"
+                    style="background-image: url('{% static 'images/illustrations/textured-mulberry-paper.jpg' %}');">
+                    <div class="col-6">
+                        <div class="pt-4 mb-6" data-animate="fadeInDown">
+                            <h1 class="mb-3 fs-46 fs-md-56 lh-128">Quick and Easy Checkout<br></h1>
+                            <p class="fs-18 lh-166" style="max-width: 454px">Made using clean, non-toxic ingredients,
+                                our products are designed for everyone.
+                            </p>
+                        </div>
+                        <div class="mb-1" data-animate="fadeInUp">
+                            <p class="fs-20 font-weight-600 text-secondary mb-4">Starting at $7.99 </p>
+                            <a href="shop-page-04.html" class="btn btn-secondary rounded bg-hover-primary border-0">Shop
+                                Now</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'images/illustrations/Credit card-bro.svg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-lg-12 pt-10">
+        {% comment %} # Let this section contain the brands you have {% endcomment %}
+        <div class="container container-xl">
+            <h2 class="mb-3 text-center" data-animate="fadeInUp">Our Picks for You</h2>
+            <p class="fs-18 mx-auto mb-8 text-center" style="max-width: 600px;" data-animate="fadeInUp">Our products
+                are designed for everyone.</p>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card border-0 text-center mb-lg-0 mb-8">
+                        <div class="mw-160 mx-auto hover-zoom-in rounded-circle">
+                            <a href="#">
+                                <img src="images/image-box-04.jpg" alt="Moisturizers">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h4 class="fs-20"><a href="#" class="text-decoration-none">Moisturizers<sup
+                                        class="pl-1 fs-14 font-weight-bold">12</sup></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card border-0 text-center mb-lg-0 mb-8">
+                        <div class="mw-160 mx-auto hover-zoom-in rounded-circle">
+                            <a href="#">
+                                <img src="images/image-box-05.jpg" alt="Toners">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h4 class="fs-20"><a href="#" class="text-decoration-none">Toners<sup
+                                        class="pl-1 fs-14 font-weight-bold">12</sup></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card border-0 text-center mb-lg-0 mb-8">
+                        <div class="mw-160 mx-auto hover-zoom-in rounded-circle">
+                            <a href="#">
+                                <img src="images/image-box-06.jpg" alt="Masks">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h4 class="fs-20"><a href="#" class="text-decoration-none">Masks<sup
+                                        class="pl-1 fs-14 font-weight-bold">12</sup></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card border-0 text-center mb-lg-0 mb-8">
+                        <div class="mw-160 mx-auto hover-zoom-in rounded-circle">
+                            <a href="#">
+                                <img src="images/image-box-07.jpg" alt="Kits">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h4 class="fs-20"><a href="#" class="text-decoration-none">Kits<sup
+                                        class="pl-1 fs-14 font-weight-bold">12</sup></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card border-0 text-center mb-lg-0 mb-8">
+                        <div class="mw-160 mx-auto hover-zoom-in rounded-circle">
+                            <a href="#">
+                                <img src="images/image-box-08.jpg" alt="Serum">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h4 class="fs-20"><a href="#" class="text-decoration-none">Serum<sup
+                                        class="pl-1 fs-14 font-weight-bold">12</sup></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card border-0 text-center mb-lg-0 mb-8">
+                        <div class="mw-160 mx-auto hover-zoom-in rounded-circle">
+                            <a href="#">
+                                <img src="images/image-box-09.jpg" alt="Oil Cleansers">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h4 class="fs-20"><a href="#" class="text-decoration-none">Oil Cleansers<sup
+                                        class="pl-1 fs-14 font-weight-bold">12</sup></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% comment %} <section class="pt-6">
+        <div class="container container-xl">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0">
+                    <div class="card border-0 hover-zoom-in banner banner-02" data-animate="fadeInUp">
+                        <div class="card-img bg-img-cover-center"
+                            style="background-image: url('{% static 'images/illustrations/1_512.jpg' %}');"></div>
+                        <div class="card-img-overlay d-inline-flex flex-column px-7 pt-7 pb-6">
+                            <h3 class="card-title fs-34">Phones and Laptops</h3>
+                            <!-- <p class="card-text fs-18 text-secondary font-weight-600">
+                                Starting at $17.99
+                            </p> -->
+                            <div class="mt-auto">
+                                <a href="shop-page-04.html"
+                                    class="btn btn-link bg-transparent hover-secondary border-0 p-0 fs-16 font-weight-600">
+                                    Shop Now
+                                    <svg class="icon icon-arrow-right">
+                                        <use xlink:href="#icon-arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3 mb-lg-0">
+                    <div class="card border-0 hover-zoom-in banner banner-02" data-animate="fadeInUp">
+                        <div class="card-img bg-img-cover-center"
+                            style="background-image: url('{% static 'images/illustrations/2_512.jpg' %}');"></div>
+                        <div class="card-img-overlay d-inline-flex flex-column px-7 pt-7 pb-6">
+                            <h3 class="card-title fs-34">Appliances</h3>
+                            <!-- <p class="card-text fs-18 text-secondary font-weight-600">
+                                Get the glow
+                            </p> -->
+                            <div class="mt-auto">
+                                <a href="shop-page-04.html"
+                                    class="btn btn-link bg-transparent hover-secondary border-0 p-0 fs-16 font-weight-600">
+                                    Discover Now
+                                    <svg class="icon icon-arrow-right">
+                                        <use xlink:href="#icon-arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card border-0 hover-zoom-in banner banner-02" data-animate="fadeInUp">
+                        <div class="card-img bg-img-cover-center"
+                            style="background-image: url('{% static 'images/illustrations/3_512.jpg' %}');"></div>
+                        <div class="card-img-overlay d-inline-flex flex-column px-7 pt-7 pb-6">
+                            <h3 class="card-title fs-34">Video Games</h3>
+                            <!-- <p class="card-text fs-18 text-secondary font-weight-600">
+                                Starting at $7.99
+                            </p> -->
+                            <div class="mt-auto">
+                                <a href="shop-page-04.html"
+                                    class="btn btn-link bg-transparent hover-secondary border-0 p-0 fs-16 font-weight-600">
+                                    Discover Now
+                                    <svg class="icon icon-arrow-right">
+                                        <use xlink:href="#icon-arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <section class="py-10 py-lg-12">
+        <div class="container container-xl">
+            <div class="row">
+                <div class="col-12 text-center mb-7">
+                    <h2 class="fs-34 mb-3" data-animate="fadeInUp">Shop by Categories</h2>
+                    <p class="fs-18" data-animate="fadeInUp">Our products are designed for everyone.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card border-0 text-center hover-shine hover-zoom-in" data-animate="fadeInUp">
+                        <img src="images/banner-18.jpg" alt="" class="card-img">
+                        <div class="card-img-overlay d-inline-flex flex-column p-5 justify-content-end">
+                            <div>
+                                <a href="#"
+                                    class="fs-16 font-weight-600 btn text-secondary hover-white bg-white bg-hover-secondary shadow-1">Skincare
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 mt-6 mt-lg-0">
+                            <div class="card border-0 text-center hover-shine hover-zoom-in"
+                                data-animate="fadeInUp">
+                                <img src="images/banner-15.jpg" alt="" class="card-img">
+                                <div class="card-img-overlay d-inline-flex flex-column p-5 justify-content-end">
+                                    <div>
+                                        <a href="#"
+                                            class="fs-16 font-weight-600 btn text-secondary hover-white bg-white bg-hover-secondary shadow-1">Bodycare
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-6 mt-lg-0">
+                            <div class="card border-0 text-center hover-shine hover-zoom-in"
+                                data-animate="fadeInUp">
+                                <img src="images/banner-16.jpg" alt="" class="card-img">
+                                <div class="card-img-overlay d-inline-flex flex-column p-5 justify-content-end">
+                                    <div>
+                                        <a href="#"
+                                            class="fs-16 font-weight-600 btn text-secondary hover-white bg-white bg-hover-secondary shadow-1">Accessories
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-6">
+                            <div class="card border-0 text-center hover-shine hover-zoom-in"
+                                data-animate="fadeInUp">
+                                <img src="images/banner-17.jpg" alt="" class="card-img">
+                                <div class="card-img-overlay d-inline-flex flex-column p-5 justify-content-end">
+                                    <div>
+                                        <a href="#"
+                                            class="fs-16 font-weight-600 btn text-secondary hover-white bg-white bg-hover-secondary shadow-1">Haircare
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pt-12">
+        <div class="container container-xl">
+            <div class="slider-row row mb-md-6 mb-8">
+                <div class="col-md-6">
+                    <h2 class="fs-34" data-animate="fadeInUp">New Arrivals</h2>
+                </div>
+                {% comment %} <div class="col-md-6 text-md-right">
+                    <a href="shop-page-04.html" class="btn btn-link p-0 mt-2">Shop All Products<i class="far fa-arrow-right pl-2 fs-13"></i></a>
+                </div> {% endcomment %}
+            </div>
+            <div class="home-products-slider owl-carousel mx-n2"
+                data-slick='{"slidesToShow": 1,"dots":true,"arrows":true,"variableWidth":true'>
+                <!-- data-slick-options='{"slidesToShow": 6,"dots":true,"arrows":true,"variableWidth":true}'> -->
+                {% for product in discounted %}
+                    {% comment %} {% show_product product %} {% endcomment %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-12">
+        <div class="container container-xl">
+            <div class="slider-row row mb-md-6 mb-8">
+                <div class="col-md-6">
+                    <h2 class="fs-34" data-animate="fadeInUp">Discounted Products</h2>
+                </div>
+            </div>
+            <div class="home-products-slider owl-carousel mx-n2"
+                data-slick='{"slidesToShow": 1,"dots":true,"arrows":true,"variableWidth":true'>
+                <!-- data-slick-options='{"slidesToShow": 6,"dots":true,"arrows":true,"variableWidth":true}'> -->
+                {% for product in discounted %}
+                    <div class="box">
+                        <div class="card border-0 product" data-animate="fadeInUp">
+                            <div class="position-relative">
+                                {% if product.image %}<img class="pro{{product.id}}-image" src="{{domain}}{{product.image.url}}" alt="{{ product.name }}">{% endif %}
+                                <div class="card-img-overlay d-flex p-3">
+                                    {% if product.percent_off > 5 %}
+                                    <div>
+                                        <span class="pro{{product.id}}-percent badge badge-primary">-{{ product.percent_off }}%</span>
+                                    </div>
+                                    {% endif %}
+                                    <div class="my-auto w-100 content-change-vertical">
+                                        <a onclick="addToCart({{product.id}}, 1, '#000000')" data-toggle="tooltip" data-placement="left" title="Add to Cart"
+                                            class="add-to-cart cursor-pointer ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                            <span class="material-symbols-outlined fs-24 icon icon-shopping-bag-open-light">
+                                                add_shopping_cart
+                                            </span>
+                                        </a>
+                                        <a {% if not request.user.is_authenticated %} onclick="showNotice()" {% else %} onclick="addToWishlist({{product.id}})" {% endif %} data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                            class="add-to-wishlist cursor-pointer {% if request.user.is_authenticated %} hover-white bg-hover-secondary {% else %} disabled {% endif %} ml-auto d-flex align-items-center justify-content-center text-secondary bg-white w-48px h-48px rounded-circle mb-2">
+                                            <span class="material-symbols-outlined icon icon-star-light fs-24">
+                                                star
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-4 text-center px-0">
+                                <p class="card-text font-weight-bold mb-1 text-secondary">
+                                    {% if product.previous_price > 0 %}<span class="fs-13 font-weight-500 text-decoration-through text-body pr-1 pro{{product.id}}-prevPrice">₦{{ product.previous_price }}</span>{% endif %}
+                                    <span class="pro{{product.id}}-price">₦{{ product.price }}</span>
+                                </p>
+                                <h2 class="card-title fs-15 font-weight-500 mb-2"><a class="pro{{product.id}}-name" href="product-detail-01.html">{{ product.name }}</a></h2>
+                                <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                    <ul class="list-inline mb-0 lh-1">
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                    </ul>
+                                    <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pt-12">
+        <div class="container container-xl">
+            <div class="slider-row row mb-md-6 mb-8">
+                <div class="col-md-6">
+                    <h2 class="fs-34" data-animate="fadeInUp">Popular Items</h2>
+                </div>
+            </div>
+            <div class="home-products-slider owl-carousel mx-n2"
+                data-slick='{"slidesToShow": 1,"dots":true,"arrows":true,"variableWidth":true'>
+                <!-- data-slick-options='{"slidesToShow": 6,"dots":true,"arrows":true,"variableWidth":true}'> -->
+                {% for product in discounted %}
+                    <div class="box">
+                        <div class="card border-0 product" data-animate="fadeInUp">
+                            <div class="position-relative">
+                                {% if product.image %}<img class="pro{{product.id}}-image" src="{{domain}}{{product.image.url}}" alt="{{ product.name }}">{% endif %}
+                                <div class="card-img-overlay d-flex p-3">
+                                    {% if product.percent_off > 5 %}
+                                    <div>
+                                        <span class="pro{{product.id}}-percent badge badge-primary">-{{ product.percent_off }}%</span>
+                                    </div>
+                                    {% endif %}
+                                    <div class="my-auto w-100 content-change-vertical">
+                                        <a onclick="addToCart({{product.id}}, 1, '#000000')" data-toggle="tooltip" data-placement="left" title="Add to Cart"
+                                            class="add-to-cart cursor-pointer ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                            <span class="material-symbols-outlined fs-24 icon icon-shopping-bag-open-light">
+                                                add_shopping_cart
+                                            </span>
+                                        </a>
+                                        <a {% if not request.user.is_authenticated %} onclick="showNotice()" {% else %} onclick="addToWishlist({{product.id}})" {% endif %} data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                            class="add-to-wishlist cursor-pointer {% if request.user.is_authenticated %} hover-white bg-hover-secondary {% else %} disabled {% endif %} ml-auto d-flex align-items-center justify-content-center text-secondary bg-white w-48px h-48px rounded-circle mb-2">
+                                            {% comment %} <svg class="icon icon-star-light fs-24">
+                                                <use xlink:href="#icon-star-light"></use>
+                                            </svg> {% endcomment %}
+                                            <span class="material-symbols-outlined icon icon-star-light fs-24">
+                                                star
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-4 text-center px-0">
+                                <p class="card-text font-weight-bold mb-1 text-secondary">
+                                    {% if product.previous_price > 0 %}<span class="fs-13 font-weight-500 text-decoration-through text-body pr-1 pro{{product.id}}-prevPrice">₦{{ product.previous_price }}</span>{% endif %}
+                                    <span class="pro{{product.id}}-price">₦{{ product.price }}</span>
+                                </p>
+                                <h2 class="card-title fs-15 font-weight-500 mb-2"><a class="pro{{product.id}}-name" href="product-detail-01.html">{{ product.name }}</a></h2>
+                                <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                    <ul class="list-inline mb-0 lh-1">
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                        </li>
+                                    </ul>
+                                    <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="pt-12">
+        <div class="container container-xl">
+            <div class="slider-row row mb-md-6 mb-8">
+                <div class="col-md-6">
+                    <h2 class="fs-34" data-animate="fadeInUp">Easter Sales</h2>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <a href="shop-page-04.html" class="btn btn-link p-0 mt-2">Shop All Products<i
+                            class="far fa-arrow-right pl-2 fs-13"></i></a>
+                </div>
+            </div>
+            <div class="slick-slider mx-n2"
+                data-slick-options='{"slidesToShow": 5,"dots":false,"arrows":true,"responsive":[{"breakpoint": 1368,"settings": {"arrows":false,"dots":true}},{"breakpoint": 1200,"settings": {"slidesToShow":3,"arrows":false,"dots":true}},{"breakpoint": 992,"settings": {"slidesToShow":2,"arrows":false,"dots":true}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true}}]}'>
+                <div class="box">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <img src="{% static 'images/product-09.jpg' %}" alt="Facial cleanser">
+                            <div class="card-img-overlay d-flex p-3">
+                                <div>
+                                    <span class="badge badge-primary">-20%</span>
+                                </div>
+                                <div class="my-auto w-100 content-change-vertical">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
+                                        class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-shopping-bag-open-light fs-24">
+                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
+                                        class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                        <span data-toggle="modal" data-target="#quick-view">
+                                            <svg class="icon icon-eye-light fs-24">
+                                                <use xlink:href="#icon-eye-light"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-star-light fs-24">
+                                            <use xlink:href="#icon-star-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                        class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                        <svg class="icon icon-arrows-left-right-light fs-24">
+                                            <use xlink:href="#icon-arrows-left-right-light"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-4 text-center px-0">
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <span
+                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
+                                <span>$29.00</span>
+                            </p>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                    href="product-detail-01.html">Facial cleanser</a></h2>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <ul class="list-inline mb-0 lh-1">
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <img src="{% static 'images/product-05.jpg' %}" alt="Bio-shroom Rejuvenating Serum">
+                            <div class="card-img-overlay d-flex p-3">
+                                <div>
+                                </div>
+                                <div class="my-auto w-100 content-change-vertical">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
+                                        class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-shopping-bag-open-light fs-24">
+                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
+                                        class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                        <span data-toggle="modal" data-target="#quick-view">
+                                            <svg class="icon icon-eye-light fs-24">
+                                                <use xlink:href="#icon-eye-light"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-star-light fs-24">
+                                            <use xlink:href="#icon-star-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                        class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                        <svg class="icon icon-arrows-left-right-light fs-24">
+                                            <use xlink:href="#icon-arrows-left-right-light"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-4 text-center px-0">
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <span>$29.00</span>
+                            </p>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                    href="product-detail-01.html">Bio-shroom Rejuvenating Serum</a></h2>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <ul class="list-inline mb-0 lh-1">
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <img src="{% static 'images/product-11.jpg' %}" alt="Coffee Bean Caffeine Eye Cream">
+                            <div class="card-img-overlay d-flex p-3">
+                                <div>
+                                </div>
+                                <div class="my-auto w-100 content-change-vertical">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
+                                        class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-shopping-bag-open-light fs-24">
+                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
+                                        class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                        <span data-toggle="modal" data-target="#quick-view">
+                                            <svg class="icon icon-eye-light fs-24">
+                                                <use xlink:href="#icon-eye-light"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-star-light fs-24">
+                                            <use xlink:href="#icon-star-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                        class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                        <svg class="icon icon-arrows-left-right-light fs-24">
+                                            <use xlink:href="#icon-arrows-left-right-light"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-4 text-center px-0">
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <span>$29.00</span>
+                            </p>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                    href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a></h2>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <ul class="list-inline mb-0 lh-1">
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <img src="{% static 'images/product-08.jpg' %}" alt="Coffee Bean Caffeine Eye Cream">
+                            <div class="card-img-overlay d-flex p-3">
+                                <div>
+                                </div>
+                                <div class="my-auto w-100 content-change-vertical">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
+                                        class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-shopping-bag-open-light fs-24">
+                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
+                                        class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                        <span data-toggle="modal" data-target="#quick-view">
+                                            <svg class="icon icon-eye-light fs-24">
+                                                <use xlink:href="#icon-eye-light"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-star-light fs-24">
+                                            <use xlink:href="#icon-star-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                        class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                        <svg class="icon icon-arrows-left-right-light fs-24">
+                                            <use xlink:href="#icon-arrows-left-right-light"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-4 text-center px-0">
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <span>$29.00</span>
+                            </p>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                    href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a></h2>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <ul class="list-inline mb-0 lh-1">
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <img src="{% static 'images/product-10.jpg' %}" alt="Coffee Bean Caffeine Eye Cream">
+                            <div class="card-img-overlay d-flex p-3">
+                                <div>
+                                    <span class="badge badge-primary">-20%</span>
+                                </div>
+                                <div class="my-auto w-100 content-change-vertical">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
+                                        class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-shopping-bag-open-light fs-24">
+                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
+                                        class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                        <span data-toggle="modal" data-target="#quick-view">
+                                            <svg class="icon icon-eye-light fs-24">
+                                                <use xlink:href="#icon-eye-light"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-star-light fs-24">
+                                            <use xlink:href="#icon-star-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                        class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                        <svg class="icon icon-arrows-left-right-light fs-24">
+                                            <use xlink:href="#icon-arrows-left-right-light"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-4 text-center px-0">
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <span
+                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
+                                <span>$29.00</span>
+                            </p>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                    href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a></h2>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <ul class="list-inline mb-0 lh-1">
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <img src="{% static 'images/product-04.jpg' %}" alt="Facial cleanser">
+                            <div class="card-img-overlay d-flex p-3">
+                                <div>
+                                </div>
+                                <div class="my-auto w-100 content-change-vertical">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
+                                        class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-shopping-bag-open-light fs-24">
+                                            <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
+                                        class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                        <span data-toggle="modal" data-target="#quick-view">
+                                            <svg class="icon icon-eye-light fs-24">
+                                                <use xlink:href="#icon-eye-light"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
+                                        class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                        <svg class="icon icon-star-light fs-24">
+                                            <use xlink:href="#icon-star-light"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                        class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                        <svg class="icon icon-arrows-left-right-light fs-24">
+                                            <use xlink:href="#icon-arrows-left-right-light"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-4 text-center px-0">
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <span>$29.00</span>
+                            </p>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                    href="product-detail-01.html">Facial cleanser</a></h2>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <ul class="list-inline mb-0 lh-1">
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                    <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="pt-14" style="background-color: #f7f7f7">
+        <div class="container container-xl">
+            <h2 class="mb-md-9 mb-7 text-center" data-animate="fadeInUp">Why Shop with Shoppa?</h2>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-transparent border-0 align-items-center text-center mb-xl-0 mb-6"
+                        data-animate="fadeInUp">
+                        <div class="card-img">
+                            <svg class="icon icon-box-01 fs-70 text-primary">
+                                <use xlink:href="#icon-box-01"></use>
+                            </svg>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title fs-20 mb-2">Free Shipping</h3>
+                            <p class="cart-text fs-18 mb-0">Free Shipping for orders over $130</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-transparent border-0 align-items-center text-center mb-xl-0 mb-6"
+                        data-animate="fadeInUp">
+                        <div class="card-img">
+                            <svg class="icon icon-box-02 fs-70 text-primary">
+                                <use xlink:href="#icon-box-02"></use>
+                            </svg>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title fs-20 mb-2">Returns</h3>
+                            <p class="cart-text fs-18 mb-0">Within 30 days for an exchange.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-transparent border-0 align-items-center text-center mb-xl-0 mb-6"
+                        data-animate="fadeInUp">
+                        <div class="card-img">
+                            <svg class="icon icon-box-03 fs-70 text-primary">
+                                <use xlink:href="#icon-box-03"></use>
+                            </svg>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title fs-20 mb-2">Online Support</h3>
+                            <p class="cart-text fs-18 mb-0">24 hours a day, 7 days a week</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-transparent border-0 align-items-center text-center mb-xl-0 mb-6"
+                        data-animate="fadeInUp">
+                        <div class="card-img">
+                            <svg class="icon icon-box-04 fs-70 text-primary">
+                                <use xlink:href="#icon-box-04"></use>
+                            </svg>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title fs-20 mb-2">Flexible Payment</h3>
+                            <p class="cart-text fs-18 mb-0">Pay with Multiple Credit Cards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container container-xl">
+            <div class="row mt-10 mt-lg-13 mb-6">
+                <div class="col-12 text-center">
+                    <h2 class="mb-3" data-animate="fadeInUp">Customer Favorite Beauty Essentials</h2>
+                    <p class="fs-18 mx-auto lh-166" style="max-width: 462px" data-animate="fadeInUp">Made using
+                        clean, non-toxic ingredients, our
+                        products are
+                        designed for everyone.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mb-8 mb-lg-0">
+                    <div class="card border-0 hover-shine hover-zoom-in banner banner-04" data-animate="fadeIn">
+                        <div class="card-img bg-img-cover-center"
+                            style="background-image: url('images/banner-33.jpg');"></div>
+                        <div class="card-img-overlay d-inline-flex flex-column justify-content-end p-8">
+                            <h2 class="mb-3 text-white">Empower Yourself</h2>
+                            <p class="card-title fs-18 text-white mb-6">Get the skin you want to feel</p>
+                            <div>
+                                <a href="#"
+                                    class="fs-16 font-weight-600 btn text-secondary hover-white bg-white bg-hover-secondary shadow-1">Explore
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 mb-3">
+                            <div class="card border-0 product" data-animate="fadeInUp">
+                                <div class="position-relative">
+                                    <img src="images/product-01.jpg" alt="Facial cleanser">
+                                    <div class="card-img-overlay d-flex p-3">
+                                        <div>
+                                            <span class="badge badge-primary">-20%</span>
+                                        </div>
+                                        <div class="my-auto w-100 content-change-vertical">
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="View products"
+                                                class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-shopping-bag-open-light fs-24">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"
+                                                class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                                <span data-toggle="modal" data-target="#quick-view">
+                                                    <svg class="icon icon-eye-light fs-24">
+                                                        <use xlink:href="#icon-eye-light"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to wishlist"
+                                                class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-star-light fs-24">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                                class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                                <svg class="icon icon-arrows-left-right-light fs-24">
+                                                    <use xlink:href="#icon-arrows-left-right-light"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body px-0 pt-4 text-center">
+                                    <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                        <span
+                                            class="fs-13 font-weight-500 text-decoration-through text-body">$39.00</span>
+                                        <span>$29.00</span>
+                                    </p>
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                            href="product-detail-01.html">Facial cleanser</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                        <ul class="list-inline mb-0 lh-1">
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-3">
+                            <div class="card border-0 product" data-animate="fadeInUp">
+                                <div class="position-relative">
+                                    <img src="images/product-02.jpg" alt="Bio-shroom Rejuvenating Serum">
+                                    <div class="card-img-overlay d-flex p-3">
+                                        <div>
+                                        </div>
+                                        <div class="my-auto w-100 content-change-vertical">
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="View products"
+                                                class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-shopping-bag-open-light fs-24">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"
+                                                class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                                <span data-toggle="modal" data-target="#quick-view">
+                                                    <svg class="icon icon-eye-light fs-24">
+                                                        <use xlink:href="#icon-eye-light"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to wishlist"
+                                                class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-star-light fs-24">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                                class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                                <svg class="icon icon-arrows-left-right-light fs-24">
+                                                    <use xlink:href="#icon-arrows-left-right-light"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body px-0 pt-4 text-center">
+                                    <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                        <span>$29.00</span>
+                                    </p>
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                            href="product-detail-01.html">Bio-shroom Rejuvenating Serum</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                        <ul class="list-inline mb-0 lh-1">
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-3">
+                            <div class="card border-0 product" data-animate="fadeInUp">
+                                <div class="position-relative">
+                                    <img src="images/product-06.jpg" alt="Coffee Bean Caffeine Eye Cream">
+                                    <div class="card-img-overlay d-flex p-3">
+                                        <div>
+                                        </div>
+                                        <div class="my-auto w-100 content-change-vertical">
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="View products"
+                                                class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-shopping-bag-open-light fs-24">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"
+                                                class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                                <span data-toggle="modal" data-target="#quick-view">
+                                                    <svg class="icon icon-eye-light fs-24">
+                                                        <use xlink:href="#icon-eye-light"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to wishlist"
+                                                class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-star-light fs-24">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                                class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                                <svg class="icon icon-arrows-left-right-light fs-24">
+                                                    <use xlink:href="#icon-arrows-left-right-light"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body px-0 pt-4 text-center">
+                                    <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                        <span>$29.00</span>
+                                    </p>
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                            href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                        <ul class="list-inline mb-0 lh-1">
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-3">
+                            <div class="card border-0 product" data-animate="fadeInUp">
+                                <div class="position-relative">
+                                    <img src="images/product-03.jpg" alt="Coffee Bean Caffeine Eye Cream">
+                                    <div class="card-img-overlay d-flex p-3">
+                                        <div>
+                                        </div>
+                                        <div class="my-auto w-100 content-change-vertical">
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="View products"
+                                                class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-shopping-bag-open-light fs-24">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"
+                                                class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                                <span data-toggle="modal" data-target="#quick-view">
+                                                    <svg class="icon icon-eye-light fs-24">
+                                                        <use xlink:href="#icon-eye-light"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to wishlist"
+                                                class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-star-light fs-24">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                                class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                                <svg class="icon icon-arrows-left-right-light fs-24">
+                                                    <use xlink:href="#icon-arrows-left-right-light"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body px-0 pt-4 text-center">
+                                    <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                        <span>$29.00</span>
+                                    </p>
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                            href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                        <ul class="list-inline mb-0 lh-1">
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-3">
+                            <div class="card border-0 product" data-animate="fadeInUp">
+                                <div class="position-relative">
+                                    <img src="images/product-07.jpg" alt="Facial cleanser">
+                                    <div class="card-img-overlay d-flex p-3">
+                                        <div>
+                                            <span class="badge badge-primary">-20%</span>
+                                        </div>
+                                        <div class="my-auto w-100 content-change-vertical">
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="View products"
+                                                class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-shopping-bag-open-light fs-24">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"
+                                                class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                                <span data-toggle="modal" data-target="#quick-view">
+                                                    <svg class="icon icon-eye-light fs-24">
+                                                        <use xlink:href="#icon-eye-light"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to wishlist"
+                                                class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-star-light fs-24">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                                class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                                <svg class="icon icon-arrows-left-right-light fs-24">
+                                                    <use xlink:href="#icon-arrows-left-right-light"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body px-0 pt-4 text-center">
+                                    <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                        <span
+                                            class="fs-13 font-weight-500 text-decoration-through text-body">$39.00</span>
+                                        <span>$29.00</span>
+                                    </p>
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                            href="product-detail-01.html">Facial cleanser</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                        <ul class="list-inline mb-0 lh-1">
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-3">
+                            <div class="card border-0 product" data-animate="fadeInUp">
+                                <div class="position-relative">
+                                    <img src="images/product-08.jpg" alt="Coffee Bean Caffeine Eye Cream">
+                                    <div class="card-img-overlay d-flex p-3">
+                                        <div>
+                                            <span class="badge badge-warning">New</span>
+                                        </div>
+                                        <div class="my-auto w-100 content-change-vertical">
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="View products"
+                                                class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-shopping-bag-open-light fs-24">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"
+                                                class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
+                                                <span data-toggle="modal" data-target="#quick-view">
+                                                    <svg class="icon icon-eye-light fs-24">
+                                                        <use xlink:href="#icon-eye-light"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to wishlist"
+                                                class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
+                                                <svg class="icon icon-star-light fs-24">
+                                                    <use xlink:href="#icon-star-light"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
+                                                class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
+                                                <svg class="icon icon-arrows-left-right-light fs-24">
+                                                    <use xlink:href="#icon-arrows-left-right-light"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body px-0 pt-4 text-center">
+                                    <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                        <span>$29.00</span>
+                                    </p>
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2"><a
+                                            href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a>
+                                    </h2>
+                                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                        <ul class="list-inline mb-0 lh-1">
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                            <li class="list-inline-item fs-12 text-primary mr-0"><i
+                                                    class="fas fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="pt-10 pb-lg-12 pb-6 pb-md-9">
+        <div class="container container-xl">
+            <div class="row">
+                <div class="col-12 text-center mb-6" data-animate="fadeInUp">
+                    <h2>More to Discover</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-6 mb-md-0" data-animate="fadeInUp">
+                    <div class="card border-0 text-center">
+                        <a href="shop-page-01.html" class="d-block hover-shine hover-zoom-in">
+                            <img src="{% static 'images/image-box-21.jpg' %}" alt="Find a Store">
+                        </a>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h3 class="fs-24 mb-2">
+                                <a href="shop-page-01.html" class="text-decoration-none">Find a
+                                    Store
+                                </a>
+                            </h3>
+                            <a href="shop-page-01.html" class="btn btn-link text-secondary">Our Store<i class="far fa-arrow-right fs-12 pl-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-6 mb-md-0" data-animate="fadeInUp">
+                    <div class="card border-0 text-center">
+                        <a href="blog-grid.html" class="d-block hover-shine hover-zoom-in">
+                            <img src="{% static 'images/image-box-13.jpg' %}" alt="From Our Blog">
+                        </a>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h3 class="fs-24 mb-2"><a href="blog-grid.html" class="text-decoration-none">From Our
+                                    Blog</a></h3>
+                            <a href="blog-grid.html" class="btn btn-link text-secondary">Read More<i
+                                    class="far fa-arrow-right fs-12 pl-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-6 mb-md-0" data-animate="fadeInUp">
+                    <div class="card border-0 text-center">
+                        <a href="about-us-01.html" class="d-block hover-shine hover-zoom-in">
+                            <img src="{% static 'images/image-box-14.jpg' %}" alt="Our Story">
+                        </a>
+                        <div class="card-body px-0 pt-6 pb-0">
+                            <h3 class="fs-24 mb-2"><a href="about-us-01.html" class="text-decoration-none">Our Story</a></h3>
+                            <a href="about-us-01.html" class="btn btn-link text-secondary">View More<i class="far fa-arrow-right fs-12 pl-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}

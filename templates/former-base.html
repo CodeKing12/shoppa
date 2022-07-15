@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Shoppa Shop Html Template">
+    <meta name="author" content="">
+    <meta name="generator" content="Jekyll">
+    <title>Shoppa | Home</title>
+    {% comment %}
+    <script src="{% static '/cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js' %}"></script> {% endcomment %}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'js/cute-alert.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'external/fontawesome-pro-5/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'external/bootstrap-select/css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'external/slick/slick.min.css' %}">
+    <link rel="stylesheet" href="{% static 'external/magnific-popup/magnific-popup.min.css' %}">
+    <link rel="stylesheet" href="{% static 'external/jquery-ui/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'external/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'external/mapbox-gl/mapbox-gl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'external/fonts/font-phosphor/css/phosphor.min.css' %}">
+    <link rel="stylesheet" href="{% static 'external/fonts/tuesday-night/stylesheet.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/themes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notyf.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="icon" href="{% static 'logos/favicon.png' %}">
+
+    <script src="{% static 'external/jquery.min.js' %}"></script>
+    <script src="{% static 'external/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="Shoppa | Home">
+    <meta name="twitter:description" content="The Home Page of Shoppa">
+    <meta name="twitter:image" content="{% static 'logos/logo.svg' %}">
+
+    <meta property="og:url" content="home-04.html">
+    <meta property="og:title" content="Home 04">
+    <meta property="og:description" content="Shoppa | Nigeria's Most Reliable E-Market">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{% static 'images/logo_01.png' %}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+</head>
+
+<body onload="removeLoader()">
+    <section class="loader" id="loader">
+        <div id="iconloop" class="iconloop">
+            <img class="loadicons" src="{% static 'loadicons/search.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/black-friday.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/ecommerce (2).png' %}">
+            <img class="loadicons" src="{% static 'loadicons/rating.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/delivery-box.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/ecommerce (4).png' %}">
+            <img class="loadicons" src="{% static 'loadicons/card-payment.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/open.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/shopping-basket.png' %}">
+            <img class="loadicons" src="{% static 'loadicons/checkout.png' %}">
+        </div>
+        <div class="sliders">
+            <div id="slide1" class="slide1" style="background-color: #fff;"></div>
+            <div id="slide2" class="slide2"></div>
+        </div>
+    </section>
+
+    {% include "header.html" %}
+    
+    <main id="content">
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    $(document).ready(function() {
+                        notyf.open({
+                            type: "{{message.tags}}",
+                            message: "{{message}}",
+                            duration: 7000,
+                        });
+                    });
+                </script>
+                {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="{% static 'external/bootstrap/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'external/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'external/slick/slick.min.js' %}"></script>
+    <script src="{% static 'external/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'external/counter/countUp.js' %}"></script>
+    <script src="{% static 'external/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'external/hc-sticky/hc-sticky.min.js' %}"></script>
+    <script src="{% static 'external/jparallax/TweenMax.min.js' %}"></script>
+    <script src="{% static 'external/mapbox-gl/mapbox-gl.js' %}"></script>
+    <script src="{% static 'external/isotope/isotope.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/notyf.min.js' %}"></script>
+    {% comment %} <script src="{% static 'js/submissions.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    <script>
+        function removeLoader() {
+            document.getElementById("iconloop").style.opacity = 0
+            setTimeout(()=>{
+                document.getElementById("slide1").classList.add("slideL")
+                document.getElementById("slide2").classList.add("slideR")
+                document.getElementById("iconloop").style.display = "none"
+            }, 100);
+            setTimeout(()=>{
+                document.getElementById("loader").style.display = "none"
+            }, 1000);
+            setTimeout(()=>{
+                document.body.style.overflow = "visible"
+            }, 500);
+            // document.getElementById("toast-btn").click();
+
+        }
+    </script>
+
+    {% if open_login.2 == True %}
+        <script>
+            $(document).ready(function() {
+                $('#sign-in').modal();
+                {% if open_login.0 != "" %}
+                    notyf.open({
+                        type: "{{ open_login.1 }}",
+                        message: "{{ open_login.0 }}",
+                        duration: 8000,
+                    });
+                {% endif %}
+            });
+        </script>
+    {% endif %}
+
+    {% include "lengthy-svg.html" %}
+
+    <div class="bt-top position-fixed pos-fixed-bottom-right p-6 z-index-10">
+        <a href="#"
+            class="gtf-back-to-top text-decoration-none bg-white text-primary hover-white bg-hover-primary shadow p-0 w-48px h-48px rounded-circle fs-20 d-flex align-items-center justify-content-center"
+            title="Back To Top"><i class="fal fa-arrow-up"></i></a>
+    </div>
+    
+    {% include "cart-overlay.html" %}
+
+    <div class="mfp-hide search-popup mfp-with-anim" id="search-popup">
+        <form>
+            <div class="input-group position-relative">
+                <div class="input-group-prepend d-none d-md-block">
+                    <select class="selectpicker" name="category" id="region-01"
+                        data-style="btn-lg letter-spacing-0 border-0 border-bottom border-2x bg-transparent text-white border-white fs-24 pl-0 shadow-none text-capitalize font-weight-normal rounded-0">
+                        <option value="" selected>All Categories</option>
+                        <option value="chairs">Chairs</option>
+                        <option value="stands">Stands</option>
+                        <option value="tables">Tables</option>
+                        <option value="accessory">Accessory</option>
+                    </select>
+                </div>
+                <input type="text" id="keyword" name="keyword"
+                    class="form-control border-0 border-bottom border-2x bg-transparent text-white border-white fs-24 form-control-lg"
+                    placeholder="Search Something...">
+                <div class="input-group-append position-absolute pos-fixed-right-center">
+                    <button class="input-group-text bg-transparent border-0 text-white fs-30 px-0 btn-lg" type="submit"><i class="far fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    {% include "sidenav.html" %}
+
+    {% include 'auth-modal.html' %}
+    
+    {% include "quickview-product.html" %}
+
+    <script>
+        function addToCart(product_id, quantity, color) {
+            // console.log(product_id)
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'add_to_cart' %}",
+                headers: {'X-CSRFToken': csrftoken},
+                mode: 'same-origin',
+                data: {
+                    "product_id": product_id,
+                    "quantity": quantity,
+                    "color": color
+                },
+                success: function(response) {
+                    success = processResponse(response)
+                    if (success == true) {
+                        if ($(".abscence-text").length) {
+                            $(".abscence-text").remove()
+                            console.log($(".save-cart"))
+                            $(".save-cart").removeClass("remove")
+                        }
+                        if ($(`.item${product_id}`).length) {
+                            console.log("This is processed")
+                            quantity_field = $(`.number-cart${product_id}`)
+                            current_value = quantity_field.val()
+                            newValue = parseInt(current_value) + quantity
+                            quantity_field.val(newValue)
+                            console.log(quantity_field)
+                        } else {
+                            prefix = "pro" + product_id
+                            imgUrl = $(`.${prefix}-image`).attr("src")
+                            prevPrice = $(`.${prefix}-prevPrice`).text()
+                            price = $(`.${prefix}-price`).text()
+                            name = $(`.${prefix}-name`).text()
+                            // console.log(imgUrl, prevPrice, price, name)
+                            $(`<div class='mb-4 d-flex item${product_id}'><a onclick='removeFromCart(${product_id})' class='cursor-pointer d-flex align-items-center mr-2 text-muted'><i class='fal fa-times'></i></a><div class='media w-100'><div class='w-60px mr-3'><img src='${imgUrl}' alt='${name}'></div><div class='media-body d-flex'><div class='cart-price pr-6'><p class='fs-16 font-weight-bold text-secondary mb-1'><span class='font-weight-500 fs-13 text-line-through text-body mr-1'>${prevPrice}</span>${price}</p><a href='#' class='text-secondary'>${name}</a></div><div class='position-relative ml-auto'><div class='input-group'><a href='#' class='down position-absolute pos-fixed-left-center pl-2'><i class='far fa-minus'></i></a><input type='number' class='number-cart${product_id} w-90px px-6 text-center h-40px bg-input border-0' value='${quantity}'><a href='#' class='up position-absolute pos-fixed-right-center pr-2'><i class='far fa-plus'></i></a></div></div></div></div></div>`).insertBefore($(".save-cart"))
+                        }
+                    }
+                },
+                error: function(response) {
+                    processResponse(response)
+                }
+            })
+        }
+
+        function removeFromCart(product_id) {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'remove_from_cart' %}",
+                headers: {'X-CSRFToken': csrftoken},
+                mode: 'same-origin',
+                data: {
+                    "product_id": product_id
+                },
+                success: function(response) {
+                    success = processResponse(response)
+                    if (success == true) {
+                        $(`.item${product_id}`).remove()
+                        let children = $(".the-cart").children()
+                        console.log($(".the-cart").children().length)
+                        if ($(".empty-fixer").length) {
+                            lengthCheck = 3
+                        } else {
+                            lengthCheck = 2
+                        }
+                        if ($(".the-cart").children().length < lengthCheck) {
+                            $(".save-cart").addClass("remove")
+                            $(".the-cart").prepend("<p class='fs-15 font-weight-500 text-body mb-5 abscence-text'><span class='d-inline-block mr-2 fs-18 text-secondary'>You haven't added any item to your cart</p>")
+                        }
+                    }
+                },
+                error: function(response) {
+                    processResponse(response)
+                }
+            })
+        }
+
+        function addToWishlist(product_id) {
+            // console.log(product_id)
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'add_to_wishlist' %}",
+                headers: {'X-CSRFToken': csrftoken},
+                mode: 'same-origin',
+                data: {
+                    "product_id": product_id,
+                },
+                success: function(response) {
+                    success = processResponse(response)
+                    if (success == true) {
+/*                        if ($(".abscence-text").length) {
+                            $(".abscence-text").remove()
+                            console.log($(".save-cart"))
+                            $(".save-cart").removeClass("remove")
+                        }
+                        if ($(`.item${product_id}`).length) {
+                            console.log("This is processed")
+                            quantity_field = $(`.number-cart${product_id}`)
+                            current_value = quantity_field.val()
+                            newValue = parseInt(current_value) + quantity
+                            quantity_field.val(newValue)
+                            console.log(quantity_field)
+                        } else {
+                            prefix = "pro" + product_id
+                            imgUrl = $(`.${prefix}-image`).attr("src")
+                            prevPrice = $(`.${prefix}-prevPrice`).text()
+                            price = $(`.${prefix}-price`).text()
+                            name = $(`.${prefix}-name`).text()
+                            // console.log(imgUrl, prevPrice, price, name)
+                            $(`<div class='mb-4 d-flex item${product_id}'><a onclick='removeFromCart(${product_id})' class='cursor-pointer d-flex align-items-center mr-2 text-muted'><i class='fal fa-times'></i></a><div class='media w-100'><div class='w-60px mr-3'><img src='${imgUrl}' alt='${name}'></div><div class='media-body d-flex'><div class='cart-price pr-6'><p class='fs-16 font-weight-bold text-secondary mb-1'><span class='font-weight-500 fs-13 text-line-through text-body mr-1'>${prevPrice}</span>${price}</p><a href='#' class='text-secondary'>${name}</a></div><div class='position-relative ml-auto'><div class='input-group'><a href='#' class='down position-absolute pos-fixed-left-center pl-2'><i class='far fa-minus'></i></a><input type='number' class='number-cart${product_id} w-90px px-6 text-center h-40px bg-input border-0' value='${quantity}'><a href='#' class='up position-absolute pos-fixed-right-center pr-2'><i class='far fa-plus'></i></a></div></div></div></div></div>`).insertBefore($(".save-cart"))
+                        } */
+                    }
+                },
+                error: function(response) {
+                    processResponse(response)
+                }
+            })
+        }
+
+        function test() {
+            console.log("Test")
+        }
+    </script>
+
+</body>
+
+</html>

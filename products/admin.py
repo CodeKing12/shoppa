@@ -5,7 +5,7 @@ from .models import MoreProductImages, ProductReviews, Product, PC, Phone, Game
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'in_stock', 'product_type']
+    list_display = ['name', 'price', 'in_stock', 'category']
 
 class PhoneAdmin(admin.ModelAdmin):
     list_display = ['product', 'ram', 'storage', 'manufacturer', 'os_type']

@@ -1,313 +1,1438 @@
-<!doctype html>
-<html lang="en">
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Shoppa Shop Html Template">
-    <meta name="author" content="">
-    <meta name="generator" content="Jekyll">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Shoppa | Home</title>
-    {% comment %}
-    <script src="{% static '/cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js' %}"></script> {% endcomment %}
-    <link
-        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <script src="{% static 'js/cute-alert.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'external/fontawesome-pro-5/css/all.css' %}">
-    <link rel="stylesheet" href="{% static 'external/bootstrap-select/css/bootstrap-select.min.css' %}">
-    <link rel="stylesheet" href="{% static 'external/slick/slick.min.css' %}">
-    <link rel="stylesheet" href="{% static 'external/magnific-popup/magnific-popup.min.css' %}">
-    <link rel="stylesheet" href="{% static 'external/jquery-ui/jquery-ui.min.css' %}">
-    <link rel="stylesheet" href="{% static 'external/animate.css' %}">
-    <link rel="stylesheet" href="{% static 'external/mapbox-gl/mapbox-gl.min.css' %}">
-    <link rel="stylesheet" href="{% static 'external/fonts/font-phosphor/css/phosphor.min.css' %}">
-    <link rel="stylesheet" href="{% static 'external/fonts/tuesday-night/stylesheet.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/themes.css' %}">
-    <link rel="stylesheet" href="{% static 'css/notyf.min.css' %}">
-    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries."/>
+    <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories"/>
+    <meta name="author" content="spacingtech_webify">
 
-    <link rel="icon" href="{% static 'logos/favicon.png' %}">
+    <link rel="shortcut icon" type="image/favicon" href="{% static 'logos/favicon.png' %}">
 
-    <script src="{% static 'external/jquery.min.js' %}"></script>
-    <script src="{% static 'external/jquery-ui/jquery-ui.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="Shoppa | Home">
-    <meta name="twitter:description" content="The Home Page of Shoppa">
-    <meta name="twitter:image" content="{% static 'logos/logo.svg' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/simple-line-icons.css' %}">
 
-    <meta property="og:url" content="home-04.html">
-    <meta property="og:title" content="Home 04">
-    <meta property="og:description" content="Shoppa | Nigeria's Most Reliable E-Market">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="{% static 'images/logo_01.png' %}">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/themify-icons.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style9.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style6.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style4.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive9.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive6.css' %}">
 </head>
-
-<body onload="removeLoader()">
-    <section class="loader" id="loader">
-        <div id="iconloop" class="iconloop">
-            <img class="loadicons" src="{% static 'loadicons/search.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/black-friday.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/ecommerce (2).png' %}">
-            <img class="loadicons" src="{% static 'loadicons/rating.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/delivery-box.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/ecommerce (4).png' %}">
-            <img class="loadicons" src="{% static 'loadicons/card-payment.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/open.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/shopping-basket.png' %}">
-            <img class="loadicons" src="{% static 'loadicons/checkout.png' %}">
-        </div>
-        <div class="sliders">
-            <div id="slide1" class="slide1" style="background-color: #fff;"></div>
-            <div id="slide2" class="slide2"></div>
-        </div>
-    </section>
-
-    {% include "header.html" %}
-    
-    <main id="content">
-        {% if messages %}
-            {% for message in messages %}
-                <script>
-                    $(document).ready(function() {
-                        notyf.open({
-                            type: "{{message.tags}}",
-                            message: "{{message}}",
-                            duration: 7000,
-                        });
-                    });
-                </script>
-                {% endfor %}
-        {% endif %}
-
-        {% block content %}
-        {% endblock content %}
-    </main>
-
-    {% include "footer.html" %}
-
-    <script src="{% static 'external/bootstrap/bootstrap.bundle.js' %}"></script>
-    <script src="{% static 'external/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
-    <script src="{% static 'external/slick/slick.min.js' %}"></script>
-    <script src="{% static 'external/waypoints/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'external/counter/countUp.js' %}"></script>
-    <script src="{% static 'external/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'external/hc-sticky/hc-sticky.min.js' %}"></script>
-    <script src="{% static 'external/jparallax/TweenMax.min.js' %}"></script>
-    <script src="{% static 'external/mapbox-gl/mapbox-gl.js' %}"></script>
-    <script src="{% static 'external/isotope/isotope.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/notyf.min.js' %}"></script>
-    {% comment %} <script src="{% static 'js/submissions.js' %}"></script> {% endcomment %}
-    <script src="{% static 'js/theme.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-
-    <script>
-        function removeLoader() {
-            document.getElementById("iconloop").style.opacity = 0
-            setTimeout(()=>{
-                document.getElementById("slide1").classList.add("slideL")
-                document.getElementById("slide2").classList.add("slideR")
-                document.getElementById("iconloop").style.display = "none"
-            }, 100);
-            setTimeout(()=>{
-                document.getElementById("loader").style.display = "none"
-            }, 1000);
-            setTimeout(()=>{
-                document.body.style.overflow = "visible"
-            }, 500);
-            // document.getElementById("toast-btn").click();
-
-        }
-    </script>
-
-    {% if open_login.2 == True %}
-        <script>
-            $(document).ready(function() {
-                $('#sign-in').modal();
-                {% if open_login.0 != "" %}
-                    notyf.open({
-                        type: "{{ open_login.1 }}",
-                        message: "{{ open_login.0 }}",
-                        duration: 8000,
-                    });
-                {% endif %}
-            });
-        </script>
-    {% endif %}
-
-    {% include "lengthy-svg.html" %}
-
-    <div class="bt-top position-fixed pos-fixed-bottom-right p-6 z-index-10">
-        <a href="#"
-            class="gtf-back-to-top text-decoration-none bg-white text-primary hover-white bg-hover-primary shadow p-0 w-48px h-48px rounded-circle fs-20 d-flex align-items-center justify-content-center"
-            title="Back To Top"><i class="fal fa-arrow-up"></i></a>
-    </div>
-    
-    {% include "cart-overlay.html" %}
-
-    <div class="mfp-hide search-popup mfp-with-anim" id="search-popup">
-        <form>
-            <div class="input-group position-relative">
-                <div class="input-group-prepend d-none d-md-block">
-                    <select class="selectpicker" name="category" id="region-01"
-                        data-style="btn-lg letter-spacing-0 border-0 border-bottom border-2x bg-transparent text-white border-white fs-24 pl-0 shadow-none text-capitalize font-weight-normal rounded-0">
-                        <option value="" selected>All Categories</option>
-                        <option value="chairs">Chairs</option>
-                        <option value="stands">Stands</option>
-                        <option value="tables">Tables</option>
-                        <option value="accessory">Accessory</option>
-                    </select>
-                </div>
-                <input type="text" id="keyword" name="keyword"
-                    class="form-control border-0 border-bottom border-2x bg-transparent text-white border-white fs-24 form-control-lg"
-                    placeholder="Search Something...">
-                <div class="input-group-append position-absolute pos-fixed-right-center">
-                    <button class="input-group-text bg-transparent border-0 text-white fs-30 px-0 btn-lg" type="submit"><i class="far fa-search"></i>
-                    </button>
+<body>
+        <!-- top notificationbar start -->
+        <section class="top-2">
+            <div class="container">
+                <div class="row ">
+                    <div class="col">
+                        <ul class="top-home">
+                            <li class="top-home-li t-content">
+                                <div class="top-content">
+                                    <ul class="top-url">
+                                        <li class="top-li">
+                                            <a href="javascript:void(0)">About</a>
+                                            <a href="javascript:void(0)">Contact</a>
+                                            <a href="javascript:void(0)">Help</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="top-home-li">
+                                <!-- login start -->
+                                <div class="currency">
+                                    <div class="currency-drop">
+                                        <ul class="cry">
+                                            <li class="eur-head">
+                                                <span class="eur">account <i class="fa fa-angle-down"></i></span>
+                                                <ul class="all-currency account-details">
+                                                    <li><a href="{% static 'register.html' %}">register / log in</a></li>
+                                                    <li><a href="{% static 'checkout-2.html' %}">checkout</a></li>
+                                                    <li><a href="{% static 'wishlist.html' %}">my wishlist</a></li>
+                                                    <li><a href="{% static 'tracking.html' %}">order history</a></li>
+                                                    <li><a href="{% static 'cart-2.html' %}">my cart</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- login end -->
+                                <!-- wishlist start -->
+                                <div class="currency top-wishlist">
+                                    <a href="{% static 'wishlist.html' %}">Wishlist</a>
+                                </div>
+                                <!-- wishlist end -->
+                                <!-- currency start -->
+                                <div class="currency">
+                                    <div class="currency-drop">
+                                        <ul class="cry">
+                                            <li class="eur-head">
+                                                <span class="eur">CA - $ <i class="fa fa-angle-down"></i></span>
+                                                <ul class="all-currency all-drop-currency">
+                                                    <li><a href="javascript:void(0)">AD - €</a></li>
+                                                    <li><a href="javascript:void(0)">DE - €</a></li>
+                                                    <li><a href="javascript:void(0)">IN - ₹</a></li>
+                                                    <li><a href="javascript:void(0)">GB - £</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- currency start -->
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </form>
-    </div>
-    
-    {% include "sidenav.html" %}
+        </section>
+        <!-- top notificationbar start -->
+        <!-- header start -->
+        <header class="header-area">
+            <div class="header-main-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="header-main">
+                                <!-- logo start -->
+                                <div class="header-element logo">
+                                    <a href="{% static 'index9.html' %}">
+                                        <img width="155" src="{% static 'logos/logo 2.png' %}" alt="logo-image" class="img-fluid">
+                                    </a>
+                                </div>
+                                <!-- logo end -->
+                                <!-- main menu start -->
+                                <div class="header-element megamenu-content">
+                                    <div class="mainwrap">
+                                        <ul class="main-menu">
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Home</span>
+                                                </a>
+                                                <a href="collapse-top-home" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Home</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Shop</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="#collapse-top-mega-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Shop</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu mega-menu collapse" id="collapse-top-mega-menu">
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Fresh food</h2>
+                                                        <a href="collapse-top-sub-mega-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Fresh food</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-top-sub-mega-menu">
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fruit & nut</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Snack food</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Organics nut gifts</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Non-dairy</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Mayonnaise</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Milk almond</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Mixedfruits</h2>
+                                                        <a href="collapse-top-fruits-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Mixedfruits</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-top-fruits-menu">
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Coffee creamers</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Ghee beverages</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Ranch salad</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Hemp milk</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Nuts & seeds</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Bananas & plantains</h2>
+                                                        <a href="collapse-top-banana-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Bananas & plantains</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-top-banana-menu">
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh gala</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh berries</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fruit & nut</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fifts mixed fruits</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Oranges</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="megamenu-li parent">
+                                                        <h2 class="sublink-title">Apples berries</h2>
+                                                        <a href="collapse-top-apple-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <span>Apples berries</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-supmenu collapse" id="collapse-top-apple-menu">
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Pears produce</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Bananas</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Natural grassbeab</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh green orange</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh organic reachter</a></li>
+                                                            <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Balckberry 100%organic</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Blog</span>
+                                                </a>
+                                                <a href="collapse-top-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Blog</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-link parent">
+                                                <a href="javascript:void(0)" class="link-title">
+                                                    <span class="sp-link-title">Account</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <a href="blog-style" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <span class="sp-link-title">Account</span>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-submenu sub-menu collapse" id="blog-style">
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Blog grid</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="blog-style03">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid1">
+                                                                    <li><a href="{% static 'blog-style-1-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-1-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-1-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="grid2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid2">
+                                                                    <li><a href="{% static 'blog-style-2-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-2-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-2-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="grid3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid3">
+                                                                    <li><a href="{% static 'blog-style-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-3-left-grid-blog.html' %}">Left blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-3-right-grid-blog.html' %}">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="grid4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid4">
+                                                                    <li><a href="{% static 'blog-style-5-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-5-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-5-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="grid5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid5">
+                                                                    <li><a href="{% static 'blog-style-6-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-6-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-6-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="grid6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="grid6">
+                                                                    <li><a href="{% static 'blog-style-7-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-7-left-grid-blog.html' %}">Left blog 3 grid</a></li>
+                                                                    <li><a href="{% static 'blog-style-7-right-grid-blog.html' %}">Right blog 3 grid</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Blog list</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="blog-style01" data-bs-toggle="collapse" class="sub-link"><span>Blog list</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="blog-style01">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-1">
+                                                                    <li><a href="{% static 'blog-style-1-list.html' %}">Blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-1-left-list.html' %}">Left blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-1-right-list.html' %}">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-22" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-22">
+                                                                    <li><a href="{% static 'blog-style-2-list.html' %}">Blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-2-left-list.html' %}">Left blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-2-right-list.html' %}">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-33" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-33">
+                                                                    <li><a href="{% static 'blog-style-3-list.html' %}">Blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-3-left-list-blog.html' %}">Left blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-3-right-list-blog.html' %}">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-44" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-44">
+                                                                    <li><a href="{% static 'blog-style-5-list-blog.html' %}">Blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-5-left-list.html' %}">Left blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-5-right-list.html' %}">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-55" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-55">
+                                                                    <li><a href="{% static 'blog-style-6-list-blog.html' %}">Blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-6-left-list-blog.html' %}">Left blog list</a></li>
+                                                                    <li><a href="{% static 'blog-style-6-right-list-blog.html' %}">Right blog list</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-66" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-66">
+                                                                    <li><a href="{% static 'blog-style-7-list-blog.html' %}">Blog list</a></li><!--list-->
+                                                                    <li><a href="{% static 'blog-style-7-left-list-blog.html' %}">Left blog list</a></li><!--list-->
+                                                                    <li><a href="{% static 'blog-style-7-right-list-blog.html' %}">Right blog list</a></li><!--list-->
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Blog details</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="blog-style02" data-bs-toggle="collapse" class="sub-link"><span>Blog Details</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1 ex-width" id="blog-style02">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list-11" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list-11">
+                                                                    <li><a href="{% static 'blog-style-1-details.html' %}">Blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-1-left-details.html' %}">Left blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-1-right-details.html' %}">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list2">
+                                                                    <li><a href="{% static 'blog-style-2-details.html' %}">Blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-2-left-details.html' %}">Left blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-2-right-details.html' %}">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list3">
+                                                                    <li><a href="{% static 'blog-style-3-details.html' %}">Blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-3-left-blog-details.html' %}">Left blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-3-right-blog-details.html' %}">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list4">
+                                                                    <li><a href="{% static 'blog-style-5-details.html' %}">Blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-5-left-details.html' %}">Left blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-5-right-details.html' %}">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list5">
+                                                                    <li><a href="{% static 'blog-style-6-details.html' %}">Blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-6-left-details-blog.html' %}">Left blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-6-right-details-blog.html' %}">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="list6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                <ul class="grid-style collapse" id="list6">
+                                                                    <li><a href="{% static 'blog-style-7-details.html' %}">Blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-7-left-details.html' %}">Left blog details</a></li>
+                                                                    <li><a href="{% static 'blog-style-7-right-details.html' %}">Right blog details</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="submenu-li">
+                                                        <a href="javascript:void(0)" class="g-l-link"><span>Center blog</span> <i class="fa fa-angle-right"></i></a>
+                                                        <a href="center-blog" data-bs-toggle="collapse" class="sub-link"><span>Center blog</span> <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="collapse blog-style-1" id="center-blog">
+                                                            <li>
+                                                                <a href="{% static 'blog-style-1-center-blog.html' %}" class="sub-style"><span>Blog style 1</span></a>
+                                                                <a href="{% static 'blog-style-1-center-blog.html' %}" class="blog-sub-style"><span>Blog style 1</span></a>
+                                                                <a href="{% static 'blog-style-2-center-blog.html' %}" class="sub-style"><span>Blog style 2</span></a>
+                                                                <a href="{% static 'blog-style-2-center-blog.html' %}" class="blog-sub-style"><span>Blog style 2</span></a>
+                                                                <a href="{% static 'blog-style-3-center-blog.html' %}" class="sub-style"><span>Blog style 3</span></a>
+                                                                <a href="{% static 'blog-style-3-center-blog.html' %}" class="blog-sub-style"><span>Blog style 3</span></a>
+                                                                <a href="{% static 'blog-style-5-center-blog.html' %}" class="sub-style"><span>Blog style 4</span></a>
+                                                                <a href="{% static 'blog-style-5-center-blog.html' %}" class="blog-sub-style"><span>Blog style 4</span></a>
+                                                                <a href="{% static 'blog-style-6-center-blog.html' %}" class="sub-style"><span>Blog style 5</span></a>
+                                                                <a href="{% static 'blog-style-6-center-blog.html' %}" class="blog-sub-style"><span>Blog style 5</span></a>
+                                                                <a href="{% static 'blog-style-7-center-blog.html' %}" class="sub-style"><span>Blog style 6</span></a>
+                                                                <a href="{% static 'blog-style-7-center-blog.html' %}" class="blog-sub-style"><span>Blog style 6</span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- main menu end -->
+                                <!-- header icon start -->
+                                <div class="header-element right-block-box">
+                                    <ul class="shop-element">
+                                        <li class="side-wrap search-descktop">
+                                            <form>
+                                                <input type="text" name="search" placeholder="Search our store">
+                                                <a href="{% static 'search.html' %}" class="search-btn"><i class="icon-magnifier"></i></a>
+                                            </form>
+                                        </li>
+                                        <li class="side-wrap nav-toggler">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                                            <span class="line"></span>
+                                            </button>
+                                        </li>
+                                        <li class="side-wrap search-wrap">
+                                            <div class="search-rap">
+                                                <a href="search-modal" class="search-popuup" data-bs-toggle="modal">
+                                                    <img class="search-img" width="30" src="{% static 'icons/search.svg' %}">
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="side-wrap cart-wrap">
+                                            <div class="shopping-widget">
+                                                <div class="shopping-cart">
+                                                    <a href="javascript:void(0)" class="cart-count">
+                                                        <span class="cart-icon-wrap">
+                                                            <img class="ml-3" width="28" src="{% static 'icons/cart-3.svg' %}">
+                                                            <span id="cart-total" class="bigcounter">5</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <a><img class="user-img" width="30" src="{% static 'icons/user-thick.svg' %}"></a>
+                                        <a><img class="wish-img" width="30" src="{% static 'icons/wishlist-4.svg' %}"></a>
+                                    </ul>
+                                </div>
+                                <!-- header icon end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu start -->
+            <div class="header-bottom-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="main-menu-area">
+                                <div class="main-navigation navbar-expand-xl">
+                                    <div class="box-header menu-close">
+                                        <button class="close-box" type="button"><i class="ion-close-round"></i></button>
+                                    </div>
+                                    <div class="navbar-collapse" id="navbarContent">
+                                        <div class="megamenu-content">
+                                            <div class="mainwrap">
+                                                <ul class="main-menu">
+                                                    <li class="menu-link parent">
+                                                        <a href="javascript:void(0)" class="link-title">
+                                                            <span class="sp-link-title">Home</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <a href="collapse-home" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                            <span class="sp-link-title">Home</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-submenu sub-menu collapse" id="collapse-home">
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index1.html' %}" class="submenu-link">Vegist home 01</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="https://spacingtech.com/html/vegist-final/vegist-rtl/index1.html' %}" class="submenu-link">Vegist home 01 (RTL)</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="https://spacingtech.com/html/vegist-final/vegist-box/index1.html' %}" class="submenu-link">Vegist home 01 (BOX)</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index2.html' %}" class="submenu-link">Vegist home 02</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index3.html' %}" class="submenu-link">Vegist home 03</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index4.html' %}" class="submenu-link">Vegist home 04</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index5.html' %}" class="submenu-link">Vegist home 05</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index6.html' %}" class="submenu-link">Vegist home 06</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index7.html' %}" class="submenu-link">Vegist home 07</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index8.html' %}" class="submenu-link">Vegist home 08</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index9.html' %}" class="submenu-link">Vegist home 09</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index10.html' %}" class="submenu-link">Vegist home 10</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index11.html' %}" class="submenu-link">Vegist home 11</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'index12.html' %}" class="submenu-link">Vegist home 12</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-link parent">
+                                                        <a href="javascript:void(0)" class="link-title">
+                                                            <span class="sp-link-title">Shop</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <a href="collapse-mega-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                            <span class="sp-link-title">Shop</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu">
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Fresh food</h2>
+                                                                <a href="collapse-sub-mega-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Fresh food</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-menu">
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fruit & nut</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Snack food</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Organics nut gifts</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Non-dairy</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Mayonnaise</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Milk almond</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Mixedfruits</h2>
+                                                                <a href="collapse-fruits-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Mixedfruits</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="collapse-fruits-menu">
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Oranges</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Coffee creamers</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Ghee beverages</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Ranch salad</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Hemp milk</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Nuts & seeds</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Bananas & plantains</h2>
+                                                                <a href="collapse-banana-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Bananas & plantains</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="collapse-banana-menu">
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh gala</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh berries</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fruit & nut</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fifts mixed fruits</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Oranges</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Oranges</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Apples berries</h2>
+                                                                <a href="collapse-apple-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Apples berries</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="collapse-apple-menu">
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Pears produce</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Bananas</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Natural grassbeab</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh green orange</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Fresh organic reachter</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Balckberry 100%organic</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-link parent">
+                                                        <a href="javascript:void(0)" class="link-title">
+                                                            <span class="sp-link-title">Pages</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <a href="collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                            <span class="sp-link-title">Pages</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu">
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'about-us.html' %}" class="submenu-link">About us</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="javascript:void(0)" class="g-l-link"><span>Account</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="account-menu01" data-bs-toggle="collapse" class="sub-link"><span>Account</span> <i class="fa fa-angle-down"></i></a>
+                                                                <ul class="collapse blog-style-1" id="account-menu01">
+                                                                    <li>
+                                                                        <a href="{% static 'order-history.html' %}" class="sub-style"><span>Order</span></a>
+                                                                        <a href="{% static 'order-history.html' %}" class="blog-sub-style"><span>Order</span></a>
+                                                                        <a href="{% static 'profile.html' %}" class="sub-style"><span>Profile</span></a>
+                                                                        <a href="{% static 'profile.html' %}" class="blog-sub-style"><span>Profile</span></a>
+                                                                        <a href="{% static 'pro-addresses.html' %}" class="sub-style"><span>Address</span></a>
+                                                                        <a href="{% static 'pro-addresses.html' %}" class="blog-sub-style"><span>Address</span></a>
+                                                                        <a href="{% static 'pro-wishlist.html' %}" class="sub-style"><span>Wishlist</span></a>
+                                                                        <a href="{% static 'pro-wishlist.html' %}" class="blog-sub-style"><span>Wishlist</span></a>
+                                                                        <a href="{% static 'pro-tickets.html' %}" class="sub-style"><span>My tickets</span></a>
+                                                                        <a href="{% static 'pro-tickets.html' %}" class="blog-sub-style"><span>My tickets</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'billing-info.html' %}" class="submenu-link">Billing info</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'cancellation.html' %}" class="submenu-link">Cancellation</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'cart.html' %}" class="submenu-link">Cart page</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'coming-soon.html' %}" class="submenu-link">Coming-soon</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'faq%27s.html' %}" class="submenu-link">Faq's</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'forgot-password.html' %}" class="submenu-link">Forgot passowrd</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'order-complete.html' %}" class="submenu-link">Order complete</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'tracking.html' %}" class="submenu-link">Track page</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'contact.html' %}" class="submenu-link">Contact us</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'payment-policy.html' %}" class="submenu-link">Payment policy</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'privacy-policy.html' %}" class="submenu-link">privacy policy</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'return-policy.html' %}" class="submenu-link">Return policy</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'terms-conditions.html' %}" class="submenu-link">Terms & conditions</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'wishlist.html' %}" class="submenu-link">Wishlist</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'sitemap.html' %}" class="submenu-link">Sitemap</a>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="{% static 'fnf-page.html' %}" class="submenu-link">4 not 4</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-link parent">
+                                                        <a href="javascript:void(0)" class="link-title">
+                                                            <span class="sp-link-title">Blogs</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <a href="blog-grid-style01" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                            <span class="sp-link-title">Blogs</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-submenu sub-menu collapse" id="blog-grid-style01">
+                                                            <li class="submenu-li">
+                                                                <a href="javascript:void(0)" class="g-l-link"><span>Blog grid</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="blog-style-03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
+                                                                <ul class="collapse blog-style-1" id="blog-style-03">
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="grid-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="grid-1">
+                                                                            <li><a href="{% static 'blog-style-1-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-1-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-1-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="grid-2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="grid-2">
+                                                                            <li><a href="{% static 'blog-style-2-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-2-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-2-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="grid-3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="grid-3">
+                                                                            <li><a href="{% static 'blog-style-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-3-left-grid-blog.html' %}">Left blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-3-right-grid-blog.html' %}">Right blog 3 grid</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="grid-4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="grid-4">
+                                                                            <li><a href="{% static 'blog-style-5-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-5-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-5-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="grid-5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="grid-5">
+                                                                            <li><a href="{% static 'blog-style-6-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-6-left-3-grid.html' %}">Left blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-6-right-3-grid.html' %}">Right blog 3 grid</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="grid-6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="grid-6">
+                                                                            <li><a href="{% static 'blog-style-7-3-grid.html' %}">Blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-7-left-grid-blog.html' %}">Left blog 3 grid</a></li>
+                                                                            <li><a href="{% static 'blog-style-7-right-grid-blog.html' %}">Right blog 3 grid</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="javascript:void(0)" class="g-l-link"><span>Blog list</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="blog-list-style" data-bs-toggle="collapse" class="sub-link"><span>Blog list</span> <i class="fa fa-angle-down"></i></a>
+                                                                <ul class="collapse blog-style-1" id="blog-list-style">
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-list-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-list-1">
+                                                                            <li><a href="{% static 'blog-style-1-list.html' %}">Blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-1-left-list.html' %}">Left blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-1-right-list.html' %}">Right blog list</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-list-2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-list-2">
+                                                                            <li><a href="{% static 'blog-style-2-list.html' %}">Blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-2-left-list.html' %}">Left blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-2-right-list.html' %}">Right blog list</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-list-3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-list-3">
+                                                                            <li><a href="{% static 'blog-style-3-list.html' %}">Blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-3-left-list-blog.html' %}">Left blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-3-right-list-blog.html' %}">Right blog list</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-list-4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-list-4">
+                                                                            <li><a href="{% static 'blog-style-5-list-blog.html' %}">Blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-5-left-list.html' %}">Left blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-5-right-list.html' %}">Right blog list</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-list-5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-list-5">
+                                                                            <li><a href="{% static 'blog-style-6-list-blog.html' %}">Blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-6-left-list-blog.html' %}">Left blog list</a></li>
+                                                                            <li><a href="{% static 'blog-style-6-right-list-blog.html' %}">Right blog list</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-list-6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-list-6">
+                                                                            <li><a href="{% static 'blog-style-7-list-blog.html' %}">Blog list</a></li><!--list-->
+                                                                            <li><a href="{% static 'blog-style-7-left-list-blog.html' %}">Left blog list</a></li><!--list-->
+                                                                            <li><a href="{% static 'blog-style-7-right-list-blog.html' %}">Right blog list</a></li><!--list-->
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="javascript:void(0)" class="g-l-link"><span>Blog details</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="blog-details-style" data-bs-toggle="collapse" class="sub-link"><span>Blog Details</span> <i class="fa fa-angle-down"></i></a>
+                                                                <ul class="collapse blog-style-1 ex-width" id="blog-details-style">
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-details-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-details-1">
+                                                                            <li><a href="{% static 'blog-style-1-details.html' %}">Blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-1-left-details.html' %}">Left blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-1-right-details.html' %}">Right blog details</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-details-2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-details-2">
+                                                                            <li><a href="{% static 'blog-style-2-details.html' %}">Blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-2-left-details.html' %}">Left blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-2-right-details.html' %}">Right blog details</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-details-3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-details-3">
+                                                                            <li><a href="{% static 'blog-style-3-details.html' %}">Blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-3-left-blog-details.html' %}">Left blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-3-right-blog-details.html' %}">Right blog details</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-details-4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-details-4">
+                                                                            <li><a href="{% static 'blog-style-5-details.html' %}">Blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-5-left-details.html' %}">Left blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-5-right-details.html' %}">Right blog details</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-details-5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-details-5">
+                                                                            <li><a href="{% static 'blog-style-6-details.html' %}">Blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-6-left-details-blog.html' %}">Left blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-6-right-details-blog.html' %}">Right blog details</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)" class="sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                        <a href="blog-details-6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                                        <ul class="grid-style collapse" id="blog-details-6">
+                                                                            <li><a href="{% static 'blog-style-7-details.html' %}">Blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-7-left-details.html' %}">Left blog details</a></li>
+                                                                            <li><a href="{% static 'blog-style-7-right-details.html' %}">Right blog details</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="submenu-li">
+                                                                <a href="javascript:void(0)" class="g-l-link"><span>Center blog</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="center-b" data-bs-toggle="collapse" class="sub-link"><span>Center blog</span> <i class="fa fa-angle-down"></i></a>
+                                                                <ul class="collapse blog-style-1" id="center-b">
+                                                                    <li>
+                                                                        <a href="{% static 'blog-style-1-center-blog.html' %}" class="sub-style"><span>Blog style 1</span></a>
+                                                                        <a href="{% static 'blog-style-1-center-blog.html' %}" class="blog-sub-style"><span>Blog style 1</span></a>
+                                                                        <a href="{% static 'blog-style-2-center-blog.html' %}" class="sub-style"><span>Blog style 2</span></a>
+                                                                        <a href="{% static 'blog-style-2-center-blog.html' %}" class="blog-sub-style"><span>Blog style 2</span></a>
+                                                                        <a href="{% static 'blog-style-3-center-blog.html' %}" class="sub-style"><span>Blog style 3</span></a>
+                                                                        <a href="{% static 'blog-style-3-center-blog.html' %}" class="blog-sub-style"><span>Blog style 3</span></a>
+                                                                        <a href="{% static 'blog-style-5-center-blog.html' %}" class="sub-style"><span>Blog style 4</span></a>
+                                                                        <a href="{% static 'blog-style-5-center-blog.html' %}" class="blog-sub-style"><span>Blog style 4</span></a>
+                                                                        <a href="{% static 'blog-style-6-center-blog.html' %}" class="sub-style"><span>Blog style 5</span></a>
+                                                                        <a href="{% static 'blog-style-6-center-blog.html' %}" class="blog-sub-style"><span>Blog style 5</span></a>
+                                                                        <a href="{% static 'blog-style-7-center-blog.html' %}" class="sub-style"><span>Blog style 6</span></a>
+                                                                        <a href="{% static 'blog-style-7-center-blog.html' %}" class="blog-sub-style"><span>Blog style 6</span></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-link parent">
+                                                        <a href="javascript:void(0)" class="link-title">
+                                                            <span class="sp-link-title">Feature</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <a href="feature10" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                            <span class="sp-link-title">Feature</span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-submenu mega-menu collapse" id="feature10">
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Header style</h2>
+                                                                <a href="feature08" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Header style</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="feature08">
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-1.html' %}">Header style 1</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-2.html' %}">Header style 2</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-3.html' %}">Header style 3</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-4.html' %}">Header style 4</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-5.html' %}">Header style 5</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-6.html' %}">Header style 6</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'header-style-7.html' %}">Header style 7</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Footer style</h2>
+                                                                <a href="feature07" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Footer style</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="feature07">
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-1.html' %}">Footer style 1</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-2.html' %}">Footer style 2</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-3.html' %}">Footer style 3</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-4.html' %}">Footer style 4</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-5.html' %}">Footer style 5</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-6.html' %}">Footer style 6</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'footer-style-7.html' %}">Footer style 7</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Product details</h2>
+                                                                <a href="feature06" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Product details</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="feature06">
+                                                                    <li class="supmenu-li"><a href="{% static 'product.html' %}">Product details style 1</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-2.html' %}">Product details style 2</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-3.html' %}">Product details style 3</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-4.html' %}">Product details style 4</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-5.html' %}">Product details style 5</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-6.html' %}">Product details style 6</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'product-style-7.html' %}">Product details style 7</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="megamenu-li parent">
+                                                                <h2 class="sublink-title">Other style</h2>
+                                                                <a href="feature05" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <span>Other style</span>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="feature05">
+                                                                    <li class="supmenu-li"><a href="{% static 'checkout-1.html' %}">Checkout style 1</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'checkout-2.html' %}">Checkout style 2</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'checkout-3.html' %}">Checkout style 3</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'cart.html' %}">Cart style 1</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'cart-2.html' %}">Cart style 2</a></li>
+                                                                    <li class="supmenu-li"><a href="{% static 'cart-3.html' %}">Cart style 3</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu end -->
+            <!-- minicart start -->
+            <div class="mini-cart">
+                <a href="javascript:void(0)" class="shopping-cart-close"><i class="ion-close-round"></i></a>
+                <div class="cart-item-title">
+                    <p>
+                        <span class="cart-count-desc">There are</span>
+                        <span class="cart-count-item bigcounter">4</span>
+                        <span class="cart-count-desc">Products</span>
+                    </p>
+                </div>
+                <ul class="cart-item-loop">
+                    <li class="cart-item">
+                        <div class="cart-img">
+                            <a href="{% static 'product-style-2.html' %}">
+                                <img src="{% static 'image/cart-img.jpg' %}" alt="cart-image" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="cart-title">
+                            <h6><a href="{% static 'product-style-2.html' %}">Fresh apple 5kg</a></h6>
+                            <div class="cart-pro-info">
+                                <div class="cart-qty-price">
+                                    <span class="quantity">1 x </span>
+                                    <span class="price-box">$250.00 USD</span>
+                                </div>
+                                <div class="delete-item-cart">
+                                    <a href="{% static 'empty-cart.html' %}"><i class="icon-trash icons"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart-item">
+                        <div class="cart-img">
+                            <a href="{% static 'product-style-2.html' %}">
+                                <img src="{% static 'image/cart-img02.jpg' %}" alt="cart-image" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="cart-title">
+                            <h6><a href="{% static 'product-style-2.html' %}">Natural grassbean 4kg</a></h6>
+                            <div class="cart-pro-info">
+                                <div class="cart-qty-price">
+                                    <span class="quantity">1 x </span>
+                                    <span class="price-box">$300.00 USD</span>
+                                </div>
+                                <div class="delete-item-cart">
+                                    <a href="{% static 'empty-cart.html' %}"><i class="icon-trash icons"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart-item">
+                        <div class="cart-img">
+                            <a href="{% static 'product-style-2.html' %}">
+                                <img src="{% static 'image/cart-img03.jpg' %}" alt="cart-image" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="cart-title">
+                            <h6><a href="{% static 'product-style-2.html' %}">Organic coconut juice 5ltr</a></h6>
+                            <div class="cart-pro-info">
+                                <div class="cart-qty-price">
+                                    <span class="quantity">1 x </span>
+                                    <span class="price-box">$250.00 USD</span>
+                                </div>
+                                <div class="delete-item-cart">
+                                    <a href="{% static 'empty-cart.html' %}"><i class="icon-trash icons"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart-item">
+                        <div class="cart-img">
+                            <a href="{% static 'product-style-2.html' %}">
+                                <img src="{% static 'image/cart-img04.jpg' %}" alt="cart-image" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="cart-title">
+                            <h6><a href="{% static 'product-style-2.html' %}">Orange juice 5ltr</a></h6>
+                            <div class="cart-pro-info">
+                                <div class="cart-qty-price">
+                                    <span class="quantity">1 x </span>
+                                    <span class="price-box">$350.00 USD</span>
+                                </div>
+                                <div class="delete-item-cart">
+                                    <a href="{% static 'empty-cart.html' %}"><i class="icon-trash icons"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="subtotal-title-area">
+                    <li class="subtotal-info">
+                        <div class="subtotal-titles">
+                            <h6>Sub total:</h6>
+                            <span class="subtotal-price">$750.00 USD</span>
+                        </div>
+                    </li>
+                    <li class="mini-cart-btns">
+                        <div class="cart-btns">
+                            <a href="{% static 'cart-2.html' %}" class="btn btn-style2">View cart</a>
+                            <a href="{% static 'checkout-2.html' %}" class="btn btn-style2">Checkout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- minicart end -->
+            <!-- search start -->
+            <div class="modal fade" id="search-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="search-content">
+                                            <div class="search-engine">
+                                                <input type="text" name="search" placeholder="Search products">
+                                                <button class="search-btn" type="button"><i class="ion-ios-search-strong"></i></button>
+                                            </div>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="ion-close-round"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- search end -->
+        </header>
+        <!-- header end -->
 
-    {% include 'auth-modal.html' %}
-    
-    {% include "quickview-product.html" %}
+        {% block content %}
 
-    <script>
-        function addToCart(product_id, quantity, color) {
-            // console.log(product_id)
-            $.ajax({
-                type: 'POST',
-                url: "{% url 'add_to_cart' %}",
-                headers: {'X-CSRFToken': csrftoken},
-                mode: 'same-origin',
-                data: {
-                    "product_id": product_id,
-                    "quantity": quantity,
-                    "color": color
-                },
-                success: function(response) {
-                    success = processResponse(response)
-                    if (success == true) {
-                        if ($(".abscence-text").length) {
-                            $(".abscence-text").remove()
-                            console.log($(".save-cart"))
-                            $(".save-cart").removeClass("remove")
-                        }
-                        if ($(`.item${product_id}`).length) {
-                            console.log("This is processed")
-                            quantity_field = $(`.number-cart${product_id}`)
-                            current_value = quantity_field.val()
-                            newValue = parseInt(current_value) + quantity
-                            quantity_field.val(newValue)
-                            console.log(quantity_field)
-                        } else {
-                            prefix = "pro" + product_id
-                            imgUrl = $(`.${prefix}-image`).attr("src")
-                            prevPrice = $(`.${prefix}-prevPrice`).text()
-                            price = $(`.${prefix}-price`).text()
-                            name = $(`.${prefix}-name`).text()
-                            // console.log(imgUrl, prevPrice, price, name)
-                            $(`<div class='mb-4 d-flex item${product_id}'><a onclick='removeFromCart(${product_id})' class='cursor-pointer d-flex align-items-center mr-2 text-muted'><i class='fal fa-times'></i></a><div class='media w-100'><div class='w-60px mr-3'><img src='${imgUrl}' alt='${name}'></div><div class='media-body d-flex'><div class='cart-price pr-6'><p class='fs-16 font-weight-bold text-secondary mb-1'><span class='font-weight-500 fs-13 text-line-through text-body mr-1'>${prevPrice}</span>${price}</p><a href='#' class='text-secondary'>${name}</a></div><div class='position-relative ml-auto'><div class='input-group'><a href='#' class='down position-absolute pos-fixed-left-center pl-2'><i class='far fa-minus'></i></a><input type='number' class='number-cart${product_id} w-90px px-6 text-center h-40px bg-input border-0' value='${quantity}'><a href='#' class='up position-absolute pos-fixed-right-center pr-2'><i class='far fa-plus'></i></a></div></div></div></div></div>`).insertBefore($(".save-cart"))
-                        }
-                    }
-                },
-                error: function(response) {
-                    processResponse(response)
-                }
-            })
-        }
+        {% endblock content %}
 
-        function removeFromCart(product_id) {
-            $.ajax({
-                type: "POST",
-                url: "{% url 'remove_from_cart' %}",
-                headers: {'X-CSRFToken': csrftoken},
-                mode: 'same-origin',
-                data: {
-                    "product_id": product_id
-                },
-                success: function(response) {
-                    success = processResponse(response)
-                    if (success == true) {
-                        $(`.item${product_id}`).remove()
-                        let children = $(".the-cart").children()
-                        console.log($(".the-cart").children().length)
-                        if ($(".empty-fixer").length) {
-                            lengthCheck = 3
-                        } else {
-                            lengthCheck = 2
-                        }
-                        if ($(".the-cart").children().length < lengthCheck) {
-                            $(".save-cart").addClass("remove")
-                            $(".the-cart").prepend("<p class='fs-15 font-weight-500 text-body mb-5 abscence-text'><span class='d-inline-block mr-2 fs-18 text-secondary'>You haven't added any item to your cart</p>")
-                        }
-                    }
-                },
-                error: function(response) {
-                    processResponse(response)
-                }
-            })
-        }
+        <section class="footer-one section-tb-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="f-logo">
+                            <ul class="footer-ul">
+                                <li class="footer-li footer-logo">
+                                    <a href="index2.html">
+                                        <img class="img-fluid" src="image/logo2.png" alt="">
+                                    </a>
+                                </li>
+                                <li class="footer-li footer-address">
+                                    <ul class="f-ul-li-ul">
+                                        <li class="footer-icon">
+                                            <i class="ion-ios-location"></i>
+                                        </li>
+                                        <li class="footer-info">
+                                            <h6>Location</h6>
+                                            <span>401 Broadway 24th floor</span>
+                                            <span>Near ant mall cross road</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer-li footer-contact">
+                                    <ul class="f-ul-li-ul">
+                                        <li class="footer-icon">
+                                            <i class="ion-ios-telephone"></i>
+                                        </li>
+                                        <li class="footer-info">
+                                            <h6>Get in touch</h6>
+                                            <a href="tel:1-800-222-000">Phone: 1-800-222-000</a>
+                                            <a href="mailto:demo@demo.com">Email: demo@demo.com</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer-li footer-contact">
+                                    <ul class="f-ul-li-ul">
+                                        <li class="footer-icon">
+                                            <i class="ion-ios-help"></i>
+                                        </li>
+                                        <li class="footer-info">
+                                            <h6>Help</h6>
+                                            <span>Lorem ipsum is simply</span>
+                                            <span>Dummy the printing</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-bottom">
+                            <div class="footer-link" id="footer-accordian">
+                                <div class="f-link">
+                                    <h2 class="h-footer">Top categories</h2>
+                                    <a href="#t-cate" data-bs-toggle="collapse" class="h-footer">
+                                        <span>Top categories</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="f-link-ul collapse" id="t-cate" data-bs-parent="#footer-accordian">
+                                        <li class="f-link-ul-li"><a href="grid-list.html">Fruits</a></li>
+                                        <li class="f-link-ul-li"><a href="grid-list.html">Fast foods</a></li>
+                                        <li class="f-link-ul-li"><a href="grid-list.html">Vegetable</a></li>
+                                        <li class="f-link-ul-li"><a href="grid-list.html">Salads</a></li>
+                                        <li class="f-link-ul-li"><a href="grid-list.html">Bestseller</a></li>
+                                    </ul>
+                                </div>
+                                <div class="f-link">
+                                    <h2 class="h-footer">Services</h2>
+                                    <a href="#services" data-bs-toggle="collapse" class="h-footer">
+                                        <span>Services</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="f-link-ul collapse" id="services" data-bs-parent="#footer-accordian">
+                                        <li class="f-link-ul-li"><a href="about-us.html">About vegist</a></li>
+                                        <li class="f-link-ul-li"><a href="faq%27s.html">Faq's</a></li>
+                                        <li class="f-link-ul-li"><a href="contact.html">Contact us</a></li>
+                                        <li class="f-link-ul-li"><a href="blog-style-2-3-grid.html">News</a></li>
+                                        <li class="f-link-ul-li"><a href="sitemap.html">Sitemap</a></li>
+                                    </ul>
+                                </div>
+                                <div class="f-link">
+                                    <h2 class="h-footer">Privacy & terms</h2>
+                                    <a href="#privacy" data-bs-toggle="collapse" class="h-footer">
+                                        <span>Privacy & terms</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="f-link-ul collapse" id="privacy" data-bs-parent="#footer-accordian">
+                                        <li class="f-link-ul-li"><a href="payment-policy.html">Payment policy</a></li>
+                                        <li class="f-link-ul-li"><a href="privacy-policy.html">Privacy policy</a></li>
+                                        <li class="f-link-ul-li"><a href="return-policy.html">Return policy</a></li>
+                                        <li class="f-link-ul-li"><a href="shipping-policy.html">Shipping policy</a></li>
+                                        <li class="f-link-ul-li"><a href="terms-conditions.html">Terms & conditions</a></li>
+                                    </ul>
+                                </div>
+                                <div class="f-link">
+                                    <h2 class="h-footer">My account</h2>
+                                    <a href="#account" data-bs-toggle="collapse" class="h-footer">
+                                        <span>My account</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="f-link-ul collapse" id="account" data-bs-parent="#footer-accordian">
+                                        <li class="f-link-ul-li"><a href="account.html">My account</a></li>
+                                        <li class="f-link-ul-li"><a href="cart-2.html">My cart</a></li>
+                                        <li class="f-link-ul-li"><a href="tracking.html">Order history</a></li>
+                                        <li class="f-link-ul-li"><a href="wishlist.html">My wishlist</a></li>
+                                        <li class="f-link-ul-li"><a href="addresses.html">My address</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        function addToWishlist(product_id) {
-            // console.log(product_id)
-            $.ajax({
-                type: 'POST',
-                url: "{% url 'add_to_wishlist' %}",
-                headers: {'X-CSRFToken': csrftoken},
-                mode: 'same-origin',
-                data: {
-                    "product_id": product_id,
-                },
-                success: function(response) {
-                    success = processResponse(response)
-                    if (success == true) {
-/*                        if ($(".abscence-text").length) {
-                            $(".abscence-text").remove()
-                            console.log($(".save-cart"))
-                            $(".save-cart").removeClass("remove")
-                        }
-                        if ($(`.item${product_id}`).length) {
-                            console.log("This is processed")
-                            quantity_field = $(`.number-cart${product_id}`)
-                            current_value = quantity_field.val()
-                            newValue = parseInt(current_value) + quantity
-                            quantity_field.val(newValue)
-                            console.log(quantity_field)
-                        } else {
-                            prefix = "pro" + product_id
-                            imgUrl = $(`.${prefix}-image`).attr("src")
-                            prevPrice = $(`.${prefix}-prevPrice`).text()
-                            price = $(`.${prefix}-price`).text()
-                            name = $(`.${prefix}-name`).text()
-                            // console.log(imgUrl, prevPrice, price, name)
-                            $(`<div class='mb-4 d-flex item${product_id}'><a onclick='removeFromCart(${product_id})' class='cursor-pointer d-flex align-items-center mr-2 text-muted'><i class='fal fa-times'></i></a><div class='media w-100'><div class='w-60px mr-3'><img src='${imgUrl}' alt='${name}'></div><div class='media-body d-flex'><div class='cart-price pr-6'><p class='fs-16 font-weight-bold text-secondary mb-1'><span class='font-weight-500 fs-13 text-line-through text-body mr-1'>${prevPrice}</span>${price}</p><a href='#' class='text-secondary'>${name}</a></div><div class='position-relative ml-auto'><div class='input-group'><a href='#' class='down position-absolute pos-fixed-left-center pl-2'><i class='far fa-minus'></i></a><input type='number' class='number-cart${product_id} w-90px px-6 text-center h-40px bg-input border-0' value='${quantity}'><a href='#' class='up position-absolute pos-fixed-right-center pr-2'><i class='far fa-plus'></i></a></div></div></div></div></div>`).insertBefore($(".save-cart"))
-                        } */
-                    }
-                },
-                error: function(response) {
-                    processResponse(response)
-                }
-            })
-        }
 
-        function test() {
-            console.log("Test")
-        }
-    </script>
+        <!-- copyright start -->
+        <section class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <ul class="copyrighta-ul">
+                            <li class="copyrighta-li">
+                                <span class="store-info">Store time</span>
+                                <span class="store-info">Mon - Fri - 8 : 00 am to 9 : 00 pm</span>
+                                <span class="store-info">Sun - 9 : 00 am to 9 : 00 pm</span>
+                            </li>
+                            <li class="copyrighta-li">
+                                <span class="copy-text">Copyright 2021 spacingtech all rights reserved</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- copyright end -->
 
-</body>
+        <!-- quick veiw start -->
+        <section class="quick-view">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Product quickview</h5>
+                            <a href="javascript:void(0)" data-bs-dismiss="modal" aria-label="Close"><i class="ion-close-round"></i></a>
+                        </div>
+                        <div class="quick-veiw-area">
+                            <div class="quick-image">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="image-1">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-2">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/prro-page-image01.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-3">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image1-1.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-4">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image1.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-5">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image2.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-6">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image2-2.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-7">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image3.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="tab-pane fade show" id="image-8">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image03.jpg' %}" class="img-fluid" alt="image">
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul class="nav nav-tabs quick-slider owl-carousel owl-theme">
+                                    <li class="nav-item items">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="image-1"><img src="{% static 'image/pro-page-image/image1.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-2"><img src="{% static 'image/pro-page-image/image2.jpg' %}" class="img-fluid" alt="iamge"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-3"><img src="{% static 'image/pro-page-image/image3.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-4"><img src="{% static 'image/pro-page-image/image4.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-5"><img src="{% static 'image/pro-page-image/image5.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-6"><img src="{% static 'image/pro-page-image/image6.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-7"><img src="{% static 'image/pro-page-image/image8.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                    <li class="nav-item items">
+                                        <a class="nav-link" data-bs-toggle="tab" href="image-8"><img src="{% static 'image/pro-page-image/image7.jpg' %}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="quick-caption">
+                                <h4>Fresh organic reachter</h4>
+                                <div class="quick-price">
+                                    <span class="new-price">$350.00 USD</span>
+                                    <span class="old-price"><del>$399.99 USD</del></span>
+                                </div>
+                                <div class="quick-rating">
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <div class="pro-description">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and</p>
+                                </div>
+                                <div class="pro-size">
+                                    <label>Size: </label>
+                                    <select>
+                                        <option>1 ltr</option>
+                                        <option>3 ltr</option>
+                                        <option>5 ltr</option>
+                                    </select>
+                                </div>
+                                <div class="plus-minus">
+                                    <span>
+                                        <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                        <input type="text" name="name" value="1">
+                                        <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                    </span>
+                                    <a href="{% static 'cart.html' %}" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="{% static 'wishlist.html' %}" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- quick veiw end -->
+
+        <!-- newsletter pop-up start -->
+        <div class="vegist-popup animated modal fadeIn" id="myModal1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="popup-content">
+                            <!-- popup close button start -->
+                            <a href="javascript:void(0)" data-bs-dismiss="modal" aria-label="Close" class="close-btn"><i class="ion-close-round"></i></a>
+                            <!-- popup close button end -->
+                            <!-- popup content area start -->
+                            <div class="pop-up-newsletter" style="background-image: url({% static 'image/news-popup.jpg' %});">
+                                <div class="logo-content">
+                                    <a href="{% static 'index1.html' %}"><img src="{% static 'image/home-9/logo.png' %}" alt="image" class="img-fluid"></a>
+                                    <h4>Become a subscriber</h4>
+                                    <span>Subscribe to get the notification of latest posts</span>
+                                </div>
+                                <div class="subscribe-area">
+                                    <input type="text" name="comment" placeholder="Your email address">
+                                    <a href="{% static 'index1.html' %}" class="btn btn-style1">Subscribe</a>
+                                </div>
+                            </div>
+                            <!-- popup content area end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- newsletter pop-up end -->
+
+        <!-- back to top start -->
+        <a href="javascript:void(0)" class="scroll" id="top">
+            <span><i class="fa fa-angle-double-up"></i></span>
+        </a>
+        <!-- back to top end -->
+        <div class="mm-fullscreen-bg"></div>
+        <!-- jquery -->
+        <script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script>
+        <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
+        <!-- bootstrap -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- popper -->
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <!-- fontawesome -->
+        <script src="{% static 'js/fontawesome.min.js' %}"></script>
+        <!-- owl carousal -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- swiper -->
+        <script src="{% static 'js/swiper.min.js' %}"></script>
+        <!-- custom -->
+        <script src="{% static 'js/custom.js' %}"></script>
+    </body>
 
 </html>
