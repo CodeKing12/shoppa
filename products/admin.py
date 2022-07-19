@@ -7,6 +7,9 @@ from .models import MoreProductImages, ProductReviews, Product, PC, Phone, Game
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'price', 'in_stock', 'category']
 
+# class CategoryAdmin(admin.ModelAdmin):
+#     list_display = ['name', 'details']
+
 class PhoneAdmin(admin.ModelAdmin):
     list_display = ['product', 'ram', 'storage', 'manufacturer', 'os_type']
 
@@ -40,6 +43,7 @@ class MoreProductImagesAdmin(admin.StackedInline):
 #     verbose_name_plural = 'Available Colors'
 
 admin.site.register(Product, ProductAdmin)
+# admin.site.register(Category, CategoryAdmin)
 admin.site.register(Phone, PhoneAdmin)
 admin.site.register(PC, PCAdmin)
 admin.site.register(Game, GameAdmin)

@@ -1,205 +1,22 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.validators import MaxValueValidator
-from vendors import models as acc_models
 from django.utils.text import slugify
+from .model_choices import PROCESSOR_TYPE_CHOICES, PC_MANUFACTURER_CHOICES, PHONE_OS_CHOICES, PHONE_MANUFACTURER_CHOICES, PC_OS_CHOICES, GAME_OS_CHOICES, HARD_DISK_CHOICES, SIM_SLOT_CHOICES, PRODUCT_CHOICES, NETWORK_CHOICES
 
-PHONE_MANUFACTURER_CHOICES = [
-    ('SAMSUNG', 'SAMSUNG'),
-    ('ACER', 'ACER'),
-    ('ALCATEL', 'ALCATEL'),
-    ('ALLVIEW', 'ALLVIEW'),
-    ('AMAZON', 'AMAZON'),
-    ('AMOI', 'AMOI'),
-    ('APPLE', 'APPLE'),
-    ('ARCHOS', 'ARCHOS'),
-    ('ASUS', 'ASUS'),
-    ('AT&T', 'AT&T'),
-    ('BENEFON', 'BENEFON'),
-    ('BENQ', 'BENQ'),
-    ('BENQ-SIEMENS', 'BENQ-SIEMENS'),
-    ('BIRD', 'BIRD'),
-    ('BLACKBERRY', 'BLACKBERRY'),
-    ('BLACKVIEW', 'BLACKVIEW'),
-    ('BLU', 'BLU'),
-    ('BOSCH', 'BOSCH'),
-    ('BQ', 'BQ'),
-    ('CASIO', 'CASIO'),
-    ('CELKON', 'CELKON'),
-    ('CHEA', 'CHEA'),
-    ('COOLPAD', 'COOLPAD'),
-    ('DELL', 'DELL'),
-    ('EMPORIA', 'EMPORIA'),
-    ('ENERGIZER', 'ENERGIZER'),
-    ('ERICSSON', 'ERICSSON'),
-    ('ETEN', 'ETEN'),
-    ('FAIRPHONE', 'FAIRPHONE'),
-    ('FUJITSU SIEMENS', 'FUJITSU SIEMENS'),
-    ('GARMIN-ASUS', 'GARMIN-ASUS'),
-    ('GIGABYTE', 'GIGABYTE'),
-    ('GIONEE', 'GIONEE'),
-    ('GOOGLE', 'GOOGLE'),
-    ('HAIER', 'HAIER'),
-    ('HONOR', 'HONOR'),
-    ('HP', 'HP'),
-    ('HTC', 'HTC'),
-    ('HUAWEI', 'HUAWEI'),
-    ('I-MATE', 'I-MATE'),
-    ('I-MOBILE', 'I-MOBILE'),
-    ('ICEMOBILE', 'ICEMOBILE'),
-    ('INFINIX', 'INFINIX'),
-    ('INNOSTREAM', 'INNOSTREAM'),
-    ('INQ', 'INQ'),
-    ('INTEX', 'INTEX'),
-    ('JOLLA', 'JOLLA'),
-    ('KARBONN', 'KARBONN'),
-    ('KYOCERA', 'KYOCERA'),
-    ('LAVA', 'LAVA'),
-    ('LEECO', 'LEECO'),
-    ('LENOVO', 'LENOVO'),
-    ('LG', 'LG'),
-    ('MAXON', 'MAXON'),
-    ('MAXWEST', 'MAXWEST'),
-    ('MEIZU', 'MEIZU'),
-    ('MICROMAX', 'MICROMAX'),
-    ('MICROSOFT', 'MICROSOFT'),
-    ('MITAC', 'MITAC'),
-    ('MITSUBISHI', 'MITSUBISHI'),
-    ('MODU', 'MODU'),
-    ('MOTOROLA', 'MOTOROLA'),
-    ('MWG', 'MWG'),
-    ('NEC', 'NEC'),
-    ('NEONODE', 'NEONODE'),
-    ('NIU', 'NIU'),
-    ('NOKIA', 'NOKIA'),
-    ('NVIDIA', 'NVIDIA'),
-    ('O2', 'O2'),
-    ('ONEPLUS', 'ONEPLUS'),
-    ('OPPO', 'OPPO'),
-    ('ORANGE', 'ORANGE'),
-    ('PALM', 'PALM'),
-    ('PANASONIC', 'PANASONIC'),
-    ('PANTECH', 'PANTECH'),
-    ('PARLA', 'PARLA'),
-    ('PHILIPS', 'PHILIPS'),
-    ('PLUM', 'PLUM'),
-    ('POSH', 'POSH'),
-    ('PRESTIGIO', 'PRESTIGIO'),
-    ('QMOBILE', 'QMOBILE'),
-    ('QTEK', 'QTEK'),
-    ('RAZER', 'RAZER'),
-    ('REALME', 'REALME'),
-    ('SAGEM', 'SAGEM'),
-    ('SENDO', 'SENDO'),
-    ('SEWON', 'SEWON'),
-    ('SHARP', 'SHARP'),
-    ('SIEMENS', 'SIEMENS'),
-    ('SONIM', 'SONIM'),
-    ('SONY', 'SONY'),
-    ('SONY ERICSSON', 'SONY ERICSSON'),
-    ('SPICE', 'SPICE'),
-    ('T-MOBILE', 'T-MOBILE'),
-    ('TCL', 'TCL'),
-    ('TECNO', 'TECNO'),
-    ('TEL.ME.', 'TEL.ME.'),
-    ('TELIT', 'TELIT'),
-    ('THURAYA', 'THURAYA'),
-    ('TOSHIBA', 'TOSHIBA'),
-    ('ULEFONE', 'ULEFONE'),
-    ('UNNECTO', 'UNNECTO'),
-    ('VERTU', 'VERTU'),
-    ('VERYKOOL', 'VERYKOOL'),
-    ('VIVO', 'VIVO'),
-    ('VK MOBILE', 'VK MOBILE'),
-    ('VODAPHONE', 'VODAPHONE'),
-    ('WIKO', 'WIKO'),
-    ('WND', 'WND'),
-    ('XCUTE', 'XCUTE'),
-    ('XIAOMI', 'XIAOMI'),
-    ('XOLO', 'XOLO'),
-    ('YEZZ', 'YEZZ'),
-    ('YOTA', 'YOTA'),
-    ('YU', 'YU'),
-    ('ZTE', 'ZTE'),
-]
+# class Category(models.Model):
+#     name = models.CharField(max_length=200)
+    # content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    # object_id = models.PositiveIntegerField()
+    # details = GenericForeignKey("content_type", "object_id")
 
-PHONE_OS_CHOICES = [
-    ('Android', 'Android'),
-    ('iOS', 'iOS'),
-    ('Blackberry OS', 'Blackberry OS'),
-    ('Windows OS', 'Windows OS'),
-]
+    # class Meta:
+    #     indexes = [
+    #         models.Index(fields=["content_type", "object_id"])
+    #     ]
 
-PC_OS_CHOICES = [
-    ('Linux', 'Linux'),
-    ('macOS', 'macOS'),
-    ('Windows OS', 'Windows OS'),
-]
-
-PC_MANUFACTURER_CHOICES = [
-    ('AORUS', 'AORUS'),
-    ('HP', 'HP'),
-    ('LENOVO', 'LENOVO'),
-    ('MSI', 'MSI'),
-    ('ASUS', 'ASUS'),
-    ('DELL', 'DELL'),
-    ('ACER', 'ACER'),
-    ('GIGABYTE', 'GIGABYTE'),
-    ('MICROSOFT', 'MICROSOFT'),
-    ('ALIENWARE', 'ALIENWARE'),
-    ('APPLE', 'APPLE'),
-    ('RAZER', 'RAZER'),
-    ('SAMSUNG', 'SAMSUNG'),
-    ('LG', 'LG'),
-    ('TOSHIBA', 'TOSHIBA'),
-    ('FUJITSU', 'FUJITSU'),
-    ('PANASONIC', 'PANASONIC'),
-    ('HUAWEI', 'HUAWEI'),
-    ('DYNABOOK', 'DYNABOOK'),
-    ('LAPTOPMEDIA', 'LAPTOPMEDIA'),
-    ('INFINIX', 'INFINIX'),
-    ('XIAOMI', 'XIAOMI'),
-    ('SONY', 'SONY'),
-    ('TOSHIBA', 'TOSHIBA'),
-    ('DURABOOK', 'DURABOOK'),
-    ('GOOGLE', 'GOOGLE'),
-    ('NOKIA', 'NOKIA'),
-    ('VAIO', 'VAIO'),
-    ('PACKARD BELL', 'PACKARD BELL'),
-    ('MSi', 'MSi'),
-    ('HYUNDAI TECHNOLOGY', 'HYUNDAI TECHNOLOGY'),
-]
-
-GAME_OS_CHOICES = [
-    ('Linux', 'Linux'),
-    ('macOS', 'macOS'),
-    ('Windows 10', 'Windows 10'),
-    ('Windows 7', 'Windows 7'),
-    ('Windows 8', 'Windows 8'),
-    ('Windows Vista', 'Windows Vista'),
-]
-
-SIM_SLOT_CHOICES =  [
-    ('Single Sim', 'Single Sim'),
-    ('Dual Sim', 'Dual Sim')
-]
-
-NETWORK_CHOICES = [
-    ('2G', '2G'),
-    ('3G', '3G'),
-    ('4G', '4G'),
-    ('5G', '5G')
-]
-
-HARD_DISK_CHOICES = [
-    ('SSD', 'SSD'),
-    ('HDD', 'HDD')
-]
-
-PROCESSOR_TYPE_CHOICES = [
-    ('64-Bit', '64-Bit'),
-    ('32-Bit', '32-Bit')
-]
 
 class Product(models.Model):
     name = models.CharField(max_length=250, help_text="Name of Product")
@@ -210,22 +27,20 @@ class Product(models.Model):
     percent_off = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     slug = models.SlugField(auto_created=True, blank=True, max_length=300)
-    PHONE = 'PHONE'
-    PC = 'PC'
-    REFURBISHED = 'REFURBISHED'
-    ACCESSORIES = 'ACCESSORY'
-    APPLIANCES = 'APPLIANCE'
-    GAMES = 'GAME'
-
-    PRODUCT_CHOICES = [
-        (PHONE, 'PHONE'),
-        (PC, 'LAPTOP'),
-        (REFURBISHED, 'REFURBISHED PRODUCT'),
-        (ACCESSORIES, 'TECH ACCESSORY'),
-        (APPLIANCES, 'OFFICE APPLIANCE'),
-        (GAMES, 'VIDEO GAME'),
-    ]
     category = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
+    details = GenericForeignKey()
+    # content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    # object_id = models.PositiveIntegerField()
+    # details = GenericForeignKey("content_type", "object_id")
+    
+    # class Meta:
+    #     indexes = [
+    #         models.Index(fields=["content_type", "object_id"])
+    #     ]
+
+    # You can add details about the model field using the id (See your screenshots for the terminal example)
+    # You can also add the details object directly using product.details = <object>
+    # You can also add details by getting the content_type and then getting the object using the object id as an attribute in the get_object_for_this_type method
     
     # Add the stars and reviews
     is_cleaned = False
@@ -236,7 +51,7 @@ class Product(models.Model):
     def clean(self):
         self.is_cleaned = True
 
-        if self.previous_price > 0 and self.previous_price < self.price:
+        if self.previous_price > 0 and self.previous_price > self.price:
             self.percent_off = int((self.price / self.previous_price) * 100)
         else:
             self.percent_off = 0
@@ -311,7 +126,6 @@ class Phone(models.Model):
 
     def __str__(self):
         return self.product.name
-
 
 class PC(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="pc_info")
