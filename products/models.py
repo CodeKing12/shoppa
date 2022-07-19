@@ -28,15 +28,14 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     slug = models.SlugField(auto_created=True, blank=True, max_length=300)
     category = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
-    details = GenericForeignKey()
-    # content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    # object_id = models.PositiveIntegerField()
-    # details = GenericForeignKey("content_type", "object_id")
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    details = GenericForeignKey("content_type", "object_id")
     
-    # class Meta:
-    #     indexes = [
-    #         models.Index(fields=["content_type", "object_id"])
-    #     ]
+    class Meta:
+        indexes = [
+            models.Index(fields=["content_type", "object_id"])
+        ]
 
     # You can add details about the model field using the id (See your screenshots for the terminal example)
     # You can also add the details object directly using product.details = <object>
