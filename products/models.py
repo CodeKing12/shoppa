@@ -5,6 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.validators import MaxValueValidator
 from django.utils.text import slugify
 from .model_choices import PROCESSOR_TYPE_CHOICES, PC_MANUFACTURER_CHOICES, PHONE_OS_CHOICES, PHONE_MANUFACTURER_CHOICES, PC_OS_CHOICES, GAME_OS_CHOICES, HARD_DISK_CHOICES, SIM_SLOT_CHOICES, PRODUCT_CHOICES, NETWORK_CHOICES
+from django.core.exceptions import ObjectDoesNotExist
 
 # class Category(models.Model):
 #     name = models.CharField(max_length=200)
@@ -28,6 +29,7 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     slug = models.SlugField(auto_created=True, blank=True, max_length=300)
     category = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
+    category_url = models.CharField(max_length=100)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     details = GenericForeignKey("content_type", "object_id")
@@ -59,16 +61,28 @@ class Product(models.Model):
         image_url = ""
         if self.category == 'PHONE': 
             folder = "phone_products"
+            category_url = "phones"
+
         elif self.category == 'PC':
             folder = "laptop_products"
+            category_url = "laptops"
+
         elif self.category == 'REFURBISHED':
             folder = "refurbished_products"
+            category_url = "refurbished"
+
         elif self.category == 'ACCESSORY':
             folder = "accessory_products"
+            category_url = "accessories"
+
         elif self.category == 'APPLIANCE':
             folder = "appliance_products"
+            category_url = "appliances"
+
         elif self.category == 'GAME':
             folder = "game_products"
+            category_url = "games"
+
         else:
             raise ValueError
 
@@ -81,11 +95,7 @@ class Product(models.Model):
             folders_list[media_index] =  folder
             self.image = '/'.join(folders_list)
 
-        print(self.category)
-        print(self.get_category_display())
         self.slug = slugify(self.name)
-        product_type = self.category.lower()
-        self.content_type = ContentType.objects.get(app_label='products', model=product_type)
         # self.category_slug = slugify(self.)
 
         super(Product, self).clean()
@@ -109,7 +119,7 @@ class Phone(models.Model):
     cpu = models.CharField(max_length=100)
     gpu = models.CharField(max_length=100)
     sim_slots = models.CharField(max_length=50, choices=SIM_SLOT_CHOICES)
-    front_camera = models.IntegerField() # Measured in MP
+    front_camera = models.IntegerField() # Measured in MegaPixels (MP)
     back_camera = models.IntegerField() # Measured in MP
     battery = models.IntegerField() # Measured in mAh
     # colors = models.CharField(max_length=6)
@@ -130,10 +140,8 @@ class Phone(models.Model):
     def __str__(self):
         return self.product.name
 
-    def save(self, *args, **kwargs):
-        self.product.object_id = self.product.id
-        self.product.details = self
-        super(Product, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super(Product, self).save(*args, **kwargs)
 
 class PC(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="pc_info")
@@ -168,6 +176,12 @@ class PC(models.Model):
     def __str__(self):
         return self.product.name
 
+    def save(self, *args, **kwargs):
+        self.content_type = ContentType.objects.get(app_label='products', model='pc')
+        self.product.object_id = self.product.id
+        self.product.details = self
+        super(Game, self).save(*args, **kwargs)
+
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")
     min_ram = models.IntegerField()
@@ -184,6 +198,12 @@ class Game(models.Model):
     size = models.IntegerField()
     min_graphics_card = models.CharField(max_length=130)
     recom_graphics_card = models.CharField(max_length=130)
+
+    def save(self, *args, **kwargs):
+        self.content_type = ContentType.objects.get(app_label='products', model='game')
+        self.product.object_id = self.product.id
+        self.product.details = self
+        super(Game, self).save(*args, **kwargs)
 
     # Look for how to do a multiselect field for model choices like the processor type, os_type
 
