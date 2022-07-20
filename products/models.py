@@ -59,15 +59,15 @@ class Product(models.Model):
         image_url = ""
         if self.category == 'PHONE': 
             folder = "phone_products"
-        elif self.category == 'LAPTOP':
+        elif self.category == 'PC':
             folder = "laptop_products"
-        elif self.category == 'REFURBISHED PRODUCT':
+        elif self.category == 'REFURBISHED':
             folder = "refurbished_products"
-        elif self.category == 'TECH ACCESSORY':
+        elif self.category == 'ACCESSORY':
             folder = "accessory_products"
-        elif self.category == 'OFFICE APPLIANCE':
+        elif self.category == 'APPLIANCE':
             folder = "appliance_products"
-        elif self.category == 'VIDEO GAME':
+        elif self.category == 'GAME':
             folder = "game_products"
         else:
             raise ValueError
@@ -81,7 +81,11 @@ class Product(models.Model):
             folders_list[media_index] =  folder
             self.image = '/'.join(folders_list)
 
+        print(self.category)
+        print(self.get_category_display())
         self.slug = slugify(self.name)
+        product_type = self.category.lower()
+        self.content_type = ContentType.objects.get(app_label='products', model=product_type)
         # self.category_slug = slugify(self.)
 
         super(Product, self).clean()
@@ -125,6 +129,11 @@ class Phone(models.Model):
 
     def __str__(self):
         return self.product.name
+
+    def save(self, *args, **kwargs):
+        self.product.object_id = self.product.id
+        self.product.details = self
+        super(Product, self).save(*args, **kwargs)
 
 class PC(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="pc_info")
