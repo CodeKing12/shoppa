@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
-
 from products.models import Product
 from .forms import LoginForm, CreateAccountForm
 from django.contrib import messages
@@ -12,9 +11,10 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from accounts.decorators import insert_cart
+from rest_framework.decorators import api_view
 import json
 from shoppa.views import get_cart
 
@@ -22,9 +22,13 @@ from shoppa.views import get_cart
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
-@csrf_protect
+# @csrf_protect
+@csrf_exempt
 def create_account(request):
-    if is_ajax(request) and request.method == 'POST':
+    # print(request.META)
+    # print(request.META.get("HTTP_X_REQUESTED_WITH"))
+    # print(request.headers)
+    if request.method == 'POST':
         registration_form = CreateAccountForm(request.POST)
         if registration_form.is_valid():
             if request.user.is_authenticated:
@@ -51,7 +55,8 @@ def create_account(request):
                 })
                 to_email = user.email
                 email = EmailMessage(mail_subject, message, to=[to_email])
-                email.send()
+                # email.send()
+                print(message)
 
                 # Tell user to check email
 
@@ -62,10 +67,11 @@ def create_account(request):
             
         else:
             return JsonResponse({'message': registration_form.errors, 'type': 'error'}, status=400)
-    elif is_ajax(request) and request.method == 'GET':
-        return JsonResponse({'message': 'Cart Created Successfully', 'type': 'success'}, status=200)
-    return JsonResponse({'message': 'An Unknown Error Occurred', 'type': 'error'}, status=400)
-    # return render(request, 'accounts/create-account.html', {'form': the_form})
+    # elif is_ajax(request) and request.method == 'GET':
+    #     return JsonResponse({'message': 'Cart Created Successfully', 'type': 'success'}, status=200)
+    # return JsonResponse({'message': 'An Unknown Error Occurred', 'type': 'error'}, status=400)
+    registration_form = CreateAccountForm()
+    return render(request, 'accounts/signup.html', {'form': registration_form})
 
 def activate_account(request, uidb64, token):
 
@@ -181,7 +187,8 @@ def wishlist(request):
         all_products = user_wishlist.wish_products.all()
     return render(request, 'products/wishlist.html', context={'cart_details': cart_details, 'wishlist': user_wishlist, 'cart_total': sub_total})
 
-@csrf_protect
+# @csrf_protect
+@csrf_exempt
 def login_view(request):
     if is_ajax(request) and request.method == 'POST':
         login_details = LoginForm(request.POST)

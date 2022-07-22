@@ -1,10 +1,10 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
-from . import views
+from . import views, api_views
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.create_account, name='register_user'),
+    path('create/', views.create_account, name='register_user'),
     path('login/', views.login_view, name='login_page'),
     path('my-dashboard/', views.user_dashboard, name="dashboard"),
     path("activate/<uidb64>/<token>", views.activate_account, name="activate_account"),

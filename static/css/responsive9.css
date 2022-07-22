@@ -20,9 +20,6 @@
 idap-pro css
 ======================================*/
 @media (max-width: 1199px){
-.header-main {
-    justify-content: space-between !important;
-}
 /* body hidden class */
 body.hidden {
     overflow-y: hidden;
@@ -53,13 +50,13 @@ body.hidden {
     padding: 10px 0;
 }
 .header-main-area .header-main .header-element.logo {
-    width: 30%;
+    width: 20%;
 }
 .header-main-area .header-main .header-element.megamenu-content{
     display: none;
 }
 .header-main-area .header-main .header-element.right-block-box {
-    width: 70%;
+    width: 80%;
 }
 .header-main-area .header-main .header-element.right-block-box ul.shop-element li.nav-toggler{
     display: block;
@@ -382,6 +379,7 @@ ipad css
 .testimonial-bg1 .testi-m.owl-carousel .owl-nav button.owl-next{
     right: -10px;
 }
+
 /* left menu css */
 .vegamenu-content{
     position: relative;
@@ -565,10 +563,10 @@ ipad css
 iphone css
 ======================================*/
 @media (max-width: 767px){
+    /* header css */
     .right-block-box ul.shop-element li.side-wrap.search-descktop {
         display: none;
     }
-    /* header css */
     .header-main-area .header-main .header-element.right-block-box ul.shop-element li.search-wrap {
         display: block;
     }
@@ -882,6 +880,12 @@ iphone css
 
 /* mobie css */
 @media (max-width: 479px) {
+    .header-main-area .header-main .header-element.logo {
+        width: 40%;
+    }
+    .wishlist-wrap, .cart-wrap {
+        display: none;
+    }
     /* btn style css */
     .btn-style1 {
         padding: 8px 25px;

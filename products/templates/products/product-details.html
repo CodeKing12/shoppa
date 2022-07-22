@@ -1,1292 +1,434 @@
-{% {% extends 'base.html' %}%}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
+{% block page-title %} {{ product.category }} {% endblock page-title %}
 
-<section class="py-2 bg-gray-2">
-    <div class="container container-xl">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-site py-0 d-flex justify-content-center">
-                <li class="breadcrumb-item"><a class="text-decoration-none text-body" href="index-2.html">Home</a>
-                </li>
-                <li class="breadcrumb-item pl-0 d-flex align-items-center"><a class="text-decoration-none text-body"
-                        href="shop-page-01.html">Shop
-                        Grid Layout</a>
-                </li>
-                <li class="breadcrumb-item active pl-0 d-flex align-items-center" aria-current="page">Natural Coconut
-                    Cleansing Oil
-                </li>
-            </ol>
-        </nav>
-    </div>
-</section>
-<section class="pt-11 pb-11 pb-lg-15 product-details-layout-5">
-    <div class="container container-xl">
-        <div class="row">
-            <div class="col-md-6 mb-8 mb-md-0 primary-gallery summary-sticky pr-xl-9" id="summary-sticky">
-                <div class="primary-summary-inner">
-                    <div class="galleries-product galleries-product-01 position-relative d-flex ">
-                        <div class="slick-slider slider-for mx-0 pl-xl-5"
-                            data-slick-options='{"slidesToShow": 1,"vertical":true, "autoplay":false,"dots":false,"arrows":false,"asNavFor": ".slider-nav","responsive":[{"breakpoint": 1200,"settings": {"vertical": false}}]}'>
-                            <div class="box px-0">
-                                <div class="card p-0 rounded-0 border-0">
-                                    <a href="images/product-05.jpg" class="card-img" data-gtf-mfp="true"
-                                        data-gallery-id="02">
-                                        <img src="images/product-05.jpg" alt="product gallery" class="w-100">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box px-0">
-                                <div class="card p-0 rounded-0 border-0">
-                                    <a href="images/product-21.jpg" class="card-img" data-gtf-mfp="true"
-                                        data-gallery-id="02">
-                                        <img src="images/product-21.jpg" alt="product gallery" class="w-100">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box px-0">
-                                <div class="card p-0 rounded-0 border-0">
-                                    <a href="images/product-22.jpg" class="card-img" data-gtf-mfp="true"
-                                        data-gallery-id="02">
-                                        <img src="images/product-22.jpg" alt="product gallery" class="w-100">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="box px-0">
-                                <div class="card p-0 rounded-0 border-0">
-                                    <a href="images/product-20.jpg" class="card-img" data-gtf-mfp="true"
-                                        data-gallery-id="02">
-                                        <img src="images/product-20.jpg" alt="product gallery" class="w-100">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slick-slider slider-nav mx-n1 mx-xl-0"
-                            data-slick-options='{"slidesToShow": 5,"vertical":true, "autoplay":false,"dots":false,"arrows":false,"asNavFor": ".slider-for","focusOnSelect": true,"responsive":[{"breakpoint": 1200,"settings": {"vertical": false}}]}'>
-                            <div class="box px-1 px-xl-0 py-2 pt-xl-0">
-                                <img src="images/product-05.jpg" class="w-100" alt="product gallery">
-                            </div>
-                            <div class="box px-1 px-xl-0 py-2 pt-xl-0">
-                                <img src="images/product-21.jpg" class="w-100" alt="product gallery">
-                            </div>
-                            <div class="box px-1 px-xl-0 py-2 pt-xl-0">
-                                <img src="images/product-22.jpg" class="w-100" alt="product gallery">
-                            </div>
-                            <div class="box px-1 px-xl-0 py-2 pt-xl-0">
-                                <img src="images/product-20.jpg" class="w-100" alt="product gallery">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <p class="d-flex align-items-center mb-3">
-                    <span class="text-line-through">$39.00</span>
-                    <span class="fs-18 text-secondary font-weight-bold ml-3">$29.00</span>
-                    <span class="badge badge-primary fs-16 ml-4 font-weight-600 px-3">20%</span>
-                </p>
-                <h2 class="fs-24 mb-2">Natural Coconut Cleansing Oil</h2>
-                <div class="d-flex align-items-center flex-wrap mb-3 lh-12">
-                    <p class="mb-0 font-weight-600 text-secondary">4.86</p>
-                    <ul class="list-inline d-flex mb-0 px-3 rating-result">
-                        <li class="list-inline-item mr-0">
-                            <span class="text-primary fs-12 lh-2"><i class="fas fa-star"></i></span>
-                        </li>
-                        <li class="list-inline-item mr-0">
-                            <span class="text-primary fs-12 lh-2"><i class="fas fa-star"></i></span>
-                        </li>
-                        <li class="list-inline-item mr-0">
-                            <span class="text-primary fs-12 lh-2"><i class="fas fa-star"></i></span>
-                        </li>
-                        <li class="list-inline-item mr-0">
-                            <span class="text-primary fs-12 lh-2"><i class="fas fa-star"></i></span>
-                        </li>
-                        <li class="list-inline-item mr-0">
-                            <span class="text-primary fs-12 lh-2"><i class="fas fa-star"></i></span>
-                        </li>
-                    </ul>
-                    <a href="#" class="pl-3 border-left border-gray-2 text-body">Read 2947 reviews</a>
-                </div>
-                <p class="mb-5">Niacinamide and Vitamin C are two anti-aging superstars but not usually formulated
-                    together because of their different pH levels.</p>
-                <div class="card border-2x border-primary rounded mb-5">
-                    <div class="card-body py-3 px-6">
-                        <div class="d-flex align-items-center">
-                            <img src="images/single-product-14.jpg" alt="hot">
-                            <p class="fs-24 text-secondary font-weight-600 mb-0 ml-2">Extra Sale 20% Off</p>
-                        </div>
-                        <p class="card-text mb-1">Hurry up, the deal will end soon</p>
-                        <div class="countdown text-primary d-flex align-items-center font-weight-600 mb-2 flex-wrap"
-                            data-countdown="true" data-countdown-end="Jan 27, 2023 18:24:25">
-                            <span class="countdown-item fs-24 fs-lg-48  day">
-                                02
-                            </span>
-                            <span class="fs-24 font-weight-bold mx-2 mx-lg-5">:</span>
-                            <span class="countdown-item fs-28 fs-lg-48  hour">
-                                24
-                            </span>
-                            <span class="fs-24 font-weight-bold mx-2 mx-lg-5">:</span>
-                            <span class="countdown-item fs-28 fs-lg-48  minute">
-                                15
-                            </span>
-                            <span class="fs-24 font-weight-bold mx-2 mx-lg-5">:</span>
-                            <span class="countdown-item fs-28 fs-lg-48  second">
-                                41
-                            </span>
-                        </div>
-                        <div class="progress mb-2 bg-border-color box-shadow-none" style="height: 8px;">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 45%"
-                                aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p class="mb-0">Sold: <span class="text-secondary">40</span></p>
-                            <p class="mb-0">Available: <span class="text-secondary">45</span></p>
-                        </div>
-                    </div>
-                </div>
-                <form>
-                    <div class="form-group shop-swatch mb-5 d-flex align-items-center">
-                        <span class="font-weight-600 text-secondary mr-4">Size: </span>
-                        <ul class="list-inline d-flex justify-content-start mb-0">
-                            <li class="list-inline-item mr-2 selected font-weight-600">
-                                <a href="#"
-                                    class="fs-14 p-2 lh-13 d-block swatches-item rounded text-decoration-none border"
-                                    data-var="full size">Full size</a>
+{% block imports %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product-page-compiled.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product-compiled-responsive.css' %}">
+{% endblock imports %}
+
+{% block main-content %}
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="index5.html">Home</a>
                             </li>
-                            <li class="list-inline-item font-weight-600">
-                                <a href="#"
-                                    class="fs-14 p-2 lh-13 d-block swatches-item rounded text-decoration-none border"
-                                    data-var="mini size">Mini size</a>
+                            <li class="breadcrumb-url-li">
+                                <a href="#"><span>{{ product.name }}</span></a>
                             </li>
                         </ul>
-                        <select name="swatches" class="form-select swatches-select d-none"
-                            aria-label="Default select example">
-                            <option selected value="full size">Full size</option>
-                            <option value="mini size">Mini size</option>
-                        </select>
                     </div>
-                    <div class="form-group shop-swatch-color mb-4">
-                        <label class="mb-2"><span class="font-weight-600 text-secondary mr-2">Color:</span> <span
-                                class="var text-capitalize text-body">Green - Revitalizing</span></label>
-                        <ul class="list-inline d-flex justify-content-start mb-0">
-                            <li class="list-inline-item selected">
-                                <a href="#" class="d-block swatches-item" data-var="green-revitalizing"
-                                    style="background-color: #80A288;"> </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-tb-padding pro-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-12 col-md-12 pro-image">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 larg-image">
+                            <div class="tab-content">
+                                {% comment %} <div class="tab-pane fade" id="image-11">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="image-22">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/prro-page-image01.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/prro-page-image01.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="image-33">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image1-1.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image1-1.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="image-44">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image1.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image1.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div> {% endcomment %}
+                                <div class="tab-pane fade show active" id="image-55">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({{ product.image.url }})">
+                                            <img src="{{ product.image.url }}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div>
+                                {% comment %} <div class="tab-pane fade" id="image-66">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image2-2.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image2-2.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="image-77">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image3.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image3.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="tab-pane fade" id="image-88">
+                                    <a href="javascript:void(0)" class="long-img">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image03.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/pro-page-image03.jpg' %}" class="img-fluid" alt="image">
+                                        </figure>
+                                    </a>
+                                </div> {% endcomment %}
+                            </div>
+                            <ul class="nav nav-tabs images-nav"><!--pro-pag-5-slider owl-carousel owl-theme-->
+                                <li class="nav-item items">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#image-11"><img src="{% static 'image/pro-page-image/image1.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-22"><img src="{% static 'image/pro-page-image/image2.jpg' %}" class="img-fluid" alt="iamge"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-33"><img src="{% static 'image/pro-page-image/image3.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-44"><img src="{% static 'image/pro-page-image/image4.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-55"><img src="{% static 'image/pro-page-image/image5.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-66"><img src="{% static 'image/pro-page-image/image6.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-77"><img src="{% static 'image/pro-page-image/image8.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                                <li class="nav-item items">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-88"><img src="{% static 'image/pro-page-image/image7.jpg' %}" class="img-fluid" alt="image"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 pro-info">
+                            <h4>{{ product.name }}</h4>
+                            <div class="rating">
+                                <i class="fa fa-star d-star"></i>
+                                <i class="fa fa-star d-star"></i>
+                                <i class="fa fa-star d-star"></i>
+                                <i class="fa fa-star d-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div class="pro-availabale">
+                                <span class="available">Availability:</span>
+                                {% if product.in_stock %}
+                                    <span class="pro-instock">In stock</span>
+                                {% else %}
+                                    <span class="pro-instock">Out of stock</span>
+                                {% endif %}
+                            </div>
+                            <div class="pro-price">
+                                <span class="new-price">{{ product.price }} NGN</span>
+                                <span class="old-price">{{ product.previous_price }} NGN</span>
+                                {% if product.percent_off > 3 %}
+                                    <div class="Pro-lable">
+                                        <span class="p-discount">-{{ product.percent_off }}%</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer type and</p>
+                            <div class="pro-items">
+                                <span class="pro-size">Size:</span>
+                                <ul class="pro-wight">
+                                    <li><a href="javascript:void(0)" class="active">5LTR</a></li>
+                                    <li><a href="javascript:void(0)">2LTR</a></li>
+                                    <li><a href="javascript:void(0)">3LTR</a></li>
+                                </ul>
+                            </div>
+                            <div class="product-color">
+                                <span class="color-label">Color:</span>
+                                <span class="color">
+                                    <a href="javascript:void(0)" class="active"><span></span></a>
+                                    <a href="javascript:void(0)"><span></span></a>
+                                    <a href="javascript:void(0)"><span></span></a>
+                                </span>
+                            </div>
+                            <div class="pro-qty">
+                                <span class="qty">Quantity:</span>
+                                <div class="plus-minus">
+                                    <span>
+                                        <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                        <input type="text" name="name" value="1">
+                                        <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="pro-btn">
+                                <a href="wishlist.html" class="btn btn-style1"><i class="fa fa-heart"></i></a>
+                                <a href="cart-2.html" class="btn btn-style1"><i class="fa fa-shopping-bag me-1"></i> Add to cart</a>
+                                <a href="checkout-2.html" class="btn btn-style1">Buy now</a>
+                            </div>
+                            <div class="share">
+                                <span class="share-lable">Share:</span>
+                                <ul class="share-icn">
+                                    <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-pinterest"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pay-img">
+                                <a href="checkout-2.html">
+                                    <img src="{% static 'image/pay-image.jpg' %}" class="img-fluid" alt="pay-image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-12 col-md-12 pro-shipping">
+                    <div class="product-service">
+                        <div class="icon-title">
+                            <span><i class="ti-truck"></i></span>
+                            <h4>Delivery info</h4>
+                        </div>
+                        <p>Lorem Ipsum is simply text of the printing typesetting the printing the printing typesetting industry.</p>
+                    </div>
+                    <div class="product-service">
+                        <div class="icon-title">
+                            <span><i class="ti-reload"></i></span>
+                            <h4>30 days returns</h4>
+                        </div>
+                        <p>Lorem Ipsum is simply text of the printing typesetting the printing the printing typesetting industry.</p>
+                    </div>
+                    <div class="product-service">
+                        <div class="icon-title">
+                            <span><i class="ti-id-badge"></i></span>
+                            <h4>10 year warranty</h4>
+                        </div>
+                        <p>Lorem Ipsum is simply text of the printing typesetting the printing the printing typesetting industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-b-padding pro-page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="pro-page-tab">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">Description</a>
                             </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="d-block swatches-item" data-var="pink"
-                                    style="background-color: #EAC8D9;"></a>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Reviews</a>
                             </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="d-block swatches-item" data-var="yellow"
-                                    style="background-color: #D9CCA1;"> </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="d-block swatches-item" data-var="purple"
-                                    style="background-color: #A5AFCF;"> </a>
-                            </li>
+                            {% comment %} <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Video</a>
+                            </li> {% endcomment %}
                         </ul>
-                        <select name="swatches" class="form-select swatches-select d-none"
-                            aria-label="Default select example">
-                            <option selected value="black">Green - Revitalizing</option>
-                            <option value="pink">Pink</option>
-                            <option value="yellow">Green</option>
-                            <option value="purple">Purple</option>
-                        </select>
-                    </div>
-                    <div class="row align-items-end no-gutters mx-n2">
-                        <div class="col-sm-4 form-group px-2 mb-5">
-                            <label class="text-secondary font-weight-600 mb-3" for="number">Quantity: </label>
-                            <div class="input-group position-relative w-100">
-                                <a href="#" class="down position-absolute pos-fixed-left-center pl-4 z-index-2"><i
-                                        class="far fa-minus"></i></a>
-                                <input name="number" type="number" id="number"
-                                    class="form-control w-100 px-6 text-center input-quality text-secondary h-60 fs-18 font-weight-bold border-0"
-                                    value="1" required>
-                                <a href="#" class="up position-absolute pos-fixed-right-center pr-4 z-index-2"><i
-                                        class="far fa-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-sm-8 mb-5 w-100 px-2">
-                            <button type="submit"
-                                class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Add
-                                To Bag
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <div class="d-flex align-items-center flex-wrap">
-                    <a href="#" class="text-decoration-none font-weight-bold fs-16 mr-6 d-flex align-items-center">
-                        <svg class="icon icon-arrows-left-right-light fs-20">
-                            <use xlink:href="#icon-arrows-left-right-light"></use>
-                        </svg>
-                        <span class="ml-2">Compare</span>
-                    </a>
-                    <a href="#" class="text-decoration-none font-weight-bold fs-16 mr-6 d-flex align-items-center">
-                        <svg class="icon icon-star-light fs-20">
-                            <use xlink:href="#icon-star-light"></use>
-                        </svg>
-                        <span class="ml-2">Add to wishlist</span>
-                    </a>
-                    <a href="#" class="text-decoration-none font-weight-bold fs-16 d-flex align-items-center">
-                        <svg class="icon icon-ShareNetwork fs-20">
-                            <use xlink:href="#icon-ShareNetwork"></use>
-                        </svg>
-                        <span class="ml-2">Share</span>
-                    </a>
-                </div>
-                <ul class="list-unstyled border-top pt-4 mt-5 mb-lg-9 mb-7">
-                    <li class="row mb-2">
-                        <span class="d-block col-4 col-lg-2 text-secondary font-weight-600 fs-14">Sku:</span>
-                        <span class="d-block col-8 col-lg-10">SF09281</span>
-                    </li>
-                    <li class="row mb-2">
-                        <span class="d-block col-4 col-lg-2 text-secondary font-weight-600 fs-14">Categories:</span>
-                        <span class="d-block col-8 col-lg-10">Makeup, Skincare</span>
-                    </li>
-                </ul>
-                <div id="accordion-style" class="accordion">
-                    <div class="card border-0 mb-4">
-                        <div class="card-header border-0 p-0 bg-transparent bg-transparent" id="headingProductDetail">
-                            <h5 class="mb-0 fs-24 w-100">
-                                <a href="#" class="d-flex align-items-center border-bottom pb-2 text-decoration-none"
-                                    data-toggle="collapse" data-target="#product-detail" aria-expanded="true"
-                                    aria-controls="product-detail">
-                                    <span>Product Detail</span>
-                                    <span class="icon d-inline-block ml-auto"></span>
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="product-detail" class="collapse show" aria-labelledby="headingProductDetail"
-                            data-parent="#accordion-style">
-                            <div class="card-body pt-5 pb-1 px-0">
-                                <p class="font-weight-600 text-secondary mb-2">For Normal, Oily, Combination Skin Types
-                                </p>
-                                <p class="mb-2">Complexion-perfecting natural foundation enriched with
-                                    antioxidant-packed superfruits, vitamins, and other skin-nourishing nutrients.
-                                    Creamy liquid formula sets with a pristine matte finish for soft, velvety smooth
-                                    skin.</p>
-                                <p class="mb-4">Say hello to flawless, long-lasting foundation that comes in 7
-                                    melt-into-your-skin shades. This lightweight, innovative formula creates a smooth,
-                                    natural matte finish that won’t settle into lines. It’s the perfect
-                                    fit for your skin. 1 fl. oz.</p>
-                                <p class="font-weight-600 text-secondary mb-2">Benefits</p>
-                                <ul class="pl-3 mb-5">
-                                    <li class="mb-1">Buildable medium-to-full coverage</li>
-                                    <li class="mb-1">Weightless, airy feel—no caking!</li>
-                                    <li class="mb-1">Long-wearing</li>
-                                    <li class="mb-1">Evens skin tone</li>
-                                    <li>Available in 07 shades (all exclusive to Makeaholic!)</li>
-                                </ul>
-                                <div class="row">
-                                    <div class="col-6 col-md-3 text-center mb-6">
-                                        <img src="images/single-product-01.jpg" alt="">
-                                    </div>
-                                    <div class="col-6 col-md-3 text-center mb-6">
-                                        <img src="images/single-product-02.jpg" alt="">
-                                    </div>
-                                    <div class="col-6 col-md-3 text-center mb-6">
-                                        <img src="images/single-product-03.jpg" alt="">
-                                    </div>
-                                    <div class="col-6 col-md-3 text-center mb-6">
-                                        <img src="images/single-product-04.jpg" alt="">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab-1">
+                                <div class="tab-1content">
+                                    <h4 class="mb-3">More about {{ product.name }}</h4>
+                                    <div class="tab-description">
+                                        {{ product.description | safe }}
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 mb-4">
-                        <div class="card-header border-0 p-0 bg-transparent bg-transparent" id="headingHowToUse">
-                            <h5 class="mb-0 fs-24 w-100">
-                                <a href="#"
-                                    class="d-flex align-items-center border-bottom pb-2 text-decoration-none collapsed"
-                                    data-toggle="collapse" data-target="#how-to-use" aria-expanded="true"
-                                    aria-controls="how-to-use">
-                                    <span>How To Use</span>
-                                    <span class="icon d-inline-block ml-auto"></span>
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="how-to-use" class="collapse" aria-labelledby="headingHowToUse"
-                            data-parent="#accordion-style">
-                            <div class="card-body pt-5 pb-1 px-0">
-                                <p class="font-weight-600 text-secondary mb-2">Follow these safety guidelines when using
-                                    cosmetics products of any type:</p>
-                                <ul class="pl-3 mb-5">
-                                    <li class="mb-1">Read the label. Follow all directions and heed all warnings.
-                                    </li>
-                                    <li class="mb-1">Wash your hands before you use the product.</li>
-                                    <li class="mb-1">Do not share makeup.</li>
-                                    <li class="mb-1">Keep the containers clean and tightly closed when not in use, and
-                                        protect them from temperature extremes.
-                                    </li>
-                                    <li class="mb-1">Throw away cosmetics if there are changes in color or smell.
-                                    </li>
-                                    <li>Use aerosols or sprays cans in well-ventilated areas. Do not use them while you
-                                        are smoking or near an open flame. It could start a fire.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0">
-                        <div class="card-header border-0 p-0 bg-transparent bg-transparent" id="headingIngredients">
-                            <h5 class="mb-0 fs-24 w-100">
-                                <a href="#"
-                                    class="d-flex align-items-center border-bottom pb-2 text-decoration-none collapsed"
-                                    data-toggle="collapse" data-target="#ingredients" aria-expanded="true"
-                                    aria-controls="ingredients">
-                                    <span>Ingredients</span>
-                                    <span class="icon d-inline-block ml-auto"></span>
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="ingredients" class="collapse" aria-labelledby="headingIngredients"
-                            data-parent="#accordion-style">
-                            <div class="card-body pt-5 pb-1 px-0">
-                                <div class="table-responsive mb-5">
-                                    <table class="table table-borderless mb-0">
-                                        <tbody>
-                                            <tr>
-                                                <td class="pl-0 text-secondary">CAS</td>
-                                                <td class="text-right pr-0">92128-82-0, 9057-02-7</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pl-0 text-secondary">INCI</td>
-                                                <td class="text-right pr-0">Nannochloropsis Oculata (micro algae)
-                                                    extract, pullulan
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pl-0 text-secondary">Composition</td>
-                                                <td class="text-right pr-0">Nannochloropsis Oculata (micro algae)
-                                                    extract, pullulan, water, ethanol
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pl-0 text-secondary">Appearance</td>
-                                                <td class="text-right pr-0">Yellow to amber, viscous liquid</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pl-0 text-secondary">Solubility</td>
-                                                <td class="text-right pr-0">Soluble in water & ethanol</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pl-0 text-secondary">Storage</td>
-                                                <td class="text-right pr-0">Store refrigerated (4-8oC / 39-46oF)</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p>
-                                    Perfect for Equestrian homes or every horse lover. Designer premium signature
-                                    aluminum alloy all Arthur Court is compliance with FDA regulations. Aluminum
-                                    Serveware can be chilled in the freezer or refrigerator and warmed in the oven to
-                                    350. Wash by hand
-                                    with mild dish soap and dry immediately – do not put in the dishwasher. Comes in
-                                    Gift Box perfect for Equestrian home or Horse lover in your life.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="pt-10 pt-lg-12 pb-9 pb-lg-11 mt-lg-4 border-top">
-    <div class="container container-xl">
-        <h3 class="text-center fs-34 mb-8">You May Also Like</h3>
-        <div class="slick-slider mx-n2"
-            data-slick-options='{"slidesToShow": 4,"dots":false,"arrows":false,"responsive":[{"breakpoint": 1368,"settings": {"arrows":false,"dots":true}},{"breakpoint": 1200,"settings": {"slidesToShow":3,"arrows":false,"dots":true}},{"breakpoint": 992,"settings": {"slidesToShow":2,"arrows":false,"dots":true}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true}}]}'>
-            <div class="box">
-                <div class="card border-0 product">
-                    <div class="position-relative">
-                        <img src="images/product-06.jpg" alt="Facial cleanser">
-                        <div class="card-img-overlay d-flex p-3">
-                            <div>
-                                <span class="badge badge-primary">-20%</span>
-                            </div>
-                            <div class="my-auto w-100 content-change-vertical">
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
-                                    class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-shopping-bag-open-light fs-24">
-                                        <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
-                                    class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
-                                    <span data-toggle="modal" data-target="#quick-view">
-                                        <svg class="icon icon-eye-light fs-24">
-                                            <use xlink:href="#icon-eye-light"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
-                                    class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-star-light fs-24">
-                                        <use xlink:href="#icon-star-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
-                                    class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
-                                    <svg class="icon icon-arrows-left-right-light fs-24">
-                                        <use xlink:href="#icon-arrows-left-right-light"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body pt-4 text-center">
-                        <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
-                            <span class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                            <span>$29.00</span>
-                        </p>
-                        <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-page-01.html">Facial
-                                cleanser</a></h2>
-                        <div class="d-flex align-items-center justify-content-center flex-wrap">
-                            <ul class="list-inline mb-0 lh-1">
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                            </ul>
-                            <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="card border-0 product">
-                    <div class="position-relative">
-                        <img src="images/product-08.jpg" alt="Bio-shroom Rejuvenating Serum">
-                        <div class="card-img-overlay d-flex p-3">
-                            <div>
-                            </div>
-                            <div class="my-auto w-100 content-change-vertical">
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
-                                    class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-shopping-bag-open-light fs-24">
-                                        <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
-                                    class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
-                                    <span data-toggle="modal" data-target="#quick-view">
-                                        <svg class="icon icon-eye-light fs-24">
-                                            <use xlink:href="#icon-eye-light"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
-                                    class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-star-light fs-24">
-                                        <use xlink:href="#icon-star-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
-                                    class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
-                                    <svg class="icon icon-arrows-left-right-light fs-24">
-                                        <use xlink:href="#icon-arrows-left-right-light"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body pt-4 text-center">
-                        <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
-                            <span>$29.00</span>
-                        </p>
-                        <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-page-01.html">Bio-shroom
-                                Rejuvenating Serum</a></h2>
-                        <div class="d-flex align-items-center justify-content-center flex-wrap">
-                            <ul class="list-inline mb-0 lh-1">
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                            </ul>
-                            <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="card border-0 product">
-                    <div class="position-relative">
-                        <img src="images/product-09.jpg" alt="Coffee Bean Caffeine Eye Cream">
-                        <div class="card-img-overlay d-flex p-3">
-                            <div>
-                            </div>
-                            <div class="my-auto w-100 content-change-vertical">
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
-                                    class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-shopping-bag-open-light fs-24">
-                                        <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
-                                    class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
-                                    <span data-toggle="modal" data-target="#quick-view">
-                                        <svg class="icon icon-eye-light fs-24">
-                                            <use xlink:href="#icon-eye-light"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
-                                    class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-star-light fs-24">
-                                        <use xlink:href="#icon-star-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
-                                    class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
-                                    <svg class="icon icon-arrows-left-right-light fs-24">
-                                        <use xlink:href="#icon-arrows-left-right-light"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body pt-4 text-center">
-                        <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
-                            <span>$29.00</span>
-                        </p>
-                        <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-page-01.html">Coffee Bean
-                                Caffeine Eye Cream</a></h2>
-                        <div class="d-flex align-items-center justify-content-center flex-wrap">
-                            <ul class="list-inline mb-0 lh-1">
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                            </ul>
-                            <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="card border-0 product">
-                    <div class="position-relative">
-                        <img src="images/product-11.jpg" alt="Coffee Bean Caffeine Eye Cream">
-                        <div class="card-img-overlay d-flex p-3">
-                            <div>
-                                <span class="badge badge-primary">-20%</span>
-                            </div>
-                            <div class="my-auto w-100 content-change-vertical">
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="View products"
-                                    class="add-to-cart ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-shopping-bag-open-light fs-24">
-                                        <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
-                                    class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
-                                    <span data-toggle="modal" data-target="#quick-view">
-                                        <svg class="icon icon-eye-light fs-24">
-                                            <use xlink:href="#icon-eye-light"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to wishlist"
-                                    class="add-to-wishlist ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2">
-                                    <svg class="icon icon-star-light fs-24">
-                                        <use xlink:href="#icon-star-light"></use>
-                                    </svg>
-                                </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"
-                                    class="add-to-compare ml-auto d-flex align-items-center justify-content-center text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle">
-                                    <svg class="icon icon-arrows-left-right-light fs-24">
-                                        <use xlink:href="#icon-arrows-left-right-light"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body pt-4 text-center">
-                        <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
-                            <span class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                            <span>$29.00</span>
-                        </p>
-                        <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-page-01.html">Coffee Bean
-                                Caffeine Eye Cream</a></h2>
-                        <div class="d-flex align-items-center justify-content-center flex-wrap">
-                            <ul class="list-inline mb-0 lh-1">
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                                <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
-                                </li>
-                            </ul>
-                            <span class="card-text fs-14 font-weight-400 pl-2 lh-1">2947 reviews</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="pt-10 pb-11 pt-lg-11 pb-lg-13 border-top">
-    <div class="container container-xl">
-        <div class="row">
-            <div class="col-12">
-                <h3 class="text-center fs-34 mb-md-0 mb-8">Customer Reviews</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5 col-lg-4 custom-col-xl-02 form-review-sticky summary-sticky mb-md-0 mb-8 pt-md-8 pt-lg-12"
-                id="form-review-sticky">
-                <div class="form-review-inner">
-                    <div class="card text-center border border-2x rounded">
-                        <div class="card-body px-2 py-6">
-                            <h5 class="card-title fs-48 mb-3">4.86</h5>
-                            <ul class="list-inline d-flex rating-result mb-2 justify-content-center">
-                                <li class="list-inline-item mr-1">
-                                    <span class="text-primary lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-1">
-                                    <span class="text-primary lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-1">
-                                    <span class="text-primary lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-1">
-                                    <span class="text-primary lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-1">
-                                    <span class="text-primary lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                            </ul>
-                            <p class="card-text mb-4">2947 Reviews, 18 Q&As</p>
-                            <div class="mb-5">
-                                <div class="d-flex align-items-center justify-content-center fs-14 mb-2">
-                                    <p class="mb-0 text-secondary w-43px text-left">5 stars</p>
-                                    <div class="d-block mw-160 mw-lg-120px mw-sm-60 w-100 mx-3">
-                                        <div class="progress rating-progress" style="height:6px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 78%"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="w-28px mb-0 text-right">78%</p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center fs-14 mb-2">
-                                    <p class="mb-0 text-secondary w-43px text-left">4 stars</p>
-                                    <div class="d-block mw-160 mw-lg-120px mw-sm-60 w-100 mx-3">
-                                        <div class="progress rating-progress" style="height:6px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 17%"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="w-28px mb-0 text-right">17%</p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center fs-14 mb-2">
-                                    <p class="mb-0 text-secondary w-43px text-left">3 stars</p>
-                                    <div class="d-block mw-160 mw-lg-120px mw-sm-60 w-100 mx-3">
-                                        <div class="progress rating-progress" style="height:6px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 3%"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="w-28px mb-0 text-right">3%</p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center fs-14 mb-2">
-                                    <p class="mb-0 text-secondary w-43px text-left">2 stars</p>
-                                    <div class="d-block mw-160 mw-lg-120px mw-sm-60 w-100 mx-3">
-                                        <div class="progress rating-progress" style="height:6px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 2%"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="w-28px mb-0 text-right">2%</p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center fs-14 mb-2">
-                                    <p class="mb-0 w-43px text-left">1 stars</p>
-                                    <div class="d-block mw-160 mw-lg-120px mw-sm-60 w-100 mx-3">
-                                        <div class="progress rating-progress" style="height:6px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="w-28px mb-0 text-right">0%</p>
-                                </div>
-                            </div>
-                            <a href="#customer-review"
-                                class=" btn btn-outline-secondary border border-2x border-hover-secondary write-review fs-16">
-                                <svg class="icon icon-Pencil">
-                                    <use xlink:href="#icon-Pencil"></use>
-                                </svg>
-                                Wire A Review
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7 col-lg-8 col-xl pt-md-8 pl-xl-8 pt-lg-12" id="customer-review">
-                <div class="row">
-                    <div class="col-12 overflow-hidden">
-                        <div class="card border-0 mt-2 mb-7 form-review hide">
-                            <div class="card-body p-0">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-lg-4">
-                                            <div class="form-group mb-4">
-                                                <label class="text-secondary font-weight-600"
-                                                    for="reviewName">Name</label>
-                                                <input id="reviewName" class="form-control border-0" type="text"
-                                                    name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-lg-4">
-                                            <div class="form-group mb-4">
-                                                <label class="text-secondary font-weight-600"
-                                                    for="reviewEmail">Email</label>
-                                                <input id="reviewEmail" type="email" name="email"
-                                                    class="form-control border-0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="text-secondary font-weight-600 mb-0 mr-2 mb-2">Your Rating*</p>
-                                        <div class="form-group mb-3 d-flex justify-content-start">
-                                            <div class="rate-input">
-                                                <input type="radio" id="star5" name="rate" value="5">
-                                                <label for="star5" title="text" class="mb-0 mr-1 lh-1">
-                                                    <i class="fal fa-star"></i>
-                                                </label>
-                                                <input type="radio" id="star4" name="rate" value="4">
-                                                <label for="star4" title="text" class="mb-0 mr-1 lh-1">
-                                                    <i class="fal fa-star"></i>
-                                                </label>
-                                                <input type="radio" id="star3" name="rate" value="3">
-                                                <label for="star3" title="text" class="mb-0 mr-1 lh-1">
-                                                    <i class="fal fa-star"></i>
-                                                </label>
-                                                <input type="radio" id="star2" name="rate" value="2">
-                                                <label for="star2" title="text" class="mb-0 mr-1 lh-1">
-                                                    <i class="fal fa-star"></i>
-                                                </label>
-                                                <input type="radio" id="star1" name="rate" value="1">
-                                                <label for="star1" title="text" class="mb-0 mr-1 lh-1">
-                                                    <i class="fal fa-star"></i>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="text-secondary font-weight-600" for="reviewTitle">Title of
-                                            Review:</label>
-                                        <input id="reviewTitle" type="text" name="title" class="form-control border-0">
-                                    </div>
-                                    <div class="form-group mb-6">
-                                        <label class="text-secondary font-weight-600" for="reviewMessage">How was your
-                                            overall
-                                            experience?</label>
-                                        <textarea id="reviewMessage" class="form-control border-0" name="message"
-                                            rows="5"></textarea>
-                                    </div>
-                                    <div class="justify-content-end d-flex">
-                                        <div class="mr-4">
-                                            <div class="input-group align-items-center">
-                                                <span class="name-file mr-4"></span>
-                                                <label
-                                                    class="btn btn-outline-secondary btn-custom-input-file bg-hover-secondary bg-transparent border border-2x border-hover-secondary fs-16 font-weight-600 mb-0"
-                                                    for="reviewrAddPhoto">
-                                                    <svg class="icon icon-Camera fs-20">
-                                                        <use xlink:href="#icon-Camera"></use>
-                                                    </svg>
-                                                    Add Photos
-                                                </label>
-                                                <input type="file" name="img"
-                                                    class="form-control custom-input-file d-none" id="reviewrAddPhoto">
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn fs-16 btn-secondary">Submit Now</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <h3 class="fs-20 mb-2">Filter Review</h3>
-                        <form id="accordion-5">
-                            <ul class="list-inline mx-n1 mb-5" style="max-width: 610px">
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Foundation
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Coverage
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Skin
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Color
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Shade
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Make up
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Face
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Ingredients
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Moisturizer
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Pure
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                        Nature
-                                    </a>
-                                </li>
-                                <li class="list-inline-item m-1">
-                                    <a href="#advanced-search-filters-5"
-                                        class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500"
-                                        data-toggle="collapse" data-target="#advanced-search-filters-5"
-                                        aria-expanded="true" aria-controls="advanced-search-filters-5">
-                                        ...
-                                    </a>
-                                </li>
-                                <li id="advanced-search-filters-5" class="collapse m-1 list-inline-item"
-                                    data-parent="#accordion-5">
-                                    <ul class="list-inline mx-n1">
-                                        <li class="list-inline-item m-1">
-                                            <a href="#"
-                                                class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                                Good Value
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item m-1">
-                                            <a href="#"
-                                                class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                                Lightweight
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item m-1">
-                                            <a href="#"
-                                                class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                                Smells Great
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item m-1">
-                                            <a href="#"
-                                                class="btn text-body hover-secondary border border-hover-secondary lh-175 py-1 px-3 font-weight-500">
-                                                Easy To Use
-                                            </a>
-                                        </li>
+                                <div class="tab-2content">
+                                    <h4>Key specifications</h4>
+                                    <ul class="tab-description">
+                                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                                        <li>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</li>
+                                        <li>type here your detail one by one li more add</li>
+                                        <li>has been the industry’s standard dummy text ever since. Lorem Ips</li>
+                                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li>
+                                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li>
                                     </ul>
-                                </li>
-                            </ul>
-                            <div class="form-row mx-n2">
-                                <div class="col-auto w-100 px-2" style="max-width: 406px">
-                                    <div class="form-group">
-                                        <div class="input-group-prepend position-absolute z-index-10">
-                                            <button class="btn border-0 bg-transparent text-secondary fs-20 px-4 lh-14"
-                                                type="submit"><i class="far fa-search"></i></button>
-                                        </div>
-                                        <input type="text" class="form-control border-0 pl-8 rounded"
-                                            placeholder="Search reviews">
-                                    </div>
-                                </div>
-                                <div class="col-auto px-2">
-                                    <div class="form-group w-195px">
-                                        <label for="skin-goal" class="sr-only">Skin goal</label>
-                                        <select class="form-control selectpicker" title="Skin goal"
-                                            data-style="bg-input font-weight-500 text-secondary px-3" id="skin-goal"
-                                            name="skin-goal">
-                                            <option>Skin goal</option>
-                                            <option>Looking Pores</option>
-                                            <option>Clear Skin</option>
-                                            <option>Chicago</option>
-                                            <option>Dewy-Looking Skin</option>
-                                            <option>Radiant</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-auto px-2">
-                                    <div class="form-group w-195px">
-                                        <label for="image-video" class="sr-only">Image & Video</label>
-                                        <select class="form-control selectpicker" title="Image & Video"
-                                            data-style="bg-input font-weight-500 text-secondary px-3" id="image-video"
-                                            name="image-video">
-                                            <option>Image & Video</option>
-                                            <option>Newest</option>
-                                            <option>Oldest</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-auto px-2">
-                                    <div class="form-group w-195px">
-                                        <label for="sort-by" class="sr-only">Sort by</label>
-                                        <select class="form-control selectpicker" title="Sort by"
-                                            data-style="bg-input font-weight-500 text-secondary px-3" id="sort-by"
-                                            name="sort-by">
-                                            <option>Sort by</option>
-                                            <option>Newest</option>
-                                            <option>Oldest</option>
-                                        </select>
-                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row mt-6 mt-lg-8">
-                    <div class="col-12">
-                        <h3 class="fs-20 mb-6">2947 Reviews</h3>
-                    </div>
-                    <div class="col-12">
-                        <div class="border-bottom pb-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <ul class="list-inline d-flex rating-result mb-0 fs-13">
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                </ul>
-                                <span class="divider fs-3 mx-2"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14"> 3 days ago</span>
-                            </div>
-                            <div class="media mb-2">
-                                <img src="images/single-product-06.png" class="mr-3" alt="Avatar">
-                                <div class="media-body">
-                                    <h5 class="mt-0 fs-14 text-uppercase">Jennifer C.</h5>
-                                    <p>/ Orlando, FL</p>
+                            <div class="tab-pane fade show" id="tab-2">
+                                <h4 class="reviews-title">Customer reviews</h4>
+                                <div class="customer-reviews t-desk-2">
+                                    <span class="p-rating">
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                    </span>
+                                    <p class="review-desck">Based on 2 reviews</p>
+                                    <a href="#add-review" data-bs-toggle='collapse'>Write a review</a>
+                                </div>
+                                <div class="review-form collapse" id="add-review">
+                                    <h4>Write a review</h4>
+                                    <form>
+                                        <label>Name</label>
+                                        <input type="text" name="name" placeholder="Enter your name">
+                                        <label>Email</label>
+                                        <input type="text" name="mail" placeholder="Enter your Email">
+                                        <label>Rating</label>
+                                        <span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <label>Review title</label>
+                                        <input type="text" name="mail" placeholder="Review title">
+                                        <label>Add comments</label>
+                                        <textarea name="comment" placeholder="Write your comments"></textarea>
+                                    </form>
+                                </div>
+                                <div class="customer-reviews">
+                                    <span class="p-rating">
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
+                                    <h4 class="review-head">he also good and high product see like look</h4>
+                                    <span class="reviews-editor">kelin patel <span class="review-name">on</span> fab 5, 2021</span>
+                                    <p class="r-description">he also good and high product see like look</p>
+                                </div>
+                                <div class="customer-reviews">
+                                    <span class="p-rating">
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star e-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
+                                    <h4 class="review-head">he also good and fresh fruit organic product see like look</h4>
+                                    <span class="reviews-editor">Melvin louis <span class="review-name">on</span> fab 5, 2021</span>
+                                    <p class="r-description">he also good and fresh fruit organic product see like look</p>
                                 </div>
                             </div>
-                            <p class="font-weight-600 text-secondary mb-2">Favorite Foundation</p>
-                            <p class="mb-6">I order the samples so as not to make mistakes when choosing my color Is a
-                                good product as a light shade but the sample doesn’t contain enough product to cover the
-                                skin and decide clearly, around my eyes I used the
-                                “peach bisque”.I used with primer all mu face and finished texture is good. At the end
-                                for my latin tan skin a choose “golden peach” But is out of stock the primer I think is
-                                a good match.
-                            </p>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="#" class="fs-14 mb-0 text-body">Was This Review Helpful?</a>
-                                <p class="mb-0 ml-4 text-secondary">
-                                    <svg class="icon icon-like align-baseline">
-                                        <use xlink:href="#icon-like"></use>
-                                    </svg> 10
-                                </p>
-                                <p class="mb-0 ml-3 text-secondary">
-                                    <svg class="icon icon-unlike align-baseline">
-                                        <use xlink:href="#icon-unlike"></use>
-                                    </svg> 0
-                                </p>
+                            <div class="tab-pane fade show" id="tab-3">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe height="630" src="https://www.youtube.com/embed/0etCKCAsImI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
                             </div>
                         </div>
-                        <div class="border-bottom pt-6 pb-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <ul class="list-inline d-flex rating-result mb-0 fs-13">
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                </ul>
-                                <span class="divider fs-3 mx-2"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14"> 3 days ago</span>
-                            </div>
-                            <div class="media mb-2">
-                                <img src="images/single-product-07.png" class="mr-3" alt="Avatar">
-                                <div class="media-body">
-                                    <h5 class="mt-0 fs-14 text-uppercase">Jennifer C.</h5>
-                                    <p>/ Georgia</p>
-                                </div>
-                            </div>
-                            <p class="font-weight-600 text-secondary mb-2">Good as light coverage</p>
-                            <p class="mb-4">The foundation feels light on my face, and the color matches great. Also the
-                                customer service is phenomenal. I would purchase again.</p>
-                            <div class="d-flex mb-4">
-                                <img src="images/single-product-11.jpg" alt="review">
-                                <img class="ml-2" src="images/single-product-10.jpg" alt="review">
-                            </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="#" class="fs-14 mb-0 text-body">Was This Review Helpful?</a>
-                                <p class="mb-0 ml-4 text-secondary">
-                                    <svg class="icon icon-like align-baseline">
-                                        <use xlink:href="#icon-like"></use>
-                                    </svg> 10
-                                </p>
-                                <p class="mb-0 ml-3 text-secondary">
-                                    <svg class="icon icon-unlike align-baseline">
-                                        <use xlink:href="#icon-unlike"></use>
-                                    </svg> 0
-                                </p>
-                            </div>
-                        </div>
-                        <div class="border-bottom pt-6 pb-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <ul class="list-inline d-flex rating-result mb-0 fs-13">
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                </ul>
-                                <span class="divider fs-3 mx-2"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14"> 3 days ago</span>
-                            </div>
-                            <div class="media mb-2">
-                                <img src="images/single-product-09.png" class="mr-3" alt="Avatar">
-                                <div class="media-body">
-                                    <h5 class="mt-0 fs-14 text-uppercase">Jennifer C.</h5>
-                                    <p>/ Georgia</p>
-                                </div>
-                            </div>
-                            <p class="font-weight-600 text-secondary mb-2">Favorite Foundation</p>
-                            <p class="mb-6">I order the samples so as not to make mistakes when choosing my color Is a
-                                good product as a light shade but the sample doesn’t contain enough product to cover the
-                                skin and decide clearly, around my eyes I used the
-                                “peach bisque”.I used with primer all mu face and finished texture is good. At the end
-                                for my latin tan skin a choose “golden peach” But is out of stock the primer I think is
-                                a good match.
-                            </p>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="#" class="fs-14 mb-0 text-body">Was This Review Helpful?</a>
-                                <p class="mb-0 ml-4 text-secondary">
-                                    <svg class="icon icon-like align-baseline">
-                                        <use xlink:href="#icon-like"></use>
-                                    </svg> 10
-                                </p>
-                                <p class="mb-0 ml-3 text-secondary">
-                                    <svg class="icon icon-unlike align-baseline">
-                                        <use xlink:href="#icon-unlike"></use>
-                                    </svg> 0
-                                </p>
-                            </div>
-                        </div>
-                        <div class="border-bottom pt-6 pb-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <ul class="list-inline d-flex rating-result mb-0 fs-13">
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                </ul>
-                                <span class="divider fs-3 mx-2"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14"> 3 days ago</span>
-                            </div>
-                            <div class="media mb-2">
-                                <img src="images/single-product-08.png" class="mr-3" alt="Avatar">
-                                <div class="media-body">
-                                    <h5 class="mt-0 fs-14 text-uppercase">Jennifer C.</h5>
-                                    <p>/ Georgia</p>
-                                </div>
-                            </div>
-                            <p class="font-weight-600 text-secondary mb-2">Favorite Foundation</p>
-                            <p class="mb-6">I order the samples so as not to make mistakes when choosing my color Is a
-                                good product as a light shade but the sample doesn’t contain enough product to cover the
-                                skin and decide clearly, around my eyes I used the
-                                “peach bisque”.I used with primer all mu face and finished texture is good. At the end
-                                for my latin tan skin a choose “golden peach” But is out of stock the primer I think is
-                                a good match.
-                            </p>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="#" class="fs-14 mb-0 text-body">Was This Review Helpful?</a>
-                                <p class="mb-0 ml-4 text-secondary">
-                                    <svg class="icon icon-like align-baseline">
-                                        <use xlink:href="#icon-like"></use>
-                                    </svg> 10
-                                </p>
-                                <p class="mb-0 ml-3 text-secondary">
-                                    <svg class="icon icon-unlike align-baseline">
-                                        <use xlink:href="#icon-unlike"></use>
-                                    </svg> 0
-                                </p>
-                            </div>
-                        </div>
-                        <div class="border-bottom pt-6 pb-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <ul class="list-inline d-flex rating-result mb-0 fs-13">
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                    <li class="list-inline-item mr-1 lh-1">
-                                        <span class="text-secondary"><i class="fas fa-star"></i></span>
-                                    </li>
-                                </ul>
-                                <span class="divider fs-3 mx-2"><i class="fas fa-circle"></i></span>
-                                <span class="fs-14"> 3 days ago</span>
-                            </div>
-                            <div class="media mb-2">
-                                <img src="images/single-product-09.png" class="mr-3" alt="Avatar">
-                                <div class="media-body">
-                                    <h5 class="mt-0 fs-14 text-uppercase">Lucille D</h5>
-                                    <p>/ Georgia</p>
-                                </div>
-                            </div>
-                            <p class="font-weight-600 text-secondary mb-2">Good as light coverage</p>
-                            <p class="mb-4">The foundation feels light on my face, and the color matches great. Also the
-                                customer service is phenomenal. I would purchase again.</p>
-                            <div class="d-flex mb-4">
-                                <img src="images/single-product-11.jpg" alt="review">
-                                <img class="ml-2" src="images/single-product-10.jpg" alt="review">
-                            </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="#" class="fs-14 mb-0 text-body">Was This Review Helpful?</a>
-                                <p class="mb-0 ml-4 text-secondary">
-                                    <svg class="icon icon-like align-baseline">
-                                        <use xlink:href="#icon-like"></use>
-                                    </svg> 10
-                                </p>
-                                <p class="mb-0 ml-3 text-secondary">
-                                    <svg class="icon icon-unlike align-baseline">
-                                        <use xlink:href="#icon-unlike"></use>
-                                    </svg> 0
-                                </p>
-                            </div>
-                        </div>
-                        <nav class="pt-8">
-                            <ul class="pagination justify-content-center align-items-center mb-0 fs-16 font-weight-600">
-                                <li class="page-item fs-18 d-none d-sm-block">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#" tabindex="-1"><i class="far fa-angle-double-left"></i></a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#">1</a>
-                                </li>
-                                <li class="page-item active" aria-current="page">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#">...</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#">6</a>
-                                </li>
-                                <li class="page-item fs-18 d-none d-sm-block">
-                                    <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                        href="#"><i class="far fa-angle-double-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <section class="featured-product section-tb-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-title3">
+                        <h2><span>Related Products</span></h2>
+                    </div>
+                    <div class="home4-featured owl-carousel owl-theme">
+                        {% for product in related_products %}
+                            <div class="items">
+                                <div class="tred-pro">
+                                    <div class="tr-pro-img default-img">
+                                        <a href="product-style-4.html">
+                                            <img class="img-fluid" src="{{ product.image.url }}" alt="product-img">
+                                        </a>
+                                    </div>
+                                    <div class="Pro-lable">
+                                        <span class="p-discount">-20%</span>
+                                    </div>
+                                    <div class="pro-icn">
+                                        <a href="wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
+                                        <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                        <a href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star c-star"></i>
+                                        <i class="fa fa-star c-star"></i>
+                                        <i class="fa fa-star c-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="pro-price">
+                                        <span class="new-price">$130.00 USD</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-product section-b-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-title3">
+                        <h2><span>Others also bought</span></h2>
+                    </div>
+                    <div class="home4-featured owl-carousel owl-theme">
+                        {% for product in related_products %}
+                            <div class="items">
+                                <div class="tred-pro">
+                                    <div class="tr-pro-img default-img">
+                                        <a href="product-style-4.html">
+                                            <img class="img-fluid" src="{{ product.image.url }}" alt="product-img">
+                                        </a>
+                                    </div>
+                                    <div class="Pro-lable">
+                                        <span class="p-discount">-20%</span>
+                                    </div>
+                                    <div class="pro-icn">
+                                        <a href="wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
+                                        <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                        <a href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star c-star"></i>
+                                        <i class="fa fa-star c-star"></i>
+                                        <i class="fa fa-star c-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="pro-price">
+                                        <span class="new-price">$130.00 USD</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function zoom(e){
+          var zoomer = e.currentTarget;
+          e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+          e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+          x = offsetX/zoomer.offsetWidth*100
+          y = offsetY/zoomer.offsetHeight*100
+          zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        }
+    </script>
 {% endblock %}

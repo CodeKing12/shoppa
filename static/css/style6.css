@@ -504,7 +504,7 @@ body.hidden {
   }
 }
 .header-main-area .header-main{
-    padding: 9px 0px;
+    padding: 15px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -579,6 +579,9 @@ button.navbar-toggler span.line::before{
 }
 button.navbar-toggler span.line::after{
     top: -8px;
+}
+.header-main-area .header-main .header-element.right-block-box {
+    width: 20%;
 }
 .header-main .header-element.right-block-box ul.shop-element li.nav-toggler{
     display: none;
@@ -2291,7 +2294,213 @@ button.navbar-toggler span.line::after{
 .header-style-6-pro .header-product .caption .rating{
     margin-top: 9px;
 }
-
+/* footer style-6 product css */
+.footer-style-6-pro{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -30px;
+}
+.footer-style-6-pro .header-product{
+    width: calc(50% - 30px);
+    margin-left: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-style-6-pro .header-product:nth-child(1),
+.footer-style-6-pro .header-product:nth-child(2){
+    margin-top: 0px;
+}
+.footer-style-6-pro .header-product .tred-pro{
+    width: 35%;
+}
+.footer-style-6-pro .header-product .caption{
+    width: calc(65% - 20px);
+    margin-left: 20px;
+    padding-top: 0px;
+    text-align: left;
+}
+.footer-style-6-pro .header-product .caption h3 a{
+    font-weight: 600;
+}
+.footer-style-6-pro .header-product .caption span.pro-des{
+    margin-top: 7px;
+}
+.footer-style-6-pro .header-product .caption .rating{
+    margin-top: 11px;
+}
+.footer-style-6-pro .header-product .caption .pro-price{
+    margin-top: 11px;
+}
+.footer-style-6-pro .header-product .caption .pro-icn{
+    position: unset;
+    margin-top: 14px;
+}
+.footer-style-6-pro .header-product .caption .pro-icn a.w-c-q-icn{
+    background-color: #73841b;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+.footer-style-6-pro .header-product .caption .pro-icn a.w-c-q-icn{
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    line-height: 0px;
+    font-size: 16px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+.footer-style-6-pro .header-product .caption .pro-icn a.w-c-q-icn:hover{
+    background-color: #73841b;
+}
+.footer-style-6-pro .header-product .caption .pro-icn a.w-c-q-icn::before{
+    background-color: #73841b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+.footer-style-6-pro .header-product .caption .pro-icn a.w-c-q-icn:hover{
+    color: #fff;
+}
+.footer-style-6-pro .header-product .caption .pro-icn a.w-c-q-icn:hover::before{
+    background-color: #73841b;
+    width: 100%;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+/*--------------------------
+footer css
+---------------------------*/
+/* company detail css */
+.footer4{
+    border-top: 1px solid #e2e2e2;
+}
+.home4-footer{
+    display: flex;
+}
+.f-logo{
+    width: 25%;
+}
+.f-logo ul.footer-ul{
+    flex-direction: column;
+}
+.f-logo ul.footer-ul li.footer-logo p{
+    color: #999;
+    margin-top: 14px;
+    margin-bottom: 21px;
+}
+/* footer bottom css */
+.footer-bottom{
+    width: 55%;
+}
+.footer-link{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -15px;
+}
+.footer-link .f-link{
+    width: calc(25% - 15px);
+    margin-left: 15px;
+}
+.footer-link .f-link .h-footer{
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+}
+.footer-link .f-link a.h-footer{
+    display: none;
+}
+.footer-link .f-link .collapse:not(.show){
+    display: block;
+    margin-top: 22px;
+}
+.footer-link .f-link ul.f-link-ul li.f-link-ul-li{
+    margin-top: 9px;
+}
+.footer-link .f-link ul.f-link-ul li.f-link-ul-li a{
+    color: #999;
+}
+.footer-link .f-link ul.f-link-ul li.f-link-ul-li a:hover{
+    color: #73841b;
+}
+.contact-6{
+    width: 20%;
+}
+.contact-6 .f-deal-content h2{
+    color: #000;
+    font-size: 16px;
+    line-height: 1;
+}
+.contact-6 .f-deal-content {
+    margin-bottom: 21px;
+}
+.contact-6 ul.f-contact{
+    margin-top: 7px;
+    display: flex;
+}
+.contact-6 ul.f-contact li.contact-link{
+    margin-left: 15px;
+}
+.contact-6 ul.f-contact li.contact-link p{
+    color: #999;
+    margin-top: 1px;
+}
+.contact-6 ul.f-contact li.contact-link a{
+    color: #999;
+    margin-top: 5px;
+    display: block;
+}
+.contact-6 ul.f-contact li.contact-link a:first-child {
+    margin-top: 0px;
+}
+.contact-6 ul.f-contact li.contact-link a:hover{
+    color: #73841b;
+}
+.contact-6 ul.f-contact li i{
+    color: #73841b;
+    font-size: 20px;
+}
+/* footer copyright css */
+.footer-copyright{
+    padding: 10px 0;
+    background-color: #73841b;
+}
+.footer-copyright ul.f-bottom{
+    text-align: center;
+}
+.footer-copyright ul.f-bottom li.f-copyright p{
+    color: #fff;
+    font-size: 14px;
+}
 /* back to top css */
 a.scroll {
     position: fixed;

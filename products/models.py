@@ -6,6 +6,7 @@ from django.core.validators import MaxValueValidator
 from django.utils.text import slugify
 from .model_choices import PROCESSOR_TYPE_CHOICES, PC_MANUFACTURER_CHOICES, PHONE_OS_CHOICES, PHONE_MANUFACTURER_CHOICES, PC_OS_CHOICES, GAME_OS_CHOICES, HARD_DISK_CHOICES, SIM_SLOT_CHOICES, PRODUCT_CHOICES, NETWORK_CHOICES
 from django.core.exceptions import ObjectDoesNotExist
+from django.urls import reverse
 
 # class Category(models.Model):
 #     name = models.CharField(max_length=200)
@@ -17,6 +18,9 @@ from django.core.exceptions import ObjectDoesNotExist
     #     indexes = [
     #         models.Index(fields=["content_type", "object_id"])
     #     ]
+
+# class GameGenres(models.Model):
+#     name = models.CharField(max_length=150)
 
 
 class Product(models.Model):
@@ -38,6 +42,9 @@ class Product(models.Model):
         indexes = [
             models.Index(fields=["content_type", "object_id"])
         ]
+    
+    def get_absolute_url(self):
+        return reverse("product-details", kwargs={"category_url": self.category_url, "slug": self.slug})
 
     # You can add details about the model field using the id (See your screenshots for the terminal example)
     # You can also add the details object directly using product.details = <object>
@@ -86,8 +93,8 @@ class Product(models.Model):
         else:
             raise ValueError
 
+        image_url = self.image.url
         if folder not in image_url:
-            image_url = self.image.url
             if 'products_images' not in image_url:
                 folder = 'products_images/' + folder
             folders_list = image_url.split('/')
@@ -184,6 +191,7 @@ class PC(models.Model):
 
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")
+    # genre = models.ForeignKey(GameGenres, on_delete=models.CASCADE)
     min_ram = models.IntegerField()
     developers = models.CharField(max_length=80)
     recom_ram = models.IntegerField()

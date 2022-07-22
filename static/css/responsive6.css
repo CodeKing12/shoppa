@@ -50,6 +50,9 @@ idap-pro css
         width: 55%;
         margin-right: 20px;
     }
+    .header-main-area .header-main .header-element.right-block-box {
+        width: 20%;
+    }
     /* right block css */
     .header-main-area .header-main .header-element.right-block-box ul.shop-element li.side-wrap {
         margin-left: 30px;

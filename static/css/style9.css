@@ -479,7 +479,7 @@ body.hidden {
     top: calc(100% + 0px);
     opacity: 0;
     visibility: hidden;
-    z-index: 5;
+    z-index: 3;
     padding: 10px 0px;
     box-shadow: 0 .5px 10px rgba(0,0,0,.15);
     -webkit-transition: all 0.3s ease-in-out 0s;
@@ -540,13 +540,13 @@ body.hidden {
     align-items: center;
 }
 .header-main-area .header-main .header-element.logo {
-    width: 10%;
+    width: 20%;
 }
 .header-main-area .header-main .header-element.megamenu-content{
-    width: 40%;
+    width: 50%;
 }
 .header-main-area .header-main .header-element.right-block-box {
-    width: 50%;
+    width: 30%;
 }
 .header-main-area .header-main .header-element.right-block-box ul.shop-element li.nav-toggler{
     display: none;
@@ -1362,20 +1362,20 @@ button.navbar-toggler span.line::after{
 }
 
 /* Banner grid css */
-.organic-food-fresh-banner-9{
+.organic-food-fresh-banner{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-left: -30px;
 }
-.organic-food-fresh-banner-9 .offer-banner{
+.organic-food-fresh-banner .offer-banner{
     position: relative;
     width: calc(33.33% - 30px);
     margin-left: 30px;
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::before,
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::after{
+.organic-food-fresh-banner .offer-banner a.banner-hover::before,
+.organic-food-fresh-banner .offer-banner a.banner-hover::after{
     content: "";
     position: absolute;
     top: 10px;
@@ -1385,56 +1385,56 @@ button.navbar-toggler span.line::after{
     z-index: 9;
     opacity: 0;
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::before{
+.organic-food-fresh-banner .offer-banner a.banner-hover::before{
     -webkit-transform: scale(1,0);
     -o-transform: scale(1,0);
     transform: scale(1,0);
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::after{
+.organic-food-fresh-banner .offer-banner a.banner-hover::after{
     -webkit-transform: scale(0,1);
     -o-transform: scale(0,1);
     transform: scale(0,1);
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::before{
+.organic-food-fresh-banner .offer-banner a.banner-hover::before{
     border-right: 1px solid #fff;
     border-left: 1px solid #fff;
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::after{
+.organic-food-fresh-banner .offer-banner a.banner-hover::after{
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
 }
-.organic-food-fresh-banner-9 .offer-banner:hover a.banner-hover::before,
-.organic-food-fresh-banner-9 .offer-banner:hover a.banner-hover::after{
+.organic-food-fresh-banner .offer-banner:hover a.banner-hover::before,
+.organic-food-fresh-banner .offer-banner:hover a.banner-hover::after{
     opacity: 1;
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::before,
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover::after,
-.organic-food-fresh-banner-9 .offer-banner:hover a.banner-hover::before,
-.organic-food-fresh-banner-9 .offer-banner:hover a.banner-hover::after{
+.organic-food-fresh-banner .offer-banner a.banner-hover::before,
+.organic-food-fresh-banner .offer-banner a.banner-hover::after,
+.organic-food-fresh-banner .offer-banner:hover a.banner-hover::before,
+.organic-food-fresh-banner .offer-banner:hover a.banner-hover::after{
     -webkit-transition: all 0.4s ease-in-out 0s;
     -o-transition: all 0.4s ease-in-out 0s;
     transition: all 0.4s ease-in-out 0s;
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover{
+.organic-food-fresh-banner .offer-banner a.banner-hover{
     display: block;
     position: relative;
     overflow: hidden;
 }
-.organic-food-fresh-banner-9 .offer-banner:hover a.banner-hover img{
+.organic-food-fresh-banner .offer-banner:hover a.banner-hover img{
     -webkit-transform: scale(1.1);
     -o-transform: scale(1.1);
     transform: scale(1.1);
 }
-.organic-food-fresh-banner-9 .offer-banner a.banner-hover img,
-.organic-food-fresh-banner-9 .offer-banner:hover a.banner-hover img{
+.organic-food-fresh-banner .offer-banner a.banner-hover img,
+.organic-food-fresh-banner .offer-banner:hover a.banner-hover img{
     -webkit-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
 }
-.organic-food-fresh-banner-9 .offer-banner .banner-content{
+.organic-food-fresh-banner .offer-banner .banner-content{
     position: absolute;
     top: 50px;
     right: 0px;
@@ -1444,27 +1444,27 @@ button.navbar-toggler span.line::after{
     margin: 0 auto;
     text-align: center;
 }
-.organic-food-fresh-banner-9 .offer-banner .banner-content span{
+.organic-food-fresh-banner .offer-banner .banner-content span{
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 600;
     line-height: 1;
     padding-bottom: 2px;
 }
-.organic-food-fresh-banner-9 .offer-banner:nth-child(2) .banner-content span {
+.organic-food-fresh-banner .offer-banner:nth-child(2) .banner-content span {
     color: #7da63f;
     border-bottom: 1px solid #7da63f;
 }
-.organic-food-fresh-banner-9 .offer-banner:last-child .banner-content span,
-.organic-food-fresh-banner-9 .offer-banner:first-child .banner-content span {
+.organic-food-fresh-banner .offer-banner:last-child .banner-content span,
+.organic-food-fresh-banner .offer-banner:first-child .banner-content span {
     color: #d93d1a;
     border-bottom: 1px solid #d93d1a;
 }
-.organic-food-fresh-banner-9 .offer-banner .banner-content h2{
+.organic-food-fresh-banner .offer-banner .banner-content h2{
     margin-top: 22px;
     font-size: 20px;
 }
-.organic-food-fresh-banner-9 .offer-banner .banner-content a{
+.organic-food-fresh-banner .offer-banner .banner-content a{
     margin-top: 22px;
 }
 
@@ -1561,7 +1561,7 @@ ul.nav.nav-tabs li.nav-item a.nav-link:hover{
 .tab-product .tred-pro .cart-btn a.add-cart-btn span {
     margin-left: 5px;
 }
-/* .tred-pro .pro-icn{
+.tred-pro .pro-icn{
     position: absolute;
     top: 30px;
     left: 30px;
@@ -1571,7 +1571,7 @@ ul.nav.nav-tabs li.nav-item a.nav-link:hover{
     -webkit-transition: all 0.2s ease-in-out 0s;
     -o-transition: all 0.2s ease-in-out 0s;
     transition: all 0.2s ease-in-out 0s;
-} */
+}
 .tred-pro:hover .pro-icn {
     transform: translateY(0px);
     -webkit-transition: all 0.2s ease-in-out 0s;
@@ -2822,6 +2822,3 @@ a.scroll:hover span{
 .vegist-popup .modal-dialog .modal-content .modal-body .popup-content .pop-up-newsletter .subscribe-area a{
     margin-top: 20px;
 }
-
-
-/* Imported CSS */

@@ -455,7 +455,8 @@ $('.home2-cate-image').owlCarousel({
 
 var swiper = new Swiper('.swiper-container.our-products-tab', {
     slidesPerView: 3,
-    slidesPerColumn: 3,
+    slidesPerColumn: 2,
+    // slidesPerColumn: 3,
     spaceBetween: 30,
     observer: true,
     observeParents: true,
@@ -480,7 +481,8 @@ var swiper = new Swiper('.swiper-container.our-products-tab', {
         },
         1024: {
             slidesPerView: 2,
-            slidesPerColumn: 3
+            // slidesPerColumn: 1,
+            // slidesPerColumn: 2
         }
     }
 });
@@ -902,6 +904,7 @@ $('.home4-slider').owlCarousel({
 
 var swiper = new Swiper('.swiper-container.home4-tab', {
     slidesPerView: 5,
+    slidesPerColumn: 2,
     spaceBetween: 30,
     observer: true,
     observeParents: true,
@@ -909,7 +912,7 @@ var swiper = new Swiper('.swiper-container.home4-tab', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
     },
-    // autoplay: true,
+    autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     breakpoints: {
@@ -970,25 +973,26 @@ $('.home4-cate').owlCarousel({
 ==============================================================*/
 
 $('.home4-featured').owlCarousel({
+    // autoWidth: true,
     loop: false,
     rewind: true,
     margin: 30,
     nav: true,
     navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
     dots: false,
-    autoplay: true,
+    // autoplay: true,
     sautoplayTimeout: 5000,
     autoplayHoverPause: true,
     responsive:{
         0:{
+            items: 1,
+            margin: 15
+        },
+        531:{
             items: 2,
             margin: 15
         },
-        479:{
-            items: 2,
-            margin: 15
-        },
-        768:{
+        700:{
             items: 3
         },
         979:{
@@ -2376,7 +2380,7 @@ $('.blog-home10').owlCarousel({
         items:2
       },
       979:{
-        items:2
+        items:3
       },
       1199:{
         items:3
@@ -2688,3 +2692,19 @@ var swiper = new Swiper('.swiper-container#blog-home12', {
 });
 
 });
+
+let modalImage;
+let modalName;
+let modalPrice;
+let modalPrevPrice;
+let modalRating;
+// My JS
+function quickView(element) {
+    let image = $(`${element}.product-image`);
+    let name = $(`${element}.product-name`);
+    let price = $(`${element}.product-price`);
+    let prevPrice = $(`${element}.product-prevPrice`);
+    let rating = $(`${element}.product-rating`);
+
+    // $('#exampleModal').modal('show');
+}

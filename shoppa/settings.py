@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'accounts.apps.AccountsConfig',
     'vendors.apps.VendorsConfig',
+    'blog.apps.BlogConfig',
     'colorfield',
     'rest_framework'
 ]
@@ -169,3 +170,6 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 26
 # LOGOUT_REDIRECT_URL = 'logout_success'
 
 SESSION_SAVE_EVERY_REQUEST = False
+
+
+# Former logo color : #76b39d

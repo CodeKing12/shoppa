@@ -24,10 +24,10 @@ class ProductReviewsAdmin(admin.ModelAdmin):
 class ProductReviewsAdmin(admin.StackedInline):
     model = ProductReviews
 
-class MoreProductImagesAdmin(admin.ModelAdmin):
+class AvailableColorsAdmin(admin.ModelAdmin):
     pass
 
-class AvailableColorsAdmin(admin.ModelAdmin):
+class MoreProductImagesAdmin(admin.ModelAdmin):
     pass
 
 class MoreProductImagesAdmin(admin.StackedInline):
@@ -35,7 +35,7 @@ class MoreProductImagesAdmin(admin.StackedInline):
     verbose_name = 'More Product Images'
     verbose_name_plural = 'More Product Images'
     extra = 2
-    max = 10
+    max = 8
 
 # class AvailableColorsAdmin(admin.StackedInline):
 #     model = AvailableColors

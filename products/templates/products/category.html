@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+    {% for product in category_products %}
+        <h5>{{ product.name }}</h5>
+        <ul>
+            <li>{{ product.category }}</li>
+            <li>{{ product.details }}</li>
+        </ul>
+    {% endfor %}
+{% endblock main-content %}
