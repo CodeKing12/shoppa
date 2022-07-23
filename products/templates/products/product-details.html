@@ -35,34 +35,6 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-12 larg-image">
                             <div class="tab-content">
-                                {% comment %} <div class="tab-pane fade" id="image-11">
-                                    <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image.jpg' %})">
-                                            <img src="{% static 'image/pro-page-image/pro-page-image.jpg' %}" class="img-fluid" alt="image">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <div class="tab-pane fade" id="image-22">
-                                    <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/prro-page-image01.jpg' %})">
-                                            <img src="{% static 'image/pro-page-image/prro-page-image01.jpg' %}" class="img-fluid" alt="image">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <div class="tab-pane fade" id="image-33">
-                                    <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image1-1.jpg' %})">
-                                            <img src="{% static 'image/pro-page-image/pro-page-image1-1.jpg' %}" class="img-fluid" alt="image">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <div class="tab-pane fade" id="image-44">
-                                    <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image1.jpg' %})">
-                                            <img src="{% static 'image/pro-page-image/pro-page-image1.jpg' %}" class="img-fluid" alt="image">
-                                        </figure>
-                                    </a>
-                                </div> {% endcomment %}
                                 <div class="tab-pane fade show active" id="image-55">
                                     <a href="javascript:void(0)" class="long-img">
                                         <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({{ product.image.url }})">
@@ -70,20 +42,24 @@
                                         </figure>
                                     </a>
                                 </div>
-                                {% comment %} <div class="tab-pane fade" id="image-66">
+                                {% for extra_image in product.moreproductimages_set.all %}
+                                    <div class="tab-pane fade" id="image-{{extra_image.id}}">
+                                        <a href="javascript:void(0)" class="long-img">
+                                            <figure class="" onmousemove="zoom(event)"> <!--style="background-image: url({{ extra_image.image.url }})-->
+                                                <img src="{{ extra_image.image.url }}" class="img-fluid" alt="image">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                                {% comment %} 
+                                <div class="tab-pane fade" id="image-22">
                                     <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image2-2.jpg' %})">
-                                            <img src="{% static 'image/pro-page-image/pro-page-image2-2.jpg' %}" class="img-fluid" alt="image">
+                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/prro-page-image01.jpg' %})">
+                                            <img src="{% static 'image/pro-page-image/prro-page-image01.jpg' %}" class="img-fluid" alt="image">
                                         </figure>
                                     </a>
-                                </div>
-                                <div class="tab-pane fade" id="image-77">
-                                    <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image3.jpg' %})">
-                                            <img src="{% static 'image/pro-page-image/pro-page-image3.jpg' %}" class="img-fluid" alt="image">
-                                        </figure>
-                                    </a>
-                                </div>
+                                </div> {% endcomment %}
+                                {% comment %}
                                 <div class="tab-pane fade" id="image-88">
                                     <a href="javascript:void(0)" class="long-img">
                                         <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({% static 'image/pro-page-image/pro-page-image03.jpg' %})">
@@ -94,29 +70,16 @@
                             </div>
                             <ul class="nav nav-tabs images-nav"><!--pro-pag-5-slider owl-carousel owl-theme-->
                                 <li class="nav-item items">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#image-11"><img src="{% static 'image/pro-page-image/image1.jpg' %}" class="img-fluid" alt="image"></a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#image-55"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
                                 </li>
-                                <li class="nav-item items">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#image-22"><img src="{% static 'image/pro-page-image/image2.jpg' %}" class="img-fluid" alt="iamge"></a>
-                                </li>
-                                <li class="nav-item items">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#image-33"><img src="{% static 'image/pro-page-image/image3.jpg' %}" class="img-fluid" alt="image"></a>
-                                </li>
-                                <li class="nav-item items">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#image-44"><img src="{% static 'image/pro-page-image/image4.jpg' %}" class="img-fluid" alt="image"></a>
-                                </li>
-                                <li class="nav-item items">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#image-55"><img src="{% static 'image/pro-page-image/image5.jpg' %}" class="img-fluid" alt="image"></a>
-                                </li>
-                                <li class="nav-item items">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#image-66"><img src="{% static 'image/pro-page-image/image6.jpg' %}" class="img-fluid" alt="image"></a>
-                                </li>
-                                <li class="nav-item items">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#image-77"><img src="{% static 'image/pro-page-image/image8.jpg' %}" class="img-fluid" alt="image"></a>
-                                </li>
-                                <li class="nav-item items">
+                                {% for extra_image in product.moreproductimages_set.all %}
+                                    <li class="nav-item items">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="#image-{{extra_image.id}}"><img src="{{ extra_image.image.url }}" class="img-fluid" alt="image"></a>
+                                    </li>
+                                {% endfor %}
+                                {% comment %} <li class="nav-item items">
                                     <a class="nav-link" data-bs-toggle="tab" href="#image-88"><img src="{% static 'image/pro-page-image/image7.jpg' %}" class="img-fluid" alt="image"></a>
-                                </li>
+                                </li> {% endcomment %}
                             </ul>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-12 pro-info">
@@ -146,14 +109,14 @@
                                 {% endif %}
                             </div>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer type and</p>
-                            <div class="pro-items">
+                            {% comment %} <div class="pro-items">
                                 <span class="pro-size">Size:</span>
                                 <ul class="pro-wight">
                                     <li><a href="javascript:void(0)" class="active">5LTR</a></li>
                                     <li><a href="javascript:void(0)">2LTR</a></li>
                                     <li><a href="javascript:void(0)">3LTR</a></li>
                                 </ul>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="product-color">
                                 <span class="color-label">Color:</span>
                                 <span class="color">
@@ -261,14 +224,14 @@
                             <div class="tab-pane fade show" id="tab-2">
                                 <h4 class="reviews-title">Customer reviews</h4>
                                 <div class="customer-reviews t-desk-2">
-                                    <span class="p-rating">
+                                    {% comment %} <span class="p-rating">
                                         <i class="fa fa-star e-star"></i>
                                         <i class="fa fa-star e-star"></i>
                                         <i class="fa fa-star e-star"></i>
                                         <i class="fa fa-star e-star"></i>
                                         <i class="fa fa-star e-star"></i>
-                                    </span>
-                                    <p class="review-desck">Based on 2 reviews</p>
+                                    </span> {% endcomment %}
+                                    {% comment %} <p class="review-desck">Based on 2 reviews</p> {% endcomment %}
                                     <a href="#add-review" data-bs-toggle='collapse'>Write a review</a>
                                 </div>
                                 <div class="review-form collapse" id="add-review">
@@ -292,30 +255,20 @@
                                         <textarea name="comment" placeholder="Write your comments"></textarea>
                                     </form>
                                 </div>
-                                <div class="customer-reviews">
-                                    <span class="p-rating">
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                    <h4 class="review-head">he also good and high product see like look</h4>
-                                    <span class="reviews-editor">kelin patel <span class="review-name">on</span> fab 5, 2021</span>
-                                    <p class="r-description">he also good and high product see like look</p>
-                                </div>
-                                <div class="customer-reviews">
-                                    <span class="p-rating">
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star e-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                    <h4 class="review-head">he also good and fresh fruit organic product see like look</h4>
-                                    <span class="reviews-editor">Melvin louis <span class="review-name">on</span> fab 5, 2021</span>
-                                    <p class="r-description">he also good and fresh fruit organic product see like look</p>
-                                </div>
+                                {% for review in product.productreviews_set.all %}
+                                    <div class="customer-reviews">
+                                        <span class="p-rating">
+                                            <i class="fa fa-star e-star"></i>
+                                            <i class="fa fa-star e-star"></i>
+                                            <i class="fa fa-star e-star"></i>
+                                            <i class="fa fa-star e-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </span>
+                                        <h4 class="review-head">{{ review.review_title }}</h4>
+                                        <span class="reviews-editor">{{ review.reviewer.get_full_name }} <span class="review-name">on</span> {{ review.date_submitted }}</span>
+                                        <p class="r-description">{{ review.review | safe }}</p>
+                                    </div>
+                                {% endfor %}
                             </div>
                             <div class="tab-pane fade show" id="tab-3">
                                 <div class="embed-responsive embed-responsive-16by9">
@@ -423,12 +376,12 @@
 
     <script>
         function zoom(e){
-          var zoomer = e.currentTarget;
+          /* var zoomer = e.currentTarget;
           e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
           e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
           x = offsetX/zoomer.offsetWidth*100
           y = offsetY/zoomer.offsetHeight*100
-          zoomer.style.backgroundPosition = x + '% ' + y + '%';
+          zoomer.style.backgroundPosition = x + '% ' + y + '%'; */
         }
     </script>
 {% endblock %}

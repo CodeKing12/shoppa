@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'vendors.apps.VendorsConfig',
     'blog.apps.BlogConfig',
     'colorfield',
+    'django_seed',
     'rest_framework'
 ]
 

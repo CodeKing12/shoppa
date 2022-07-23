@@ -5,8 +5,10 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.validators import MaxValueValidator
 from django.utils.text import slugify
 from .model_choices import PROCESSOR_TYPE_CHOICES, PC_MANUFACTURER_CHOICES, PHONE_OS_CHOICES, PHONE_MANUFACTURER_CHOICES, PC_OS_CHOICES, GAME_OS_CHOICES, HARD_DISK_CHOICES, SIM_SLOT_CHOICES, PRODUCT_CHOICES, NETWORK_CHOICES
+from .model_choices import PC as laptop_choice
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
+from django.utils import timezone
 
 # class Category(models.Model):
 #     name = models.CharField(max_length=200)
@@ -19,8 +21,10 @@ from django.urls import reverse
     #         models.Index(fields=["content_type", "object_id"])
     #     ]
 
-# class GameGenres(models.Model):
-#     name = models.CharField(max_length=150)
+default_content_type = ContentType.objects.get(app_label="products", model="pc")
+
+class GameGenres(models.Model):
+    name = models.CharField(max_length=150)
 
 
 class Product(models.Model):
@@ -32,10 +36,10 @@ class Product(models.Model):
     percent_off = models.IntegerField()
     in_stock = models.BooleanField(default=True)
     slug = models.SlugField(auto_created=True, blank=True, max_length=300)
-    category = models.CharField(max_length=100, choices=PRODUCT_CHOICES)
+    category = models.CharField(max_length=100, choices=PRODUCT_CHOICES, default=laptop_choice)
     category_url = models.CharField(max_length=100)
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, default=8)
+    object_id = models.PositiveIntegerField(null=True, blank=True)
     details = GenericForeignKey("content_type", "object_id")
     
     class Meta:
@@ -110,6 +114,7 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         if not self.is_cleaned:
             self.clean()
+        self.object_id = self.id
         super(Product, self).save(*args, **kwargs)
 
 class Phone(models.Model):
@@ -191,7 +196,7 @@ class PC(models.Model):
 
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")
-    # genre = models.ForeignKey(GameGenres, on_delete=models.CASCADE)
+    genre = models.ForeignKey(GameGenres, on_delete=models.CASCADE)
     min_ram = models.IntegerField()
     developers = models.CharField(max_length=80)
     recom_ram = models.IntegerField()
@@ -220,8 +225,11 @@ class MoreProductImages(models.Model):
     image = models.ImageField(upload_to='all_product_images')
 
 class ProductReviews(models.Model):
+    reviewer = models.ForeignKey("accounts.CustomAccount", on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     stars = models.PositiveIntegerField(validators=[MaxValueValidator(5)])
+    date_submitted = models.DateTimeField(default=timezone.now)
+    review_title = models.CharField(max_length=150)
     review = RichTextUploadingField()
 
 # Allow vendors to schedule products

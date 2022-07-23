@@ -4,9 +4,6 @@ from .models import MoreProductImages, ProductReviews, Product, PC, Phone, Game
 
 # Register your models here.
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'in_stock', 'category']
-
 # class CategoryAdmin(admin.ModelAdmin):
 #     list_display = ['name', 'details']
 
@@ -23,6 +20,7 @@ class ProductReviewsAdmin(admin.ModelAdmin):
     pass
 class ProductReviewsAdmin(admin.StackedInline):
     model = ProductReviews
+    extra = 1
 
 class AvailableColorsAdmin(admin.ModelAdmin):
     pass
@@ -36,6 +34,10 @@ class MoreProductImagesAdmin(admin.StackedInline):
     verbose_name_plural = 'More Product Images'
     extra = 2
     max = 8
+
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [MoreProductImagesAdmin, ProductReviewsAdmin]
+    list_display = ['name', 'price', 'in_stock', 'category'] # 
 
 # class AvailableColorsAdmin(admin.StackedInline):
 #     model = AvailableColors

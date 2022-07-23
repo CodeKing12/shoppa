@@ -1,0 +1,663 @@
+[
+{
+    "model": "products.gamegenres",
+    "pk": 1,
+    "fields": {
+        "name": "Nearly add senior different imagine either. Somebody interesting second difference live."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 2,
+    "fields": {
+        "name": "Gun write wrong. Act put vote fall investment. Bed thing yeah probably expect turn.\nYes open newspaper finally throw ever."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 3,
+    "fields": {
+        "name": "Rich politics push seven. Least yes chance member. Certain by fine catch. Week special food girl."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 4,
+    "fields": {
+        "name": "Cost compare adult good throw leader sort. Home seat morning. Commercial civil first order be."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 5,
+    "fields": {
+        "name": "Professor pull structure sense they story management. Support share son field. There good student live today couple."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 6,
+    "fields": {
+        "name": "What us prove yes teach cover room. Window process drive half if. Foreign commercial watch."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 7,
+    "fields": {
+        "name": "Several wide mother real research significant. Between that forget full start wonder."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 8,
+    "fields": {
+        "name": "Computer state try natural upon level whom. Task beat machine degree. Executive PM above find direction sign only trade."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 9,
+    "fields": {
+        "name": "Beyond get bar owner return writer dark. Impact friend road race company far."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 10,
+    "fields": {
+        "name": "Begin world attack model mother stock. Operation leader institution make concern provide modern material."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 11,
+    "fields": {
+        "name": "Admit so TV open thousand minute stand clear. My memory just this would."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 12,
+    "fields": {
+        "name": "Hair senior sign yet third amount. Want herself involve. Begin win though teacher team."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 13,
+    "fields": {
+        "name": "Author end building teacher. Seem song dinner main.\nKind staff away everyone partner image. Year stock development size."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 14,
+    "fields": {
+        "name": "Sit loss kid spring cultural. Point here property yeah see human member. Off water big chance eight."
+    }
+},
+{
+    "model": "products.gamegenres",
+    "pk": 15,
+    "fields": {
+        "name": "Push morning often always. Body everybody onto majority tonight."
+    }
+},
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "slug": "earum-quibusdam-ad-dolores-sequi-impedit-voluptas-blanditiis-totam-ab-recusandae-voluptatum-error-autem-dolore-unde",
+        "name": "earum quibusdam ad dolores sequi impedit voluptas blanditiis totam ab recusandae voluptatum error autem dolore unde",
+        "image": "products_images/laptop_products/c08001685.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nSed quidem cumque eos non quis consequuntur blanditiis, ex soluta fugiat? Aut natus error nobis impedit quibusdam, aut magni veritatis excepturi reiciendis ratione quam dolores, suscipit blanditiis reprehenderit ipsum. Harum ducimus rem assumenda, enim obcaecati fugiat expedita officiis repellat nam reprehenderit, ab quaerat amet atque cumque deserunt, animi consequuntur quos quam qui debitis suscipit veniam id cumque, vel architecto doloremque expedita iure temporibus repellendus vero aliquam. Amet omnis aliquid laboriosam dolore voluptates reiciendis eius neque modi incidunt reprehenderit, veniam voluptatibus cum ipsum error dolorum odio qui hic velit repudiandae eum, consectetur rem blanditiis debitis eius error nulla placeat pariatur dolorem et, unde illo doloribus neque nihil numquam sed quasi?",
+        "price": 62000,
+        "previous_price": 0,
+        "percent_off": 0,
+        "in_stock": true,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 1,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "slug": "sit-inventore-provident-culpa-iure-molestias-alias-tempora-quisquam-nemo-vero-unde-ratione",
+        "name": "sit inventore provident culpa iure molestias alias tempora quisquam nemo vero unde ratione",
+        "image": "products_images/laptop_products/c08194323.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nFacere unde iste doloremque sed totam, officiis accusantium rerum tempora excepturi, dolorem nisi minima unde consequatur molestias commodi beatae nesciunt quis, voluptatibus earum nisi id sapiente harum. Voluptas iure deserunt libero natus numquam doloribus, laborum ratione provident natus qui placeat adipisci, sapiente sit omnis itaque, omnis nam et officiis quaerat ad blanditiis tempora reprehenderit aliquid aliquam. Neque ad dignissimos ex dolorum atque dicta, corporis optio inventore aperiam excepturi vel non amet voluptate qui in alias, magnam nesciunt soluta dolore deserunt totam magni fugit itaque voluptas praesentium labore, similique qui voluptate minus est voluptatem. Aliquid modi deserunt maxime molestiae iure placeat et sunt laudantium, sapiente deserunt nostrum soluta at voluptate magni nulla distinctio, nemo veritatis itaque, minus rerum exercitationem ab ut ratione ipsam obcaecati corrupti culpa tenetur accusantium, possimus cum repellat voluptatem aspernatur ratione?\nAspernatur non veniam facere explicabo ratione modi, ab sequi incidunt exercitationem distinctio eius aliquam assumenda, quas porro ad architecto? Ea obcaecati aperiam omnis vitae recusandae corporis at cumque earum corrupti, asperiores minima accusamus iusto odio nisi dolorem unde, inventore asperiores impedit quod obcaecati voluptate nihil, aliquid officia error facilis. Non quidem ex eos quia labore impedit ipsa blanditiis illum mollitia ratione, tempore blanditiis laborum voluptates aut itaque atque omnis, similique aperiam corporis quidem iste amet dolor sint reprehenderit? Voluptates natus distinctio velit aliquid nulla, itaque ab doloribus qui consectetur ipsam architecto pariatur ad nam.",
+        "price": 140000,
+        "previous_price": 180000,
+        "percent_off": 77,
+        "in_stock": false,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 8,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "slug": "voluptatibus-debitis-placeat-in-doloremque-voluptas-explicabo-quae-qui-reprehenderit-esse-accusamus-totam",
+        "name": "voluptatibus debitis placeat in doloremque voluptas explicabo quae qui reprehenderit esse accusamus totam",
+        "image": "products_images/laptop_products/c07973455.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nLabore quibusdam inventore aliquam nemo veritatis quos, architecto amet a laborum earum ab? Necessitatibus quo in maiores suscipit id aliquid sint sit laudantium, cum illo esse tempore magni sapiente ad fugiat id perferendis incidunt consectetur. Quisquam placeat dolorum quas eligendi, inventore ea quibusdam tempore saepe porro, velit rerum omnis non minima eveniet, atque rerum illo, harum iure quod eligendi enim totam praesentium? Qui maiores facilis voluptates ipsa amet magnam modi, eum ipsa aliquid laudantium, fuga cupiditate maiores recusandae reiciendis voluptate.\nIusto labore nam ut unde suscipit aliquam amet totam, ex voluptas iusto iste rerum fuga, reiciendis aliquid odio nobis quos quas, facere eligendi quidem dignissimos nisi tempore unde beatae. Quaerat debitis quia voluptate ipsam libero doloribus quidem corrupti dicta iusto, architecto optio velit saepe quam mollitia quas, rerum placeat asperiores atque quis nisi fugit adipisci consequatur molestiae. Veritatis vitae atque culpa esse iusto nobis, tenetur numquam rerum. Culpa cupiditate a unde, aspernatur explicabo provident animi tempore suscipit vero, voluptatem dolores corrupti recusandae doloribus beatae ex officiis, hic est itaque perspiciatis quibusdam unde voluptatum.",
+        "price": 50000,
+        "previous_price": 0,
+        "percent_off": 0,
+        "in_stock": true,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 1,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "slug": "inventore-minima-expedita-labore-neque-necessitatibus-numquam-a",
+        "name": "inventore minima expedita labore neque necessitatibus numquam a",
+        "image": "products_images/laptop_products/center_facing2.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIn explicabo expedita inventore natus, modi molestiae ea debitis temporibus, porro quae magni vel quibusdam quas placeat similique, quo vero ipsum architecto commodi blanditiis nihil corrupti? Sapiente eligendi vero molestias nam aliquid, qui minima ut placeat corrupti perferendis, quas facere corporis error, voluptatum sequi suscipit officia minima cumque pariatur molestiae?",
+        "price": 98000,
+        "previous_price": 0,
+        "percent_off": 0,
+        "in_stock": false,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 8,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "slug": "cupiditate-architecto-accusamus-quisquam-perspiciatis-facilis-aliquam-ducimus-odit-eius",
+        "name": "cupiditate architecto accusamus quisquam perspiciatis facilis aliquam ducimus odit eius",
+        "image": "products_images/laptop_products/c07607047.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nMinima tenetur eligendi obcaecati corrupti omnis recusandae velit beatae cumque, deserunt ipsam eum quaerat laboriosam culpa impedit modi magnam consectetur aspernatur, iure nesciunt fugit dolorem odio assumenda sapiente, animi delectus modi quaerat deleniti? Pariatur quasi cupiditate ex velit beatae dicta debitis possimus, porro dolorum voluptate vitae deserunt ad ex minus optio animi? Sequi sint nihil possimus, nostrum ea quam expedita, doloremque repellendus maiores eum, quidem reiciendis voluptates ipsa quam ea nisi, ipsam libero veritatis aperiam beatae sapiente. Dolores magni autem, expedita rerum dolorem asperiores corrupti commodi doloribus nemo id minus ducimus error, dolorum non alias delectus laudantium pariatur, exercitationem hic ex deleniti.\nDebitis est quasi nostrum optio in quas autem, rerum laboriosam quos, repudiandae suscipit nam deleniti impedit dolores, iste incidunt cum nobis architecto placeat? Blanditiis veritatis nostrum nesciunt repellat corrupti ipsa voluptatum molestiae ullam, blanditiis iure omnis tempora fuga autem libero, iste placeat amet voluptatibus sit a est, amet minus et eos provident veritatis culpa soluta eum asperiores blanditiis aspernatur. Eaque animi commodi temporibus sed, quos sint nihil fuga iure tenetur blanditiis? Explicabo cupiditate reiciendis, hic laborum alias explicabo error quisquam delectus eveniet qui sapiente reiciendis, totam deleniti in cum voluptates expedita alias nam?\nAlias obcaecati distinctio natus libero amet eaque repudiandae reiciendis qui, vero fuga aliquam ullam velit reprehenderit quidem soluta inventore voluptatibus adipisci. Pariatur eius ut doloremque rem optio, similique ducimus voluptatem cumque ex earum impedit, aliquam nihil illum deserunt corporis saepe fugiat eligendi omnis eos repellat sed?\nQuis quidem deleniti sint deserunt libero repellendus doloribus, culpa sed repellat, asperiores quasi soluta aliquid. Quos fuga amet quod praesentium reprehenderit quae ducimus inventore tenetur perferendis, autem suscipit quisquam dolor reiciendis? Ipsa molestias dolorem ducimus est deserunt aperiam vitae dolor, praesentium quia repellendus quae? Reiciendis eaque ullam quidem corporis tempore vel officia, minus repudiandae dicta ipsa veritatis quas sit nulla, eveniet eius quam atque natus saepe.",
+        "price": 112000,
+        "previous_price": 0,
+        "percent_off": 0,
+        "in_stock": false,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 1,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "slug": "mollitia-amet-placeat-quaerat-quod",
+        "name": "mollitia amet placeat quaerat quod",
+        "image": "products_images/laptop_products/c07920755.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nVoluptate fuga illo, illum quae provident recusandae cupiditate repudiandae expedita obcaecati dignissimos similique ad, voluptas quod ea minus delectus rem nam soluta aliquid molestias iste, debitis id deleniti maiores rerum impedit, tenetur corporis eius? Cumque ut quia voluptatem architecto dolor, impedit deleniti error doloribus quam nemo velit unde quaerat sint quia quos, enim culpa facilis, obcaecati dolores tempora aspernatur atque nesciunt beatae, veritatis fugit provident?",
+        "price": 60000,
+        "previous_price": 0,
+        "percent_off": 0,
+        "in_stock": false,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 1,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "slug": "accusamus-cumque-totam",
+        "name": "accusamus cumque totam",
+        "image": "products_images/laptop_products/c07984278.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nDolores adipisci odit enim nihil sint, nihil culpa tenetur adipisci minus sint laborum modi commodi, nostrum voluptatum magni non neque fuga, voluptatibus nesciunt cupiditate ipsum dolorem veritatis modi inventore saepe. Voluptatibus corrupti necessitatibus, nobis libero at provident quasi dolorem unde omnis?\nTotam beatae repellendus ab nemo quos libero error inventore rem, quod doloremque quaerat hic voluptatem qui, qui quas consequuntur quidem sequi illo neque ab? Ullam neque tenetur natus eaque fuga accusamus libero, natus consequatur esse deserunt nisi culpa, fuga ipsum ipsa unde alias magnam maiores eaque omnis corporis quisquam, aut in quasi corrupti eligendi ipsum magni doloribus illum deleniti commodi, quas deleniti cumque doloremque pariatur aliquam. Officiis atque repudiandae placeat unde, qui illo quos veniam doloribus accusamus vero velit, officia veritatis accusamus repellat tempore similique ipsum illum pariatur dolor adipisci excepturi, rem quidem soluta dignissimos impedit quas veniam totam ipsam asperiores? Repellendus corrupti nam voluptate necessitatibus alias animi assumenda repudiandae, quibusdam ratione explicabo voluptatibus, nemo nam illo neque sint placeat hic officiis ipsam repudiandae facere eveniet.",
+        "price": 102000,
+        "previous_price": 118000,
+        "percent_off": 86,
+        "in_stock": false,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 8,
+        "object_id": 7
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "slug": "tempore-veniam-at-est-enim-ab-iusto-commodi-numquam-illum-necessitatibus-consequatur-voluptate-voluptatum-nam-aliquam-omnis-quasi",
+        "name": "tempore veniam at est enim ab iusto commodi numquam illum necessitatibus consequatur voluptate voluptatum nam aliquam omnis quasi",
+        "image": "products_images/laptop_products/c07974013.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIure delectus possimus fugiat unde atque magni sit, dolorem nobis sunt repellat ipsum vero officiis, molestiae soluta aspernatur error dolor? Voluptate veritatis error molestias tenetur quasi consequuntur quas recusandae assumenda dicta, tempore blanditiis reiciendis eius eligendi earum explicabo ea perferendis similique facere, consectetur voluptates deleniti quia rem? Exercitationem suscipit ea, rerum ratione assumenda possimus ipsum velit, delectus placeat rerum, sapiente nobis dolore aliquam quos esse ducimus, rerum libero omnis sapiente deleniti.\nFacere officiis delectus excepturi odio at non deserunt unde est accusantium exercitationem, eaque ad repudiandae temporibus nam, natus sit voluptate tenetur veniam perspiciatis quaerat, aliquam et illo inventore molestiae explicabo velit dicta ea libero reprehenderit eum. Officia optio id qui sapiente eaque vitae dolorum dolore illo libero vel, dicta deleniti iure, rerum sequi mollitia ratione porro? Accusamus suscipit quisquam sit debitis odit modi praesentium, iusto consectetur inventore libero nisi placeat, provident incidunt nulla id consectetur doloribus enim, doloribus fuga reiciendis ducimus quisquam totam? Iusto atque sed sit excepturi dicta eligendi consequatur totam modi, ullam voluptatum ratione porro reprehenderit.\nTempora sint at cumque earum minima eius possimus cum quasi, natus veniam omnis debitis dolores necessitatibus laudantium velit aut ad? Deleniti neque amet delectus vitae, labore quia fugit nobis perspiciatis facilis doloribus consectetur accusantium aperiam, expedita exercitationem accusamus pariatur laborum inventore unde consequuntur at incidunt, quidem saepe doloremque ab facere voluptatem tempora, enim natus exercitationem consequatur omnis? Blanditiis commodi quod similique fuga, aliquid placeat voluptas at quod saepe illum aspernatur est ipsa esse, quae minima fuga vel ad eum eveniet, provident atque quas reiciendis dolorem expedita voluptates tempore repellat, et dignissimos dicta delectus aperiam eos aliquam obcaecati sapiente? Doloremque magnam eaque soluta temporibus perferendis ratione repellat tempora, magnam commodi possimus ipsum corrupti sapiente unde culpa dolorum illo voluptatem, tempora expedita odio optio modi consequuntur?\nPorro soluta recusandae doloribus consectetur, quaerat natus maxime temporibus nulla odit doloremque quos perferendis deserunt quasi incidunt. Culpa repudiandae sed consectetur similique vero, recusandae distinctio aspernatur officiis. Mollitia amet ut repellendus accusamus, veritatis eveniet labore corporis id minus?",
+        "price": 130000,
+        "previous_price": 0,
+        "percent_off": 0,
+        "in_stock": true,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 1,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "slug": "mollitia-odio-magnam-sint-commodi-impedit",
+        "name": "mollitia odio magnam sint commodi impedit",
+        "image": "products_images/laptop_products/c08049850.png",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Qui dolor ut, distinctio placeat maiores minus libero velit dolore non amet alias, hic ratione perspiciatis eius dignissimos fuga sed similique et eaque sapiente, sit nemo minus doloribus esse aspernatur praesentium deleniti, maiores error a qui dolore commodi tenetur natus sit? Laborum accusamus voluptates inventore sint ea id excepturi itaque sit, provident ut non voluptatibus totam dolorum eveniet esse beatae quis a, corrupti fugit ab doloribus assumenda amet debitis placeat neque natus ducimus consequatur.</p>",
+        "price": 60000,
+        "previous_price": 68000,
+        "percent_off": 88,
+        "in_stock": false,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 1,
+        "object_id": 1
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "slug": "ipsam-debitis-placeat-omnis-totam-fugiat-doloribus-quia-tempore-eveniet",
+        "name": "ipsam debitis placeat omnis totam fugiat doloribus quia tempore eveniet",
+        "image": "products_images/laptop_products/c07965818.png",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Recusandae placeat molestias vitae expedita labore ipsa dolores, modi corrupti explicabo labore suscipit quae eaque harum ratione veritatis quos, reprehenderit laborum fugiat eos quod saepe iste ratione, unde perferendis dicta consequuntur sed sequi ipsam repellendus tenetur obcaecati quasi ad. Accusamus quibusdam aut voluptatum odio, cumque distinctio quo fugit accusantium nihil id? Iste iure itaque repellat neque minus eveniet, optio perferendis rem provident unde consequatur ex amet non laudantium, molestias exercitationem labore illo soluta ullam cum et saepe totam nobis, laboriosam quasi delectus eum in blanditiis suscipit consectetur omnis dignissimos fugit necessitatibus, cupiditate rerum rem nemo non ab aspernatur eligendi eius obcaecati animi? Quaerat consequatur obcaecati voluptas, aliquid velit beatae saepe porro quaerat vel doloribus tempora, cumque eaque velit placeat excepturi asperiores in ab amet libero, sequi nisi nobis quibusdam delectus, eius dignissimos consequatur illum? Laudantium voluptates fugit delectus ullam sint, quae necessitatibus quia, officia ipsam ab repellat amet debitis sunt tenetur blanditiis, veritatis ea aliquid quo sunt quibusdam in cupiditate debitis dolore accusantium, quod veniam illo id commodi quasi fuga nam? Quod tempore quam sunt eius quasi perferendis animi voluptas numquam, nihil debitis doloremque eius quae vel hic maiores cum aut porro, autem consequatur unde illo doloribus dolores, ut dolores tenetur quis tempore velit ipsum earum id, suscipit facilis a nesciunt saepe id?</p>",
+        "price": 182000,
+        "previous_price": 240000,
+        "percent_off": 75,
+        "in_stock": true,
+        "category": "PC",
+        "category_url": "laptops",
+        "content_type": 8,
+        "object_id": 10
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 1,
+    "fields": {
+        "ram": 274,
+        "storage": 1100,
+        "manufacturer": "MICROSOFT",
+        "model": "at a tenetur quod necessitatibus aspernatur eveniet unde officiis",
+        "graphics_card": "voluptatibus corrupti obcaecati",
+        "hard_disk": "SSD",
+        "weight": "322.92202752087826",
+        "screen_size": 178.98393327019764,
+        "resolution": "labore",
+        "os_type": "Linux",
+        "os_version": 4.0,
+        "cpu": "omnis natus",
+        "motherboard": "officiis amet soluta quae laudantium sit harum praesentium modi dolor",
+        "battery": 45000,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": true,
+        "fingerprint": false,
+        "face_unlock": false,
+        "processor": "autem laudantium laboriosam amet itaque voluptas",
+        "processor_type": "64-Bit",
+        "network": "2G",
+        "sd_card_slot": false,
+        "water_proof": true,
+        "water_resistant": false,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 2,
+    "fields": {
+        "ram": 435,
+        "storage": 1850,
+        "manufacturer": "LENOVO",
+        "model": "sunt doloribus ex corrupti ullam",
+        "graphics_card": "quisquam placeat perferendis nesciunt architecto ex voluptates porro provident",
+        "hard_disk": "SSD",
+        "weight": "422.6105024181277",
+        "screen_size": 134.02530411078797,
+        "resolution": "excepturi a natus",
+        "os_type": "macOS",
+        "os_version": 14.0,
+        "cpu": "aperiam architecto excepturi nulla velit",
+        "motherboard": "amet error repellat facilis distinctio",
+        "battery": 47000,
+        "bluetooth": true,
+        "wifi": false,
+        "hotspot": true,
+        "fingerprint": true,
+        "face_unlock": true,
+        "processor": "hic incidunt",
+        "processor_type": "64-Bit",
+        "network": "3G",
+        "sd_card_slot": false,
+        "water_proof": true,
+        "water_resistant": false,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 3,
+    "fields": {
+        "ram": 398,
+        "storage": 1000,
+        "manufacturer": "APPLE",
+        "model": "in dignissimos earum obcaecati alias est",
+        "graphics_card": "aperiam similique commodi quo minus temporibus ad facere ipsam",
+        "hard_disk": "SSD",
+        "weight": "388.32544501999894",
+        "screen_size": 183.63964492436705,
+        "resolution": "maiores qui suscipit",
+        "os_type": "macOS",
+        "os_version": 6.0,
+        "cpu": "exercitationem quidem veniam ut ea fugiat maxime dicta accusantium",
+        "motherboard": "ab dignissimos mollitia rem nostrum error",
+        "battery": 15500,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": false,
+        "fingerprint": true,
+        "face_unlock": false,
+        "processor": "nemo delectus corporis obcaecati quia",
+        "processor_type": "64-Bit",
+        "network": "4G",
+        "sd_card_slot": true,
+        "water_proof": true,
+        "water_resistant": true,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 4,
+    "fields": {
+        "ram": 463,
+        "storage": 500,
+        "manufacturer": "DYNABOOK",
+        "model": "esse minima dolor amet possimus",
+        "graphics_card": "iusto distinctio",
+        "hard_disk": "HDD",
+        "weight": "127.05203651492147",
+        "screen_size": 68.30359551387588,
+        "resolution": "magni",
+        "os_type": "Linux",
+        "os_version": 12.0,
+        "cpu": "quis odio repellendus quaerat commodi neque suscipit ea",
+        "motherboard": "quisquam reiciendis molestias et aliquid animi aperiam",
+        "battery": 10500,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": true,
+        "fingerprint": true,
+        "face_unlock": false,
+        "processor": "error impedit culpa animi atque temporibus dolorem recusandae tempore",
+        "processor_type": "64-Bit",
+        "network": "2G",
+        "sd_card_slot": true,
+        "water_proof": true,
+        "water_resistant": false,
+        "dust_resistant": false
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 5,
+    "fields": {
+        "ram": 7,
+        "storage": 900,
+        "manufacturer": "ASUS",
+        "model": "sunt animi voluptatum tempora ab",
+        "graphics_card": "consequuntur ab ratione dolore",
+        "hard_disk": "HDD",
+        "weight": "240.98732601439542",
+        "screen_size": 153.92549864769188,
+        "resolution": "dignissimos consequuntur",
+        "os_type": "Windows OS",
+        "os_version": 16.0,
+        "cpu": "nostrum a necessitatibus eius modi libero quia odio vero delectus vel",
+        "motherboard": "obcaecati pariatur necessitatibus itaque reprehenderit architecto illo dignissimos",
+        "battery": 45500,
+        "bluetooth": false,
+        "wifi": false,
+        "hotspot": true,
+        "fingerprint": true,
+        "face_unlock": true,
+        "processor": "earum quas libero et unde nostrum magni at",
+        "processor_type": "32-Bit",
+        "network": "4G",
+        "sd_card_slot": true,
+        "water_proof": true,
+        "water_resistant": true,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 6,
+    "fields": {
+        "ram": 213,
+        "storage": 1800,
+        "manufacturer": "HYUNDAI TECHNOLOGY",
+        "model": "error quas nostrum nemo cumque eius",
+        "graphics_card": "assumenda amet corporis ipsam tempora eos rem odit asperiores ipsa harum recusandae suscipit",
+        "hard_disk": "HDD",
+        "weight": "216.38675883693548",
+        "screen_size": 177.92494902857771,
+        "resolution": "voluptates aliquam at",
+        "os_type": "Linux",
+        "os_version": 8.0,
+        "cpu": "ducimus eius officia dolorem deserunt qui molestiae consequatur molestias",
+        "motherboard": "nulla consectetur sed quo aliquid tempore cumque earum",
+        "battery": 11500,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": false,
+        "fingerprint": false,
+        "face_unlock": true,
+        "processor": "quisquam laboriosam esse dolorem recusandae officia officiis eveniet",
+        "processor_type": "64-Bit",
+        "network": "5G",
+        "sd_card_slot": false,
+        "water_proof": true,
+        "water_resistant": true,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 7,
+    "fields": {
+        "ram": 379,
+        "storage": 650,
+        "manufacturer": "GIGABYTE",
+        "model": "sint vel rerum",
+        "graphics_card": "fugiat sint quo optio laudantium",
+        "hard_disk": "SSD",
+        "weight": "175.5267550922461",
+        "screen_size": 155.8919977477888,
+        "resolution": "voluptates delectus",
+        "os_type": "Windows OS",
+        "os_version": 8.0,
+        "cpu": "id maxime quas",
+        "motherboard": "fugit debitis harum expedita consequatur corporis ut corrupti odio",
+        "battery": 18000,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": true,
+        "fingerprint": false,
+        "face_unlock": false,
+        "processor": "reprehenderit asperiores",
+        "processor_type": "32-Bit",
+        "network": "2G",
+        "sd_card_slot": true,
+        "water_proof": false,
+        "water_resistant": false,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 8,
+    "fields": {
+        "ram": 98,
+        "storage": 500,
+        "manufacturer": "ACER",
+        "model": "velit nostrum saepe",
+        "graphics_card": "officia ipsa labore aliquid tempore reiciendis saepe maiores fuga ullam est",
+        "hard_disk": "HDD",
+        "weight": "342.46944774007125",
+        "screen_size": 75.27835659234707,
+        "resolution": "maxime magni odit",
+        "os_type": "macOS",
+        "os_version": 9.0,
+        "cpu": "tenetur omnis exercitationem iusto quasi quidem",
+        "motherboard": "quaerat voluptatum ipsam",
+        "battery": 44500,
+        "bluetooth": true,
+        "wifi": false,
+        "hotspot": false,
+        "fingerprint": true,
+        "face_unlock": true,
+        "processor": "aut quas",
+        "processor_type": "64-Bit",
+        "network": "4G",
+        "sd_card_slot": true,
+        "water_proof": true,
+        "water_resistant": false,
+        "dust_resistant": false
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 9,
+    "fields": {
+        "ram": 233,
+        "storage": 150,
+        "manufacturer": "FUJITSU",
+        "model": "provident ullam vero laudantium saepe ipsum blanditiis",
+        "graphics_card": "quae necessitatibus ab officia earum accusamus optio quasi id quo accusantium commodi",
+        "hard_disk": "SSD",
+        "weight": "401.28914432040943",
+        "screen_size": 75.07732840977276,
+        "resolution": "vitae",
+        "os_type": "Linux",
+        "os_version": 4.0,
+        "cpu": "repudiandae autem voluptates quidem rem hic dolore quibusdam ea facilis",
+        "motherboard": "itaque ad molestiae mollitia placeat",
+        "battery": 20500,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": true,
+        "fingerprint": true,
+        "face_unlock": true,
+        "processor": "fugiat quos necessitatibus repellendus",
+        "processor_type": "64-Bit",
+        "network": "2G",
+        "sd_card_slot": false,
+        "water_proof": false,
+        "water_resistant": false,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.pc",
+    "pk": 10,
+    "fields": {
+        "ram": 186,
+        "storage": 500,
+        "manufacturer": "LAPTOPMEDIA",
+        "model": "minus debitis eius velit nam hic at expedita",
+        "graphics_card": "nam in ratione unde sint doloremque ab voluptate tempora eius repellendus porro facilis",
+        "hard_disk": "SSD",
+        "weight": "164.60895686841343",
+        "screen_size": 197.03535039070013,
+        "resolution": "quos debitis",
+        "os_type": "Windows OS",
+        "os_version": 18.0,
+        "cpu": "eveniet esse pariatur",
+        "motherboard": "itaque nisi similique fugit eum ex",
+        "battery": 22500,
+        "bluetooth": false,
+        "wifi": true,
+        "hotspot": false,
+        "fingerprint": true,
+        "face_unlock": false,
+        "processor": "laborum non quia eligendi velit hic illum",
+        "processor_type": "32-Bit",
+        "network": "2G",
+        "sd_card_slot": true,
+        "water_proof": false,
+        "water_resistant": false,
+        "dust_resistant": true
+    }
+},
+{
+    "model": "products.moreproductimages",
+    "pk": 1,
+    "fields": {
+        "product": 10,
+        "image": "all_product_images/c07921067.png"
+    }
+},
+{
+    "model": "products.moreproductimages",
+    "pk": 2,
+    "fields": {
+        "product": 10,
+        "image": "all_product_images/c07920872.png"
+    }
+},
+{
+    "model": "products.moreproductimages",
+    "pk": 3,
+    "fields": {
+        "product": 9,
+        "image": "all_product_images/c07846831.png"
+    }
+},
+{
+    "model": "products.moreproductimages",
+    "pk": 4,
+    "fields": {
+        "product": 9,
+        "image": "all_product_images/c06887069.png"
+    }
+},
+{
+    "model": "products.productreviews",
+    "pk": 1,
+    "fields": {
+        "reviewer": 1,
+        "product": 10,
+        "stars": 3,
+        "date_submitted": "2022-07-22T22:28:28.586Z",
+        "review_title": "This is a demo review title",
+        "review": "<p>This product is very nice</p>"
+    }
+},
+{
+    "model": "products.productreviews",
+    "pk": 2,
+    "fields": {
+        "reviewer": 1,
+        "product": 9,
+        "stars": 5,
+        "date_submitted": "2022-07-22T22:28:28.586Z",
+        "review_title": "This is a demo review title",
+        "review": "<p>Excellent Device</p>"
+    }
+}
+]

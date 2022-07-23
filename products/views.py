@@ -60,7 +60,7 @@ def product_group(request, category_url, field, field_value):
     field_products = field_model.get_all_objects_for_this_type(manufacturer__icontains=field_value.upper())
     print(field_products)
     # return HttpResponse(manufacturer_products)
-    page_heading = f"{field_value.upper()} {category_url.upper()}"
+    page_heading = f"{field_value} {category_url}".upper()
     return render(request, "products/product_field.html", {"field_products": field_products, "heading": page_heading})
 
 def products_category(request, category_url):
@@ -73,7 +73,7 @@ def search_products(request):
 
 def game_franchises(request, franchise_name):
     field_products = Game.objects.filter(product__name__icontains=franchise_name)
-    page_heading = f"{franchise_name.upper()} Franchise"
+    page_heading = f"{franchise_name} Franchise".upper()
     return render(request, "products/product_field.html", {"field_products": field_products, "heading": page_heading})
 
 # https://codeking12.github.io/Black-Hosting/

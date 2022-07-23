@@ -11,17 +11,17 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='GameGenres',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=150)),
-            ],
-        ),
-        migrations.AddField(
-            model_name='game',
-            name='genre',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='products.gamegenres'),
-            preserve_default=False,
-        ),
+        # migrations.CreateModel(
+        #     name='GameGenres',
+        #     fields=[
+        #         ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+        #         ('name', models.CharField(max_length=150)),
+        #     ],
+        # ),
+        # migrations.AddField(
+        #     model_name='game',
+        #     name='genre',
+        #     field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='products.gamegenres'),
+        #     preserve_default=False,
+        # ),
     ]
