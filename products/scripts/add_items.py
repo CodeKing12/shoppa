@@ -51,4 +51,9 @@ def get_choice(choice_list):
     choice_tuple = random.choice(choice_list)
     return choice_tuple[0]
 
+def random_foreign(model):
+    total_objects = model.objects.all().count()
+    rand_obj_id = random.randrange(1, total_objects+1)
+    return model.objects.get(id=rand_obj_id)
+
 # Let all other values like weight, faceunlock, accelerometer, be generated on the spot so they can be different

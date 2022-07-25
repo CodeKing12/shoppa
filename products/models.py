@@ -72,27 +72,27 @@ class Product(models.Model):
         image_url = ""
         if self.category == 'PHONE': 
             folder = "phone_products"
-            category_url = "phones"
+            self.category_url = "phones"
 
         elif self.category == 'PC':
             folder = "laptop_products"
-            category_url = "laptops"
+            self.category_url = "laptops"
 
         elif self.category == 'REFURBISHED':
             folder = "refurbished_products"
-            category_url = "refurbished"
+            self.category_url = "refurbished"
 
         elif self.category == 'ACCESSORY':
             folder = "accessory_products"
-            category_url = "accessories"
+            self.category_url = "accessories"
 
         elif self.category == 'APPLIANCE':
             folder = "appliance_products"
-            category_url = "appliances"
+            self.category_url = "appliances"
 
         elif self.category == 'GAME':
             folder = "game_products"
-            category_url = "games"
+            self.category_url = "games"
 
         else:
             raise ValueError
@@ -192,7 +192,7 @@ class PC(models.Model):
         self.content_type = ContentType.objects.get(app_label='products', model='pc')
         self.product.object_id = self.product.id
         self.product.details = self
-        super(Game, self).save(*args, **kwargs)
+        super(PC, self).save(*args, **kwargs)
 
 class Game(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="game_info")

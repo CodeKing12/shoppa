@@ -1,5 +1,4 @@
-import random
-import os, django, sys
+import random, os, django, sys
 
 sys.path.append("/home/egyptian-overlord/Documents/shoppa")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "shoppa.settings")
@@ -34,6 +33,7 @@ def generate_pc_data(number_of_items):
                 "previous_price": previous_price, # Check how invidivually access each variable in the return statement
                 "in_stock": get_bool(),
                 "category": "PC",
+                "category_url": "laptops",
                 # "content_type": pc_content_type,
                 "ram": random.randrange(500),
                 "storage": random.randrange(100, 2000, 50),
@@ -113,3 +113,8 @@ def add_to_db(number_of_items):
         print(new_product.name)
 
 add_to_db(1)
+
+# for product in Product.objects.all():
+#     if product.category == "PC":
+#         product.category_url = "laptops"
+#         product.save()
