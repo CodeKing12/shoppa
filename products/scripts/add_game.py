@@ -11,7 +11,7 @@ from products.scripts.add_items import generate_price, generate_text, get_bool, 
 # Let all other values like weight, faceunlock, accelerometer, be generated on the spot so they can be different
 
 image_list = [
-
+    "game-1.jpeg", "game-2.jpeg", "game-3.jpeg", "game-4.jpeg", "game-5.jpeg", "game-6.jpeg", "game-7.jpeg", "game-8.jpeg", "game-9.jpeg", "game-10.jpeg", "game-11.jpeg", "game-12.jpeg", "game-13.jpeg", "game-14.jpeg", "game-15.jpeg", "game-16.jpeg", "game-17.jpeg", "game-18.jpeg", "game-19.jpeg", "game-20.jpeg", "game-21.jpeg", "game-22.jpeg", "game-23.jpeg", "game-24.jpeg", "game-25.jpeg", "game-26.jpeg", "game-27.jpeg", "original.jpeg"
 ]
 used_images = []
 

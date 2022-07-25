@@ -117,4 +117,4 @@ def add_to_db(number_of_items):
         print(new_product.id, new_phone.product.name)
         print(new_phone.manufacturer)
 
-add_to_db(1)
+add_to_db(20)

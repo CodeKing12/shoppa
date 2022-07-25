@@ -361,7 +361,7 @@
                                 <div class="tred-pro">
                                     <div class="tr-pro-img default-img">
                                         <a href="{{ product.get_absolute_url }}">
-                                            <img class="img-fluid" src="{{ product.image.url }}" alt="product-img">
+                                            <img class="img-fluid" src="{{ product.image.url }}" alt="product-img" style="{% if product.category == 'GAME' %}object-fit: cover{% endif %}">
                                         </a>
                                     </div>
                                     <div class="Pro-lable">
