@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import display
-from .models import MoreProductImages, ProductReviews, Product, PC, Phone, Game
+from .models import MoreProductImages, ProductReviews, Product, PC, Phone, Game, GameGenres
 
 # Register your models here.
 
@@ -15,6 +15,9 @@ class PCAdmin(admin.ModelAdmin):
 
 class GameAdmin(admin.ModelAdmin):
     list_display = ['product', 'min_ram', 'processor_type', 'min_storage', 'min_dx_version', 'os_type', 'size']
+
+class GameGenresAdmin(admin.ModelAdmin):
+    pass
 
 class ProductReviewsAdmin(admin.ModelAdmin):
     pass
@@ -49,6 +52,7 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(Phone, PhoneAdmin)
 admin.site.register(PC, PCAdmin)
 admin.site.register(Game, GameAdmin)
+admin.site.register(GameGenres, GameGenresAdmin)
 admin.register(MoreProductImages, MoreProductImagesAdmin)
 # admin.register(AvailableColors, AvailableColorsAdmin)
 admin.register(ProductReviews, ProductReviewsAdmin)

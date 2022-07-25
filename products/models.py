@@ -26,6 +26,9 @@ default_content_type = ContentType.objects.get(app_label="products", model="pc")
 class GameGenres(models.Model):
     name = models.CharField(max_length=150)
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=250, help_text="Name of Product")
@@ -213,7 +216,7 @@ class Game(models.Model):
     recom_graphics_card = models.CharField(max_length=130)
 
     def save(self, *args, **kwargs):
-        self.content_type = ContentType.objects.get(app_label='products', model='game')
+        self.product.content_type = ContentType.objects.get(app_label='products', model='game')
         self.product.object_id = self.product.id
         self.product.details = self
         super(Game, self).save(*args, **kwargs)
