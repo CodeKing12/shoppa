@@ -247,7 +247,7 @@
                                     <div class="img-back" style="background-image:url({% static 'image/banners/aw_dcr_campaign_fy22_homepage_mod5_07.webp' %});">
                                         <div class="slide-c-1 h-s-content">
                                             <span>Premium Games!</span>
-                                            <h1>Any Genre,<br>Delivered To You</h1>
+                                            <h1 style="width: max-content">Great Games,<br>For Great Gamers</h1>
                                             <a href="grid-list-2.html" class="btn btn-style1">Shop now</a>
                                         </div>
                                     </div>
@@ -266,7 +266,7 @@
                 <div class="col">
                     <div class="organic-food-fresh-banner">
                         <div class="offer-banner">
-                            <a href="product-style-2.html" class="banner-hover">
+                            <a href="#" class="banner-hover">
                                 <img src="{% static 'image/banners/2019_EventAutomation_WEBBanner_NoText_EN_1000x200.webp' %}" alt="offer-banner" class="img-fluid" style="object-fit: cover">
                             </a>
                             <div class="banner-content">
@@ -277,7 +277,7 @@
                         </div>
                         <div class="offer-banner">
                             <a href="product-style-2.html" class="banner-hover">
-                                <img src="{% static 'image/banner8.jpg' %}" alt="offer-banner" class="img-fluid">
+                                <img src="{% static 'image/banners/depositphotos_173411078-stock-photo-black-rotated-smartphones-similar-to.jpg' %}" alt="offer-banner" class="img-fluid">
                             </a>
                             <div class="banner-content">
                                 <span>Monthly Sale</span>
@@ -285,13 +285,13 @@
                                 <a href="product-style-2.html">View Sale</a>
                             </div>
                         </div>
-                        <div class="offer-banner">
+                        <div class="offer-banner game-banner">
                             <a href="#" class="banner-hover">
-                                <img src="{% static 'image/banner9.jpg' %}" alt="offer-banner" class="img-fluid">
+                                <img src="{% static 'image/home-game.jpeg' %}" alt="offer-banner" class="img-fluid">
                             </a>
                             <div class="banner-content">
-                                <span>Popular Items</span>
-                                <h2>Popular this <br>season </h2>
+                                <span>Popular Games</span>
+                                <h2>Games of the <br>season </h2>
                                 <a href="product-style-2.html">Shop now</a>
                             </div>
                         </div>
@@ -364,9 +364,11 @@
                                             <img class="img-fluid" src="{{ product.image.url }}" alt="product-img" style="{% if product.category == 'GAME' %}object-fit: cover{% endif %}">
                                         </a>
                                     </div>
-                                    <div class="Pro-lable">
-                                        <span class="p-discount">-20%</span>
-                                    </div>
+                                    {% if product.percent_off > 0 %}
+                                        <div class="Pro-lable">
+                                            <span class="p-discount">-{{product.percent_off}}%</span>
+                                        </div>
+                                    {% endif %}
                                     <div class="pro-icn">
                                         <a href="wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
                                         <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
@@ -3567,7 +3569,7 @@
         </div>
     </section>
 
-    <section class="section-tb-padding news-letter" style="background-image: url({% static 'image/news-bg2.jpg' %});">
+    <section class="section-tb-padding news-letter" style="background-image: url({% static 'image/banners/2019_EventAutomation_WEBBanner_NoText_EN_1000x200.webp' %});">
         <div class="container">
             <div class="row">
                 <div class="col">

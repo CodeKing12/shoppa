@@ -67,7 +67,7 @@ class Product(models.Model):
         self.is_cleaned = True
 
         if self.previous_price > 0 and self.previous_price > self.price:
-            self.percent_off = int((self.price / self.previous_price) * 100)
+            self.percent_off = 100 - int((self.price / self.previous_price) * 100)
         else:
             self.percent_off = 0
         

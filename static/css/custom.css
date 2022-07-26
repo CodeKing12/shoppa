@@ -58,3 +58,31 @@ img.shoppa-logo {
 .home-slider-2 .items.third-slide h1 {
     color: white;
 }
+
+.organic-food-fresh-banner {
+    height: 240px;
+}
+
+.organic-food-fresh-banner img {
+    object-fit: cover;
+}
+
+.organic-food-fresh-banner img, .organic-food-fresh-banner .offer-banner, .organic-food-fresh-banner .banner-hover {
+    height: 100%;
+}
+
+.game-banner .banner-content span {
+    color: wheat !important;
+}
+
+.game-banner .banner-content h2 {
+    color: white;
+}
+
+.game-banner .banner-content a {
+    color: wheat !important;
+}
+
+.news-letter .news-content h4, .news-letter .news-content span {
+    color: white;
+}

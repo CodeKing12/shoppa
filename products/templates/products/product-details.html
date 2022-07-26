@@ -101,7 +101,9 @@
                             </div>
                             <div class="pro-price">
                                 <span class="new-price">{{ product.price }} NGN</span>
-                                <span class="old-price">{{ product.previous_price }} NGN</span>
+                                {% if product.previous_price > 0 %}
+                                    <span class="old-price">{{ product.previous_price }} NGN</span>
+                                {% endif %}
                                 {% if product.percent_off > 3 %}
                                     <div class="Pro-lable">
                                         <span class="p-discount">-{{ product.percent_off }}%</span>
