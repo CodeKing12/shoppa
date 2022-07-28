@@ -91,4 +91,4 @@ def add_to_db(number_of_items):
         print(new_product.id, new_game.product.name)
         print(new_game.developers)
 
-add_to_db(1)
+# add_to_db(20)

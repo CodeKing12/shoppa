@@ -43,8 +43,8 @@ def generate_phone_data(number_of_items):
                 "resolution": generate_text([1, 4], 'words'),
                 "os_type": get_choice(PHONE_OS_CHOICES),
                 "os_version": random.uniform(2, 20),
-                "cpu": generate_text([2, 12], 'words'),
-                "gpu": generate_text([2, 12], 'words'),
+                "cpu": generate_text([2, 8], 'words'),
+                "gpu": generate_text([2, 8], 'words'),
                 "sim_slots": get_choice(SIM_SLOT_CHOICES),
                 "front_camera": random.randrange(10, 100, 5),
                 "back_camera": random.randrange(12, 156, 4),
@@ -117,4 +117,4 @@ def add_to_db(number_of_items):
         print(new_product.id, new_phone.product.name)
         print(new_phone.manufacturer)
 
-add_to_db(20)
+# add_to_db(178)
