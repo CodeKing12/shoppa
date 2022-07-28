@@ -58,7 +58,7 @@ class CustomAccountManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
         extra_fields.setdefault('is_apiuser', True)
-        # extra_fields.setdefault('is_vendor', True)
+        extra_fields.setdefault('is_vendor', True)
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError(('Superuser must have is_staff=True.'))
@@ -66,8 +66,8 @@ class CustomAccountManager(BaseUserManager):
             raise ValueError(('Superuser must have is_superuser=True.'))
         if extra_fields.get('is_apiuser') is not True:
             raise ValueError(('Superuser must have is_apiuser=True.'))
-        # if extra_fields.get('is_vendor') is not True:
-        #     raise ValueError(('Superuser must have is_vendor=True.'))
+        if extra_fields.get('is_vendor') is not True:
+            raise ValueError(('Superuser must have is_vendor=True.'))
 
         return self.create_user(first_name=first_name, last_name=last_name, email=email, password=password, phone_number=phone_number, **extra_fields)
     
@@ -93,7 +93,7 @@ class CustomAccount(AbstractUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    # is_apiuser = models.BooleanField(default=False)
+    is_apiuser = models.BooleanField(default=False)
 
     def get_full_name(self):
         return "%s %s"%(self.first_name, self.last_name)

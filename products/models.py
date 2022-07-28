@@ -21,7 +21,7 @@ from django.utils import timezone
     #         models.Index(fields=["content_type", "object_id"])
     #     ]
 
-default_content_type = ContentType.objects.get(app_label="products", model="pc")
+# default_content_type = ContentType.objects.get(app_label="products", model="pc")
 
 class GameGenres(models.Model):
     name = models.CharField(max_length=150)
