@@ -85,14 +85,6 @@ class Product(models.Model):
             folder = "refurbished_products"
             self.category_url = "refurbished"
 
-        elif self.category == 'ACCESSORY':
-            folder = "accessory_products"
-            self.category_url = "accessories"
-
-        elif self.category == 'APPLIANCE':
-            folder = "appliance_products"
-            self.category_url = "appliances"
-
         elif self.category == 'GAME':
             folder = "game_products"
             self.category_url = "games"

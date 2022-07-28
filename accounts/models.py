@@ -94,6 +94,7 @@ class CustomAccount(AbstractUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_apiuser = models.BooleanField(default=False)
+    is_vendor = models.BooleanField(default=False)
 
     def get_full_name(self):
         return "%s %s"%(self.first_name, self.last_name)
