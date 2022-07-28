@@ -57,12 +57,15 @@ class CustomAccountManager(BaseUserManager):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
+        extra_fields.setdefault('is_apiuser', True)
         # extra_fields.setdefault('is_vendor', True)
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError(('Superuser must have is_staff=True.'))
         if extra_fields.get('is_superuser') is not True:
             raise ValueError(('Superuser must have is_superuser=True.'))
+        if extra_fields.get('is_apiuser') is not True:
+            raise ValueError(('Superuser must have is_apiuser=True.'))
         # if extra_fields.get('is_vendor') is not True:
         #     raise ValueError(('Superuser must have is_vendor=True.'))
 
@@ -90,6 +93,7 @@ class CustomAccount(AbstractUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    # is_apiuser = models.BooleanField(default=False)
 
     def get_full_name(self):
         return "%s %s"%(self.first_name, self.last_name)
@@ -104,3 +108,12 @@ class CustomAccount(AbstractUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['phone_number', 'first_name', 'last_name']
+
+class ApiUser(models.Model):
+    user = models.OneToOneField(CustomAccount, on_delete=models.CASCADE)
+    product_groups = models.JSONField()
+
+    def save(self, *args, **kwargs):
+        if self.user.is_apiuser != True:
+            raise ValueError
+        super(ApiUser, self).save(*args, **kwargs)

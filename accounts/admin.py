@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomAccount, Cart, Wishlist, CartDetails
+from .models import CustomAccount, Cart, Wishlist, CartDetails, ApiUser
 from vendors.models import VendorAccount
 from django.contrib.auth.admin import UserAdmin
 
@@ -18,6 +18,9 @@ class CustomAccountAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_active',)})
     )
 
+class ApiUserAdmin(admin.ModelAdmin):
+    pass
+
 class CartDetailsAdmin(admin.StackedInline):
     model = CartDetails
     extra = 1
@@ -33,6 +36,7 @@ class VendorAccountAdmin(admin.ModelAdmin):
 
 admin.site.register(CustomAccount, CustomAccountAdmin)
 admin.site.register(Cart, CartAdmin)
+admin.site.register(ApiUser, ApiUserAdmin)
 admin.site.register(Wishlist, WishlistAdmin)
 admin.site.register(VendorAccount, VendorAccountAdmin)
 admin.register(CartDetails, CartDetailsAdmin)
