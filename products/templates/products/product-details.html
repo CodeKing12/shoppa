@@ -210,18 +210,19 @@
                                         {{ product.description | safe }}
                                     </div>
                                 </div>
-                                <h1>Here: {{ product.all_fields }}</h1>
-                                <div class="tab-2content">
-                                    <h4>Key specifications</h4>
+                                <div class="tab-2content fields_table">
+                                    {% comment %} <h4>Key specifications</h4> {% endcomment %}
                                     <table>
                                         <thead>
                                             <th>Device Specifications</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Manufacturer</td>
-                                                <td>Kingsley</td>
-                                            </tr>
+                                            {% for name, value in all_fields.items %}
+                                                <tr class="field_row">
+                                                    <td class="field_name">{{ name }}</td>
+                                                    <td class="field_value">{{ value }}</td>
+                                                </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

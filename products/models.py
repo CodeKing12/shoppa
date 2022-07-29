@@ -102,6 +102,15 @@ class Product(models.Model):
             self.image = '/'.join(folders_list)
 
         self.slug = slugify(self.name)
+        model_name = self.category.lower()
+        # print(model_name)
+        self.content_type = ContentType.objects.get(app_label="products", model=model_name)
+        # print(self.content_type)
+        try:
+            related_object = self.content_type.get_object_for_this_type(pk=self)
+            self.details = related_object
+        except ObjectDoesNotExist:
+            print("Didn't Work")
         # self.category_slug = slugify(self.)
 
         super(Product, self).clean()
@@ -148,9 +157,10 @@ class Phone(models.Model):
         return self.product.name
 
     def save(self, *args, **kwargs):
-        self.product.content_type = ContentType.objects.get(app_label='products', model='phone')
-        self.product.object_id = self.product.id
-        self.product.details = self
+        product = Product.objects.get(id=self.product.id)
+        product.content_type = ContentType.objects.get(app_label='products', model='phone')
+        product.details = self
+        product.save()
         super(Phone, self).save(*args, **kwargs)
 
 class PC(models.Model):
@@ -233,3 +243,9 @@ class ProductReviews(models.Model):
 # Allow vendors to schedule products
 
 # Create new models and make all the choice fields to be one-to-many fields so that it will be more dynamic
+# Initiate testing
+# from products.models import Product, Phone, Game
+# from django.contrib.contenttypes.models import ContentType
+# alp = Product.objects.all()
+# p = Product.objects.get(id=210)
+# g = Phone.objects.get(product=p)

@@ -50,12 +50,17 @@ def product_details(request, category_url, slug):
         # return redirect("home")
     
     extra_images = MoreProductImages.objects.filter(product=product)
-    # all_fields = product.details._meta.get_fields()
     print(product.id)
-    # for field in all_fields:
-    #     print(f"{field.name}: {field}")
+    all_fields = product.details._meta.get_fields()
+    fields_dict = {}
+    for field in all_fields:
+        field_name = field.name
+        verbose_name = field.verbose_name.replace("_", " ").title()
+        field_value = getattr(product.details, field_name)
+        fields_dict[verbose_name] = field_value
+        # print(f"{verbose_name}: {field_value}")
     related_products = Product.objects.filter(Q(category=product.category)) # | Q(details__manufacturer=product.details.manufacturer)
-    return render(request, "products/product-details.html", {"product": product, "extra_images": extra_images, "related_products": related_products})
+    return render(request, "products/product-details.html", {"product": product, "extra_images": extra_images, "related_products": related_products, "all_fields": fields_dict})
 
 def product_group(request, category_url, field, field_value):
     category = category_mapping[category_url]

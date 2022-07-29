@@ -86,3 +86,33 @@ img.shoppa-logo {
 .news-letter .news-content h4, .news-letter .news-content span {
     color: white;
 }
+
+.fields_table table thead {
+    background-color: #9d0208;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.fields_table table thead th {
+    padding: 8px 10px;
+}
+
+.fields_table table {
+    margin: 0 auto;
+}
+
+.fields_table table tbody tr {
+    border: 2px solid #9d0208;
+    font-weight: 600;
+    font-size: 14.3px;
+}
+
+.fields_table table tbody tr td {
+    padding: 11px 5px 11px 20px;
+    border: 2px solid #9d0208;
+}
+
+.tab-1content .tab-description {
+        line-height: 27px;
+}

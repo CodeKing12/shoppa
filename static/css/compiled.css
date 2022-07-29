@@ -1753,9 +1753,9 @@ button.navbar-toggler span.line::after{
 .tred-pro .tr-pro-img.default-img a img{
     backface-visibility: hidden;
     object-fit: contain;
-    width: 210px;
+    width: 190px;
     /* min-height: 230px; */
-    height: 220px;
+    height: 200px;
     padding: 9px;
     background-color: #eee;
 }
