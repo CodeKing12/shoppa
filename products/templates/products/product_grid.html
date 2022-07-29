@@ -1,0 +1,7 @@
+{% load products_display %}
+
+<div class="products-grid">
+    {% for item in product_list %}
+        {% product_card item.product %}
+    {% endfor %}
+</div>

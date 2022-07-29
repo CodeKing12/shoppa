@@ -50,7 +50,10 @@ def product_details(request, category_url, slug):
         # return redirect("home")
     
     extra_images = MoreProductImages.objects.filter(product=product)
-    print(extra_images)
+    # all_fields = product.details._meta.get_fields()
+    print(product.id)
+    # for field in all_fields:
+    #     print(f"{field.name}: {field}")
     related_products = Product.objects.filter(Q(category=product.category)) # | Q(details__manufacturer=product.details.manufacturer)
     return render(request, "products/product-details.html", {"product": product, "extra_images": extra_images, "related_products": related_products})
 

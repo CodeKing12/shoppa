@@ -147,8 +147,11 @@ class Phone(models.Model):
     def __str__(self):
         return self.product.name
 
-    # def save(self, *args, **kwargs):
-    #     super(Product, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.product.content_type = ContentType.objects.get(app_label='products', model='phone')
+        self.product.object_id = self.product.id
+        self.product.details = self
+        super(Phone, self).save(*args, **kwargs)
 
 class PC(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, related_name="pc_info")
@@ -184,7 +187,7 @@ class PC(models.Model):
         return self.product.name
 
     def save(self, *args, **kwargs):
-        self.content_type = ContentType.objects.get(app_label='products', model='pc')
+        self.product.content_type = ContentType.objects.get(app_label='products', model='pc')
         self.product.object_id = self.product.id
         self.product.details = self
         super(PC, self).save(*args, **kwargs)

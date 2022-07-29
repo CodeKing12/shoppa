@@ -41,6 +41,7 @@ class MoreProductImagesAdmin(admin.StackedInline):
 class ProductAdmin(admin.ModelAdmin):
     inlines = [MoreProductImagesAdmin, ProductReviewsAdmin]
     list_display = ['name', 'price', 'in_stock', 'category'] # 
+    list_filter = ["category", "in_stock"]
 
 # class AvailableColorsAdmin(admin.StackedInline):
 #     model = AvailableColors

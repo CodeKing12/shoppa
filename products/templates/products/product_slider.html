@@ -1,0 +1,7 @@
+{% load products_display %}
+
+<div class="home4-featured owl-carousel owl-theme">
+    {% for product in product_list %}
+        {% product_card product %}
+    {% endfor %}
+</div>

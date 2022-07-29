@@ -2187,6 +2187,9 @@ button.navbar-toggler span.line::after{
 .cate-image a img{
     border: 1px solid #e5e5e5;
     border-radius: 3px;
+    max-width: 120px;
+    min-height: 120px;
+    object-fit: contain;
 }
 .cate-image a img:hover{
     box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.08);
@@ -2732,7 +2735,23 @@ a.scroll:hover span{
     margin-bottom: 40px;
 }
 
+.home-games .swiper-slide .tred-pro a, .home-games .swiper-slide .tred-pro .tr-pro-img, .home-games .swiper-slide .tred-pro img {
+    height: 100%;
+}
 
+.home-games .swiper-slide .tred-pro img {
+    object-fit: cover;
+}
+
+.home8-blog .items .blog-start .blog-image a {
+    width: 100%;
+}
+
+.home8-blog .items .blog-start .blog-image img {
+    height: 190px;
+    width: 100%;
+    object-fit: cover;
+}
 
 /* Color options for the blog is #
  Options for the blog:
