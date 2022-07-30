@@ -22,6 +22,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/notyf.min.css' %}">
         <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style9.css' %}"> -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/compiled.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/compiled-responsive.css' %}">
@@ -31,6 +32,7 @@
         <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/responsive9.css' %}"> -->
     </head>
     <body>
+
         <!-- top notificationbar start -->
         <section class="top-2">
             <div class="container">
@@ -794,8 +796,23 @@
         <!-- owl carousal -->
         <script src="{% static 'js/owl.carousel.min.js' %}"></script>
         <script src="{% static 'js/swiper.min.js' %}"></script>
+        <script src="{% static 'js/notyf.min.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/shoppa.js' %}"></script>
+
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    $(document).ready(function() {
+                        notyf.open({
+                            type: "{{message.tags}}",
+                            message: "{{message}}",
+                            duration: 6000,
+                        });
+                    });
+                </script>
+            {% endfor %}
+        {% endif %}
     </body>
 
-<!-- Search for backgrounds for the home page that match with the colors used -->
 </html>

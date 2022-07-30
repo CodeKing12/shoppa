@@ -70,7 +70,8 @@ def create_account(request):
     # elif is_ajax(request) and request.method == 'GET':
     #     return JsonResponse({'message': 'Cart Created Successfully', 'type': 'success'}, status=200)
     # return JsonResponse({'message': 'An Unknown Error Occurred', 'type': 'error'}, status=400)
-    registration_form = CreateAccountForm()
+    else:
+        registration_form = CreateAccountForm()
     return render(request, 'accounts/signup.html', {'form': registration_form})
 
 def activate_account(request, uidb64, token):
@@ -190,28 +191,36 @@ def wishlist(request):
 # @csrf_protect
 @csrf_exempt
 def login_view(request):
-    if is_ajax(request) and request.method == 'POST':
+    if request.method == 'POST':
         login_details = LoginForm(request.POST)
         if login_details.is_valid():
             email = login_details.cleaned_data['email']
             password = login_details.cleaned_data['password']
             user = authenticate(request, email=email, password=password)
             if user is None:
-                return JsonResponse({'message': 'Your email or password is incorrect', 'type': 'error'}, status=400)
+                messages.error(request, message="Your email or password is incorrect")
+                # return JsonResponse({'message': 'Your email or password is incorrect', 'type': 'error'}, status=400)
             elif request.user.is_authenticated:
-                return JsonResponse({'message': 'You are already logged in to an account', 'type': 'warning'}, status=400)
+                messages.warning(request, message="You are already logged in to an account")
+                # return JsonResponse({'message': 'You are already logged in to an account', 'type': 'warning'}, status=400)
             else:
                 if user.is_active == True:
                     django_login(request, user)
-                    return JsonResponse({'message': 'Login Successful', 'type': 'success'}, status=200)
+                    messages.success(request, message="Login Successful")
+                    return redirect("dashboard")
+                    # return JsonResponse({'message': 'Login Successful', 'type': 'success'}, status=200)
                 elif user.is_active == False:
-                    return JsonResponse({'message': 'Login Failed! Your account has not been activated', 'type': 'info'}, status=400)
+                    messages.error(request, message="Login Failed! Activate Your Account to Login")
+                    # return JsonResponse({'message': 'Login Failed! Your account has not been activated', 'type': 'info'}, status=400)
             # saved_form = login.save()
             # ser_login = serializers.serialize('json', [saved_form])
                 # messages = ["Login Successful", user.first_name]
         else:
             return JsonResponse({'message': login_details.errors, 'type': 'error'}, status=400)
-    return JsonResponse({"error": "Unknown Error Occured"}, status=400)
+    # return JsonResponse({"error": "Unknown Error Occured"}, status=400)
+    else:
+        login_details = LoginForm()
+    return render(request, "accounts/login.html", {"login_form": login_details})
     # Learn how to Intercept csrf errors and reload the page
 
 def user_dashboard(request):
@@ -219,17 +228,18 @@ def user_dashboard(request):
         user_details = CustomAccount.objects.get(email=request.user.email)
         return render(request, "accounts/dashboard.html", context={"user": user_details})
     elif not request.user.is_authenticated:
-        request.session['open_login'] = ["You have to log in to view your dashboard", "warning", True]
-        return redirect('home')
+        # request.session['open_login'] = ["You have to log in to view your dashboard", "warning", True]
+        return redirect('login_page')
 
 def logout_user(request):
     if request.user.is_authenticated:
         logout(request)
-        request.session['action_message'] = ["Log Out Successful", "success"]
+        messages.success(request, message="Logout Successful")
+        # request.session['action_message'] = ["Log Out Successful", "success"]
         return redirect('home')
     else:
-        request.session['action_message'] = ["You are not logged in", "warning"]
-        return redirect('home')
+        messages.warning(request, message="You are not logged in")
+        return redirect('login_page')
 
 def cartview(request):
     if request.user.is_superuser:

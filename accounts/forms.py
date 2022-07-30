@@ -3,8 +3,8 @@ from django.utils import timezone
 from .models import CustomAccount
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(widget=forms.TextInput(attrs={'class':'form-control border-0 mb-3', 'placeholder': 'Email'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control border-0', 'placeholder': 'Password'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
 class CreateAccountForm(forms.ModelForm):
     class Meta:

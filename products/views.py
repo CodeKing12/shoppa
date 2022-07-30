@@ -1,6 +1,7 @@
 from django.http import Http404, HttpResponse, JsonResponse
 from .serializers import ProductSerializer
 from products.models import Game, Product, ProductReviews, MoreProductImages
+from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
@@ -43,6 +44,18 @@ def this_product(request, category_url, slug):
         # return JsonResponse({"success_message": "Product Found", "product": serializer.data}, status=200)
         
 def product_details(request, category_url, slug):
+    user = request.user
+    print(user)
+    if request.user.is_authenticated:
+        user_wishlist = Wishlist.objects.get(user=user)
+    else:
+        raise Http404
+    if request.method == "POST":
+        print(request.POST)
+        if "add_to_wishlist" in request.POST:
+            pass
+        elif "add_to_cart" in request.POST:
+            print("added_to_cart")
     try:
         product = Product.objects.get(slug=slug, category_url=category_url)
     except ObjectDoesNotExist:
@@ -50,7 +63,6 @@ def product_details(request, category_url, slug):
         # return redirect("home")
     
     extra_images = MoreProductImages.objects.filter(product=product)
-    print(product.id)
     all_fields = product.details._meta.get_fields()
     fields_dict = {}
     for field in all_fields:

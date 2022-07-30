@@ -94,7 +94,7 @@
 .register-area .register-box form input:first-child {
     margin-top: 0px;
 }
-.register-area .register-box a.btn-style1{
+.register-area .register-box a.btn-style1, .register-area .register-box button.btn-style1{
     width: 100%;
     margin-top: 30px;
     text-align: center;
@@ -192,7 +192,7 @@
 }.register-area .register-box form input:first-child {
     margin-top: 0px;
 }
-.register-area .register-box a.btn-style1{
+.register-area .register-box a.btn-style1, .register-area .register-box button.btn-style1{
     width: 100%;
     margin-top: 30px;
     text-align: center;

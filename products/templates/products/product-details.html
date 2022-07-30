@@ -2,7 +2,7 @@
 {% load static %}
 {% load products_display %}
 
-{% block page-title %} {{ product.category.title }}s {% endblock page-title %}
+{% block page-title %} {{ product.get_category_display.title }}s {% endblock page-title %}
 
 {% block imports %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/product-page-compiled.css' %}">
@@ -128,21 +128,24 @@
                                     <a href="javascript:void(0)"><span></span></a>
                                 </span>
                             </div> {% endcomment %}
-                            <div class="pro-qty">
-                                <span class="qty">Quantity:</span>
-                                <div class="plus-minus">
-                                    <span>
-                                        <a href="javascript:void(0)" class="minus-btn text-black">-</a>
-                                        <input type="text" name="name" value="1">
-                                        <a href="javascript:void(0)" class="plus-btn text-black">+</a>
-                                    </span>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="pro-qty">
+                                    <span class="qty">Quantity:</span>
+                                    <div class="plus-minus">
+                                        <span>
+                                            <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                            <input type="text" name="quantity" value="1">
+                                            <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pro-btn">
-                                <a href="wishlist.html" class="btn btn-style1"><i class="fa fa-heart"></i></a>
-                                <a href="cart-2.html" class="btn btn-style1"><i class="fa fa-shopping-bag me-1"></i> Add to cart</a>
-                                <a href="checkout-2.html" class="btn btn-style1">Buy now</a>
-                            </div>
+                                <div class="pro-btn">
+                                    <button name="add_to_wishlist" value="True" type="submit" role="button" href="#" class="btn btn-style1"><i class="fa fa-heart"></i></button>
+                                    <button name="add_to_cart" value="True" class="btn btn-style1"><i class="fa fa-shopping-bag me-1"></i> Add to cart</button><!--addToCart({{product.id}}, input, {{product.get_category_name}})-->
+                                    <a href="checkout-2.html" class="btn btn-style1">Buy now</a>
+                                </div>
+                            </form>
                             <div class="share">
                                 <span class="share-lable">Share:</span>
                                 <ul class="share-icn">
@@ -170,13 +173,13 @@
                         </div>
                         <p>All prodcuts except games are permitted for return within 30 days of purchase. Terms and Conditions apply.</p>
                     </div>
-                    <div class="product-service">
+                    {% comment %} <div class="product-service">
                         <div class="icon-title">
                             <span><i class="ti-id-badge"></i></span>
                             <h4>Help & Support</h4>
                         </div>
                         <p>Read our terms & conditions before making a purchase and contact support if you have any questions.</p>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
