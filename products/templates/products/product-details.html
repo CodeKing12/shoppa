@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load products_display %}
 
-{% block page-title %} {{ product.category }} {% endblock page-title %}
+{% block page-title %} {{ product.category.title }}s {% endblock page-title %}
 
 {% block imports %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/product-page-compiled.css' %}">
@@ -37,7 +38,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="image-55">
                                     <a href="javascript:void(0)" class="long-img">
-                                        <figure class="zoom" onmousemove="zoom(event)" style="background-image: url({{ product.image.url }})">
+                                        <figure> <!--style="background-image: url({{ product.image.url }})"-->
                                             <img src="{{ product.image.url }}" class="img-fluid" alt="image">
                                         </figure>
                                     </a>
@@ -110,7 +111,7 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer type and</p>
+                            {% comment %} <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer type and</p> {% endcomment %}
                             {% comment %} <div class="pro-items">
                                 <span class="pro-size">Size:</span>
                                 <ul class="pro-wight">
@@ -119,14 +120,14 @@
                                     <li><a href="javascript:void(0)">3LTR</a></li>
                                 </ul>
                             </div> {% endcomment %}
-                            <div class="product-color">
+                            {% comment %} <div class="product-color">
                                 <span class="color-label">Color:</span>
                                 <span class="color">
                                     <a href="javascript:void(0)" class="active"><span></span></a>
                                     <a href="javascript:void(0)"><span></span></a>
                                     <a href="javascript:void(0)"><span></span></a>
                                 </span>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="pro-qty">
                                 <span class="qty">Quantity:</span>
                                 <div class="plus-minus">
@@ -151,11 +152,6 @@
                                     <li><a href="javascript:void(0)"><i class="fa fa-pinterest"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="pay-img">
-                                <a href="#">
-                                    <img src="{% static 'image/pay-image.jpg' %}" class="img-fluid" alt="pay-image">
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -165,21 +161,21 @@
                             <span><i class="ti-truck"></i></span>
                             <h4>Delivery info</h4>
                         </div>
-                        <p>Lorem Ipsum is simply text of the printing typesetting the printing the printing typesetting industry.</p>
+                        <p>Orders are delivered from Monday to Friday between 7:00AM and 7:00PM. All games are delivered for free.</p>
                     </div>
                     <div class="product-service">
                         <div class="icon-title">
                             <span><i class="ti-reload"></i></span>
                             <h4>30 days returns</h4>
                         </div>
-                        <p>Lorem Ipsum is simply text of the printing typesetting the printing the printing typesetting industry.</p>
+                        <p>All prodcuts except games are permitted for return within 30 days of purchase. Terms and Conditions apply.</p>
                     </div>
                     <div class="product-service">
                         <div class="icon-title">
                             <span><i class="ti-id-badge"></i></span>
-                            <h4>10 year warranty</h4>
+                            <h4>Help & Support</h4>
                         </div>
-                        <p>Lorem Ipsum is simply text of the printing typesetting the printing the printing typesetting industry.</p>
+                        <p>Read our terms & conditions before making a purchase and contact support if you have any questions.</p>
                     </div>
                 </div>
             </div>
@@ -210,7 +206,7 @@
                                         {{ product.description | safe }}
                                     </div>
                                 </div>
-                                <div class="tab-2content fields_table">
+                                <div class="tab-2content fields_table mt-5">
                                     {% comment %} <h4>Key specifications</h4> {% endcomment %}
                                     <table>
                                         <thead>
@@ -276,11 +272,6 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                            <div class="tab-pane fade show" id="tab-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe height="630" src="https://www.youtube.com/embed/0etCKCAsImI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -295,40 +286,7 @@
                     <div class="section-title3">
                         <h2><span>Related Products</span></h2>
                     </div>
-                    <div class="home4-featured owl-carousel owl-theme">
-                        {% for product in related_products %}
-                            <div class="items">
-                                <div class="tred-pro">
-                                    <div class="tr-pro-img default-img">
-                                        <a href="product-style-4.html">
-                                            <img class="img-fluid" src="{{ product.image.url }}" alt="product-img">
-                                        </a>
-                                    </div>
-                                    <div class="Pro-lable">
-                                        <span class="p-discount">-20%</span>
-                                    </div>
-                                    <div class="pro-icn">
-                                        <a href="wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                        <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
-                                        <a href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="caption">
-                                    <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star c-star"></i>
-                                        <i class="fa fa-star c-star"></i>
-                                        <i class="fa fa-star c-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="pro-price">
-                                        <span class="new-price">$130.00 USD</span>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {% product_slider related_products %}
                 </div>
             </div>
         </div>
@@ -341,40 +299,7 @@
                     <div class="section-title3">
                         <h2><span>Others also bought</span></h2>
                     </div>
-                    <div class="home4-featured owl-carousel owl-theme">
-                        {% for product in related_products %}
-                            <div class="items">
-                                <div class="tred-pro">
-                                    <div class="tr-pro-img default-img">
-                                        <a href="product-style-4.html">
-                                            <img class="img-fluid" src="{{ product.image.url }}" alt="product-img">
-                                        </a>
-                                    </div>
-                                    <div class="Pro-lable">
-                                        <span class="p-discount">-20%</span>
-                                    </div>
-                                    <div class="pro-icn">
-                                        <a href="wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                        <a href="cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
-                                        <a href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="caption">
-                                    <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star c-star"></i>
-                                        <i class="fa fa-star c-star"></i>
-                                        <i class="fa fa-star c-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="pro-price">
-                                        <span class="new-price">$130.00 USD</span>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {% product_slider related_products %}
                 </div>
             </div>
         </div>
