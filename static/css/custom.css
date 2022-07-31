@@ -246,7 +246,7 @@ img.shoppa-logo {
     order: 2
 }
 
-.wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .pro-details {
+.wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .pro-details, .cart-area .cart-details .cart-all-pro .cart-pro .pro-details {
     height: fit-content;
     margin: auto 0;
 }
@@ -291,4 +291,64 @@ img.shoppa-logo {
     .cancel-button {
         margin-top: 10px;
     }
+}
+
+.wishlist-page {
+    padding-top: 60px;
+}
+
+.cart-all-pro .cart-pro-image a img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cart-all-pro .qty-item .center {
+    display: flex;
+    gap: 15px
+}
+
+.cart-all-pro .all-pro-price {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+}
+
+.cart-all-pro .all-pro-price .old-price {
+    color: #999;
+}
+
+.calculate-btn {
+    padding: 5px 15px;
+    margin: 15px auto;
+    display: block;
+    width: fit-content;
+}
+
+.del-btn {
+    display: none;
+}
+
+.del-icon {
+    display: flex;
+}
+
+@media (max-width: 991px) {
+    .del-btn {
+        display: flex;
+    }
+
+    .del-icon {
+        display: none;
+    }
+}
+
+.del-icon {
+    color: #9d0208;
+    padding: 4px;
+    font-size: 17px;
+}
+
+.del-icon:hover {
+    color:#222;
 }

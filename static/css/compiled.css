@@ -258,6 +258,7 @@ body.hidden {
     border: 2px solid #9d0208;
     border-radius: 4px;
     text-transform: uppercase;
+    transition: all ease-in-out 0.34s;
 }
 .btn-style1:hover {
     color: #9d0208;

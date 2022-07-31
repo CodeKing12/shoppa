@@ -4,23 +4,25 @@
 {% block page-title %}{{ request.user.first_name }}'s Cart{% endblock page-title %}
 
 {% block imports %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chosen-cart.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart-responsive.css' %}">
 {% endblock imports %}
 
 {% block main-content %}
     <!-- breadcrumb start -->
-    <section class="about-breadcrumb">
-        <div class="about-back section-tb-padding" style="background-image: url(image/about-image.jpg)">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="about-l">
-                            <ul class="about-link">
-                                <li class="go-home"><a href="index1.html">Home</a></li>
-                                <li class="about-p"><span>Your shopping cart</span></li>
-                            </ul>
-                        </div>
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="index5.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-url-li">
+                                <a href="#"><span>Cart</span></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -41,13 +43,17 @@
                             <div class="cart-all-pro">
                                 <div class="cart-pro">
                                     <div class="cart-pro-image">
-                                        <a href="product.html"><img src="image/laptop-1.png" class="img-fluid" alt="image"></a>
+                                        <a href="product.html"><img src="{% static 'image/laptop-1.png' %}" class="img-fluid" alt="image"></a>
                                     </div>
                                     <div class="pro-details">
                                         <h4 class=""><a href="product.html">Vegetable tomato fresh</a></h4>
-                                        <span class="pro-size"><span class="size">Size:</span> 5kg</span>
-                                        <span class="pro-shop">Petro-demo</span>
-                                        <span class="cart-pro-price">$384.51 CAD</span>
+                                        <div class="rating mt-2">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="qty-item">
@@ -59,11 +65,13 @@
                                                 <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                             </span>
                                         </div>
-                                        <a href="grid-list.html" class="pro-remove">Remove</a>
+                                        <a href="grid-list.html" class="btn-style3 del-btn">Remove</a>
+                                        <a href="grid-list.html" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
                                     </div>
                                 </div>
                                 <div class="all-pro-price">
                                     <span>$384.51 CAD</span>
+                                    <span class="old-price"><del>$184 CAD</del></span>
                                 </div>
                             </div>
                         </div>
@@ -73,13 +81,17 @@
                             <div class="cart-all-pro">
                                 <div class="cart-pro">
                                     <div class="cart-pro-image">
-                                        <a href="product.html"><img src="image/cart-page/cart-1/image3.jpg" class="img-fluid" alt="image"></a>
+                                        <a href="product.html"><img src="{% static 'image/laptop-1.png' %}" class="img-fluid" alt="image"></a>
                                     </div>
                                     <div class="pro-details">
-                                        <h4><a href="product.html">Fresh healthy food</a></h4>
-                                        <span class="pro-size"><span class="size">Size:</span> 5kg</span>
-                                        <span class="pro-shop">Multiwebinfo</span>
-                                        <span class="cart-pro-price">$230.00 CAD</span>
+                                        <h4 class=""><a href="product.html">Vegetable tomato fresh</a></h4>
+                                        <div class="rating mt-2">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="qty-item">
@@ -91,11 +103,13 @@
                                                 <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                             </span>
                                         </div>
-                                        <a href="grid-list.html" class="pro-remove">Remove</a>
+                                        <a href="grid-list.html" class="btn-style3 del-btn">Remove</a>
+                                        <a href="grid-list.html" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
                                     </div>
                                 </div>
                                 <div class="all-pro-price">
-                                    <span>$460.00 CAD</span>
+                                    <span>$384.51 CAD</span>
+                                    <span class="old-price"><del>$184 CAD</del></span>
                                 </div>
                             </div>
                         </div>
@@ -105,13 +119,17 @@
                             <div class="cart-all-pro">
                                 <div class="cart-pro">
                                     <div class="cart-pro-image">
-                                        <a href="product.html"><img src="image/cart-page/cart-1/image2.jpg" class="img-fluid" alt="image"></a>
+                                        <a href="product.html"><img src="{% static 'image/laptop-1.png' %}" class="img-fluid" alt="image"></a>
                                     </div>
                                     <div class="pro-details">
-                                        <h4><a href="product.html">Fresh green orange</a></h4>
-                                        <span class="pro-size"><span class="size">Size:</span> 5kg</span>
-                                        <span class="pro-shop">Vegina-store</span>
-                                        <span class="cart-pro-price">$109.20 CAD</span>
+                                        <h4 class=""><a href="product.html">Vegetable tomato fresh</a></h4>
+                                        <div class="rating mt-2">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="qty-item">
@@ -123,20 +141,22 @@
                                                 <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                             </span>
                                         </div>
-                                        <a href="grid-list.html" class="pro-remove">Remove</a>
+                                        <a href="grid-list.html" class="btn-style3 del-btn">Remove</a>
+                                        <a href="grid-list.html" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
                                     </div>
                                 </div>
                                 <div class="all-pro-price">
-                                    <span>$109.20 CAD</span>
+                                    <span>$384.51 CAD</span>
+                                    <span class="old-price"><del>$184 CAD</del></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="other-link">
                         <ul class="c-link">
-                            <li class="btn-style3"><a class="" href="grid-list.html">Update cart</a></li>
-                            <li class="btn-style3"><a class="" href="grid-list.html">Continue shopping</a></li>
-                            <li class="btn-style3"><a class="" href="index1.html">Clear cart</a></li>
+                            <li class=""><a class="btn-style1" href="grid-list.html">Update cart</a></li>
+                            <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
+                            <li class=""><a class="btn-style1" href="index1.html">Clear cart</a></li>
                         </ul>
                     </div>
                 </div>
@@ -173,13 +193,13 @@
                                 <label>Zip/postal code</label>
                                 <input type="text" name="code" placeholder="Zip/postal code">
                             </form>
-                            <a href="javascript:void(0)" class="cart-calculate">Calculate</a>
+                            <a href="javascript:void(0)" class="btn-style3 calculate-btn">Calculate</a>
                         </div>
                         <div class="shop-total">
                             <span>Total</span>
                             <span class="total-amount">$78.44 CAD</span>
                         </div>
-                        <a href="checkout-1.html" class="btn-style3 d-block text-center mt-3 checkout">Checkout</a>
+                        <a href="checkout-1.html" class="btn-style1 d-block text-center mt-3 checkout">Checkout</a>
                     </div>
                 </div>
             </div>

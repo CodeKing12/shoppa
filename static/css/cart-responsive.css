@@ -1,0 +1,73 @@
+@media (max-width: 991px) {
+    /* cart page css */
+    .cart-total {
+        margin-top: 30px;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item{
+        width: 60%;
+    }
+    .cart-area .cart-details .cart-all-pro .all-pro-price{
+        width: 40%;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item .center{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item .plus-minus{
+        margin-top: 0px;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item .center a.pro-remove{
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* cart page css */
+    .cart-area .cart-details .cart-item span.cart-head{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro .cart-pro-image{
+        width: 30%;
+        margin-right: 10px;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro .cart-pro-image a img{
+        max-width: 100%;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro .pro-details{
+        width: 70%;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro .pro-details h4{
+        font-size: 14px;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro .pro-details span.pro-shop{
+        font-size: 13px;
+    }
+    .cart-area .cart-details .cart-all-pro .cart-pro .pro-details span.cart-pro-price{
+        font-size: 13px;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item{
+        width: 55%;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item .center .plus-minus a{
+        padding: 0px 10px;
+    }
+    .cart-area .cart-details .cart-all-pro .qty-item .center .plus-minus input{
+        padding: 6px 10px;
+    }
+    .cart-area .cart-details .other-link ul.c-link{
+        flex-direction: column;
+    }
+    .cart-area .cart-details .other-link ul.c-link li.cart-other-link{
+        margin-top: 11px;
+    }
+    .cart-area .cart-details .other-link ul.c-link li.cart-other-link:first-child{
+        margin-top: 0px;
+    }
+}
