@@ -181,21 +181,19 @@ def change_password(request, uidb64, token):
         request.session['action_message'] = ["Confirmation Link is Invalid", "error"]
         return redirect('home')
 
-@insert_cart
 def wishlist(request):
     if request.user.is_superuser:
         user_wishlist = 'Nothing'
-        cart_details = 'Nothing'
-        sub_total = 0
-        all_products = []
+        # cart_details = 'Nothing'
+        # sub_total = 0
+        # all_products = []
     elif not request.user.is_authenticated:
         messages.warning(request, message="You have to log in to view your wishlist")
         return redirect('home')
     else:
-        cart_details, sub_total = get_cart(request)
+        # cart_details, sub_total = get_cart(request)
         user_wishlist = Wishlist.objects.get(user=request.user)
-        all_products = user_wishlist.wish_products.all()
-    return render(request, 'accounts/chosen-wishlist.html', {'cart_details': cart_details, 'wishlist': user_wishlist, 'cart_total': sub_total})
+    return render(request, 'accounts/chosen-wishlist.html', {'wishlist': user_wishlist})
 
 # @csrf_protect
 @csrf_exempt

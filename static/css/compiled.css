@@ -2630,8 +2630,8 @@ a.scroll:hover span{
     margin-top: 15px;
     border-bottom: none;
 }
-.quick-view .modal .modal-dialog .modal-content .quick-veiw-area .quick-image ul.quick-slider li{
-}
+/* .quick-view .modal .modal-dialog .modal-content .quick-veiw-area .quick-image ul.quick-slider li{
+} */
 .quick-view .modal .modal-dialog .modal-content .quick-veiw-area .quick-image ul.quick-slider li a{
     padding: 0px;
     border: none;

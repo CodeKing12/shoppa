@@ -35,8 +35,8 @@ class VendorAccountAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(CustomAccount, CustomAccountAdmin)
-admin.site.register(Cart, CartAdmin)
+# admin.site.register(Cart, CartAdmin)
 admin.site.register(ApiUser, ApiUserAdmin)
 admin.site.register(Wishlist, WishlistAdmin)
 admin.site.register(VendorAccount, VendorAccountAdmin)
-admin.register(CartDetails, CartDetailsAdmin)
+# admin.register(CartDetails, CartDetailsAdmin)

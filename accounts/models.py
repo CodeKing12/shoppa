@@ -12,8 +12,9 @@ from products.models import Product
 
 # Create your models here.
 class Cart(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     cart_products = models.ManyToManyField("products.Product", blank=True, through='CartDetails')
+    date_created = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name = 'Cart'
@@ -22,8 +23,11 @@ class Cart(models.Model):
     def __str__(self):
         return self.user.first_name + "'s Cart"
 
+    def get_item_count(self):
+        return self.cart_products.all().count()
+
 class CartDetails(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, primary_key=True)
     product = models.ForeignKey("products.Product", on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     color = ColorField(default="#ffffff", blank=True)
@@ -32,7 +36,7 @@ class CartDetails(models.Model):
         return self.cart.user.first_name + "'s Cart"
 
 class Wishlist(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     wish_products = models.ManyToManyField(Product, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
 
@@ -41,7 +45,7 @@ class Wishlist(models.Model):
         verbose_name_plural = 'Wishlists'
 
     def get_item_count(self):
-        return "Num"
+        return self.wish_products.all().count()
 
     def __str__(self):
         return self.user.first_name + "'s Wishlist"
@@ -122,3 +126,7 @@ class ApiUser(models.Model):
         if self.user.is_apiuser != True:
             raise ValueError
         super(ApiUser, self).save(*args, **kwargs)
+
+# from accounts.models import Wishlist
+# >>> from accounts.models import CustomAccount
+# >>> user = CustomAccount.objects.get(email='ithink@mail.com')
