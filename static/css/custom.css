@@ -352,3 +352,27 @@ img.shoppa-logo {
 .del-icon:hover {
     color:#222;
 }
+
+@media (max-width: 400px) {
+    .cart-area .cart-details .cart-all-pro .qty-item {
+        width: 100%;
+        order: 3
+    }
+    .cart-area .cart-details .cart-all-pro .all-pro-price {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: space-between;
+        margin-bottom: 9px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .del-btn {
+        display: flex;
+    }
+
+    .del-icon {
+        display: none;
+    }
+}
