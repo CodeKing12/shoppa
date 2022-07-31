@@ -26,6 +26,26 @@ body {
     background-color: #fff;
 }
 
+/* breadcumb css */
+.breadcrumb-area{
+    background-color: #f0f0fa;
+    padding: 15px 0px;
+}
+.breadcrumb-area .breadcrumb-start ul.breadcrumb-url{
+    display: flex;
+    align-items: center;
+}
+.breadcrumb-area .breadcrumb-start ul.breadcrumb-url li.breadcrumb-url-li a{
+    color: #717171;
+    padding-right: 8px;
+    margin-right: 6px;
+    border-right: 1px solid #d6d6d6;
+}
+.breadcrumb-area .breadcrumb-start ul.breadcrumb-url li.breadcrumb-url-li span{
+    color: #9d0208;
+    font-size: 14px;
+}
+
 .images-nav {
     border: unset;
 }
@@ -164,6 +184,111 @@ img.shoppa-logo {
 }
 
 .notyf__message {
-    font-size: 15px !important;
+    font-size: 14.5px !important;
     font-weight: 500;
+}
+
+.notyf__toast {
+    max-width: 80vw;
+}
+
+.notyf__ripple {
+    width: 90vw;
+}
+
+.qty-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wish-btn {
+    background-color: #fff;
+    color: #9d0208;
+    border: 2px solid #9d0208;
+    font-size: 14px;
+    padding: 5px 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.wish-btn:hover {
+    color: #fff;
+    background-color: #9d0208;
+}
+
+.cancel-button {
+    width: fit-content;
+    margin: 0 20px;
+    /* margin: 0 auto; */
+}
+
+.cancel-button span {
+    font-size: 31px;
+}
+
+.wishlist-pro-image a img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.other-link .c-link {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.other-link .c-link li:first-child {
+    order: 2
+}
+
+.wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .pro-details {
+    height: fit-content;
+    margin: auto 0;
+}
+
+.pro-details .rating .c-star {
+    color: #ffb503;
+}
+
+.pro-details .rating .fa-star-o {
+    color: #ccc;
+}
+
+.wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn.buy-btn {
+    order: 1;
+}
+
+.wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn {
+    order: 2;
+}
+
+@media (max-width: 500px) {
+    .wishlist-area .wishlist-details .wishlist-all-pro .all-pro-price {
+        width: max-content;
+    }
+
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item {
+        width: fit-content;
+    }
+}
+
+@media (min-width: 767px) {
+    .cancel-button {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 300px) {
+    .wishlist-area .wishlist-details .wishlist-all-pro .all-pro-price {
+        margin-top: 10px;
+    }
+
+    .cancel-button {
+        margin-top: 10px;
+    }
 }

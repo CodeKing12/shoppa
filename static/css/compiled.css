@@ -155,6 +155,10 @@ body{
     height: 100%;
 } */
 /* heading */
+:root {
+    --primary: #9d0208;
+}
+
 h1,
 h2,
 h3,
@@ -271,12 +275,13 @@ body.hidden {
 }
 .btn-style2:hover {
     color: #fff;
-    background-color: #d93d1a;
+    background-color: #9d0208;
 }
 /* btn style 3 css */
 .btn-style3 {
-    background-color: #d93d1a;
-    color: #fff;
+    background-color: #fff;
+    color: #9d0208;
+    border: 2px solid #9d0208;
     font-size: 14px;
     padding: 10px 30px;
     font-weight: 500;

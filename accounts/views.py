@@ -23,7 +23,6 @@ def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 # @csrf_protect
-@csrf_exempt
 def create_account(request):
     # print(request.META)
     # print(request.META.get("HTTP_X_REQUESTED_WITH"))
@@ -32,7 +31,7 @@ def create_account(request):
         registration_form = CreateAccountForm(request.POST)
         if registration_form.is_valid():
             if request.user.is_authenticated:
-                return JsonResponse({'message': 'You are already logged in to an account', 'type': 'warning'}, status=400)
+                messages.warning(request, message='You are already logged in to an account')
             elif not request.user.is_authenticated:
                 # Retrieve info from form and create user
                 first_name = registration_form.cleaned_data['first_name']
@@ -40,39 +39,47 @@ def create_account(request):
                 email = registration_form.cleaned_data['email']
                 phone_number = registration_form.cleaned_data['phone_number']
                 password = registration_form.cleaned_data['password']
-                user = CustomAccount.objects.create_user(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, password=password)
-                user.save()
+                confirm_password = registration_form.cleaned_data['confirm_password']
+                if password != confirm_password:
+                    messages.error(request, message="Your passwords do not match")
+                else:
+                    user = CustomAccount.objects.create_user(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, password=password)
+                    user.save()
 
                 # Send Confirmation Email
                 
-                current_site = get_current_site(request)
-                mail_subject = 'Activate your account'
-                message = render_to_string('accounts/confirm_email.html', {
-                    'user': user,
-                    'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token': account_activation_token.make_token(user)
-                })
-                to_email = user.email
-                email = EmailMessage(mail_subject, message, to=[to_email])
-                # email.send()
-                print(message)
+                    current_site = get_current_site(request)
+                    mail_subject = 'Activate your account'
+                    message = render_to_string('accounts/confirm_email.html', {
+                        'user': user,
+                        'domain': current_site.domain,
+                        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                        'token': account_activation_token.make_token(user)
+                    })
+                    to_email = user.email
+                    email = EmailMessage(mail_subject, message, to=[to_email])
+                    # email.send()
+                    print(message)
 
-                # Tell user to check email
+                    # Tell user to check email
 
-                return JsonResponse({'message': 'An Activation Link Has Been Sent to Your E-mail', 'type': 'success'}, status=200)
+                    messages.success(request, message='An activation link has been e-mailed to you')
                 # info = "An activation link has been sent to your email address. Click on it to fully activate your account and login."
                 # return render(request, "accounts/message_template.html", {"message": info})
                 #return HttpResponse(user.first_name)
             
         else:
-            return JsonResponse({'message': registration_form.errors, 'type': 'error'}, status=400)
+            form_errors = registration_form.errors
+            for field, error in form_errors.items():
+                error_list = form_errors[field]
+                for error in error_list:
+                    messages.error(request, message=error)
     # elif is_ajax(request) and request.method == 'GET':
     #     return JsonResponse({'message': 'Cart Created Successfully', 'type': 'success'}, status=200)
     # return JsonResponse({'message': 'An Unknown Error Occurred', 'type': 'error'}, status=400)
     else:
         registration_form = CreateAccountForm()
-    return render(request, 'accounts/signup.html', {'form': registration_form})
+    return render(request, 'accounts/register.html', {'register_form': registration_form})
 
 def activate_account(request, uidb64, token):
 
@@ -85,9 +92,11 @@ def activate_account(request, uidb64, token):
 
     if user is not None and account_activation_token.check_token(user, token):
         if request.user.is_authenticated:
-            request.session["open_login"] = ["You cannot authenticate an account while logged in", "warning", True]
+            messages.warning(request, message="You cannot authenticate an account while logged in")
+            return redirect("home")
         elif user.is_active == True:
-            request.session["open_login"] = ["This account has been activated already", "warning", True]
+            messages.warning(request, message="This account has been activated already")
+            return redirect("home")
         else:
             user.is_active = True
             user.save()
@@ -95,10 +104,10 @@ def activate_account(request, uidb64, token):
             wishlist = Wishlist.objects.create(user=user)
             cart.save()
             wishlist.save()
-            request.session["open_login"] = ["Your account has been successfully activated", "success", True]
+            messages.success(request, message="Your account has been successfully activated")
             return redirect('home')
     else:
-        request.session['action_message'] = ["Activation Link is Invalid", "error"]
+        messages.error(request, message="Activation Link is Invalid")
         return redirect('home')
 
 def resend_token(request):
@@ -180,13 +189,13 @@ def wishlist(request):
         sub_total = 0
         all_products = []
     elif not request.user.is_authenticated:
-        request.session['open_login'] = ["You have to log in to view your wishlist", "warning", True]
+        messages.warning(request, message="You have to log in to view your wishlist")
         return redirect('home')
     else:
         cart_details, sub_total = get_cart(request)
         user_wishlist = Wishlist.objects.get(user=request.user)
         all_products = user_wishlist.wish_products.all()
-    return render(request, 'products/wishlist.html', context={'cart_details': cart_details, 'wishlist': user_wishlist, 'cart_total': sub_total})
+    return render(request, 'accounts/chosen-wishlist.html', {'cart_details': cart_details, 'wishlist': user_wishlist, 'cart_total': sub_total})
 
 # @csrf_protect
 @csrf_exempt
@@ -210,13 +219,17 @@ def login_view(request):
                     return redirect("dashboard")
                     # return JsonResponse({'message': 'Login Successful', 'type': 'success'}, status=200)
                 elif user.is_active == False:
-                    messages.error(request, message="Login Failed! Activate Your Account to Login")
+                    messages.warning(request, message="Activate your account to login")
                     # return JsonResponse({'message': 'Login Failed! Your account has not been activated', 'type': 'info'}, status=400)
             # saved_form = login.save()
             # ser_login = serializers.serialize('json', [saved_form])
                 # messages = ["Login Successful", user.first_name]
         else:
-            return JsonResponse({'message': login_details.errors, 'type': 'error'}, status=400)
+            form_errors = login_details.errors
+            for field, error in form_errors.items():
+                error_list = form_errors[field]
+                for error in error_list:
+                    messages.error(request, message=error)
     # return JsonResponse({"error": "Unknown Error Occured"}, status=400)
     else:
         login_details = LoginForm()
@@ -228,7 +241,7 @@ def user_dashboard(request):
         user_details = CustomAccount.objects.get(email=request.user.email)
         return render(request, "accounts/dashboard.html", context={"user": user_details})
     elif not request.user.is_authenticated:
-        # request.session['open_login'] = ["You have to log in to view your dashboard", "warning", True]
+        messages.warning(request, message="You have to log in to view your dashboard")
         return redirect('login_page')
 
 def logout_user(request):
@@ -248,7 +261,7 @@ def cartview(request):
     else:
         user_cart = Cart.objects.get(user=request.user)
         user_wishlist = Wishlist.objects.get(user=request.user)
-    return render(request, 'products/cart.html', context={'cart': user_cart, 'wishlist': user_wishlist})
+    return render(request, 'accounts/chosen-cart.html', context={'cart': user_cart, 'wishlist': user_wishlist})
 
 def add_to_cart(request):
     if is_ajax(request) and request.method == "POST":

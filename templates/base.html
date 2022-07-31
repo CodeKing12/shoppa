@@ -43,9 +43,9 @@
                                 <div class="top-content">
                                     <ul class="top-url">
                                         <li class="top-li">
-                                            <a href="javascript:void(0)">About</a>
-                                            <a href="javascript:void(0)">Contact</a>
-                                            <a href="javascript:void(0)">Help</a>
+                                            <a href="{% url 'contact' %}">Contact</a>
+                                            <a href="{% url 'help' %}">Help</a>
+                                            <a href="{% url 'logout' %}">Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -58,11 +58,11 @@
                                             <li class="eur-head">
                                                 <span class="eur">account <i class="fa fa-angle-down"></i></span>
                                                 <ul class="all-currency account-details">
-                                                    <li><a href="register.html">Register / Login</a></li>
-                                                    <li><a href="checkout-2.html">checkout</a></li>
+                                                    <li><a href="{% url 'register_user' %}">Register</a></li>
+                                                    <li><a href="{% url 'login_page' %}">Login</a></li>
                                                     {% comment %} <li><a href="wishlist.html">my wishlist</a></li> {% endcomment %}
-                                                    <li><a href="tracking.html">order history</a></li>
-                                                    <li><a href="cart-2.html">my cart</a></li>
+                                                    <li><a href="{% url 'cart' %}">my cart</a></li>
+                                                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -71,11 +71,14 @@
                                 <!-- login end -->
                                 <!-- wishlist start -->
                                 <div class="currency top-wishlist">
-                                    <a href="wishlist.html">Wishlist</a>
+                                    <a href="{% url 'wishlist' %}">Wishlist</a>
                                 </div>
                                 <!-- wishlist end -->
+                                <div class="currency top-wishlist">
+                                    <a href="{% url 'logout' %}">Logout</a>
+                                </div>
                                 <!-- currency start -->
-                                <div class="currency">
+                                {% comment %} <div class="currency">
                                     <div class="currency-drop">
                                         <ul class="cry">
                                             <li class="eur-head">
@@ -89,7 +92,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                                 <!-- currency start -->
                             </li>
                         </ul>

@@ -7,9 +7,11 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
 class CreateAccountForm(forms.ModelForm):
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={"id": "second-password", "placeholder": "Confirm Password"}))
+
     class Meta:
         model = CustomAccount
-        fields = ['first_name', 'last_name', 'email', 'password', 'phone_number']
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'password']
 
     def __init__(self, *args, **kwargs):
         super(CreateAccountForm, self).__init__(*args, **kwargs)
@@ -18,5 +20,5 @@ class CreateAccountForm(forms.ModelForm):
         self.fields['first_name'].widget = forms.TextInput(attrs={'placeholder':'First Name', 'type': 'text'})
         self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder':'Last Name', 'type': 'text'})
         self.fields['phone_number'].widget = forms.TextInput(attrs={'placeholder':'Phone Number', 'type': 'tel'})
-        for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control border-0 mb-3'
+        # for visible in self.visible_fields():
+        #     visible.field.widget.attrs['class'] = 'form-control border-0 mb-3'

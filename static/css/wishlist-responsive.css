@@ -1,0 +1,70 @@
+@media (max-width:991px){
+    /* wishlist page css */
+    .wishlist-area {
+        padding-bottom: 16px;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro{
+        /* width: 100%; */
+        width: 50%;
+        margin-bottom: 15px;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item{
+        /* width: 50%; */
+        width: 25%;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: flex-start;    
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .all-pro-price{
+        width: 20%;
+        /**/ margin-left: auto;
+    }
+
+    /* .wishlist-area .wishlist-details .wishlist-all-pro .cancel-button{ */
+        /* width: 7%; */
+    /* } */
+}
+
+@media (max-width: 767px) {
+    /* wishlist page css */
+    .wishlist-area .wishlist-details .wishlist-item span.wishlist-head{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro{
+        width: 90%;
+        /* width: 56%; */
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .wishlist-pro-image{
+        /* width: 30%; */
+        width: fit-content;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .wishlist-pro-image a img{
+        max-width: 100%;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .pro-details{
+        width: 70%;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item{
+        width: 46%;
+        /* display: block; */
+        display: flex;
+    }
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item a.add-wishlist{
+        text-align: left;
+    }
+
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn.buy-btn {
+        order: 1;
+    }
+
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn {
+        order: 2;
+    }
+}
+
+@media (max-width: 650px) {
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn.buy-btn {
+        display: none;
+    }
+}

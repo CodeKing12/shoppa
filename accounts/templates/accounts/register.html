@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-title %}Register an account{% endblock page-title %}
+
+{% block imports %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chosen-register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register-responsive.css' %}">
+{% endblock imports %}
+
+{% block main-content %}
+    <!-- login start -->
+    <section class="section-tb-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="register-area">
+                        <div class="register-box">
+                            <h1>Create Account</h1>
+                            <p>Please create an account by submitting the form with the correct details</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                {% for field in register_form %}
+                                    {{ field }}
+                                {% endfor %}
+                                <button type="submit" class="btn-style1">Create Account</button>
+                            </form>
+                        </div>
+                        <div class="register-account">
+                            <h4>Already an account holder?</h4>
+                            <a href="{% url 'login_page' %}" class="ceate-a">Log In</a>
+                            <div class="register-info">
+                                <a href="terms-conditions.html" class="terms-link"><span>*</span> Terms & conditions.</a>
+                                <p>Your privacy and security are important to us. For more information on how we use your data read our <a href="privacy-policy.html">privacy policy</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- login end -->
+{% endblock main-content %}
+

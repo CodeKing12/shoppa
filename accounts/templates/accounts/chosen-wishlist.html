@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block imports %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chosen-wishlist.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/wishlist-responsive.css' %}">
+{% endblock imports %}
+
+{% block main-content %}
+    <!-- breadcrumb start -->
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="index5.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-url-li">
+                                <a href="#"><span>Wishlist</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb end -->
+    <!-- wishlist start -->
+    <section class="wishlist-page section-tb-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col all-wishlist-items">
+                    <div class="wishlist-item">
+                        <span class="wishlist-head">My wishlist:</span>
+                        <span class="wishlist-items">3 item</span>
+                    </div>
+                    <div class="wishlist-area">
+                        <div class="wishlist-details">
+                            <div class="wishlist-all-pro">
+                                <div class="wishlist-pro">
+                                    <div class="wishlist-pro-image">
+                                        <a href="#"><img src="{% static 'image/home-game.jpeg' %}" class="img-fluid" alt="image"></a>
+                                    </div>
+                                    <div class="pro-details">
+                                        <h4><a href="product.html">Fresh green orange</a></h4>
+                                        <div class="rating mt-2">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qty-item">
+                                    <a href="cart.html" class="wish-btn">Add to cart</a>
+                                    <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
+                                </div>
+                                <div class="all-pro-price">
+                                    <span class="new-price">$109.20 USD</span>
+                                    <span class="old-price"><del>$99.99 USD</del></span>
+                                </div>
+                                <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wishlist-area">
+                        <div class="wishlist-details">
+                            <div class="wishlist-all-pro">
+                                <div class="wishlist-pro">
+                                    <div class="wishlist-pro-image">
+                                        <a href="#"><img src="{% static 'image/home-phone.jpeg' %}" class="img-fluid" alt="image"></a>
+                                    </div>
+                                    <div class="pro-details">
+                                        <h4><a href="product.html">Fresh green orange</a></h4>
+                                        <div class="rating mt-2">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qty-item">
+                                    <a href="cart.html" class="wish-btn">Add to cart</a>
+                                    <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
+                                </div>
+                                <div class="all-pro-price">
+                                    <span class="new-price">$109.20 USD</span>
+                                    <span class="old-price"><del>$99.99 USD</del></span>
+                                </div>
+                                <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wishlist-area">
+                        <div class="wishlist-details">
+                            <div class="wishlist-all-pro">
+                                <div class="wishlist-pro">
+                                    <div class="wishlist-pro-image">
+                                        <a href="#"><img src="{% static 'image/laptop-1.png' %}" class="img-fluid" alt="image"></a>
+                                    </div>
+                                    <div class="pro-details">
+                                        <h4><a href="product.html">Fresh green orange</a></h4>
+                                        <div class="rating mt-2">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qty-item">
+                                    <a href="cart.html" class="wish-btn">Add to cart</a>
+                                    <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
+                                </div>
+                                <div class="all-pro-price">
+                                    <span class="new-price">$109.20 USD</span>
+                                    <span class="old-price"><del>$99.99 USD</del></span>
+                                </div>
+                                <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-link">
+                        <ul class="c-link">
+                            <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
+                            <li class=""><a class="btn-style1" href="index1.html">Clear wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock main-content %}
