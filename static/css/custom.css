@@ -293,7 +293,7 @@ img.shoppa-logo {
     }
 }
 
-.wishlist-page {
+.wishlist-page, .cart-page {
     padding-top: 60px;
 }
 
@@ -327,6 +327,7 @@ img.shoppa-logo {
 
 .del-btn {
     display: none;
+    padding: 6px 16px;
 }
 
 .del-icon {

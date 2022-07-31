@@ -27,6 +27,7 @@ class CartDetails(models.Model):
     product = models.ForeignKey("products.Product", on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     color = ColorField(default="#ffffff", blank=True)
+    
     def __str__(self):
         return self.cart.user.first_name + "'s Cart"
 
@@ -38,6 +39,9 @@ class Wishlist(models.Model):
     class Meta:
         verbose_name = 'Wishlist'
         verbose_name_plural = 'Wishlists'
+
+    def get_item_count(self):
+        return "Num"
 
     def __str__(self):
         return self.user.first_name + "'s Wishlist"
