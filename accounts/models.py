@@ -26,8 +26,13 @@ class Cart(models.Model):
     def get_item_count(self):
         return self.cart_products.all().count()
 
+    def get_subtotal(self):
+        for product in self.cart_products:
+            print(help(product))
+            break
+
 class CartDetails(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, primary_key=True)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     product = models.ForeignKey("products.Product", on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     color = ColorField(default="#ffffff", blank=True)
@@ -127,6 +132,13 @@ class ApiUser(models.Model):
             raise ValueError
         super(ApiUser, self).save(*args, **kwargs)
 
-# from accounts.models import Wishlist
-# >>> from accounts.models import CustomAccount
-# >>> user = CustomAccount.objects.get(email='ithink@mail.com')
+# from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
+# from products.models import *
+# user = CustomAccount.objects.get(email='ithink@mail.com')
+# cart = Cart.objects.get_or_create(user=user)[0]
+# wish = Wishlist.objects.get_or_create(user=user)[0]
+# p1 = Product.objects.get(id=2)
+# p2 = Product.objects.get(id=3)
+# p3 = Product.objects.get(id=5)
+# p4 = Product.objects.get(id=6)
+cd1 = CartDetails.objects.get(cart=cart, product=p1)
