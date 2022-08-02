@@ -36,96 +36,38 @@
                         <span class="wishlist-head">My wishlist:</span>
                         <span class="wishlist-items">3 item</span>
                     </div>
-                    <div class="wishlist-area">
-                        <div class="wishlist-details">
-                            <div class="wishlist-all-pro">
-                                <div class="wishlist-pro">
-                                    <div class="wishlist-pro-image">
-                                        <a href="#"><img src="{% static 'image/home-game.jpeg' %}" class="img-fluid" alt="image"></a>
-                                    </div>
-                                    <div class="pro-details">
-                                        <h4><a href="product.html">Fresh green orange</a></h4>
-                                        <div class="rating mt-2">
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
+                    {% for product in wishlist.wish_products.all %}
+                        <div class="wishlist-area">
+                            <div class="wishlist-details">
+                                <div class="wishlist-all-pro">
+                                    <div class="wishlist-pro">
+                                        <div class="wishlist-pro-image">
+                                            <a href="#"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
+                                        </div>
+                                        <div class="pro-details">
+                                            <h4><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
+                                            <div class="rating mt-2">
+                                                <i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="qty-item">
+                                        <a href="cart.html" class="wish-btn">Add to cart</a>
+                                        <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
+                                    </div>
+                                    <div class="all-pro-price">
+                                        <span class="new-price">₦{{ product.price }} NGN</span>
+                                        <span class="old-price"><del>₦{{ product.previous_price }} NGN</del></span>
+                                    </div>
+                                    <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
                                 </div>
-                                <div class="qty-item">
-                                    <a href="cart.html" class="wish-btn">Add to cart</a>
-                                    <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
-                                </div>
-                                <div class="all-pro-price">
-                                    <span class="new-price">$109.20 USD</span>
-                                    <span class="old-price"><del>$99.99 USD</del></span>
-                                </div>
-                                <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="wishlist-area">
-                        <div class="wishlist-details">
-                            <div class="wishlist-all-pro">
-                                <div class="wishlist-pro">
-                                    <div class="wishlist-pro-image">
-                                        <a href="#"><img src="{% static 'image/home-phone.jpeg' %}" class="img-fluid" alt="image"></a>
-                                    </div>
-                                    <div class="pro-details">
-                                        <h4><a href="product.html">Fresh green orange</a></h4>
-                                        <div class="rating mt-2">
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="qty-item">
-                                    <a href="cart.html" class="wish-btn">Add to cart</a>
-                                    <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
-                                </div>
-                                <div class="all-pro-price">
-                                    <span class="new-price">$109.20 USD</span>
-                                    <span class="old-price"><del>$99.99 USD</del></span>
-                                </div>
-                                <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wishlist-area">
-                        <div class="wishlist-details">
-                            <div class="wishlist-all-pro">
-                                <div class="wishlist-pro">
-                                    <div class="wishlist-pro-image">
-                                        <a href="#"><img src="{% static 'image/laptop-1.png' %}" class="img-fluid" alt="image"></a>
-                                    </div>
-                                    <div class="pro-details">
-                                        <h4><a href="product.html">Fresh green orange</a></h4>
-                                        <div class="rating mt-2">
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star c-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="qty-item">
-                                    <a href="cart.html" class="wish-btn">Add to cart</a>
-                                    <a href="checkout-1.html" class="wish-btn buy-btn">Buy now</a>
-                                </div>
-                                <div class="all-pro-price">
-                                    <span class="new-price">$109.20 USD</span>
-                                    <span class="old-price"><del>$99.99 USD</del></span>
-                                </div>
-                                <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                     <div class="other-link">
                         <ul class="c-link">
                             <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>

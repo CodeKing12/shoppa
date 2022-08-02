@@ -248,7 +248,7 @@ img.shoppa-logo {
 
 .wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .pro-details, .cart-area .cart-details .cart-all-pro .cart-pro .pro-details {
     height: fit-content;
-    margin: auto 0;
+    margin: auto 7px;
 }
 
 .pro-details .rating .c-star {
@@ -298,7 +298,9 @@ img.shoppa-logo {
 }
 
 .cart-all-pro .cart-pro-image a img {
-    width: 100px;
+    /* width: 100px; */
+    min-width: 120px;
+    max-width: 120px;
     height: 100px;
     object-fit: cover;
 }
@@ -376,4 +378,27 @@ img.shoppa-logo {
     .del-icon {
         display: none;
     }
+}
+
+.pro-details h4 a {
+    line-height: 23px;
+}
+
+.wishlist-all-pro .wishlist-pro-image a img {
+    /* width: 100px; */
+    min-width: 120px;
+    max-width: 120px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cart-img a {
+    height: 100%;
+    width: 100%;
+}
+
+.side-cart-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

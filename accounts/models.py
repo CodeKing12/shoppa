@@ -28,7 +28,7 @@ class Cart(models.Model):
 
     def get_subtotal(self):
         for product in self.cart_products:
-            print(help(product))
+            # print(help(product))
             break
 
 class CartDetails(models.Model):
@@ -39,6 +39,9 @@ class CartDetails(models.Model):
     
     def __str__(self):
         return self.cart.user.first_name + "'s Cart"
+
+    def total(self):
+        return self.product.price * self.quantity
 
 class Wishlist(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
@@ -141,4 +144,4 @@ class ApiUser(models.Model):
 # p2 = Product.objects.get(id=3)
 # p3 = Product.objects.get(id=5)
 # p4 = Product.objects.get(id=6)
-cd1 = CartDetails.objects.get(cart=cart, product=p1)
+# cd1 = CartDetails.objects.get(cart=cart, product=p1)

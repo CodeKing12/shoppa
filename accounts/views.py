@@ -259,7 +259,10 @@ def cartview(request):
     else:
         user_cart = Cart.objects.get(user=request.user)
         user_wishlist = Wishlist.objects.get(user=request.user)
-    return render(request, 'accounts/chosen-cart.html', context={'cart': user_cart, 'wishlist': user_wishlist})
+        subtotal = 0
+        for item in user_cart.cartdetails_set.all():
+            subtotal += item.total()
+    return render(request, 'accounts/chosen-cart.html', context={'cart': user_cart, 'wishlist': user_wishlist, "subtotal": subtotal})
 
 def add_to_cart(request):
     if is_ajax(request) and request.method == "POST":
@@ -365,7 +368,6 @@ def add_to_wishlist(request):
         product = Product.objects.get(id=product_id)
         if request.user.is_authenticated:
             user_wishlist = Wishlist.objects.get_or_create(user=request.user)[0]
-            print(user_wishlist)
             try:
                 the_p = user_wishlist.wish_products.get(id=product_id)
             except MultipleObjectsReturned:

@@ -11,6 +11,9 @@ from rest_framework import status
 from django.shortcuts import redirect, render
 from django.db.models import Q
 from django.contrib.contenttypes.models import ContentType
+from accounts.scripts import add_to_wishlist, add_to_cart
+from django.contrib import messages
+from accounts.scripts import parse_message
 
 category_mapping = {"laptops": "pc", "phones": "phone", "games": "game"}
 
@@ -42,24 +45,23 @@ def this_product(request, category_url, slug):
         serializer = ProductSerializer(product)
         return Response({"success_message": "Product Found", "product": serializer.data}, status=status.HTTP_202_ACCEPTED)
         # return JsonResponse({"success_message": "Product Found", "product": serializer.data}, status=200)
-        
+
 def product_details(request, category_url, slug):
-    user = request.user
-    print(user)
-    if request.user.is_authenticated:
-        user_wishlist = Wishlist.objects.get(user=user)
-    else:
-        raise Http404
-    if request.method == "POST":
-        print(request.POST)
-        if "add_to_wishlist" in request.POST:
-            pass
-        elif "add_to_cart" in request.POST:
-            print("added_to_cart")
     try:
         product = Product.objects.get(slug=slug, category_url=category_url)
     except ObjectDoesNotExist:
         raise Http404
+    user = request.user
+    if request.method == "POST":
+        print(request.POST)
+        if "add_to_wishlist" in request.POST:
+            message, message_type = add_to_wishlist(user=user, product=product)
+            parse_message(request, message, message_type)
+        elif "add_to_cart" in request.POST:
+            quantity = request.POST["quantity"][0]
+            message, message_type = add_to_cart(request=request, product=product, quantity=quantity)
+            print(request.session.keys())
+            parse_message(request, message, message_type)
         # return redirect("home")
     
     extra_images = MoreProductImages.objects.filter(product=product)

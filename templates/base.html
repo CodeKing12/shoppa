@@ -401,94 +401,41 @@
                     </p>
                 </div>
                 <ul class="cart-item-loop">
-                    <li class="cart-item">
-                        <div class="cart-img">
-                            <a href="product-style-2.html">
-                                <img src="{% static 'image/cart-img.jpg' %}" alt="cart-image" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="cart-title">
-                            <h6><a href="product-style-2.html">Fresh apple 5kg</a></h6>
-                            <div class="cart-pro-info">
-                                <div class="cart-qty-price">
-                                    <span class="quantity">1 x </span>
-                                    <span class="price-box">$250.00 USD</span>
+                    {% for item in user_cart.items %}
+                        {% with item.product as product and item.quantity as quantity %}
+                            <li class="cart-item">
+                                <div class="cart-img">
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <img src="{{ product.image.url }}" alt="cart-image" class="img-fluid side-cart-img">
+                                    </a>
                                 </div>
-                                <div class="delete-item-cart">
-                                    <a href="empty-cart.html"><i class="icon-trash icons"></i></a>
+                                <div class="cart-title">
+                                    <h6><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
+                                    <div class="cart-pro-info">
+                                        <div class="cart-qty-price">
+                                            <span class="quantity">{{ quantity }} x </span>
+                                            <span class="price-box">₦{{ product.price }} NGN</span>
+                                        </div>
+                                        <div class="delete-item-cart">
+                                            <a href="#"><i class="icon-trash icons"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-                        <div class="cart-img">
-                            <a href="product-style-2.html">
-                                <img src="{% static 'image/cart-img02.jpg' %}" alt="cart-image" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="cart-title">
-                            <h6><a href="product-style-2.html">Natural grassbean 4kg</a></h6>
-                            <div class="cart-pro-info">
-                                <div class="cart-qty-price">
-                                    <span class="quantity">1 x </span>
-                                    <span class="price-box">$300.00 USD</span>
-                                </div>
-                                <div class="delete-item-cart">
-                                    <a href="empty-cart.html"><i class="icon-trash icons"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-                        <div class="cart-img">
-                            <a href="product-style-2.html">
-                                <img src="{% static 'image/cart-img03.jpg' %}" alt="cart-image" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="cart-title">
-                            <h6><a href="product-style-2.html">Organic coconut juice 5ltr</a></h6>
-                            <div class="cart-pro-info">
-                                <div class="cart-qty-price">
-                                    <span class="quantity">1 x </span>
-                                    <span class="price-box">$250.00 USD</span>
-                                </div>
-                                <div class="delete-item-cart">
-                                    <a href="empty-cart.html"><i class="icon-trash icons"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-                        <div class="cart-img">
-                            <a href="product-style-2.html">
-                                <img src="{% static 'image/cart-img04.jpg' %}" alt="cart-image" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="cart-title">
-                            <h6><a href="product-style-2.html">Orange juice 5ltr</a></h6>
-                            <div class="cart-pro-info">
-                                <div class="cart-qty-price">
-                                    <span class="quantity">1 x </span>
-                                    <span class="price-box">$350.00 USD</span>
-                                </div>
-                                <div class="delete-item-cart">
-                                    <a href="empty-cart.html"><i class="icon-trash icons"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                        {% endwith %}
+                    {% endfor %}
                 </ul>
                 <ul class="subtotal-title-area">
                     <li class="subtotal-info">
                         <div class="subtotal-titles">
                             <h6>Sub total:</h6>
-                            <span class="subtotal-price">$750.00 USD</span>
+                            <span class="subtotal-price">₦ NGN</span>{# {{ cart_subtotal }} #}
                         </div>
                     </li>
                     <li class="mini-cart-btns">
                         <div class="cart-btns">
-                            <a href="cart-2.html" class="btn btn-style2">View cart</a>
-                            <a href="checkout-2.html" class="btn btn-style2">Checkout</a>
+                            <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
+                            <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
                         </div>
                     </li>
                 </ul>
