@@ -241,7 +241,7 @@
                                             <a href="{% url 'wishlist' %}" class="header-wishlist">
                                                 <span class="wishlist-icon">
                                                     <i class="icon-heart"></i>
-                                                    <span class="wishlist-counter">0</span>
+                                                    <span class="wishlist-counter">{{ wishlist_item_count }}</span>
                                                 </span>
                                                 <!-- <span class="title">Wishlist</span> -->
                                             </a>
@@ -253,7 +253,7 @@
                                                         <span class="cart-icon-wrap">
                                                             <span class="cart-icon">
                                                                 <i class="icon-handbag"></i>
-                                                                <span id="cart-total" class="bigcounter">5</span>
+                                                                <span id="cart-total" class="bigcounter">{{ cart_item_count }}</span>
                                                             </span>
                                                             <!-- <span class="title">My cart</span> -->
                                                         </span>
@@ -391,55 +391,107 @@
             </div>
             <!-- mobile menu end -->
             <!-- minicart start -->
-            <div class="mini-cart">
-                <a href="javascript:void(0)" class="shopping-cart-close"><i class="ion-close-round"></i></a>
-                <div class="cart-item-title">
-                    <p>
-                        <span class="cart-count-desc">There are</span>
-                        <span class="cart-count-item bigcounter">4</span>
-                        <span class="cart-count-desc">Products</span>
-                    </p>
-                </div>
-                <ul class="cart-item-loop">
-                    {% for item in user_cart.items %}
-                        {% with item.product as product and item.quantity as quantity %}
-                            <li class="cart-item">
-                                <div class="cart-img">
-                                    <a href="{{ product.get_absolute_url }}">
-                                        <img src="{{ product.image.url }}" alt="cart-image" class="img-fluid side-cart-img">
-                                    </a>
-                                </div>
-                                <div class="cart-title">
-                                    <h6><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
-                                    <div class="cart-pro-info">
-                                        <div class="cart-qty-price">
-                                            <span class="quantity">{{ quantity }} x </span>
-                                            <span class="price-box">₦{{ product.price }} NGN</span>
-                                        </div>
-                                        <div class="delete-item-cart">
-                                            <a href="#"><i class="icon-trash icons"></i></a>
+            {% if request.user.is_authenticated %}
+                <div class="mini-cart">
+                    <a href="javascript:void(0)" class="shopping-cart-close"><i class="ion-close-round"></i></a>
+                    <div class="cart-item-title">
+                        <p>
+                            <span class="cart-count-desc">There are</span>
+                            <span class="cart-count-item bigcounter">{{ user_cart.get_item_count }}</span>
+                            <span class="cart-count-desc">Products</span>
+                        </p>
+                    </div>
+                    <ul class="cart-item-loop">
+                        {% for item in user_cart.cartdetails_set.all %}
+                            {% with item.product as product and item.quantity as quantity %}
+                                <li class="cart-item">
+                                    <div class="cart-img">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <img src="{{ product.image.url }}" alt="cart-image" class="img-fluid side-cart-img">
+                                        </a>
+                                    </div>
+                                    <div class="cart-title">
+                                        <h6><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
+                                        <div class="cart-pro-info">
+                                            <div class="cart-qty-price">
+                                                <span class="quantity">{{ quantity }} x </span>
+                                                <span class="price-box">₦{{ product.price }} NGN</span>
+                                            </div>
+                                            <div class="delete-item-cart">
+                                                <a href="#"><i class="icon-trash icons"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        {% endwith %}
-                    {% endfor %}
-                </ul>
-                <ul class="subtotal-title-area">
-                    <li class="subtotal-info">
-                        <div class="subtotal-titles">
-                            <h6>Sub total:</h6>
-                            <span class="subtotal-price">₦ NGN</span>{# {{ cart_subtotal }} #}
-                        </div>
-                    </li>
-                    <li class="mini-cart-btns">
-                        <div class="cart-btns">
-                            <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
-                            <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                                </li>
+                            {% endwith %}
+                        {% endfor %}
+                    </ul>
+                    <ul class="subtotal-title-area">
+                        <li class="subtotal-info">
+                            <div class="subtotal-titles">
+                                <h6>Sub total:</h6>
+                                <span class="subtotal-price">₦{{ cart_subtotal }} NGN</span>{# {{ cart_subtotal }} #}
+                            </div>
+                        </li>
+                        <li class="mini-cart-btns">
+                            <div class="cart-btns">
+                                <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
+                                <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="mini-cart">
+                    <a href="javascript:void(0)" class="shopping-cart-close"><i class="ion-close-round"></i></a>
+                    <div class="cart-item-title">
+                        <p>
+                            <span class="cart-count-desc">There are</span>
+                            <span class="cart-count-item bigcounter">{{ cart_item_count }}</span>
+                            <span class="cart-count-desc">Products</span>
+                        </p>
+                    </div>
+                    <ul class="cart-item-loop">
+                        {% for item in user_cart.items %}
+                            {% with item.product as product and item.quantity as quantity %}
+                                <li class="cart-item">
+                                    <div class="cart-img">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            <img src="{{ product.image.url }}" alt="cart-image" class="img-fluid side-cart-img">
+                                        </a>
+                                    </div>
+                                    <div class="cart-title">
+                                        <h6><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
+                                        <div class="cart-pro-info">
+                                            <div class="cart-qty-price">
+                                                <span class="quantity">{{ quantity }} x </span>
+                                                <span class="price-box">₦{{ product.price }} NGN</span>
+                                            </div>
+                                            <div class="delete-item-cart">
+                                                <a href="#"><i class="icon-trash icons"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endwith %}
+                        {% endfor %}
+                    </ul>
+                    <ul class="subtotal-title-area">
+                        <li class="subtotal-info">
+                            <div class="subtotal-titles">
+                                <h6>Sub total:</h6>
+                                <span class="subtotal-price">₦{{ cart_subtotal }} NGN</span>{# {{ cart_subtotal }} #}
+                            </div>
+                        </li>
+                        <li class="mini-cart-btns">
+                            <div class="cart-btns">
+                                <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
+                                <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
             <!-- minicart end -->
             <!-- search start -->
             <div class="modal fade" id="search-modal">
