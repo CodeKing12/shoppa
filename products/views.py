@@ -60,7 +60,6 @@ def product_details(request, category_url, slug):
         elif "add_to_cart" in request.POST:
             quantity = request.POST["quantity"][0]
             message, message_type = add_to_cart(request=request, product=product, quantity=quantity)
-            print(request.session.keys())
             parse_message(request, message, message_type)
         # return redirect("home")
     

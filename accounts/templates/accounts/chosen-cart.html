@@ -36,50 +36,95 @@
                 <div class="col-xl-9 col-xs-12 col-sm-12 col-md-12 col-lg-8 all-cart-items">
                     <div class="cart-item">
                         <span class="cart-head">My Cart:</span>
-                        <span class="c-items">4 items</span>
+                        <span class="c-items">{{ cart_item_count }} items</span>
                     </div>
-                    {% for item in cart.cartdetails_set.all %}
-                        {% with item.product as product %}
-                            <div class="cart-area">
-                                <div class="cart-details">
-                                    <div class="cart-all-pro">
-                                        <div class="cart-pro">
-                                            <div class="cart-pro-image">
-                                                <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
-                                            </div>
-                                            <div class="pro-details">
-                                                <h4 class=""><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
-                                                <div class="rating mt-2">
-                                                    <i class="fa fa-star c-star"></i>
-                                                    <i class="fa fa-star c-star"></i>
-                                                    <i class="fa fa-star c-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
+                    {% if request.user.is_authenticated %}
+                        {% for item in user_cart.cartdetails_set.all %}
+                            {% with item.product as product and item.quantity as quantity %}
+                                <div class="cart-area">
+                                    <div class="cart-details">
+                                        <div class="cart-all-pro">
+                                            <div class="cart-pro">
+                                                <div class="cart-pro-image">
+                                                    <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
+                                                </div>
+                                                <div class="pro-details">
+                                                    <h4 class=""><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
+                                                    <div class="rating mt-2">
+                                                        <i class="fa fa-star c-star"></i>
+                                                        <i class="fa fa-star c-star"></i>
+                                                        <i class="fa fa-star c-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="qty-item">
-                                            <div class="center">
-                                                <div class="plus-minus">
-                                                    <span>
-                                                        <a href="javascript:void(0)" class="minus-btn text-black">-</a>
-                                                        <input type="text" name="name" value="{{ item.quantity }}">
-                                                        <a href="javascript:void(0)" class="plus-btn text-black">+</a>
-                                                    </span>
+                                            <div class="qty-item">
+                                                <div class="center">
+                                                    <div class="plus-minus">
+                                                        <span>
+                                                            <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                                            <input type="text" name="name" value="{{ quantity }}">
+                                                            <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                                        </span>
+                                                    </div>
+                                                    <a href="#" class="btn-style3 del-btn">Remove</a>
+                                                    <a href="#" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
                                                 </div>
-                                                <a href="#" class="btn-style3 del-btn">Remove</a>
-                                                <a href="#" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
                                             </div>
-                                        </div>
-                                        <div class="all-pro-price">
-                                            <span>₦{{ item.total }} NGN</span>
-                                            <span class="old-price">₦{{ product.price }} NGN</span>
+                                            <div class="all-pro-price">
+                                                <span>₦{{ item.total }} NGN</span>
+                                                <span class="old-price">₦{{ product.price }} NGN</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endwith %}
-                    {% endfor %}
+                            {% endwith %}
+                        {% endfor %}
+                    {% else %}
+                        {% for item in user_cart.items %}
+                            {% with item.product as product and item.quantity as quantity %}
+                                <div class="cart-area">
+                                    <div class="cart-details">
+                                        <div class="cart-all-pro">
+                                            <div class="cart-pro">
+                                                <div class="cart-pro-image">
+                                                    <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
+                                                </div>
+                                                <div class="pro-details">
+                                                    <h4 class=""><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
+                                                    <div class="rating mt-2">
+                                                        <i class="fa fa-star c-star"></i>
+                                                        <i class="fa fa-star c-star"></i>
+                                                        <i class="fa fa-star c-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="qty-item">
+                                                <div class="center">
+                                                    <div class="plus-minus">
+                                                        <span>
+                                                            <a href="javascript:void(0)" class="minus-btn text-black">-</a>
+                                                            <input type="text" name="name" value="{{ quantity }}">
+                                                            <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                                        </span>
+                                                    </div>
+                                                    <a href="#" class="btn-style3 del-btn">Remove</a>
+                                                    <a href="#" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="all-pro-price">
+                                                <span>₦{{ item.total }} NGN</span>
+                                                <span class="old-price">₦{{ product.price }} NGN</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endwith %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="other-link">
                         <ul class="c-link">
                             <li class=""><a class="btn-style1" href="grid-list.html">Update cart</a></li>

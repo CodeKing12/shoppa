@@ -17,6 +17,7 @@ from accounts.decorators import insert_cart
 from rest_framework.decorators import api_view
 import json
 from shoppa.views import get_cart
+from .custom_context_processors import cart
 
 # Create your views here.
 def is_ajax(request):
@@ -257,12 +258,13 @@ def cartview(request):
         user_cart = 'Nothing'
         user_wishlist = 'Nothing'
     else:
-        user_cart = Cart.objects.get(user=request.user)
-        user_wishlist = Wishlist.objects.get(user=request.user)
-        subtotal = 0
-        for item in user_cart.cartdetails_set.all():
-            subtotal += item.total()
-    return render(request, 'accounts/chosen-cart.html', context={'cart': user_cart, 'wishlist': user_wishlist, "subtotal": subtotal})
+        cart_context = cart(request)
+        # user_cart = Cart.objects.get(user=request.user)
+        # user_wishlist = Wishlist.objects.get(user=request.user)
+        # subtotal = 0
+        # for item in user_cart.cartdetails_set.all():
+        #     subtotal += item.total()
+    return render(request, 'accounts/chosen-cart.html', context=cart_context)
 
 def add_to_cart(request):
     if is_ajax(request) and request.method == "POST":

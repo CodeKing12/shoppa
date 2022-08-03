@@ -2,8 +2,18 @@ from accounts.models import Cart, Wishlist
 from accounts.scripts import get_cart
 from products.models import Product
 import json 
+from accounts.scripts import add_to_cart, add_to_wishlist, parse_message
 
 def cart(request):
+    if request.method == "POST":
+        product_id = request.POST["product_id"]
+        product = Product.objects.get(id=int(product_id))
+        if "add_to_cart" or "cart_this" in request.POST:
+            quantity = request.POST["quantity"][0]
+            message, message_type = add_to_cart(request=request, product=product, quantity=quantity)
+        elif "add_to_wishlist" or "wish_this" in request.POST:
+            message, message_type = add_to_wishlist(user=request.user, product=product)
+        parse_message(request, message, message_type)
     if request.user.is_authenticated:
         cart = Cart.objects.get(user=request.user)
         subtotal = 0
