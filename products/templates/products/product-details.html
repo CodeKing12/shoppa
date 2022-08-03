@@ -141,8 +141,8 @@
                                     </div>
                                 </div>
                                 <div class="pro-btn">
-                                    <button name="add_to_wishlist" value="True" type="submit" role="button" href="#" class="btn btn-style1"><i class="fa fa-heart"></i></button>
-                                    <button name="add_to_cart" value="True" class="btn btn-style1"><i class="fa fa-shopping-bag me-1"></i> Add to cart</button><!--addToCart({{product.id}}, input, {{product.get_category_name}})-->
+                                    <button name="add_to_wishlist" value="{{ product.id }}" class="btn btn-style1"><i class="fa fa-heart"></i></button>
+                                    <button name="add_to_cart" value="{{ product.id }}" class="btn btn-style1"><i class="fa fa-shopping-bag me-1"></i> Add to cart</button><!--addToCart({{product.id}}, input, {{product.get_category_name}})-->
                                     {% comment %} <a href="checkout-2.html" class="btn btn-style1">Buy now</a> {% endcomment %}
                                 </div>
                             </form>
