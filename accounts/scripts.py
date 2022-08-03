@@ -164,3 +164,28 @@ def clear_wishlist(user):
         message_type = "warning"
 
     return message, message_type
+
+def clear_cart(request):
+    user = request.user
+    if user.is_authenticated:
+        user_cart = Cart.objects.get(user=user)
+        if user_cart.get_item_count() > 0:
+            user_cart.cart_products.clear()
+            message = "Cart cleared successfully"
+            message_type = "success"
+        else:
+            message = "There are no items in your cart"
+            message_type = "info"
+    else:
+        user_cart = get_cart(request.session)
+        cartlist = list(user_cart.keys())
+
+        if len(cartlist) > 0:
+            request.session['user-cart'] = json.dumps({})
+            message = "Cart cleared successfully"
+            message_type = "success"
+        else:
+            message = "There are no items in your cart"
+            message_type = "info"
+
+    return message, message_type

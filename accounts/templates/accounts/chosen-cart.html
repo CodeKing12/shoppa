@@ -133,13 +133,14 @@
                         {% endfor %}
                     {% endif %}
                     {% if cart_item_count != 0 %}
-                        <div class="other-link">
+                        <form class="other-link" method="post">
+                            {% csrf_token %}
                             <ul class="c-link">
                                 <li class=""><a class="btn-style1" href="grid-list.html">Update cart</a></li>
                                 <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
-                                <li class=""><a class="btn-style1" href="index1.html">Clear cart</a></li>
+                                <li class=""><button class="btn-style1" name="clear_cart" value="True">Clear cart</button></li>
                             </ul>
-                        </div>
+                        </form>
                     {% endif %}
 
                 </div>
