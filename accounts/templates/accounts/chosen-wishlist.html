@@ -75,12 +75,13 @@
                         </div>
                     {% endfor %}
                     {% if wishlist_item_count > 0 %}
-                        <div class="other-link">
+                        <form class="other-link" method="post">
+                            {% csrf_token %}
                             <ul class="c-link">
                                 <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
-                                <li class=""><a class="btn-style1" href="index1.html">Clear wishlist</a></li>
+                                <li class=""><button class="btn-style1" name="clear_wishlist" value="True">Clear wishlist</button></li>
                             </ul>
-                        </div>
+                        </form>
                     {% endif %}
                 </div>
             </div>

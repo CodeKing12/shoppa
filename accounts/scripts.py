@@ -148,3 +148,19 @@ def remove_from_cart(request, product):
         request.session['user-cart'] = json.dumps(user_cart)
 
     return message, message_type
+
+def clear_wishlist(user):
+    if user.is_authenticated:
+        user_wish = Wishlist.objects.get(user=user)
+        if user_wish.get_item_count() > 0:
+            user_wish.wish_products.clear()
+            message = "All products in your wishlist have been removed"
+            message_type = "success"
+        else:
+            message = "There are no products in your wishlist"
+            message_type = "info"
+    else:
+        message = "You are not logged in"
+        message_type = "warning"
+
+    return message, message_type
