@@ -258,13 +258,14 @@ def cartview(request):
         user_cart = 'Nothing'
         user_wishlist = 'Nothing'
     else:
-        cart_context = cart(request)
+        pass
+        # cart_context = cart(request)
         # user_cart = Cart.objects.get(user=request.user)
         # user_wishlist = Wishlist.objects.get(user=request.user)
         # subtotal = 0
         # for item in user_cart.cartdetails_set.all():
         #     subtotal += item.total()
-    return render(request, 'accounts/chosen-cart.html', context=cart_context)
+    return render(request, 'accounts/chosen-cart.html')
 
 def add_to_cart(request):
     if is_ajax(request) and request.method == "POST":
@@ -324,45 +325,45 @@ def add_to_cart(request):
         request.session['action_message'] = ["Invalid Request", "error"]
         return redirect('home')
 
-def remove_from_cart(request):
-    if is_ajax(request) and request.method == "POST":
-        product_id = request.POST["product_id"]
-        product = Product.objects.get(id=product_id)
-        # product_exists = Cart.cart_products.get(product)
-        if request.user.is_authenticated:
-            user_cart = Cart.objects.get(user=request.user)
-            try:
-                the_p = user_cart.cart_products.get(id=product_id)
-            except MultipleObjectsReturned:
-                all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
-                for item in all_duplicated:
-                    user_cart.cart_products.remove(item)
-                message = "Multiple items found in your cart. Deleting All Now."
-                message_type = "info"
-                messages.success(message="All Items Deleted")
-            except ObjectDoesNotExist:
-                message = "You have not added this item to your cart"
-                message_type = "error"
-            else:
-                user_cart.cart_products.remove(product)
-                message = "Item Removed From Cart"
-                message_type = "success"
-            return JsonResponse({"message": message, "type": message_type}, status=200)
-        else:
-            cart = request.session.get("user-cart", json.dumps({}))
-            user_cart = json.loads(cart)
-            if product_id in user_cart:
-                del user_cart[product_id]
-                message = "Item Removed From Cart"
-                message_type = "success"
-            else:
-                message = "You have not added this item to your cart"
-                message_type = "success"
-            request.session['user-cart'] = json.dumps(user_cart)
-            return JsonResponse({"message": message, "type": "success"}, status=200)
-    else:
-        request.session['action_message'] = ["Invalid Request", "error"]
-        return redirect('home')
+# def remove_from_cart(request):
+#     if is_ajax(request) and request.method == "POST":
+#         product_id = request.POST["product_id"]
+#         product = Product.objects.get(id=product_id)
+#         # product_exists = Cart.cart_products.get(product)
+#         if request.user.is_authenticated:
+#             user_cart = Cart.objects.get(user=request.user)
+#             try:
+#                 the_p = user_cart.cart_products.get(id=product_id)
+#             except MultipleObjectsReturned:
+#                 all_duplicated = user_cart.cart_products.filter(id=product_id)[1:]
+#                 for item in all_duplicated:
+#                     user_cart.cart_products.remove(item)
+#                 message = "Multiple items found in your cart. Deleting All Now."
+#                 message_type = "info"
+#                 messages.success(message="All Items Deleted")
+#             except ObjectDoesNotExist:
+#                 message = "You have not added this item to your cart"
+#                 message_type = "error"
+#             else:
+#                 user_cart.cart_products.remove(product)
+#                 message = "Item Removed From Cart"
+#                 message_type = "success"
+#             return JsonResponse({"message": message, "type": message_type}, status=200)
+#         else:
+#             cart = request.session.get("user-cart", json.dumps({}))
+#             user_cart = json.loads(cart)
+#             if product_id in user_cart:
+#                 del user_cart[product_id]
+#                 message = "Item Removed From Cart"
+#                 message_type = "success"
+#             else:
+#                 message = "You have not added this item to your cart"
+#                 message_type = "success"
+#             request.session['user-cart'] = json.dumps(user_cart)
+#             return JsonResponse({"message": message, "type": "success"}, status=200)
+#     else:
+#         request.session['action_message'] = ["Invalid Request", "error"]
+#         return redirect('home')
 
 def add_to_wishlist(request):
     if is_ajax(request) and request.method == "POST":

@@ -86,8 +86,6 @@ def add_to_cart(request, product, quantity):
         return message, message_type
     else:
         user_cart = get_cart(request.session)
-        message_type = "info"
-        message = user_cart
         
         if str(product_id) in user_cart:
             item = user_cart[str(product_id)]
@@ -120,4 +118,32 @@ def remove_from_wishlist(user, product):
         message = "You do not have an account with us"
         message_type = "error"
 
+    return message, message_type
+
+def remove_from_cart(request, product):
+    user = request.user
+    product_id = str(product.id)
+    if user.is_authenticated:
+        your_cart = Cart.objects.get(user=user)
+        try:
+            cart_details = CartDetails.objects.get(cart=your_cart, product=product)
+        except ObjectDoesNotExist:
+            message = "This product is not in your cart"
+            message_type= "error"
+        else:
+            cart_details.delete()
+            message_type = "success"
+            message = "Product removed from cart"
+    else:
+        user_cart = get_cart(request.session)
+
+        if product_id in user_cart:
+            user_cart.pop(product_id)
+            message = "Product removed from cart"
+            message_type = "success"
+        else:
+            message_type = "error"
+            message = "This product is not in your cart"
+            
+        request.session['user-cart'] = json.dumps(user_cart)
     return message, message_type

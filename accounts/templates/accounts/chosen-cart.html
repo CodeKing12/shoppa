@@ -60,7 +60,8 @@
                                                 </div>
                                             </div>
                                             <div class="qty-item">
-                                                <div class="center">
+                                                <form method="post" class="center">
+                                                    {% csrf_token %}
                                                     <div class="plus-minus">
                                                         <span>
                                                             <a href="javascript:void(0)" class="minus-btn text-black">-</a>
@@ -68,9 +69,9 @@
                                                             <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                                         </span>
                                                     </div>
-                                                    <a href="#" class="btn-style3 del-btn">Remove</a>
-                                                    <a href="#" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
-                                                </div>
+                                                    <button name="remove_from_cart" value="{{ product.id }}" class="btn-style3 del-btn">Remove</button>
+                                                    <button name="remove_from_cart" value="{{ product.id }}" class="del-icon"><span class="material-symbols-outlined">delete</span></button>
+                                                </form>
                                             </div>
                                             <div class="all-pro-price">
                                                 <span>₦{{ item.total }} NGN</span>
@@ -102,7 +103,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="qty-item">
+                                            <form class="qty-item" method="post">
+                                                {% csrf_token %}
                                                 <div class="center">
                                                     <div class="plus-minus">
                                                         <span>
@@ -111,10 +113,10 @@
                                                             <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                                         </span>
                                                     </div>
-                                                    <a href="#" class="btn-style3 del-btn">Remove</a>
-                                                    <a href="#" class="del-icon"><span class="material-symbols-outlined">delete</span></a>
+                                                    <button name="remove_from_cart" value="{{ product.id }}" class="btn-style3 del-btn">Remove</button>
+                                                    <button name="remove_from_cart" value="{{ product.id }}" class="del-icon"><span class="material-symbols-outlined">delete</span></button>
                                                 </div>
-                                            </div>
+                                            </form>
                                             <div class="all-pro-price">
                                                 <span>₦{{ item.total }} NGN</span>
                                                 <span class="old-price">₦{{ product.price }} NGN</span>
