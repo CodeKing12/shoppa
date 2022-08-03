@@ -12,6 +12,16 @@ def get_cart(session):
         session["user-cart"] = cart
     return json.loads(cart)
 
+def parse_message(request, message, message_type):
+    if message_type == "info":
+        messages.info(request, message=message)
+    elif message_type == "success":
+        messages.success(request, message=message)
+    elif message_type == "warning":
+        messages.warning(request, message=message)
+    elif message_type == "error":
+        messages.error(request, message=message)
+
 def add_to_wishlist(user, product):
     # product_id = request.POST["product_id"]
     # product = Product.objects.get(id=product_id)
@@ -95,12 +105,19 @@ def add_to_cart(request, product, quantity):
 
     return message, message_type
 
-def parse_message(request, message, message_type):
-    if message_type == "info":
-        messages.info(request, message=message)
-    elif message_type == "success":
-        messages.success(request, message=message)
-    elif message_type == "warning":
-        messages.warning(request, message=message)
-    elif message_type == "error":
-        messages.error(request, message=message)
+def remove_from_wishlist(user, product):
+    if user.is_authenticated:
+        try:
+            user_wishlist = Wishlist.objects.get(user=user)
+        except ObjectDoesNotExist:
+            message_type = "error"
+            message = "You do not have a wishlist"
+        else:
+            user_wishlist.wish_products.remove(product)
+            message_type = "success"
+            message = "Product removed from wishlist"
+    else:
+        message = "You do not have an account with us"
+        message_type = "error"
+
+    return message, message_type

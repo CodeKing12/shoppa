@@ -221,11 +221,16 @@ img.shoppa-logo {
 .cancel-button {
     width: fit-content;
     margin: 0 20px;
+    background-color: transparent;
     /* margin: 0 auto; */
 }
 
 .cancel-button span {
     font-size: 31px;
+}
+
+.cancel-button:hover {
+    color: var(--primary)
 }
 
 .wishlist-pro-image a img {

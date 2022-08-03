@@ -39,7 +39,7 @@
                     {% for product in wishlist.wish_products.all %}
                         <div class="wishlist-area">
                             <div class="wishlist-details">
-                                <div class="wishlist-all-pro">
+                                <form class="wishlist-all-pro" method="post">
                                     <div class="wishlist-pro">
                                         <div class="wishlist-pro-image">
                                             <a href="#"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
@@ -55,17 +55,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <form class="qty-item" method="post">
+                                    <div class="qty-item" method="post">
                                         {% csrf_token %}
                                         <button name="add_to_cart" value="{{ product.id }}" class="wish-btn">Add to cart</button>
                                         <button name="add_to_wishlist" value="{{ product.id }}" class="wish-btn buy-btn">Buy now</button>
-                                    </form>
+                                    </div>
                                     <div class="all-pro-price">
                                         <span class="new-price">₦{{ product.price }} NGN</span>
                                         <span class="old-price"><del>₦{{ product.previous_price }} NGN</del></span>
                                     </div>
-                                    <a class="cancel-button" role="button"><span class="material-symbols-outlined">cancel</span></a>
-                                </div>
+                                    <button class="cancel-button" name="remove_from_wishlist" value="{{ product.id }}"><span class="material-symbols-outlined">cancel</span></button>
+                                </form>
                             </div>
                         </div>
                     {% endfor %}

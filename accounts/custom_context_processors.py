@@ -3,7 +3,7 @@ from accounts.models import Cart, Wishlist
 from accounts.scripts import get_cart
 from products.models import Product
 import json 
-from accounts.scripts import add_to_cart, add_to_wishlist, parse_message
+from accounts.scripts import add_to_cart, add_to_wishlist, parse_message, remove_from_wishlist
 
 def cart(request):
     if request.method == "POST":
@@ -25,6 +25,13 @@ def cart(request):
 
             message, message_type = add_to_wishlist(user=request.user, product=product)
             parse_message(request, message, message_type)
+        elif "remove_from_wishlist" in request.POST:
+            product_id = request.POST["remove_from_wishlist"]
+            product = get_object_or_404(Product, id=int(product_id))
+
+            message, message_type = remove_from_wishlist(user=request.user, product=product)
+            parse_message(request, message, message_type)
+
     if request.user.is_authenticated:
         cart = Cart.objects.get(user=request.user)
         subtotal = 0
