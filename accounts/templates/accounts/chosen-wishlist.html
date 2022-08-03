@@ -31,11 +31,16 @@
     <section class="wishlist-page section-tb-padding">
         <div class="container">
             <div class="row">
+                {% if wishlist_item_count == 0 %}
+                    <h5 class="text-center">You haven't added any items to your wishlist</h5>
+                {% endif %}
                 <div class="col all-wishlist-items">
-                    <div class="wishlist-item">
-                        <span class="wishlist-head">My wishlist:</span>
-                        <span class="wishlist-items">3 item</span>
-                    </div>
+                    {% if wishlist_item_count > 0 %}
+                        <div class="wishlist-item">
+                            <span class="wishlist-head">My Wishlist:</span>
+                            <span class="wishlist-items">{{ wishlist_item_count }} item{% if wishlist_item_count > 1 %}s{% endif %}</span>
+                        </div>
+                    {% endif %}
                     {% for product in wishlist.wish_products.all %}
                         <div class="wishlist-area">
                             <div class="wishlist-details">
@@ -69,12 +74,14 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <div class="other-link">
-                        <ul class="c-link">
-                            <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
-                            <li class=""><a class="btn-style1" href="index1.html">Clear wishlist</a></li>
-                        </ul>
-                    </div>
+                    {% if wishlist_item_count > 0 %}
+                        <div class="other-link">
+                            <ul class="c-link">
+                                <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
+                                <li class=""><a class="btn-style1" href="index1.html">Clear wishlist</a></li>
+                            </ul>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
