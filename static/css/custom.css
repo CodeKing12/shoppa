@@ -416,3 +416,7 @@ img.shoppa-logo {
 .login-notice:hover a {
     color: var(--primary)
 }
+
+.unbutton {
+    background-color: transparent;
+}

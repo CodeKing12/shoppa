@@ -426,9 +426,10 @@
                                                 <span class="quantity">{{ quantity }} x </span>
                                                 <span class="price-box">₦{{ product.price }} NGN</span>
                                             </div>
-                                            <div class="delete-item-cart">
-                                                <a href="#"><i class="icon-trash icons"></i></a>
-                                            </div>
+                                            <form method="post" class="delete-item-cart">
+                                                {% csrf_token %}
+                                                <button class="unbutton" name="remove_from_cart" value="{{ product.id }}"><i class="icon-trash icons"></i></button>
+                                            </form>
                                         </div>
                                     </div>
                                 </li>
@@ -478,9 +479,10 @@
                                                 <span class="quantity">{{ quantity }} x </span>
                                                 <span class="price-box">₦{{ product.price }} NGN</span>
                                             </div>
-                                            <div class="delete-item-cart">
-                                                <a href="#"><i class="icon-trash icons"></i></a>
-                                            </div>
+                                            <form method="post" class="delete-item-cart">
+                                                {% csrf_token %}
+                                                <button class="unbutton" name="remove_from_cart" value="{{ product.id }}"><i class="icon-trash icons"></i></a>
+                                            </form>
                                         </div>
                                     </div>
                                 </li>
