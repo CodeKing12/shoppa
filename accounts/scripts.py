@@ -144,6 +144,7 @@ def remove_from_cart(request, product):
         else:
             message_type = "error"
             message = "This product is not in your cart"
-            
+
         request.session['user-cart'] = json.dumps(user_cart)
+
     return message, message_type

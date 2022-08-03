@@ -33,11 +33,16 @@
     <section class="cart-page section-tb-padding">
         <div class="container">
             <div class="row">
+                {% if cart_item_count == 0 %}
+                    <h5 class="text-center">You haven't added any items to your cart</h5>
+                {% endif %}
                 <div class="col-xl-9 col-xs-12 col-sm-12 col-md-12 col-lg-8 all-cart-items">
-                    <div class="cart-item">
-                        <span class="cart-head">My Cart:</span>
-                        <span class="c-items">{{ cart_item_count }} items</span>
-                    </div>
+                    {% if cart_item_count != 0 %}
+                        <div class="cart-item">
+                            <span class="cart-head">My Cart:</span>
+                            <span class="c-items">{{ cart_item_count }} item{% if cart_item_count > 1 %}s{% endif %}</span>
+                        </div>
+                    {% endif %}
                     {% if request.user.is_authenticated %}
                         {% for item in user_cart.cartdetails_set.all %}
                             {% with item.product as product and item.quantity as quantity %}
@@ -127,60 +132,65 @@
                             {% endwith %}
                         {% endfor %}
                     {% endif %}
-                    <div class="other-link">
-                        <ul class="c-link">
-                            <li class=""><a class="btn-style1" href="grid-list.html">Update cart</a></li>
-                            <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
-                            <li class=""><a class="btn-style1" href="index1.html">Clear cart</a></li>
-                        </ul>
-                    </div>
+                    {% if cart_item_count != 0 %}
+                        <div class="other-link">
+                            <ul class="c-link">
+                                <li class=""><a class="btn-style1" href="grid-list.html">Update cart</a></li>
+                                <li class=""><a class="btn-style1" href="grid-list.html">Continue shopping</a></li>
+                                <li class=""><a class="btn-style1" href="index1.html">Clear cart</a></li>
+                            </ul>
+                        </div>
+                    {% endif %}
+
                 </div>
-                <div class="col-xl-3 col-xs-12 col-sm-12 col-md-12 col-lg-4 shipping-total">
-                    <div class="cart-total">
-                        <div class="cart-price">
-                            <span>Subtotal</span>
-                            <span class="total">₦{{ subtotal }} NGN</span>
+                {% if cart_item_count > 0 %}
+                    <div class="col-xl-3 col-xs-12 col-sm-12 col-md-12 col-lg-4 shipping-total">
+                        <div class="cart-total">
+                            <div class="cart-price">
+                                <span>Subtotal</span>
+                                <span class="total">₦{{ subtotal }} NGN</span>
+                            </div>
+                            <div class="cart-price">
+                                <span>Shipping and Delivery</span>
+                                <span class="total">₦8.90 NGN</span>
+                            </div>
+                            <div class="cart-info">
+                                <h4>Shipping info</h4>
+                                <form>
+                                    <label>Country</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option>---</option>
+                                        <option>Afghanistan</option>
+                                        <option>Åland Islands</option>
+                                        <option>Albania</option>
+                                        <option>Algeria</option>
+                                        <option>Andorra</option>
+                                        <option>Angola</option>
+                                        <option>Anguilla</option>
+                                        <option>Antigua & Barbuda</option>
+                                        <option>Argentina</option>
+                                        <option>Armenia</option>
+                                        <option>Aruba</option>
+                                        <option>Ascension Island</option>
+                                        <option>Australia</option>
+                                        <option>Austria</option>
+                                        <option>Azerbaijan</option>
+                                        <option>Bahamas</option>
+                                        <option>Bahrain</option>
+                                    </select>
+                                    <label>Zip/postal code</label>
+                                    <input type="text" name="code" placeholder="Zip/postal code">
+                                </form>
+                                <a href="javascript:void(0)" class="btn-style3 calculate-btn">Calculate</a>
+                            </div>
+                            <div class="shop-total">
+                                <span>Total</span>
+                                <span class="total-amount">₦78.44 NGN</span>
+                            </div>
+                            <a href="checkout-1.html" class="btn-style1 d-block text-center mt-3 checkout">Checkout</a>
                         </div>
-                        <div class="cart-price">
-                            <span>Shipping and Delivery</span>
-                            <span class="total">₦8.90 NGN</span>
-                        </div>
-                        <div class="cart-info">
-                            <h4>Shipping info</h4>
-                            <form>
-                                <label>Country</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option>---</option>
-                                    <option>Afghanistan</option>
-                                    <option>Åland Islands</option>
-                                    <option>Albania</option>
-                                    <option>Algeria</option>
-                                    <option>Andorra</option>
-                                    <option>Angola</option>
-                                    <option>Anguilla</option>
-                                    <option>Antigua & Barbuda</option>
-                                    <option>Argentina</option>
-                                    <option>Armenia</option>
-                                    <option>Aruba</option>
-                                    <option>Ascension Island</option>
-                                    <option>Australia</option>
-                                    <option>Austria</option>
-                                    <option>Azerbaijan</option>
-                                    <option>Bahamas</option>
-                                    <option>Bahrain</option>
-                                </select>
-                                <label>Zip/postal code</label>
-                                <input type="text" name="code" placeholder="Zip/postal code">
-                            </form>
-                            <a href="javascript:void(0)" class="btn-style3 calculate-btn">Calculate</a>
-                        </div>
-                        <div class="shop-total">
-                            <span>Total</span>
-                            <span class="total-amount">₦78.44 NGN</span>
-                        </div>
-                        <a href="checkout-1.html" class="btn-style1 d-block text-center mt-3 checkout">Checkout</a>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </section>

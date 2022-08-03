@@ -435,20 +435,22 @@
                             {% endwith %}
                         {% endfor %}
                     </ul>
-                    <ul class="subtotal-title-area">
-                        <li class="subtotal-info">
-                            <div class="subtotal-titles">
-                                <h6>Sub total:</h6>
-                                <span class="subtotal-price">₦{{ cart_subtotal }} NGN</span>{# {{ cart_subtotal }} #}
-                            </div>
-                        </li>
-                        <li class="mini-cart-btns">
-                            <div class="cart-btns">
-                                <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
-                                <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
-                            </div>
-                        </li>
-                    </ul>
+                    {% if cart_item_count > 0 %}
+                        <ul class="subtotal-title-area">
+                            <li class="subtotal-info">
+                                <div class="subtotal-titles">
+                                    <h6>Sub total:</h6>
+                                    <span class="subtotal-price">₦{{ cart_subtotal }} NGN</span>{# {{ cart_subtotal }} #}
+                                </div>
+                            </li>
+                            <li class="mini-cart-btns">
+                                <div class="cart-btns">
+                                    <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
+                                    <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endif %}
                 </div>
             {% else %}
                 <div class="mini-cart">
@@ -485,20 +487,22 @@
                             {% endwith %}
                         {% endfor %}
                     </ul>
-                    <ul class="subtotal-title-area">
-                        <li class="subtotal-info">
-                            <div class="subtotal-titles">
-                                <h6>Sub total:</h6>
-                                <span class="subtotal-price">₦{{ cart_subtotal }} NGN</span>{# {{ cart_subtotal }} #}
-                            </div>
-                        </li>
-                        <li class="mini-cart-btns">
-                            <div class="cart-btns">
-                                <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
-                                <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
-                            </div>
-                        </li>
-                    </ul>
+                    {% if cart_item_count > 0 %}
+                        <ul class="subtotal-title-area">
+                            <li class="subtotal-info">
+                                <div class="subtotal-titles">
+                                    <h6>Sub total:</h6>
+                                    <span class="subtotal-price">₦{{ cart_subtotal }} NGN</span>{# {{ cart_subtotal }} #}
+                                </div>
+                            </li>
+                            <li class="mini-cart-btns">
+                                <div class="cart-btns">
+                                    <a href="{% url 'cart' %}" class="btn btn-style1">View cart</a>
+                                    <a href="{% url 'checkout' %}" class="btn btn-style1">Checkout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endif %}
                 </div>
             {% endif %}
             <!-- minicart end -->
