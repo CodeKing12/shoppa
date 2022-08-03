@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from accounts.models import Cart, Wishlist
 from accounts.scripts import get_cart
 from products.models import Product
@@ -6,14 +7,24 @@ from accounts.scripts import add_to_cart, add_to_wishlist, parse_message
 
 def cart(request):
     if request.method == "POST":
-        product_id = request.POST["product_id"]
-        product = Product.objects.get(id=int(product_id))
-        if "add_to_cart" or "cart_this" in request.POST:
-            quantity = request.POST["quantity"][0]
+        if "add_to_cart" in request.POST:
+            print(request.POST)
+            product_id = request.POST["add_to_cart"]
+            product = get_object_or_404(Product, id=int(product_id))
+
+            try:
+                quantity = request.POST["quantity"][0]
+            except KeyError:
+                quantity = "1"
+
             message, message_type = add_to_cart(request=request, product=product, quantity=quantity)
-        elif "add_to_wishlist" or "wish_this" in request.POST:
+            parse_message(request, message, message_type)
+        elif "add_to_wishlist" in request.POST:
+            product_id = request.POST["add_to_wishlist"]
+            product = get_object_or_404(Product, id=int(product_id))
+
             message, message_type = add_to_wishlist(user=request.user, product=product)
-        parse_message(request, message, message_type)
+            parse_message(request, message, message_type)
     if request.user.is_authenticated:
         cart = Cart.objects.get(user=request.user)
         subtotal = 0

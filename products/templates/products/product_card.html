@@ -10,9 +10,10 @@
                 <span class="p-discount">-{{product.percent_off}}%</span>
             </div>
         {% endif %}
-        <form class="pro-icn">
-            <button name="wish-this" value="{{ product.id }}" class="w-c-q-icn"><i class="fa fa-heart"></i></button>
-            <button name="cart-this" value="{{ product.id }}" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></button>
+        <form class="pro-icn" method="post">
+            {% csrf_token %}
+            <button name="add_to_wishlist" value="{{ product.id }}" class="w-c-q-icn"><i class="fa fa-heart"></i></button>
+            <button name="add_to_cart" value="{{ product.id }}" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></button>
             <button href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></button>
         </form>
     </div>
