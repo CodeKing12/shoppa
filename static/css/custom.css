@@ -402,3 +402,12 @@ img.shoppa-logo {
     width: 100%;
     object-fit: cover;
 }
+
+.login-notice a {
+    color: green;
+    opacity: 0.9;
+}
+
+.login-notice:hover a {
+    color: var(--primary)
+}

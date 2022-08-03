@@ -47,6 +47,7 @@ def add_to_cart(request, product, quantity):
     product_id = product.id
     if user.is_authenticated:
         user_cart = Cart.objects.get(user=user)
+        user_wishlist = Wishlist.objects.get_or_create(user=user)[0]
         try:
             the_p = user_cart.cart_products.get(id=product.id)
         except MultipleObjectsReturned:
@@ -71,7 +72,8 @@ def add_to_cart(request, product, quantity):
             quantity = complete_cart.quantity
             message = "Cart Updated Successfully"
             message_type = "success"
-        return message, message_type    
+        user_wishlist.wish_products.remove(product)
+        return message, message_type
     else:
         user_cart = get_cart(request.session)
         message_type = "info"

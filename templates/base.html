@@ -50,6 +50,14 @@
                                     </ul>
                                 </div>
                             </li>
+                            <div class="currency top-wishlist login-notice">
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'logout' %}">Logged in as {{ request.user.email }}</a>
+                                {% else %}
+                                    <a href="{% url 'logout' %}">You're not logged in</a>
+                                {% endif %}
+                            </div>
+
                             <li class="top-home-li">
                                 <!-- login start -->
                                 <div class="currency">
@@ -77,6 +85,7 @@
                                 <div class="currency top-wishlist">
                                     <a href="{% url 'logout' %}">Logout</a>
                                 </div>
+
                                 <!-- currency start -->
                                 {% comment %} <div class="currency">
                                     <div class="currency-drop">
