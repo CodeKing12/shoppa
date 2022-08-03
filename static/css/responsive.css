@@ -506,19 +506,19 @@ idap-pro css
     .list-product .list-items .caption .pro-icn{
         margin-top: 10px;
     }
-    .list-product .list-items .caption .pro-icn a.w-c-q-icn i{
+    .list-product .list-items .caption .pro-icn .w-c-q-icn i{
         width: 35px;
         height: 35px;
         font-size: 14px;
     }
     /* 4-grid product css */
-    .grid-4-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:first-child{
+    .grid-4-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn .w-c-q-icn:first-child{
         margin-right: 5px;
     }
-    .grid-4-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:last-child{
+    .grid-4-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn .w-c-q-icn:last-child{
         margin-left: 5px;
     }
-    .grid-4-product .grid-pro ul.grid-product li.grid-items .tred-pro .pro-icn a.w-c-q-icn i{
+    .grid-4-product .grid-pro ul.grid-product li.grid-items .tred-pro .pro-icn .w-c-q-icn i{
         width: 35px;
         height: 35px;
         font-size: 14px;
@@ -900,17 +900,17 @@ ipad css
     .tred-pro .pro-icn{
         bottom: 10px;
     }
-    .tred-pro .pro-icn a.w-c-q-icn i{
+    .tred-pro .pro-icn .w-c-q-icn i{
         opacity: 1;
         visibility: visible;
     }
-    .tred-pro:hover .pro-icn a.w-c-q-icn:first-child,
-    .tred-pro .pro-icn a.w-c-q-icn:first-child{
+    .tred-pro:hover .pro-icn .w-c-q-icn:first-child,
+    .tred-pro .pro-icn .w-c-q-icn:first-child{
         transform: translateX(0px);
         margin-right: 5px;
     }
-    .tred-pro:hover .pro-icn a.w-c-q-icn:last-child,
-    .tred-pro .pro-icn a.w-c-q-icn:last-child{
+    .tred-pro:hover .pro-icn .w-c-q-icn:last-child,
+    .tred-pro .pro-icn .w-c-q-icn:last-child{
         transform: translateX(0px);
         margin-left: 5px;
     }
@@ -1314,25 +1314,25 @@ ipad css
     .grid-list-area .grid-pro ul.grid-product li.grid-items{
         width: calc(50% - 30px);
     }
-    .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:first-child{
+    .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn .w-c-q-icn:first-child{
         margin-right: 3px;
     }
-    .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:last-child{
+    .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn .w-c-q-icn:last-child{
         margin-left: 3px;
     }
-    .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro .pro-icn a.w-c-q-icn i{
+    .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro .pro-icn .w-c-q-icn i{
         width: 35px;
         height: 35px;
         font-size: 14px;
     }
     /* 2-grid Products css */
-    .grid-2-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:first-child{
+    .grid-2-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn .w-c-q-icn:first-child{
         margin-right: 3px;
     }
-    .grid-2-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:last-child{
+    .grid-2-product .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn .w-c-q-icn:last-child{
         margin-left: 3px;
     }
-    .grid-2-product .grid-pro ul.grid-product li.grid-items .tred-pro .pro-icn a.w-c-q-icn i{
+    .grid-2-product .grid-pro ul.grid-product li.grid-items .tred-pro .pro-icn .w-c-q-icn i{
         width: 35px;
         height: 35px;
         font-size: 14px;
@@ -2172,7 +2172,7 @@ iphone css
         right: -10px;
     }
     /* trending product css */
-    .tred-pro .pro-icn a.w-c-q-icn i{
+    .tred-pro .pro-icn .w-c-q-icn i{
         width: 35px;
         height: 35px;
         font-size: 14px;
@@ -2257,10 +2257,10 @@ iphone css
     .our-products-tab ul.nav.nav-tabs li.nav-item:last-child{
         margin-bottom: 0px;
     }
-    .tred-pro:hover .pro-icn a.w-c-q-icn:first-child{
+    .tred-pro:hover .pro-icn .w-c-q-icn:first-child{
         margin-right: 5px;
     }
-    .tred-pro:hover .pro-icn a.w-c-q-icn:last-child{
+    .tred-pro:hover .pro-icn .w-c-q-icn:last-child{
         margin-left: 5px;
     }
     .tab-product .tred-pro .Pro-lable span.p-text,
@@ -3240,7 +3240,7 @@ iphone css
         height: 96px;
         overflow: hidden;
     }
-    .style-2-list-search-pro-area .search-pro-items .search-caption .pro-icn a.w-c-q-icn i{
+    .style-2-list-search-pro-area .search-pro-items .search-caption .pro-icn .w-c-q-icn i{
         width: 35px;
         height: 35px;
         font-size: 14px;

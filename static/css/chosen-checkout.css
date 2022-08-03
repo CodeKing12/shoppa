@@ -1,0 +1,182 @@
+/* checkout style-1 css */
+.checkout-area{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-left: -30px;
+}
+.checkout-area .billing-area{
+    width: calc(60% - 30px);
+    margin-left: 30px;
+    border: 1px solid #eee;
+}
+.checkout-area .billing-area form h2{
+    font-size: 24px;
+}
+.checkout-area .billing-area form{
+    padding: 20px;
+}
+.checkout-area .billing-area form .billing-form {
+    margin-top: 16px;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul{
+    width: 100%;
+    margin-top: 15px;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul.input-2{
+    display: flex;
+    flex-wrap: wrap;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul:first-child {
+    margin-top: 0px;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul.input-2 li.billing-li{
+    width: calc(50% - 15px);
+    margin-left: 15px;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul.input-2 li.billing-li:first-child{
+    margin-left: 0px;
+    width: calc(50% - 0px);
+    margin-left: 0px;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul li.billing-li input{
+    width: 100%;
+    margin-top: 10px;
+}
+.checkout-area .billing-area form .billing-form ul.billing-ul li.billing-li select{
+    width: 100%;
+    margin-top: 10px;
+}
+.checkout-area .billing-area .billing-details{
+    border-top: 1px solid #eee;
+}
+.checkout-area .billing-area .billing-details form h2{
+    font-size: 24px;  
+}
+.checkout-area .billing-area .billing-details ul.shipping-form {
+    margin-top: 19px;
+}
+.checkout-area .billing-area .billing-details ul.shipping-form li.check-box{
+    display: flex;
+    align-items: center;
+}
+.checkout-area .billing-area .billing-details ul.shipping-form li.check-box input {
+    margin-right: 5px;
+}
+.checkout-area .billing-area .billing-details ul.shipping-form li.comment-area{
+    margin-top: 11px;
+}
+.checkout-area .billing-area .billing-details ul.shipping-form li label{
+    margin-bottom: 0px;
+}
+.checkout-area .billing-area .billing-details ul.shipping-form li textarea{
+    margin-top: 10px;
+    width: 100%;
+}
+.checkout-area .order-area{
+    width: calc(40% - 30px);
+    margin-left: 30px;
+    border: 1px solid #eee;
+}
+.checkout-area .order-area{
+    position: sticky;
+    top: 0px;
+}
+.checkout-area .order-area .check-pro h2{
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.checkout-area .order-area .check-pro ul.check-ul li{
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+}
+.checkout-area .order-area .check-pro ul.check-ul li .check-pro-img{
+    width: 25%;
+}
+.checkout-area .order-area .check-pro ul.check-ul li .check-content{
+    width: 75%;
+    margin-left: 15px;
+}
+.checkout-area .order-area .check-pro ul.check-ul li .check-content a{
+    display: block;
+    font-weight: 600;
+}
+.checkout-area .order-area .check-pro ul.check-ul li .check-content span.check-code-blod{
+    display: block;
+    margin-top: 4px;
+    font-weight: 600;
+}
+.checkout-area .order-area .check-pro ul.check-ul li .check-content span.check-code-blod span{
+    font-weight: 500;
+}
+.checkout-area .order-area .check-pro ul.check-ul li .check-content span.check-price{
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.checkout-area .order-area h2{
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.checkout-area .order-area ul.order-history{
+    padding: 0px 20px;
+}
+.checkout-area .order-area ul.order-history li.order-details{
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.checkout-area .order-area ul.order-history li.order-details:first-child{
+    margin-top: 0px;
+    border: none;
+}
+.checkout-area .order-area ul.order-history li.order-details:last-child{
+    padding-top: 15px;
+    padding-bottom: 14px;
+    margin-top: 14px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.checkout-area .order-area ul.order-history li.order-details:last-child span{
+    font-weight: 600;
+}
+.checkout-area .order-area form{
+    padding: 0px 20px;
+}
+.checkout-area .order-area form ul.order-form {
+    margin-top: 20px;
+}
+.checkout-area .order-area form ul.order-form li{
+    margin-top: 19px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+.checkout-area .order-area form ul.order-form li:first-child{
+    margin-top: 0px;
+}
+.checkout-area .order-area form ul.order-form li input{
+    margin-right: 10px;
+}
+.checkout-area .order-area form ul.order-form label{
+    margin-bottom: 0px;
+}
+.checkout-area .order-area form ul.order-form li.pay-icon a{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.checkout-area .order-area form ul.order-form li.pay-icon a:first-child{
+    margin-left: 0px;
+}
+.checkout-area .order-area .checkout-btn{
+    padding: 28px 20px 20px 20px;
+}
+.checkout-area .order-area .checkout-btn a.btn-style1{
+    display: block;
+    text-align: center;
+}

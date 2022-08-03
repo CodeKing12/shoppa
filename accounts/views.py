@@ -422,4 +422,4 @@ def update_password(request):
             return redirect('home')
 
 def checkout(request):
-    pass
+    return render(request, "accounts/chosen-checkout.html")

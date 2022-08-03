@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page-title %}{{ request.user.first_name }}'s Wishlist{% endblock page-title %}
+
 {% block imports %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/chosen-wishlist.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/wishlist-responsive.css' %}">

@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-title %}{{ request.user.first_name }}'s Cart{% endblock page-title %}
+
+{% block imports %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chosen-checkout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checkout-responsive.css' %}">
+{% endblock imports %}
+
+{% block main-content %}
+    <!-- breadcrumb start -->
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="index5.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-url-li">
+                                {% if request.user.is_authenticated %}
+                                    <a href="#"><span>{{ request.user.first_name }}'s Cart</span></a>
+                                {% else %}
+                                    <a href="#"><span>Your Cart</span></a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb end -->
+
+    <!-- checkout page start -->
+    <section class="section-tb-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="checkout-area">
+                        <div class="billing-area">
+                            <form>
+                                {% with request.user as user %}
+                                    <h2>Billing details</h2>
+                                    <div class="billing-form">
+                                        <ul class="billing-ul input-2">
+                                            <li class="billing-li">
+                                                <label>First name</label>
+                                                <input type="text" name="f-name" placeholder="First name" value="{{ user.first_name }}">
+                                            </li>
+                                            <li class="billing-li">
+                                                <label>Last name</label>
+                                                <input type="text" name="l-name" placeholder="Last name" value="{{ user.last_name }}">
+                                            </li>
+                                        </ul>
+                                        {% comment %} <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>Company name (Optional)</label>
+                                                <input type="text" name="company details" placeholder="Company name">
+                                            </li>
+                                        </ul> {% endcomment %}
+                                        <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>State</label>
+                                                <select>
+                                                    <option>Select a state</option>
+                                                    <option>Lagos</option>
+                                                    <option>Abuja</option>
+                                                    <option>Kaduna</option>
+                                                    <option>Kano</option>
+                                                    <option>Benue</option>
+                                                    <option>Bauchi</option>
+                                                    <option>Delta</option>
+                                                </select>
+                                            </li>
+                                        </ul>
+                                        <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>Street address</label>
+                                                <input type="text" name="address" placeholder="Street address">
+                                            </li>
+                                        </ul>
+                                        {% comment %} <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>Apartment,suite,unit etc. (Optional)</label>
+                                                <input type="text" name="address" placeholder="">
+                                            </li>
+                                        </ul> {% endcomment %}
+                                        <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>Town / City</label>
+                                                <input type="text" name="city" placeholder="">
+                                            </li>
+                                        </ul>
+                                        <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>State</label>
+                                                <input type="text" name="state" placeholder="">
+                                            </li>
+                                        </ul>
+                                        <ul class="billing-ul">
+                                            <li class="billing-li">
+                                                <label>Postcode / ZIP</label>
+                                                <input type="text" name="zip" placeholder="">
+                                            </li>
+                                        </ul>
+                                        <ul class="billing-ul input-2">
+                                            <li class="billing-li">
+                                                <label>Email address</label>
+                                                <input type="email" name="email" placeholder="Email address" value="{{ user.email }}">
+                                            </li>
+                                            <li class="billing-li">
+                                                <label>Phone</label>
+                                                <input type="tel" name="phone" placeholder="Phone" value="{{ user.phone_number }}">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                {% endwith %}
+                            </form>
+                            <div class="billing-details">
+                                <form>
+                                    <h2>Shipping Details</h2>
+                                    <ul class="shipping-form">
+                                        {% comment %} <li class="check-box">
+                                            <input type="checkbox" name="--">
+                                            <label>Ship to a different address?</label>
+                                        </li> {% endcomment %}
+                                        <li class="comment-area">
+                                            <label>Order notes(Optional)</label>
+                                            <textarea class="py-3" name="comments" rows="10" cols="80"></textarea>
+                                        </li>
+                                    </ul>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        <div class="order-area">
+                            <div class="check-pro">
+                                <h2>In your cart ({{ cart_item_count }})</h2>
+                                <ul class="check-ul">
+                                    {% if request.user.is_authenticated %}
+                                        {% for item in user_cart.cartdetails_set.all %}
+                                            {% with item.product as product and item.quantity as quantity %}
+                                                <li>
+                                                    <div class="check-pro-img">
+                                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
+                                                    </div>
+                                                    <div class="check-content">
+                                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                                        <span class="check-code-blod">Product code: <span>CA70051541B</span></span>
+                                                        <span class="check-price">{{ product.price }} x {{ quantity }}</span>
+                                                    </div>
+                                                </li>
+                                            {% endwith %}
+                                        {% endfor %}
+                                    {% else %}
+                                        {% for item in user_cart.items %}
+                                            {% with item.product as product and item.quantity as quantity %}
+                                                <li>
+                                                    <div class="check-pro-img">
+                                                        <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid" alt="image"></a>
+                                                    </div>
+                                                    <div class="check-content">
+                                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                                        <span class="check-code-blod">Product code: <span>CA70051541B</span></span>
+                                                        <span class="check-price">{{ product.price }} x {{ quantity }}</span>
+                                                    </div>
+                                                </li>
+                                            {% endwith %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <form>
+                                <ul class="order-form">
+                                    <li>
+                                        <input type="radio" name="--">
+                                        <label>Direct Bank Transfer</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="--">
+                                        <label>Cheque Payment</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="--">
+                                        <label>Paypal</label>
+                                    </li>
+                                    <li class="pay-icon">
+                                        <a href="javascript:void(0)"><i class="fa fa-credit-card"></i></a>
+                                        <a href="javascript:void(0)"><i class="fa fa-cc-visa"></i></a>
+                                        <a href="javascript:void(0)"><i class="fa fa-cc-paypal"></i></a>
+                                        <a href="javascript:void(0)"><i class="fa fa-cc-mastercard"></i></a>
+                                    </li>
+                                </ul>
+                            </form>
+                            <div class="checkout-btn">
+                                <a href="javascript:void(0)" class="btn-style3">Place order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- checkout page end -->
+{% endblock main-content %}

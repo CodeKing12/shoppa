@@ -420,3 +420,12 @@ img.shoppa-logo {
 .unbutton {
     background-color: transparent;
 }
+
+.check-pro .check-ul .check-pro-img img {
+    height: 120px;
+    object-fit: cover;
+}
+
+.checkout-area .order-area .check-pro ul.check-ul li .check-content {
+    margin: auto 0 auto 17px;
+}
