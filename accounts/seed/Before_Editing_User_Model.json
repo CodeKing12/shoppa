@@ -1,0 +1,163 @@
+[
+{
+    "model": "accounts.cart",
+    "pk": 3,
+    "fields": {
+        "date_created": "2022-07-31T22:31:50.146Z"
+    }
+},
+{
+    "model": "accounts.cartdetails",
+    "pk": 36,
+    "fields": {
+        "cart": 3,
+        "product": 259,
+        "quantity": 1,
+        "color": "#ffffff"
+    }
+},
+{
+    "model": "accounts.cartdetails",
+    "pk": 37,
+    "fields": {
+        "cart": 3,
+        "product": 251,
+        "quantity": 1,
+        "color": "#ffffff"
+    }
+},
+{
+    "model": "accounts.wishlist",
+    "pk": 1,
+    "fields": {
+        "date_created": "2022-08-01T08:47:30.980Z",
+        "wish_products": []
+    }
+},
+{
+    "model": "accounts.wishlist",
+    "pk": 3,
+    "fields": {
+        "date_created": "2022-07-31T22:32:07.321Z",
+        "wish_products": [
+            255,
+            258
+        ]
+    }
+},
+{
+    "model": "accounts.customaccount",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$w7soEuUiDNTAlkFt7DhuYC$WoTczYFZwoBABKh5nFQjQ7Y1EKtmJh9PUFS1y/tjGZU=",
+        "last_login": "2022-07-31T21:56:08.891Z",
+        "first_name": "Eyetu",
+        "last_name": "Kingsley",
+        "email": "eyetukingsley330@gmail.com",
+        "username": null,
+        "phone_number": "07035991721",
+        "date_joined": "2022-07-28T17:40:40.804Z",
+        "address": "",
+        "is_active": true,
+        "is_staff": true,
+        "is_superuser": true,
+        "is_apiuser": true,
+        "is_vendor": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.customaccount",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$6A6MhsJ3JfOq4e162XRPte$HJkHY+lGu216HayierU0MXeeJkfwH8ifiOqpebrAh/Y=",
+        "last_login": null,
+        "first_name": "Test",
+        "last_name": "User",
+        "email": "kingsleyeyetu873@gmail.com",
+        "username": null,
+        "phone_number": "+128792339",
+        "date_joined": "2022-07-31T00:41:07.260Z",
+        "address": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "is_apiuser": false,
+        "is_vendor": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.customaccount",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$320000$sVaoGIWQFXSyLIhLdIkvrv$f20hCt+wRCKySWTxAvHLgc5SRLCgT9tCe5JsNlvZmYU=",
+        "last_login": "2022-08-03T21:36:02.808Z",
+        "first_name": "Final",
+        "last_name": "Test",
+        "email": "ithink@mail.com",
+        "username": null,
+        "phone_number": "998219823",
+        "date_joined": "2022-07-31T00:45:56.036Z",
+        "address": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "is_apiuser": false,
+        "is_vendor": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.apiuser",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "product_groups": {
+            "featured": [
+                50,
+                242,
+                262,
+                48,
+                239,
+                258,
+                46,
+                235,
+                257,
+                45,
+                233,
+                255,
+                41,
+                230,
+                253,
+                40,
+                223,
+                251
+            ],
+            "discounted": [
+                48,
+                240,
+                260,
+                47,
+                238,
+                259,
+                40,
+                225,
+                258,
+                42,
+                218,
+                257,
+                29,
+                208,
+                255,
+                24,
+                204,
+                250
+            ]
+        }
+    }
+}
+]

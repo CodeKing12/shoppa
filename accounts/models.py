@@ -135,6 +135,14 @@ class ApiUser(models.Model):
             raise ValueError
         super(ApiUser, self).save(*args, **kwargs)
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    state = models.CharField(max_length=100, blank=True)
+    city = models.CharField(max_length=200, blank=True)
+    street = models.CharField(max_length=300, blank=True)
+    postcode = models.IntegerField(blank=True)
+
+
 # from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
 # from products.models import *
 # user = CustomAccount.objects.get(email='ithink@mail.com')
@@ -145,3 +153,6 @@ class ApiUser(models.Model):
 # p3 = Product.objects.get(id=5)
 # p4 = Product.objects.get(id=6)
 # cd1 = CartDetails.objects.get(cart=cart, product=p1)
+
+# Add a orders model to track a user's orders 
+# Add a order-code field to track each product in the cart (for checkout and for the orders page.)

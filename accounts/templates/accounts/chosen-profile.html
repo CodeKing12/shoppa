@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-title %}{{ request.user.first_name }}'s Dashboard{% endblock page-title %}
+
+{% block imports %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chosen-profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile-responsive.css' %}">
+{% endblock imports %}
+
+{% block main-content %}
+    <!-- breadcrumb start -->
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="index5.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-url-li">
+                                {% if request.user.is_authenticated %}
+                                    <a href="#"><span>{{ request.user.first_name }}'s Profile</span></a>
+                                {% else %}
+                                    <a href="#"><span>Your Profile</span></a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb end -->
+
+    <!-- order history start -->
+    <section class="order-histry-area section-tb-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="order-history">
+                        {% include 'accounts/profile-tabs.html' %}
+                        <div class="profile-form">
+                            <form>
+                                <ul class="pro-input-label">
+                                    <li>
+                                        <label>First name</label>
+                                        <input type="text" name="name" placeholder="First name">
+                                    </li>
+                                    <li>
+                                        <label>Last name</label>
+                                        <input type="text" name="name" placeholder="Last name">
+                                    </li>
+                                </ul>
+                                <ul class="pro-input-label">
+                                    <li>
+                                        <label>E-mail address</label>
+                                        <input type="text" name="name" placeholder="E-mail address" required>
+                                    </li>
+                                    <li>
+                                        <label>Phone number</label>
+                                        <input type="text" name="name" placeholder="Phone number">
+                                    </li>
+                                </ul>
+                                <ul class="pro-input-label">
+                                    <li>
+                                        <label>New password</label>
+                                        <input type="text" name="name" placeholder="New password">
+                                    </li>
+                                    <li>
+                                        <label>Confirm password</label>
+                                        <input type="text" name="name" placeholder="Confirm password">
+                                    </li>
+                                </ul>
+                                <ul class="pro-submit">
+                                    <li>
+                                        <input type="checkbox" name="name">
+                                        <label>Subscribe me to newsletter</label>
+                                    </li>
+                                    <li>
+                                        <a href="profile.html" class="btn btn-style1">Update profile</a>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- order history end -->
+
+{% endblock main-content %}

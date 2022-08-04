@@ -176,5 +176,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 26
 
 SESSION_SAVE_EVERY_REQUEST = False
 
+LOGIN_URL = "login_page"
+
 
 # Former logo color : #76b39d

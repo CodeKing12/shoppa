@@ -11,6 +11,7 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from accounts.decorators import insert_cart
@@ -197,7 +198,6 @@ def wishlist(request):
     return render(request, 'accounts/chosen-wishlist.html', {'wishlist': user_wishlist})
 
 # @csrf_protect
-@csrf_exempt
 def login_view(request):
     if request.method == 'POST':
         login_details = LoginForm(request.POST)
@@ -238,10 +238,15 @@ def login_view(request):
 def user_dashboard(request):
     if request.user.is_authenticated:
         user_details = CustomAccount.objects.get(email=request.user.email)
-        return render(request, "accounts/dashboard.html", context={"user": user_details})
+        return render(request, "accounts/chosen-profile.html", context={"user": user_details})
     elif not request.user.is_authenticated:
         messages.warning(request, message="You have to log in to view your dashboard")
         return redirect('login_page')
+
+@login_required
+def user_address(request):
+    user_details = CustomAccount.objects.get(email=request.user.email)
+    return render(request, "accounts/chosen-address.html", context={"user": user_details})
 
 def logout_user(request):
     if request.user.is_authenticated:

@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="profile">
+    <div class="order-pro">
+        <div class="pro-img">
+            <a href="javascript:void(0)"><img src="{% static 'image/pexels-rodion-kutsaiev-7911758.jpg' %}" alt="img" class="img-fluid"></a>
+        </div>
+        <div class="order-name">
+            <h4>Andrew louise</h4>
+            <span>Joined April 06, 2021</span>
+        </div>
+    </div>
+    <div class="order-his-page">
+        <ul class="profile-ul">
+            <li class="profile-li"><a href="order-history.html"><span>Orders</span> <span class="pro-count">5</span></a></li>
+            <li class="profile-li"><a href="{% url 'dashboard' %}" class="active">Profile</a></li>
+            <li class="profile-li"><a href="{% url 'address' %}">Address</a></li>
+            <li class="profile-li"><a href="{% url 'wishlist' %}"><span>Wishlist</span> <span class="pro-count">{{ wishlist_item_count }}</span></a></li>
+            <li class="profile-li"><a href="pro-tickets.html"><span>My tickets</span> <span class="pro-count">4</span></a></li>
+        </ul>
+    </div>
+</div>
