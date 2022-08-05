@@ -431,3 +431,9 @@ def update_password(request):
 
 def checkout(request):
     return render(request, "accounts/chosen-checkout.html")
+
+def order_history(request):
+    return render(request, "accounts/chosen-history.html")
+
+def support_tickets(request):
+    return render(request, "accounts/chosen-tickets.html")

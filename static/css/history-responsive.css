@@ -1,0 +1,32 @@
+@media (max-width: 991px) {
+    /* order history page css */
+    .order-histry-area .order-history .profile {
+        width: calc(100% - 30px);
+    }
+    .order-histry-area .order-history .order-info {
+        width: calc(100% - 30px);
+        margin-top: 30px;
+    }
+    /* profile wishlist page css */
+    .order-histry-area .order-history .profile-tickets {
+        width: calc(100% - 30px);
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 479px) {
+    /* order history page css */
+    .order-histry-area .order-history .order-info {
+        overflow-x: auto;
+    }
+    .order-histry-area .order-history .order-info .table {
+        min-width: 540px;
+    }
+    /* tickets page css */
+    .order-histry-area .order-history .profile-tickets {
+        overflow-x: auto;
+    }
+    .order-histry-area .order-history .profile-tickets .table {
+        min-width: 630px;
+    }
+}

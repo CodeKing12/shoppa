@@ -12,11 +12,13 @@
     </div>
     <div class="order-his-page">
         <ul class="profile-ul">
-            <li class="profile-li"><a href="order-history.html"><span>Orders</span> <span class="pro-count">5</span></a></li>
-            <li class="profile-li"><a href="{% url 'dashboard' %}" class="active">Profile</a></li>
-            <li class="profile-li"><a href="{% url 'address' %}">Address</a></li>
-            <li class="profile-li"><a href="{% url 'wishlist' %}"><span>Wishlist</span> <span class="pro-count">{{ wishlist_item_count }}</span></a></li>
-            <li class="profile-li"><a href="pro-tickets.html"><span>My tickets</span> <span class="pro-count">4</span></a></li>
+            {% with request.resolver_match.url_name as url_name %}
+                <li class="profile-li"><a href="{% url 'order_history' %}" class=" {% if url_name == 'order_history' %} active {% endif %} "><span>Orders</span> <span class="pro-count">5</span></a></li>
+                <li class="profile-li"><a href="{% url 'dashboard' %}" class=" {% if url_name == 'dashboard' %} active {% endif %} ">Profile</a></li>
+                <li class="profile-li"><a href="{% url 'address' %}" class=" {% if url_name == 'address' %} active {% endif %} ">Address</a></li>
+                <li class="profile-li"><a href="{% url 'wishlist' %}" class=" {% if url_name == 'wishlist' %} active {% endif %} "><span>Wishlist</span> <span class="pro-count">{{ wishlist_item_count }}</span></a></li>
+                <li class="profile-li"><a href="{% url 'support_tickets' %}" class=" {% if url_name == 'support_tickets' %} active {% endif %} "><span>My tickets</span> <span class="pro-count">4</span></a></li>
+            {% endwith %}
         </ul>
     </div>
 </div>

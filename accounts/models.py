@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import BaseUserManager, AbstractUser, PermissionsMixin
@@ -7,6 +6,32 @@ from colorfield.fields import ColorField
 from django.core.validators import RegexValidator
 
 from products.models import Product
+
+ORDER_STATUS_CHOICES = [
+    ("Delivered", "Completed"),
+    ("In Progress", "In Progress"),
+    ("Delayed", "Delayed"),
+    ("Cancelled", "Cancelled")
+]
+
+TICKET_TYPE_CHOICES = [
+    ("Website Issues", "Website Issues"),
+    ("Complaint", "Complaint"),
+    ("Inquiry", "Inquiry"),
+    ("Order Issues", "Order Issues"),
+]
+
+TICKET_PRIORITY_CHOICES = [
+    ("Low", "Low"),
+    ("Medium", "Medium"),
+    ("High", "High"),
+    ("Urgent", "Urgent"),
+]
+
+TICKET_STATUS_CHOICES = [
+    ("Open", "Open"),
+    ("Closed", "Closed")
+]
 
 # Remember to remove the blank=true from important model fields before you go live
 
@@ -136,12 +161,27 @@ class ApiUser(models.Model):
         super(ApiUser, self).save(*args, **kwargs)
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     state = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=200, blank=True)
     street = models.CharField(max_length=300, blank=True)
     postcode = models.IntegerField(blank=True, default=000000)
 
+class UserOrders(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
+    total = models.IntegerField()
+    date_purchased = models.DateTimeField(default=timezone.now)
+    # order_number = # Generate an alphanumeric value here
+    status = models.CharField(max_length=100, choices=ORDER_STATUS_CHOICES)
+
+class UserTickets(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
+    subject = models.CharField(max_length = 250)
+    date_submitted = models.DateTimeField(default=timezone.now)
+    ticket_type = models.CharField(max_length=100, choices=TICKET_TYPE_CHOICES)
+    priority = models.CharField(max_length=100, choices=TICKET_PRIORITY_CHOICES)
+    status = models.CharField(max_length=100, choices=TICKET_STATUS_CHOICES)
+    
 
 # from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
 # from products.models import *

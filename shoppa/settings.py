@@ -186,6 +186,8 @@ LOGIN_URL = "login_page"
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+WHITENOISE_MANIFEST_STRICT = False
+
 import django_heroku
 django_heroku.settings(locals())
 
