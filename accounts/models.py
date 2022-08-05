@@ -4,6 +4,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractUser, Permission
 from django.conf import settings
 from colorfield.fields import ColorField
 from django.core.validators import RegexValidator
+import secrets, string, random
 
 from products.models import Product
 
@@ -32,6 +33,10 @@ TICKET_STATUS_CHOICES = [
     ("Open", "Open"),
     ("Closed", "Closed")
 ]
+
+def alpha_numeric(length):
+    order_num = ''.join(secrets.choice(string.ascii_uppercase + string.digits) for x in range(length))
+    return order_num
 
 # Remember to remove the blank=true from important model fields before you go live
 
@@ -171,8 +176,15 @@ class UserOrders(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     total = models.IntegerField()
     date_purchased = models.DateTimeField(default=timezone.now)
-    # order_number = # Generate an alphanumeric value here
+    order_number = models.CharField(max_length=12, unique=True)# Generate an alphanumeric value here
     status = models.CharField(max_length=100, choices=ORDER_STATUS_CHOICES)
+
+    def save(self, *args, **kwargs):
+        order_number = self.order_number
+        if len(order_number) != 12 and type(order_number) != str:
+            alpha_num = alpha_numeric(12)
+            self.order_number = str(alpha_num)
+        super(UserOrders, self).save(*args, **kwargs)
 
 class UserTickets(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
