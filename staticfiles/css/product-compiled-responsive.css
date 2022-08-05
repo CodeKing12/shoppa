@@ -1,0 +1,168 @@
+/* one199, nine91, seven67 four79 */
+@media (max-width: 1599px) {
+}
+
+@media (max-width: 1359px) {
+}
+
+/*=====================================
+idap-pro css
+======================================*/
+@media (max-width: 1199px){
+    /* product page css */
+    .pro-releted .section-title h2{
+        font-size: 24px;
+    }
+    .pro-page .pro-image .pro-info h4{
+        font-size: 18px;
+    }
+    .pro-page .pro-shipping {
+        display: flex;
+    }
+    .pro-page .pro-shipping .product-service {
+        width: 33.33%;
+        margin-left: 30px;
+    }
+    .pro-page .pro-shipping .product-service:first-child {
+        margin-top: 30px;
+        margin-left: 0px;
+    }
+}
+
+/*=====================================
+ipad css
+======================================*/
+@media (max-width: 991px){
+    /* product page css */
+    .pro-releted .section-title h2{
+        font-size: 20px;
+    }
+    .pro-page .pro-image .pro-info h4{
+        font-size: 16px;
+    }
+    .pro-page .pro-image .pro-info .pro-btn a.btn-style1 {
+        padding: 9px 20px;
+    }
+    .pro-page .pro-shipping .product-service {
+        padding: 15px;
+        margin-left: 15px;
+    }
+    .pro-page .pro-shipping .product-service .icon-title span {
+        font-size: 25px;
+    }
+    .pro-page .pro-shipping .product-service .icon-title h4 {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    .pro-page .pro-shipping .product-service p {
+        font-size: 13px;
+        margin-top: 12px;
+    }
+}
+
+/*=====================================
+iphone css
+======================================*/
+@media (max-width: 767px){
+    /* product page css product css */
+    .pro-releted .section-title h2{
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    .pro-page .pro-image{
+        flex-direction: column;
+    }
+    .pro-info{
+        padding-right: 15px;
+        margin-top: 15px;
+    }
+    .pro-page .pro-image .pro-info .pro-price span.new-price{
+        font-size: 14px;
+    }
+    .pro-page .pro-shipping {
+        flex-direction: column;
+    }
+    .pro-page .pro-shipping .product-service {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .pro-page .pro-shipping .product-service:first-child {
+        width: 100%;
+    }
+    .pro-page-content .pro-page-tab ul.nav.nav-tabs{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .pro-page-content .pro-page-tab ul.nav.nav-tabs li.nav-item{
+        margin: 0 auto;
+        padding-bottom: 10px;
+    }
+    .pro-page-content .pro-page-tab ul.nav.nav-tabs li.nav-item:last-child{
+        margin: auto;
+        padding-bottom: 0px;
+    }
+    .pro-page-content .pro-page-tab .tab-content .tab-pane .tab-1content h4{
+        font-size: 14px;
+    }
+    .pro-page-content .pro-page-tab .tab-content .tab-pane h4.reviews-title{
+        text-align: center;
+    }
+    .pro-page-content .pro-page-tab .tab-content .tab-pane .customer-reviews.t-desk-2{
+        text-align: center;
+    }
+    .pro-page-content .pro-page-tab .tab-content .tab-pane .tab-1content ul.tab-description li{
+        font-size: 13px;
+    }
+}
+
+
+/* mobie css */
+@media (max-width: 479px) {
+    /* product tab css */
+    .pro-tab .tab-title ul.nav.nav-tabs {
+        margin-bottom: 30px;
+        flex-direction: column;
+        margin-top: -9px;
+        text-align: center;
+    }
+    .pro-tab .tab-title ul.nav.nav-tabs li.nav-item {
+        margin-right: 0px;
+        margin-top: 9px;
+    }
+    .pro-tab .tab-title ul.nav.nav-tabs li.nav-item a.nav-link {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 320px) {
+}
+
+@media (max-width: 575px) {
+}
+
+@media (max-width: 670px) {
+}
+
+@media (max-width: 370px) {
+}
+
+@media (max-width: 820px) {
+
+}
+
+@media (min-width: 479px) and (max-width: 768px) {
+}
+
+@media (max-width: 531px) {
+}
+
+@media (max-width: 422px) {
+}
+
+@media (min-width: 830px) and (max-width: 978px) {
+}
+
+@media (min-width: 565px) and (max-width: 699px) {
+}

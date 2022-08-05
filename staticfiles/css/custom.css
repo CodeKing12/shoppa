@@ -1,0 +1,431 @@
+/* fallback */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 600;
+    src: url(google-icons.woff2) format('woff2');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -moz-font-feature-settings: 'liga';
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #fff;
+}
+
+/* breadcumb css */
+.breadcrumb-area{
+    background-color: #f0f0fa;
+    padding: 15px 0px;
+}
+.breadcrumb-area .breadcrumb-start ul.breadcrumb-url{
+    display: flex;
+    align-items: center;
+}
+.breadcrumb-area .breadcrumb-start ul.breadcrumb-url li.breadcrumb-url-li a{
+    color: #717171;
+    padding-right: 8px;
+    margin-right: 6px;
+    border-right: 1px solid #d6d6d6;
+}
+.breadcrumb-area .breadcrumb-start ul.breadcrumb-url li.breadcrumb-url-li span{
+    color: #9d0208;
+    font-size: 14px;
+}
+
+.images-nav {
+    border: unset;
+}
+
+.images-nav li {
+    width: 100px;
+    height: 100px !important;
+    border: unset;
+}
+
+.images-nav li a {
+    border: unset !important;
+}
+
+.images-nav .nav-link.active {
+    border: unset !important;
+}
+
+img.shoppa-logo {
+    width: 170px !important;
+    height: auto;
+}
+
+.brand-color {
+    color: #9d0208;
+}
+
+.w-25px {
+    width: 25px;
+}
+
+.undo-rotate {
+    transform: rotate(0deg) !important;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 65px;
+    column-gap: 10px;
+}
+
+.products-grid .items {
+    width: 210px;
+    /* margin: 0 auto; */
+}
+
+.products-grid .items:last-child {
+    margin-left: 45px;
+    margin-right: auto
+}
+
+.home-slider-2 .items.third-slide h1 {
+    color: white;
+}
+
+.organic-food-fresh-banner {
+    height: 240px;
+}
+
+.organic-food-fresh-banner img {
+    object-fit: cover;
+}
+
+.organic-food-fresh-banner img, .organic-food-fresh-banner .offer-banner, .organic-food-fresh-banner .banner-hover {
+    height: 100%;
+}
+
+.game-banner .banner-content span {
+    color: wheat !important;
+}
+
+.game-banner .banner-content h2 {
+    color: white;
+}
+
+.game-banner .banner-content a {
+    color: wheat !important;
+}
+
+.news-letter .news-content h4, .news-letter .news-content span {
+    color: white;
+}
+
+.fields_table table thead {
+    background-color: #9d0208;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+.fields_table table thead th {
+    padding: 8px 10px;
+}
+
+.fields_table table {
+    margin: 0 auto;
+}
+
+.fields_table table tbody tr {
+    border: 2px solid #9d0208;
+    font-weight: 600;
+    font-size: 14.3px;
+}
+
+.fields_table table tbody tr td {
+    padding: 11px 5px 11px 20px;
+    border: 2px solid #9d0208;
+}
+
+.tab-1content .tab-description {
+        line-height: 27px;
+}
+
+.pro-page .pro-image .larg-image a.long-img {
+    cursor: pointer;
+}
+
+.pro-page .pro-image .larg-image a.long-img img {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
+}
+
+.images-nav .items .nav-link img {
+    width: 110px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.pay-img img {
+    width: 30px;
+    height: 30px;
+    margin-right: 14px;
+}
+
+.notyf__message {
+    font-size: 14.5px !important;
+    font-weight: 500;
+}
+
+.notyf__toast {
+    max-width: 80vw;
+}
+
+.notyf__ripple {
+    width: 90vw;
+}
+
+.qty-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wish-btn {
+    background-color: #fff;
+    color: #9d0208;
+    border: 2px solid #9d0208;
+    font-size: 14px;
+    padding: 5px 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.wish-btn:hover {
+    color: #fff;
+    background-color: #9d0208;
+}
+
+.cancel-button {
+    width: fit-content;
+    margin: 0 20px;
+    background-color: transparent;
+    /* margin: 0 auto; */
+}
+
+.cancel-button span {
+    font-size: 31px;
+}
+
+.cancel-button:hover {
+    color: var(--primary)
+}
+
+.wishlist-pro-image a img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.other-link .c-link {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.other-link .c-link li:first-child {
+    order: 2
+}
+
+.wishlist-area .wishlist-details .wishlist-all-pro .wishlist-pro .pro-details, .cart-area .cart-details .cart-all-pro .cart-pro .pro-details {
+    height: fit-content;
+    margin: auto 7px;
+}
+
+.pro-details .rating .c-star {
+    color: #ffb503;
+}
+
+.pro-details .rating .fa-star-o {
+    color: #ccc;
+}
+
+.wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn.buy-btn {
+    order: 1;
+}
+
+.wishlist-area .wishlist-details .wishlist-all-pro .qty-item .wish-btn {
+    order: 2;
+}
+
+@media (max-width: 500px) {
+    .wishlist-area .wishlist-details .wishlist-all-pro .all-pro-price {
+        width: max-content;
+    }
+
+    .wishlist-area .wishlist-details .wishlist-all-pro .qty-item {
+        width: fit-content;
+    }
+}
+
+@media (min-width: 767px) {
+    .cancel-button {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 300px) {
+    .wishlist-area .wishlist-details .wishlist-all-pro .all-pro-price {
+        margin-top: 10px;
+    }
+
+    .cancel-button {
+        margin-top: 10px;
+    }
+}
+
+.wishlist-page, .cart-page {
+    padding-top: 60px;
+}
+
+.cart-all-pro .cart-pro-image a img {
+    /* width: 100px; */
+    min-width: 120px;
+    max-width: 120px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cart-all-pro .qty-item .center {
+    display: flex;
+    gap: 15px
+}
+
+.cart-all-pro .all-pro-price {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+}
+
+.cart-all-pro .all-pro-price .old-price {
+    color: #999;
+}
+
+.calculate-btn {
+    padding: 5px 15px;
+    margin: 15px auto;
+    display: block;
+    width: fit-content;
+}
+
+.del-btn {
+    display: none;
+    padding: 6px 16px;
+}
+
+.del-icon {
+    display: flex;
+}
+
+@media (max-width: 991px) {
+    .del-btn {
+        display: flex;
+    }
+
+    .del-icon {
+        display: none;
+    }
+}
+
+.del-icon {
+    color: #9d0208;
+    padding: 4px;
+    font-size: 17px;
+}
+
+.del-icon:hover {
+    color:#222;
+}
+
+@media (max-width: 400px) {
+    .cart-area .cart-details .cart-all-pro .qty-item {
+        width: 100%;
+        order: 3
+    }
+    .cart-area .cart-details .cart-all-pro .all-pro-price {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: space-between;
+        margin-bottom: 9px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .del-btn {
+        display: flex;
+    }
+
+    .del-icon {
+        display: none;
+    }
+}
+
+.pro-details h4 a {
+    line-height: 23px;
+}
+
+.wishlist-all-pro .wishlist-pro-image a img {
+    /* width: 100px; */
+    min-width: 120px;
+    max-width: 120px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cart-img a {
+    height: 100%;
+    width: 100%;
+}
+
+.side-cart-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.login-notice a {
+    color: green;
+    opacity: 0.9;
+}
+
+.login-notice:hover a {
+    color: var(--primary)
+}
+
+.unbutton {
+    background-color: transparent;
+}
+
+.check-pro .check-ul .check-pro-img img {
+    height: 120px;
+    object-fit: cover;
+}
+
+.checkout-area .order-area .check-pro ul.check-ul li .check-content {
+    margin: auto 0 auto 17px;
+}

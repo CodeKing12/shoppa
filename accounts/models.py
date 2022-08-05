@@ -140,7 +140,7 @@ class UserProfile(models.Model):
     state = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=200, blank=True)
     street = models.CharField(max_length=300, blank=True)
-    postcode = models.IntegerField(blank=True, default=000000, max_length=6)
+    postcode = models.IntegerField(blank=True, default=000000)
 
 
 # from accounts.models import Wishlist, Cart, CartDetails, CustomAccount

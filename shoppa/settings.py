@@ -24,13 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w@va15epbfkyb05dch0(h_g6gb@l7g=_66c7zwyr*9kz=oj8_%'
+# SECRET_KEY = 'django-insecure-w@va15epbfkyb05dch0(h_g6gb@l7g=_66c7zwyr*9kz=oj8_%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+env_debug = env("DEBUG")
+if env_debug == "True" or env_debug == "true":
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -54,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -145,6 +149,8 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -177,6 +183,8 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 26
 SESSION_SAVE_EVERY_REQUEST = False
 
 LOGIN_URL = "login_page"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 import django_heroku
 django_heroku.settings(locals())

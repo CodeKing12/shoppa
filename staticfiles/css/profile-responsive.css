@@ -1,0 +1,105 @@
+@media (max-width: 991px) {
+    /* profile page css */
+    .order-histry-area .order-history .profile-form {
+        width: calc(100% - 30px);
+        margin-top: 25px;
+    }
+    /* address page css */
+    .address-title h1{
+        font-size: 20px;
+    }
+    .add-area .add-title h4{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* address page css */
+    .add-area .address-content ul.address-input{
+        flex-direction: column;
+    }
+    .add-area .address-content ul.address-input li.type-add{
+        width: calc(100% - 30px);
+        margin-top: 15px;
+    }
+    .add-area .address-content label.check{
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+    .add-area .address-content .add-link{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 479px) {
+    /* profile page css */
+    .order-histry-area .order-history .profile-form form {
+        margin-top: -15px;
+    }
+    .order-histry-area .order-history .profile-form form ul.pro-input-label {
+        margin-top: 0px;
+    }
+    .order-histry-area .order-history .profile-form form ul.pro-input-label li {
+        width: calc(100% - 30px);
+        margin-top: 15px;
+    }
+    .order-histry-area .order-history .profile-form form ul.pro-submit {
+        flex-direction: column;
+        padding-top: 28px;
+    }
+    .order-histry-area .order-history .profile-form form ul.pro-submit li {
+        margin-top: 24px;
+    }
+    .order-histry-area .order-history .profile-form form ul.pro-submit li:first-child {
+        margin-top: 0px;
+    }
+}
+
+
+
+/* Additional Styling I might have forgot to include in another page. */
+@media (max-width: 767px) {
+    /* billing page css */
+    .billing-area .billing-title{
+        margin-top: 8px;
+    }
+    .billing-area .billing-title:first-child{
+        margin-top: 0px;
+    }
+    .billing-area .billing-title h4{
+        font-size: 16px;
+    }
+    .billing-area .billing-address-1 ul.add-name{
+        margin-left: 0px;
+    }
+    .billing-area .billing-address-1 ul.add-name li.billing-name{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .billing-area .billing-address-1 ul.billing-locatio{
+        margin-left: 0px;
+    }
+    .billing-area .billing-address-1 ul.billing-locatio li.billing-info{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .billing-area .billing-address-1 ul.country-info{
+        margin-left: 0px;
+    }
+    .billing-area .billing-address-1 ul.country-info li.billing-country{
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 15px;
+    }
+    .billing-area .next-button {
+        margin-top: 15px;
+    }
+    .billing-area .next-button a{
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    /* cancellation page css */
+    .cancellation-title h1{
+        font-size: 18px;
+    }
+}
