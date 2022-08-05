@@ -178,5 +178,7 @@ SESSION_SAVE_EVERY_REQUEST = False
 
 LOGIN_URL = "login_page"
 
+import django_heroku
+django_heroku.settings(locals())
 
 # Former logo color : #76b39d
