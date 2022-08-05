@@ -1807,7 +1807,7 @@ button.navbar-toggler span.line::after{
 .tred-pro .pro-icn .w-c-q-icn:last-child{
     transform: translateX(-40px);
 }
-.tred-pro:hover .pro-icn .w-c-q-icn:first-child{
+.tred-pro:hover .pro-icn .w-c-q-icn:nth-child(2){
     margin-right: 15px;
 }
 .tred-pro:hover .pro-icn .w-c-q-icn:last-child{

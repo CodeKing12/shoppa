@@ -144,11 +144,10 @@
                                                 </a>
                                                 <ul class="dropdown-submenu mega-menu collapse" id="collapse-top-mega-menu">
                                                     <li class="megamenu-li parent">
-                                                        <h2 class="sublink-title">Laptops</h2>
-                                                        <a href="#collapse-top-sub-mega-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                            <span>Laptops</span>
-                                                            <i class="fa fa-angle-down"></i>
-                                                        </a>
+                                                        <h2 class="sublink-title"><a href="{% url 'category' 'laptops' %}">Laptops</a></h2>
+                                                        {% comment %} <a href="#collapse-top-sub-mega-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="{% url 'category' 'laptops' %}"><span>Laptops</span></a>
+                                                        </a> {% endcomment %}
                                                         <ul class="dropdown-supmenu collapse" id="collapse-top-sub-mega-menu">
                                                             <li class="supmenu-li"><a href="{% url 'field_products' 'laptops' 'manufacturer' 'hewlett-packard' %}">Hewlett Packard</a></li>
                                                             <li class="supmenu-li"><a href="{% url 'field_products' 'laptops' 'manufacturer' 'microsoft' %}">Microsoft</a></li>
@@ -159,11 +158,10 @@
                                                         </ul>
                                                     </li>
                                                     <li class="megamenu-li parent">
-                                                        <h2 class="sublink-title">Phones</h2>
-                                                        <a href="#collapse-top-fruits-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                            <span>Phones</span>
-                                                            <i class="fa fa-angle-down"></i>
-                                                        </a>
+                                                        <h2 class="sublink-title"><a href="{% url 'category' 'phones' %}">Phones</a></h2>
+                                                        {% comment %} <a href="#collapse-top-fruits-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="{% url 'category' 'phones' %}"><span>Phones</span></a>
+                                                        </a> {% endcomment %}
                                                         <ul class="dropdown-supmenu collapse" id="collapse-top-fruits-menu">
                                                             <li class="supmenu-li"><a href="{% url 'field_products' 'phones' 'manufacturer' 'huawei' %}">Huawei</a></li>
                                                             <li class="supmenu-li"><a href="{% url 'field_products' 'phones' 'manufacturer' 'vivo' %}">Vivo</a></li>
@@ -174,11 +172,10 @@
                                                         </ul>
                                                     </li>
                                                     <li class="megamenu-li parent">
-                                                        <h2 class="sublink-title">Games</h2>
-                                                        <a href="#collapse-top-banana-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                            <span>Games</span>
-                                                            <i class="fa fa-angle-down"></i>
-                                                        </a>
+                                                        <h2 class="sublink-title"><a href="{% url 'category' 'games' %}">Games</a></h2>
+                                                        {% comment %} <a href="#collapse-top-banana-menu" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="{% url 'category' 'games' %}">Games</a>
+                                                        </a> {% endcomment %}
                                                         <ul class="dropdown-supmenu collapse" id="collapse-top-banana-menu">
                                                             <li class="supmenu-li"><a href="{% url 'field_products' 'games' 'genre' 'action' %}">Action</a></li>
                                                             <li class="supmenu-li"><a href="{% url 'field_products' 'games' 'genre' 'adventure' %}">Adventure</a></li>
