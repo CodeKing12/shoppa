@@ -75,13 +75,13 @@
                                     </li>
                                     <li>
                                         <label>ZIP Code</label>
-                                        <input type="text" name="name" placeholder="ZIP code">
+                                        <input type="text" name="name" value="{{ request.user.userprofile.postcode }}" placeholder="ZIP code">
                                     </li>
                                 </ul>
                                 <ul class="add-label-input">
                                     <li>
                                         <label>Address 1</label>
-                                        <input type="text" name="name" placeholder="New password">
+                                        <input type="text" name="name" value="{{ request.user.userprofile.street }}" placeholder="Your Address">
                                     </li>
                                     <li>
                                         <label>Address 1</label>

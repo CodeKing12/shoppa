@@ -47,27 +47,27 @@
                                 <ul class="pro-input-label">
                                     <li>
                                         <label>First name</label>
-                                        <input type="text" name="name" placeholder="First name">
+                                        <input type="text" name="name" value="{{ request.user.first_name }}" placeholder="First name">
                                     </li>
                                     <li>
                                         <label>Last name</label>
-                                        <input type="text" name="name" placeholder="Last name">
+                                        <input type="text" name="name" value="{{ request.user.last_name }}" placeholder="Last name">
                                     </li>
                                 </ul>
                                 <ul class="pro-input-label">
                                     <li>
                                         <label>E-mail address</label>
-                                        <input type="text" name="name" placeholder="E-mail address" required>
+                                        <input type="text" name="name" value="{{ request.user.email }}" placeholder="E-mail address" required>
                                     </li>
                                     <li>
                                         <label>Phone number</label>
-                                        <input type="text" name="name" placeholder="Phone number">
+                                        <input type="text" name="name" value="{{ request.user.phone_number }}" placeholder="Phone number">
                                     </li>
                                 </ul>
                                 <ul class="pro-input-label">
                                     <li>
                                         <label>New password</label>
-                                        <input type="text" name="name" placeholder="New password">
+                                        <input type="text" name="name" value="{{ request.user.userprofile.postcode }}" placeholder="New password">
                                     </li>
                                     <li>
                                         <label>Confirm password</label>

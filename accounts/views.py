@@ -4,7 +4,7 @@ from products.models import Product
 from .forms import LoginForm, CreateAccountForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, forms, login as django_login, logout
-from .models import Cart, CartDetails, Wishlist, CustomAccount
+from .models import Cart, CartDetails, UserProfile, Wishlist, CustomAccount
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .tokens import account_activation_token
@@ -47,6 +47,8 @@ def create_account(request):
                 else:
                     user = CustomAccount.objects.create_user(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, password=password)
                     user.save()
+                    profile = UserProfile.objects.create(user=user)
+                    profile.save()
 
                 # Send Confirmation Email
                 
@@ -238,9 +240,10 @@ def login_view(request):
 def user_dashboard(request):
     if request.user.is_authenticated:
         user_details = CustomAccount.objects.get(email=request.user.email)
-        return render(request, "accounts/chosen-profile.html", context={"user": user_details})
+        user_profile = UserProfile.objects.get_or_create(user=user_details)[0]
+        return render(request, "accounts/chosen-profile.html", context={"user": user_details, "profile": user_profile})
     elif not request.user.is_authenticated:
-        messages.warning(request, message="You have to log in to view your dashboard")
+        messages.warning(request, message="You have to log in to visit this page")
         return redirect('login_page')
 
 @login_required
