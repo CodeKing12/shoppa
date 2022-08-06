@@ -97,5 +97,8 @@ def game_franchises(request, franchise_name):
     page_heading = f"{franchise_name} Franchise".upper()
     return render(request, "products/product_field.html", {"field_products": field_products, "heading": page_heading})
 
+def user_groups(request, group_name):
+    return render(request, "accounts/custom-groups.html")
+
 # https://codeking12.github.io/Black-Hosting/
 # https://codeking12.github.io/HosTechno/

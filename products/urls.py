@@ -7,6 +7,7 @@ urlpatterns = [
     path('games/franchises/<franchise_name>', views.game_franchises, name='game-franchise'),
     path('<category_url>/', views.products_category, name='category'),
     path('<category_url>/<field>/<field_value>/', views.product_group, name='field_products'),
+    path('packages/<group_name>/', views.user_groups, name='custom-groups'),
     path('<category_url>/<slug>/', views.product_details, name='product-details'),
 ]
 

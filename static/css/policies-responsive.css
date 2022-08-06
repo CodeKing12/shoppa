@@ -1,0 +1,32 @@
+@media (max-width: 767px) {
+    /* return page css */
+    .return-title h1{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    /* terms condition page css */
+    .terms-content ul.terms-policy li h2{
+        font-size: 16px;
+    }
+    .terms-content ul.terms-policy li p.trems-desc{
+        padding: 5px 10px 10px 17px;
+    }
+}
+
+@media (max-width: 1199px) {
+    /* payment page css */
+    .payment-title h1{
+        font-size: 24px;
+    }
+    /* privacy policy page css */
+    .privacy-title h1{
+        font-size: 24px;
+    }
+    .privacy-content ul{
+        padding-left: 15px;
+    }
+    /* return page css */
+    .return-title h1{
+        font-size: 24px;
+    }
+}

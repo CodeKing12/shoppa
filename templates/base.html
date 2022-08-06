@@ -592,11 +592,11 @@
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="f-link-ul collapse" id="t-cate" data-bs-parent="#footer-accordian">
-                                        <li class="f-link-ul-li"><a href="grid-list.html">Laptops</a></li>
-                                        <li class="f-link-ul-li"><a href="grid-list.html">Phones</a></li>
-                                        <li class="f-link-ul-li"><a href="grid-list.html">Games</a></li>
-                                        <li class="f-link-ul-li"><a href="grid-list.html">Featured</a></li>
-                                        <li class="f-link-ul-li"><a href="grid-list.html">On Sale</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'category' 'laptops' %}">Laptops</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'category' 'phones' %}">Phones</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'category' 'games' %}">Games</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'custom-groups' 'featured' %}">Featured</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'custom-groups' 'on_sale' %}">On Sale</a></li>
                                     </ul>
                                 </div>
                                 <div class="f-link">
@@ -620,11 +620,11 @@
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="f-link-ul collapse" id="privacy" data-bs-parent="#footer-accordian">
-                                        <li class="f-link-ul-li"><a href="payment-policy.html">Payment policy</a></li>
-                                        <li class="f-link-ul-li"><a href="privacy-policy.html">Privacy policy</a></li>
-                                        <li class="f-link-ul-li"><a href="return-policy.html">Return policy</a></li>
-                                        <li class="f-link-ul-li"><a href="shipping-policy.html">Shipping policy</a></li>
-                                        <li class="f-link-ul-li"><a href="terms-conditions.html">Terms & conditions</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'payment_policy' %}">Payment policy</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'privacy_policy' %}">Privacy policy</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'return_policy' %}">Return policy</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'shipping_policy' %}">Shipping policy</a></li>
+                                        <li class="f-link-ul-li"><a href="{% url 'terms_and_conditions' %}">Terms & conditions</a></li>
                                     </ul>
                                 </div>
                                 <div class="f-link">

@@ -430,3 +430,8 @@ img.shoppa-logo {
 .checkout-area .order-area .check-pro ul.check-ul li .check-content {
     margin: auto 0 auto 17px;
 }
+
+.section-lr-padding {
+    padding-left: 60px;
+    padding-right: 60px
+}

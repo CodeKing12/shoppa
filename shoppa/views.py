@@ -106,3 +106,21 @@ def home(request):
 
 def help_page(request):
     return HttpResponse("Help Who?")
+
+def privacy_policy(request):
+    return render(request, "privacy-policy.html")
+
+def privacy_policy(request):
+    return render(request, "privacy-policy.html")
+
+def return_policy(request):
+    return render(request, "returns-policy.html")
+
+def shipping_policy(request):
+    return render(request, "shipping-policy.html")
+
+def payment_policy(request):
+    return render(request, "payment-policy.html")
+
+def terms_and_conditions(request):
+    return render(request, "terms-and-conditions.html")

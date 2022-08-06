@@ -1,0 +1,151 @@
+/* privacy policy page css */
+.privacy-title h1{
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.privacy-content ul{
+    list-style-type: unset;
+}
+.privacy-content ul.privacy-policy li{
+    margin-top: 5px;
+}
+.privacy-content ul.privacy-policy li:first-child {
+    margin-top: 0px;
+}
+/* return page css */
+.return-title h1{
+    font-size: 30px;
+    margin-bottom: 37px;
+    text-align: center;
+}
+.return{
+    margin-bottom: 30px;
+}
+.return span{
+    background-color: #fff;
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+}
+.return h4.return-title{
+    background-color: #f5ab1e;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    display: block;
+    font-weight: 600;
+}
+.return .return-content {
+    margin-top: 13px;
+}
+.return .return-content p{
+    margin-top: 5px;
+}
+.return .return-content p:first-child {
+    margin-top: 0px;
+}
+/* terms conditions page css */
+.terms-title h1{
+    font-size: 30px;
+    margin-bottom: 31px;
+    text-align: center;
+}
+.terms-content ul.terms-policy li:first-child {
+    margin-top: 0px;
+}
+.terms-content ul.terms-policy li {
+    margin-top: 16px;
+}
+.terms-content ul.terms-policy li h2{
+    font-size: 16px;
+    color: #222;
+}
+.terms-content ul.terms-policy li h2 p{
+    color: #f5ab1e;
+}
+.terms-content ul.terms-policy li p.trems-desc{
+    padding-left: 20px;
+    display: block;
+    margin-top: 6px;
+}
+/* shipping page css */
+.shipping-title h1{
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.shipping{
+    margin-bottom: 22px;
+}
+.shipping span{
+    background-color: #fff;
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+}
+.shipping h4.shipping-title{
+    background-color: #f5ab1e;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-bottom: 24px;
+    display: block;
+    font-weight: 600;
+}
+.shipping .shipping-content p{
+    margin-top: 15px;
+}
+.shipping .shipping-content p:first-child{
+    margin-top: 0px;
+}
+/* payment page css */
+.payment-title h1{
+    font-size: 30px;
+    margin-bottom: 37px;
+    text-align: center;
+}
+.payment{
+    margin-bottom: 30px;
+}
+.payment span{
+    background-color: #fff;
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+}
+.payment h4.payment-title{
+    background-color: #f5ab1e;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    display: block;
+    font-weight: 600;
+}
+.payment .payment-content {
+    margin-top: 13px;
+}
+.payment .payment-content p{
+    margin-top: 5px;
+}
+.payment .payment-content p:first-child {
+    margin-top: 0px;
+}
