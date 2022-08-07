@@ -50,7 +50,7 @@ def cart(request):
             parse_message(request, message, message_type)
 
     if request.user.is_authenticated:
-        cart = Cart.objects.get(user=request.user)
+        cart = Cart.objects.get_or_create(user=request.user)[0]
         subtotal = 0
         for item in cart.cartdetails_set.all():
             subtotal += item.total()

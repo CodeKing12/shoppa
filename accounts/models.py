@@ -192,6 +192,9 @@ class UserOrders(models.Model):
             self.order_number = str(alpha_num)
         super(UserOrders, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return f"{self.user.first_name}'s Orders"
+
 class UserTickets(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     subject = models.CharField(max_length = 250)
@@ -199,6 +202,9 @@ class UserTickets(models.Model):
     ticket_type = models.CharField(max_length=100, choices=TICKET_TYPE_CHOICES)
     priority = models.CharField(max_length=100, choices=TICKET_PRIORITY_CHOICES)
     status = models.CharField(max_length=100, choices=TICKET_STATUS_CHOICES)
+
+    def __str__(self):
+        return f"{self.user.first_name}'s Tickets"
     
 
 # from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
