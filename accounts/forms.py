@@ -22,3 +22,13 @@ class CreateAccountForm(forms.ModelForm):
         self.fields['phone_number'].widget = forms.TextInput(attrs={'placeholder':'Phone Number', 'type': 'tel'})
         # for visible in self.visible_fields():
         #     visible.field.widget.attrs['class'] = 'form-control border-0 mb-3'
+
+class CheckoutForm(forms.Form):
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    state = forms.ChoiceField()
+    street_address = forms.CharField(max_length=300)
+    city = forms.CharField(max_length=200)
+    postcode = forms.IntegerField()
+    email = forms.EmailField()
+    phone = forms.IntegerField()

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from products.models import Product
-from .forms import LoginForm, CreateAccountForm
+from .forms import LoginForm, CreateAccountForm, CheckoutForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, forms, login as django_login, logout
 from .models import Cart, CartDetails, UserProfile, Wishlist, CustomAccount
@@ -430,6 +430,38 @@ def update_password(request):
             return redirect('home')
 
 def checkout(request):
+    if request.method == "POST":
+        checkout_form = CheckoutForm(request.POST)
+        if checkout_form.is_valid():
+            first_name = checkout_form.cleaned_data['first_name']
+            last_name = checkout_form.cleaned_data['last_name']
+            email = checkout_form.cleaned_data['email']
+            phone_number = checkout_form.cleaned_data['phone_number']
+            state = checkout_form.cleaned_data['state']
+            street = checkout_form.cleaned_data['street']
+            postcode = checkout_form.cleaned_data['postcode']
+            city = checkout_form.cleaned_data['city']
+            password = checkout_form.cleaned_data['password']
+            if request.user.is_authenticated:
+                messages.warning(request, message='You are already logged in to an account')
+            elif not request.user.is_authenticated:
+                try:
+                    user = CustomAccount.objects.get(email=email)
+                except ObjectDoesNotExist:
+                    user = CustomAccount.objects.create_user(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, password=password)
+                    user.save()
+                    profile = UserProfile.objects.create(user=user)
+                    profile.save()
+                # Retrieve info from form and create user
+                else:
+                    profile = UserProfile.objects.get_or_create(user=user)[0]
+                    if profile.is_completed() == False:
+                        profile.state = state
+                        profile.city = city
+                        profile.street = street
+                        profile.postcode =postcode
+                        profile.save()
+
     return render(request, "accounts/chosen-checkout.html")
 
 def order_history(request):

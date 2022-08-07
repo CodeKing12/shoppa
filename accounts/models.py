@@ -172,6 +172,12 @@ class UserProfile(models.Model):
     street = models.CharField(max_length=300, blank=True)
     postcode = models.IntegerField(blank=True, default=000000)
 
+    def is_completed(self):
+        if (self.state == "" or self.state == " ") and (self.city == "" or self.city == " ") and (self.street == "" or self.street == " "):
+            return False
+        else:
+            return True
+
 class UserOrders(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     total = models.IntegerField()
