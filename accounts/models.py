@@ -205,18 +205,3 @@ class UserTickets(models.Model):
 
     def __str__(self):
         return f"{self.user.first_name}'s Tickets"
-    
-
-# from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
-# from products.models import *
-# user = CustomAccount.objects.get(email='ithink@mail.com')
-# cart = Cart.objects.get_or_create(user=user)[0]
-# wish = Wishlist.objects.get_or_create(user=user)[0]
-# p1 = Product.objects.get(id=2)
-# p2 = Product.objects.get(id=3)
-# p3 = Product.objects.get(id=5)
-# p4 = Product.objects.get(id=6)
-# cd1 = CartDetails.objects.get(cart=cart, product=p1)
-
-# Add a orders model to track a user's orders 
-# Add a order-code field to track each product in the cart (for checkout and for the orders page.)

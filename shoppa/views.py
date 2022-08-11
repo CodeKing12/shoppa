@@ -17,7 +17,8 @@ env = environ.Env()
 project_email = env("PROJECT_EMAIL")
 project_first = env("PROJECT_FIRST")
 project_last = env("PROJECT_LAST")
-admin_user = CustomAccount.objects.get(email=project_email, first_name=project_first, last_name=project_last)
+admin_user = CustomAccount.objects.all()[0]
+# admin_user = CustomAccount.objects.get(email=project_email, first_name=project_first, last_name=project_last)
 try:
     api_admin = ApiUser.objects.get(user=admin_user)
 except ObjectDoesNotExist:
