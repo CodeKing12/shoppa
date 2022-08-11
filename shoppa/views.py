@@ -17,16 +17,16 @@ env = environ.Env()
 project_email = env("PROJECT_EMAIL")
 project_first = env("PROJECT_FIRST")
 project_last = env("PROJECT_LAST")
-admin_user = CustomAccount.objects.all()[0]
+# admin_user = CustomAccount.objects.all()[0]
 # admin_user = CustomAccount.objects.get(email=project_email, first_name=project_first, last_name=project_last)
-try:
-    api_admin = ApiUser.objects.get(user=admin_user)
-except ObjectDoesNotExist:
-    api_admin = ApiUser.objects.create(user=admin_user, product_groups={
-        "featured": [50, 242, 262, 48, 239, 258, 46, 235, 257, 45, 233, 255, 41, 230, 253, 40, 223, 251], 
-        "discounted": [48, 240, 260, 47, 238, 259, 40, 225, 258, 42, 218, 257, 29, 208, 255, 24, 204, 250]
-    })
-product_groups = api_admin.product_groups
+# try:
+#     api_admin = ApiUser.objects.get(user=admin_user)
+# except ObjectDoesNotExist:
+#     api_admin = ApiUser.objects.create(user=admin_user, product_groups={
+#         "featured": [50, 242, 262, 48, 239, 258, 46, 235, 257, 45, 233, 255, 41, 230, 253, 40, 223, 251], 
+#         "discounted": [48, 240, 260, 47, 238, 259, 40, 225, 258, 42, 218, 257, 29, 208, 255, 24, 204, 250]
+#     })
+# product_groups = api_admin.product_groups
 
 def convert_to_list(list):
     object_list = []
@@ -78,9 +78,10 @@ def home(request):
     else:
         open_login = ["", "", False]
     # messages.success(request, f"Form submitted successfully. Your email is {data}")
-
-    featured_products = Product.objects.filter(pk__in=product_groups["featured"]).order_by("?")
-    discounted_products = Product.objects.filter(pk__in=product_groups["discounted"]).order_by("?")
+    featured_products = []
+    discounted_products = []
+    # featured_products = Product.objects.filter(pk__in=product_groups["featured"]).order_by("?")
+    # discounted_products = Product.objects.filter(pk__in=product_groups["discounted"]).order_by("?")
     affordable_laptops = Product.objects.filter(category="PC").order_by("percent_off")[:24]
     popular_phones = Product.objects.filter(category="PHONE").order_by("?")[:24]
     popular_games = Product.objects.filter(category="GAME").order_by("?")[:24]
