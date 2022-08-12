@@ -130,7 +130,8 @@ class CustomAccount(AbstractUser, PermissionsMixin):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=70, null=True, blank=True)
+    username = None
+    # username = models.CharField(max_length=70, null=True, blank=True)
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     # phone_number = models.ForeignKey(PhoneBook, on_delete=models.CASCADE, blank=True)
     date_joined = models.DateTimeField(default=timezone.now)
