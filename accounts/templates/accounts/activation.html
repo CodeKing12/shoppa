@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block page-title %}Activate Account Email{% endblock page-title %}
+
+{% block main-content %}
+    <p class="angry-text">This is a demo of how the notification email will look. We are unable to send verification emails to you because there is no email service provider that supports the community :frown :flat
+    <br><br>
+    <h2>{{ user.first_name }}, Your account has been successfully created</h2>
+    <p>To be able to login and sync your cart, click the button below to activate your account</p>
+
+    <button class="btn btn-style1" href="http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}"></button>
+{% endblock main-content %}

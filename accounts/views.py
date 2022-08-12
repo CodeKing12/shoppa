@@ -55,11 +55,13 @@ def create_account(request):
                 
                     current_site = get_current_site(request)
                     mail_subject = 'Activate your account'
+                    uid = urlsafe_base64_encode(force_bytes(user.pk))
+                    token = account_activation_token.make_token(user)
                     message = render_to_string('accounts/confirm_email.html', {
                         'user': user,
                         'domain': current_site.domain,
-                        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                        'token': account_activation_token.make_token(user)
+                        'uid': uid,
+                        'token': token
                     })
                     to_email = user.email
                     email = EmailMessage(mail_subject, message, to=[to_email])
@@ -69,6 +71,11 @@ def create_account(request):
                     # Tell user to check email
 
                     messages.success(request, message='An activation link has been e-mailed to you')
+                    request.session["uid"] = uid
+                    request.session["token"] = token
+                    request.session["created_user_id"] = user.id
+                    request.session["domain"] = current_site.domain
+                    return redirect('activation_page')
                 # info = "An activation link has been sent to your email address. Click on it to fully activate your account and login."
                 # return render(request, "accounts/message_template.html", {"message": info})
                 #return HttpResponse(user.first_name)
@@ -85,6 +92,27 @@ def create_account(request):
     else:
         registration_form = CreateAccountForm()
     return render(request, 'accounts/register.html', {'register_form': registration_form})
+
+# This is a temporary view until we get an email authentication server
+def activate_button(request):
+    if ("uid" in request.session) and ("token" in request.session) and ("created_user_id" in request.session) and ("domain" in request.session):
+        uid = request.session["uid"]
+        token = request.session["token"]
+        created_user_id = request.session["created_user_id"]
+        try:
+            created_user = CustomAccount.objects.get(id=created_user_id)
+        except ObjectDoesNotExist:
+            messages.error(request, "This user does not exist")
+            return redirect('register_user')
+        domain = request.session["domain"]
+        del request.session["uid"]
+        del request.session["token"]
+        del request.session["created_user_id"]
+        del request.session["domain"]
+    else:
+        messages.error("To activate your account, click the activation link on the login page")
+        return redirect('login_page')
+    return render(request, "accounts/activation.html", {"uid": uid, "token": token, "user": created_user, "domain": domain})
 
 def activate_account(request, uidb64, token):
 
@@ -109,7 +137,25 @@ def activate_account(request, uidb64, token):
             wishlist = Wishlist.objects.create(user=user)
             cart.save()
             wishlist.save()
+
+            session_cart = get_cart(request.session)
+            cart_list = list(session_cart.keys())
+            if len(cart_list) > 0:
+                for id in cart_list:
+                    quantity = int(cart_list[id]["quantity"])
+                    try:
+                        product = Product.objects.get(id=int(id))
+                        detailed_cart = CartDetails.objects.create(
+                            cart = cart,
+                            product = product,
+                            quantity = quantity,
+                        )
+                        detailed_cart.save()
+                    except ObjectDoesNotExist:
+                        messages.error(request, "A product in your cart does not exist anymore")
+
             messages.success(request, message="Your account has been successfully activated")
+            messages.success(request, message="Your cart has been synced into your account")
             return redirect('home')
     else:
         messages.error(request, message="Activation Link is Invalid")
@@ -462,17 +508,20 @@ def checkout(request):
                         profile.street = street
                         profile.postcode =postcode
                         profile.save()
+
     if request.user.is_authenticated:
         cart = Cart.objects.get(user=request.user)
+        user_profile = UserProfile.objects.get(user=request.user)
         if cart.get_item_count() == 0:
             messages.info(request, "You have no items in your cart")
             return redirect('home')
     else:
+        user_profile = ""
         cart = get_cart(request.session)
         if len(list(cart.keys())) == 0:
             messages.info(request, "You have no items in your cart")
             return redirect('home')
-    return render(request, "accounts/chosen-checkout.html")
+    return render(request, "accounts/chosen-checkout.html", {"profile": user_profile})
 
 def order_history(request):
     return render(request, "accounts/chosen-history.html")

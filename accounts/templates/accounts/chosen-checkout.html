@@ -79,7 +79,7 @@
                                         <ul class="billing-ul">
                                             <li class="billing-li">
                                                 <label>Street address</label>
-                                                <input type="text" name="address" placeholder="Street address">
+                                                <input type="text" name="address" placeholder="Street address" value="{{ profile.street }}">
                                             </li>
                                         </ul>
                                         {% comment %} <ul class="billing-ul">
@@ -91,19 +91,19 @@
                                         <ul class="billing-ul">
                                             <li class="billing-li">
                                                 <label>Town / City</label>
-                                                <input type="text" name="city" placeholder="">
+                                                <input type="text" name="city" placeholder="{{ profile.city }}">
                                             </li>
                                         </ul>
                                         <ul class="billing-ul">
                                             <li class="billing-li">
                                                 <label>State</label>
-                                                <input type="text" name="state" placeholder="">
+                                                <input type="text" name="state" placeholder="{{ profile.state }}">
                                             </li>
                                         </ul>
                                         <ul class="billing-ul">
                                             <li class="billing-li">
                                                 <label>Postcode / ZIP</label>
-                                                <input type="text" name="zip" placeholder="">
+                                                <input type="text" name="zip" placeholder="{{ profile.zipcode }}">
                                             </li>
                                         </ul>
                                         <ul class="billing-ul input-2">
