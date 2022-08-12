@@ -110,7 +110,8 @@ class Product(models.Model):
             related_object = self.content_type.get_object_for_this_type(pk=self)
             self.details = related_object
         except ObjectDoesNotExist:
-            print("Didn't Work")
+            pass
+            # print("Didn't Work")
         # self.category_slug = slugify(self.)
 
         super(Product, self).clean()

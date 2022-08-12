@@ -114,7 +114,7 @@ def add_to_db(number_of_items):
         new_phone = Phone.objects.create(product=new_product, ram=ram, storage=storage, manufacturer=manufacturer, model=model, weight=weight, screen_size=screen_size, resolution=resolution, os_type=os_type, os_version=os_version, cpu=cpu, gpu=gpu, sim_slots=sim_slots, front_camera=front_camera, wifi=wifi, back_camera=back_camera, bluetooth=bluetooth, battery=battery, hotspot=hotspot, fingerprint=fingerprint, face_unlock=face_unlock, accelerometer=accelerometer, gyro=gyro, compass=compass, network=network, sd_card=sd_card, water_proof=water_proof, water_resistant=water_resistant, dust_resistant=dust_resistant)
         new_phone.save()
 
-        print(new_product.id, new_phone.product.name)
-        print(new_phone.manufacturer)
+        print(f"Item {new_product.id} ({new_phone.product.name}) added to the database")
+        # print(new_phone.manufacturer)
 
-# add_to_db(178)
+add_to_db(100)
