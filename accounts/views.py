@@ -1,3 +1,4 @@
+from cmath import e
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from products.models import Product
@@ -461,7 +462,16 @@ def checkout(request):
                         profile.street = street
                         profile.postcode =postcode
                         profile.save()
-
+    if request.user.is_authenticated:
+        cart = Cart.objects.get(user=request.user)
+        if cart.get_item_count() == 0:
+            messages.info(request, "You have no items in your cart")
+            return redirect('home')
+    else:
+        cart = get_cart(request.session)
+        if len(list(cart.keys())) == 0:
+            messages.info(request, "You have no items in your cart")
+            return redirect('home')
     return render(request, "accounts/chosen-checkout.html")
 
 def order_history(request):
