@@ -2,5 +2,25 @@
 {% load products_display %}
 
 {% block main-content %}
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="index5.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-url-li">
+                                <a href="#"><span>Cart</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {% products_grid category_products %}
+    
 {% endblock main-content %}

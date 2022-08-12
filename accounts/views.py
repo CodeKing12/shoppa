@@ -187,17 +187,17 @@ def change_password(request, uidb64, token):
         return redirect('home')
 
 def wishlist(request):
-    if request.user.is_superuser:
-        user_wishlist = 'Nothing'
-        # cart_details = 'Nothing'
-        # sub_total = 0
-        # all_products = []
-    elif not request.user.is_authenticated:
+    # if request.user.is_superuser:
+    # user_wishlist = 'Nothing'
+    # cart_details = 'Nothing'
+    # sub_total = 0
+    # all_products = []
+    if request.user.is_authenticated:
+        user_wishlist = Wishlist.objects.get(user=request.user)
+        # cart_details, sub_total = get_cart(request)
+    else:
         messages.warning(request, message="You have to log in to view your wishlist")
         return redirect('home')
-    else:
-        # cart_details, sub_total = get_cart(request)
-        user_wishlist = Wishlist.objects.get(user=request.user)
     return render(request, 'accounts/chosen-wishlist.html', {'wishlist': user_wishlist})
 
 # @csrf_protect

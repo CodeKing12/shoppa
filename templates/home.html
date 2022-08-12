@@ -510,7 +510,7 @@
                                                             {% csrf_token %}
                                                             <button name="add_to_wishlist" value="{{ game.id }}" class="w-c-q-icn"><i class="fa fa-heart"></i></button>
                                                             <button name="add_to_cart" value="{{ game.id }}" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></button>
-                                                            <a href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                            {% comment %} <a href="javascript:void(0)"  class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a> {% endcomment %}
                                                         </form>
                                                     </div>
                                                 </div>
