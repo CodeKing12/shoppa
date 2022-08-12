@@ -55,7 +55,7 @@ def cart(request):
         for item in cart.cartdetails_set.all():
             subtotal += item.total()
         cart_item_count = cart.get_item_count()
-        wishlist_item_count = Wishlist.objects.get(user=request.user).get_item_count()
+        wishlist_item_count = Wishlist.objects.get_or_create(user=request.user)[0].get_item_count()
     else:
         wishlist_item_count = 0
         # Retrieve session cart if user is not authenticated
