@@ -88,7 +88,8 @@ def add_to_db(number_of_items):
         new_product.save()
         new_game = Game.objects.create(product=new_product, min_ram=min_ram, min_storage=min_storage, developers=developers, recom_ram=recom_ram, recom_storage=recom_storage, min_processor=min_processor, recom_processor=recom_processor, processor_type=processor_type, os_type=os_type, min_dx_version=min_dx_version, recom_dx_version=recom_dx_version, size=size, min_graphics_card=min_graphics_card, recom_graphics_card=recom_graphics_card, genre=genre)
         new_game.save()
-        print(new_product.id, new_game.product.name)
-        print(new_game.developers)
 
-# add_to_db(20)
+        print(f"Item {new_product.id} ({new_game.product.name}) added to the database")
+        # print(new_game.developers)
+
+add_to_db(20)
