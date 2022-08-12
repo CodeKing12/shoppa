@@ -18,12 +18,13 @@ project_email = env("PROJECT_EMAIL")
 project_phone = env("PROJECT_PHONE")
 project_first = env("PROJECT_FIRST")
 project_last = env("PROJECT_LAST")
-# admin_user = CustomAccount.objects.all()[0]
+
 try:
     admin_user = CustomAccount.objects.get(email=project_email, first_name=project_first, last_name=project_last)
 except ObjectDoesNotExist:
     project_password = env("PROJECT_PASSWORD")
     admin_user = CustomAccount.objects.create_superuser(email=project_email, phone_number=project_phone, first_name=project_first, last_name=project_last, password=project_password)
+
 try:
     api_admin = ApiUser.objects.get(user=admin_user)
 except ObjectDoesNotExist:
