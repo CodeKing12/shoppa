@@ -112,7 +112,7 @@ def add_to_db(number_of_items):
         print(new_product.id, new_pc.manufacturer)
         print(new_product.name)
 
-# add_to_db(50)
+add_to_db(50)
 
 # for product in Product.objects.all():
 #     if product.category == "PC":
