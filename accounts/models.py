@@ -134,7 +134,7 @@ class CustomAccount(AbstractUser, PermissionsMixin):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     # phone_number = models.ForeignKey(PhoneBook, on_delete=models.CASCADE, blank=True)
     date_joined = models.DateTimeField(default=timezone.now)
-    address = models.CharField(max_length=250, blank=True)
+    # address = models.CharField(max_length=250, blank=True)
 
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
