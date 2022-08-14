@@ -34,7 +34,8 @@ except ObjectDoesNotExist:
     api_admin = ApiUser.objects.create(user=admin_user, product_groups={
         "featured": [50, 242, 262, 48, 239, 258, 46, 235, 257, 45, 233, 255, 41, 230, 253, 40, 223, 251], 
         "discounted": [48, 240, 260, 47, 238, 259, 40, 225, 258, 42, 218, 257, 29, 208, 255, 24, 204, 250],
-        "monthly_sale": [12, 34, 10, 16, 18, 20, 23, 40, 92, 17, 62, 8, 11, 100, 200, 201, 217]
+        "monthly_sale": [12, 34, 10, 16, 18, 20, 23, 40, 92, 17, 62, 8, 11, 100, 200, 201, 217],
+        "seasonal_games": [13, 101, 177, 246, 159, 34, 56, 87, 82, 45, 67, 19, 29, 50, 62, 79, 111, 222, 211, 112]
     })
 product_groups = api_admin.product_groups
 

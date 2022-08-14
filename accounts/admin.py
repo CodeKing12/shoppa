@@ -19,7 +19,7 @@ class CustomAccountAdmin(UserAdmin):
     )
 
 class ApiUserAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["user"]
 
 class CartDetailsAdmin(admin.StackedInline):
     model = CartDetails
