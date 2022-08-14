@@ -96,6 +96,8 @@ def create_account(request):
 # This is a temporary view until we get an email authentication server
 def activate_button(request):
     if ("uid" in request.session) and ("token" in request.session) and ("created_user_id" in request.session) and ("domain" in request.session):
+    # if True:
+    #   try:
         uid = request.session["uid"]
         token = request.session["token"]
         created_user_id = request.session["created_user_id"]
@@ -109,8 +111,13 @@ def activate_button(request):
         del request.session["token"]
         del request.session["created_user_id"]
         del request.session["domain"]
+        # except KeyError:
+        #     uid = ""
+        #     domain = ""
+        #     token = ""
+        #     created_user = ""
     else:
-        messages.error("To activate your account, click the activation link on the login page")
+        messages.error(request, "To activate your account, click the activation button on this page")
         return redirect('login_page')
     return render(request, "accounts/activation.html", {"uid": uid, "token": token, "user": created_user, "domain": domain})
 
@@ -133,16 +140,18 @@ def activate_account(request, uidb64, token):
         else:
             user.is_active = True
             user.save()
-            cart = Cart.objects.create(user=user)
-            wishlist = Wishlist.objects.create(user=user)
+            cart = Cart.objects.get_or_create(user=user)[0]
+            wishlist = Wishlist.objects.get_or_create(user=user)[0]
             cart.save()
             wishlist.save()
+
+            messages.success(request, message="Your account has been successfully activated")
 
             session_cart = get_cart(request.session)
             cart_list = list(session_cart.keys())
             if len(cart_list) > 0:
                 for id in cart_list:
-                    quantity = int(cart_list[id]["quantity"])
+                    quantity = int(session_cart[id]["quantity"])
                     try:
                         product = Product.objects.get(id=int(id))
                         detailed_cart = CartDetails.objects.create(
@@ -153,68 +162,104 @@ def activate_account(request, uidb64, token):
                         detailed_cart.save()
                     except ObjectDoesNotExist:
                         messages.error(request, "A product in your cart does not exist anymore")
+                messages.success(request, message="Your cart has been synced into your account")
 
-            messages.success(request, message="Your account has been successfully activated")
-            messages.success(request, message="Your cart has been synced into your account")
             return redirect('home')
     else:
         messages.error(request, message="Activation Link is Invalid")
         return redirect('home')
 
 def resend_token(request):
-    if is_ajax(request) and request.method == 'POST':
+    if request.method == 'POST':
         email = request.POST['user_email']
-        try:
-            user = CustomAccount.objects.get(email=email)
-        except CustomAccount.DoesNotExist:
-            return JsonResponse({'message': 'This user does not exist', 'type': 'error'}, status=200)
+        if request.user.is_authenticated:
+            messages.error(request, "You are already logged in to an account")
         else:
-            if user.is_active == True:
-                return JsonResponse({'message': 'This user has already been activated', 'type': 'warning'}, status=200)
+            try:
+                user = CustomAccount.objects.get(email=email)
+            except CustomAccount.DoesNotExist:
+                messages.error(request, 'This user does not exist')
             else:
-                current_site = get_current_site(request)
-                mail_subject = 'Activate your account'
-                message = render_to_string('accounts/confirm_email.html', {
-                    'user': user,
-                    'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token': account_activation_token.make_token(user)
-                })
-                to_email = user.email
-                email = EmailMessage(mail_subject, message, to=[to_email])
-                email.send()
+                if user.is_active == True:
+                    messages.warning(request, 'This user has already been activated')
+                else:
+                    current_site = get_current_site(request)
+                    mail_subject = 'Activate your account'
+                    uid = urlsafe_base64_encode(force_bytes(user.pk))
+                    token = account_activation_token.make_token(user)
+                    message = render_to_string('accounts/confirm_email.html', {
+                        'user': user,
+                        'domain': current_site.domain,
+                        'uid': uid,
+                        'token': token
+                    })
+                    to_email = user.email
+                    email = EmailMessage(mail_subject, message, to=[to_email])
+                    # email.send()
 
-                return JsonResponse({'message': 'An Activation Link Has Been Sent to Your E-mail', 'type': 'success'}, status=200)
-    else:
-        request.session['action_message'] = ["Invalid Request", "error"]
-        return redirect('home')
+                    messages.success(request, 'Another activation link has been sent to your e-mail')
+                    request.session["uid"] = uid
+                    request.session["token"] = token
+                    request.session["created_user_id"] = user.id
+                    request.session["domain"] = current_site.domain
+                    return redirect('activation_page')
+
+    return render(request, "accounts/resend_token.html")
 
 def reset_password(request):
-    if is_ajax(request) and request.method == 'POST':
+    if request.method == 'POST':
         email = request.POST['email_identity']
         try:
             user = CustomAccount.objects.get(email=email)
         except CustomAccount.DoesNotExist:
-            return JsonResponse({'message': 'That user does not exist', 'type': 'error'}, status=200)
+            messages.error(request, 'That user does not exist')
         else:
             if user.is_active == False:
-                return JsonResponse({'message': 'This user has not been confirmed. Please request an activation token on the login page', 'type': 'warning'}, status=200)
+                messages.warning(request, 'This user has not been activated. Kindly request an activation token on the login page')
             else:
                 current_site = get_current_site(request)
                 mail_subject = 'Activate your account'
+                uid = urlsafe_base64_encode(force_bytes(user.pk))
+                token = account_activation_token.make_token(user)
                 message = render_to_string('accounts/reset_password_email.html', {
                     'user': user,
                     'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token': account_activation_token.make_token(user)
+                    'uid': uid,
+                    'token': token
                 })
                 to_email = user.email
                 email = EmailMessage(mail_subject, message, to=[to_email])
-                email.send()
-                return JsonResponse({'message': 'Your confirmation link has been sent', 'type': 'success'}, status=200)
+                # email.send()
+
+                messages.success(request, 'A confirmation link has been sent to your email')
+                request.session["uid"] = uid
+                request.session["token"] = token
+                request.session["created_user_id"] = user.id
+                request.session["domain"] = current_site.domain
+
+                return redirect('password_page')
+
+    return render(request, "accounts/reset_password.html")
+
+def confirm_pass_email(request):
+    if ("uid" in request.session) and ("token" in request.session) and ("created_user_id" in request.session) and ("domain" in request.session):
+        uid = request.session["uid"]
+        token = request.session["token"]
+        created_user_id = request.session["created_user_id"]
+        try:
+            created_user = CustomAccount.objects.get(id=created_user_id)
+        except ObjectDoesNotExist:
+            messages.error(request, "This user does not exist")
+            return redirect('register_user')
+        domain = request.session["domain"]
+        del request.session["uid"]
+        del request.session["token"]
+        del request.session["created_user_id"]
+        del request.session["domain"]
     else:
-        request.session['action_message'] = ["Invalid Request", "error"]
-        return redirect('home')
+        messages.info(request, "To change your password, go to the login page")
+        return redirect('login_page')
+    return render(request, "accounts/password_change_confirmation.html", {"uid": uid, "token": token, "user": created_user, "domain": domain})
 
 def change_password(request, uidb64, token):
     try:
@@ -454,27 +499,28 @@ def remove_from_wishlist(request):
     pass
     
 def update_password(request):
-    if is_ajax(request) and request.method == 'POST':
-        uid = request.POST["uid"]
-        user = CustomAccount.objects.get(pk=uid)
+    if request.method == 'POST':
+        uid = request.session["uid"]
+        user = CustomAccount.objects.get(id=uid)
         password1 = request.POST['new_pass1']
         password2 = request.POST['new_pass2']
         if password1 == password2:
+            del request.session['confirmed']
+            del request.session["uid"]
             user.set_password(password1)
             user.save()
-            return JsonResponse({'message': 'Password changed successfully. You can now login', 'type': 'success'}, status=200)
+            messages.success(request, 'Password changed successfully. You can now login')
+            return redirect('login_page')
             # request.session['open_login'] = ["Password changed successfully. You can now login", "success", True]
-            # return redirect('home')
         else:
-            return JsonResponse({'message': 'Your passwords don\'t match', 'type': 'error'}, status=200)
+            messages.error(request, 'Your passwords don\'t match')
+    if "confirmed" in request.session:
+        uid = request.session["uid"]
+        return render(request, 'accounts/change_password.html', context={"user_id": uid})
     else:
-        if "confirmed" in request.session:
-            del request.session['confirmed']
-            uid = request.session["uid"]
-            return render(request, 'accounts/change_password.html', context={"user_id": uid})
-        else:
-            request.session['action_message'] = ["Invalid Request", "error"]
-            return redirect('home')
+        # request.session['action_message'] = ["To change your password, go to the login page", "info"]
+        messages.info(request, "To change your password, go to the login page")
+        return redirect('login_page')
 
 def checkout(request):
     if request.method == "POST":

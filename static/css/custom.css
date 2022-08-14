@@ -435,3 +435,43 @@ img.shoppa-logo {
     padding-left: 60px;
     padding-right: 60px
 }
+
+.activate-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.account-action-link {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.acc-help {
+    margin-top: 36px
+}
+
+.resend-page {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.change-pass-page {
+    width: 500px;
+    padding: 100px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}

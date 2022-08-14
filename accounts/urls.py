@@ -11,6 +11,7 @@ urlpatterns = [
     path('my-order-history/', views.order_history, name="order_history"),
     path('my-support-tickets/', views.support_tickets, name="support_tickets"),
     path("activation-link/", views.activate_button, name="activation_page"),
+    path("confirm-password-email/", views.confirm_pass_email, name="password_page"),
     path("activate/<uidb64>/<token>", views.activate_account, name="activate_account"),
     path('resend/', views.resend_token, name='resend_token'),
     path('reset-password/', views.reset_password, name='reset_password'),

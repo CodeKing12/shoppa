@@ -3,10 +3,25 @@
 {% block page-title %}Activate Account Email{% endblock page-title %}
 
 {% block main-content %}
-    <p class="angry-text">This is a demo of how the notification email will look. We are unable to send verification emails to you because there is no email service provider that supports the community :frown :flat
-    <br><br>
-    <h2>{{ user.first_name }}, Your account has been successfully created</h2>
-    <p>To be able to login and sync your cart, click the button below to activate your account</p>
+<div class="activate-page">
+    {% comment %} <p class="angry-text">We are unable to send verification emails to you because there is no email service provider that supports the community :frown :flat {% endcomment %}
+        <br><br>
+        <h5 class="text-center">{{ user.first_name }}, activate your account now</h5>
+        <p class="my-4">To be able to login and sync your cart, click the button below to activate your account. The activation link expires after 1 hour</p>
 
-    <button class="btn btn-style1" href="http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}"></button>
+        <a class="mx-auto" href="http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}"><button class="btn btn-style1">Activate Account</button></a>
+    </div>
+    {% comment %} http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %} {% endcomment %}
 {% endblock main-content %}
+
+{% block custom-js %}
+    <script>
+        $(document).ready(function() {
+            notyf.open({
+                type: "info",
+                message: "This is a demo of how the activation email will look",
+                duration: 15000,
+            });
+        });
+    </script>
+{% endblock custom-js %}

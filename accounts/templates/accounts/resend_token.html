@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block page-title %}Activate Account Email{% endblock page-title %}
+
+{% block main-content %}
+    <div class="resend-page">
+        <br><br>
+        <h5>Activate Account</h5>
+        <p class="mt-2">Input the email address of your registered account</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <input class="my-4 w-full" name="user_email" type="email">
+            <button class="btn-style1 w-full" type="submit">Activate Account</button>
+        </form>
+    </div>
+    {% comment %} http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %} {% endcomment %}
+{% endblock main-content %}

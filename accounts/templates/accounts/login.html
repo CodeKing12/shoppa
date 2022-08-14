@@ -25,15 +25,26 @@
                                 {% endfor %}
                                 {% comment %} <input type="email" name="email" placeholder="Email">
                                 <input type="password" name="password" placeholder="Password"> {% endcomment %}
-                                <button type="submit" class="btn-style1">Login</button>
+                                <button type="submit" class="btn-style1 mb-4">Login</button>
                             </form>
                         </div>
                         <div class="register-account">
                             <h4>Don't have an account yet?</h4>
                             <a href="{% url 'register_user' %}" class="ceate-a">Create Account</a>
+                            <h4 class="acc-help mb-3">Need Help With Your Account?</h4>
+                            <a class="w-full" href="{% url 'reset_password' %}">
+                                <button class="btn-style3 w-full">
+                                    Forgot Password
+                                </button>
+                            </a>
+                            <a class="w-full" href="{% url 'resend_token' %}">
+                                <button class="btn-style3 w-full mt-3">
+                                    Activate Account
+                                </button>
+                            </a>
                             <div class="register-info">
-                                <a href="terms-conditions.html" class="terms-link"><span>*</span> Terms & conditions.</a>
-                                <p>Your privacy and security are important to us. For more information on how we use your data read our <a href="privacy-policy.html">privacy policy</a></p>
+                                <a href="{% url 'terms_and_conditions' %}" class="terms-link"><span>*</span> Terms & conditions.</a>
+                                <p>Your privacy and security are important to us. For more information on how we use your data read our <a href="{% url 'privacy_policy' %}">privacy policy</a></p>
                             </div>
                         </div>
                     </div>
