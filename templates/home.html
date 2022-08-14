@@ -267,17 +267,17 @@
                 <div class="col">
                     <div class="organic-food-fresh-banner">
                         <div class="offer-banner game-banner">
-                            <a href="#" class="banner-hover">
+                            <a href="{% url 'custom-groups' 'discounted' %}" class="banner-hover">
                                 <img src="{% static 'image/banners/lenovo-campaign-legion-brand-agnostic-hero.jpg' %}" alt="offer-banner" class="img-fluid" style="object-fit: cover">
                             </a>
                             <div class="banner-content">
                                 <span>Great Discounts</span>
                                 <h2>Discounted <br> Products</h2>
-                                <a href="product-style-2.html">View Discounts</a>
+                                <a href="{% url 'custom-groups' 'discounted' %}">View Discounts</a>
                             </div>
                         </div>
                         <div class="offer-banner">
-                            <a href="product-style-2.html" class="banner-hover">
+                            <a href="{% url 'custom-groups' 'monthly_sale' %}" class="banner-hover">
                                 <img src="{% static 'image/banners/phone-banner.jpg' %}" alt="offer-banner" class="img-fluid">
                             </a>
                             <div class="banner-content">
@@ -287,7 +287,7 @@
                             </div>
                         </div>
                         <div class="offer-banner game-banner">
-                            <a href="#" class="banner-hover">
+                            <a href="{% url 'custom-groups' 'seasonal_games' %}" class="banner-hover">
                                 <img src="{% static 'image/home-game.jpeg' %}" alt="offer-banner" class="img-fluid">
                             </a>
                             <div class="banner-content">
