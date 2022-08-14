@@ -135,12 +135,12 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="submenu-megamenu-link collapse" id="left-menu-b2">
-                                                    <li><a href="{% url 'field_products' 'games' 'genre' 'action' %}">Ubisoft</a></li>
-                                                    <li><a href="{% url 'field_products' 'games' 'genre' 'adventure' %}">Rockstar</a></li>
-                                                    <li><a href="{% url 'field_products' 'games' 'genre' 'puzzle' %}">Bungee</a></li>
-                                                    <li><a href="{% url 'field_products' 'games' 'genre' 'survival' %}">Fresh chicken</a></li>
-                                                    <li><a href="{% url 'field_products' 'games' 'genre' 'open-world' %}">Frozen chicken</a></li>
-                                                    <li><a href="{% url 'field_products' 'games' 'genre' 'mythical' %}">Turkey popular</a></li>
+                                                    <li><a href="{% url 'game-franchise' 'ubisoft' %}">Ubisoft</a></li>
+                                                    <li><a href="{% url 'game-franchise' 'rockstar' %}">Rockstar</a></li>
+                                                    <li><a href="{% url 'game-franchise' 'bungee' %}">Bungee</a></li>
+                                                    <li><a href="{% url 'game-franchise' 'fresh' %}">Fresh chicken</a></li>
+                                                    <li><a href="{% url 'game-franchise' 'frozen' %}">Frozen chicken</a></li>
+                                                    <li><a href="{% url 'game-franchise' 'turkey' %}">Turkey</a></li>
                                                 </ul>
                                             </li>
                                             <li class="submenu-li parant">
@@ -179,25 +179,25 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="submenu-megamenu-link collapse" id="left-menu-b3">
-                                                    <li class="left-menu-link"><a href="product-style-2.html">Samsung S27 Pro</a></li>
-                                                    <li class="left-menu-link"><a href="product-style-2.html">Lenovo A21</a></li>
-                                                    <li class="left-menu-link"><a href="product-style-2.html">Infinix Hot 19</a></li>
-                                                    <li class="left-menu-link"><a href="product-style-2.html">Oraimo Super Bank</a></li>
-                                                    <li class="left-menu-link"><a href="product-style-2.html">iPhone 42 Max</a></li>
-                                                    <li class="left-menu-link"><a href="product-style-2.html">Adventure of Gabon Pro Edition</a></li>
-                                                    <li class="left-menu-link"><a href="product-style-2.html">Grand Theft Auto 6</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_1.get_absolute_url }}">Samsung S27 Pro</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_2.get_absolute_url }}">Lenovo A21</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_3.get_absolute_url }}">Infinix Hot 19</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_4.get_absolute_url }}">Oraimo Super Bank</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_5.get_absolute_url }}">iPhone 42 Max</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_6.get_absolute_url }}">Adventure of Gabon Pro Edition</a></li>
+                                                    <li class="left-menu-link"><a href="{{ home_featured_7.get_absolute_url }}">Grand Theft Auto 6</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-link">
-                                        <a href="product-style-2.html" class="link-title">
+                                        <a href="{% url 'field_products' 'phones' 'manufacturer' 'samsung' %}" class="link-title">
                                             <img src="{% static 'image/menu-img/image05.jpg' %}" alt="manu-image">
                                             <span>Samsung Products</span>
                                         </a>
                                     </li>
                                     <li class="menu-link">
-                                        <a href="product-style-2.html" class="link-title">
+                                        <a href="{% url 'field_products' 'phones' 'manufacturer' 'apple' %}" class="link-title">
                                             {% comment %} <img src="{% static 'image/menu-img/image06.jpg' %}" alt="manu-image"> {% endcomment %}
                                             <i class="fa fa-apple brand-color w-25px undo-rotate"></i>
                                             <span>Apple Products</span>
@@ -216,7 +216,7 @@
                                         </a>
                                     </li>
                                     <li class="menu-link">
-                                        <a href="product-style-2.html" class="link-title">
+                                        <a href="{% url 'field_products' 'phones' 'manufacturer' 'samsung' %}" class="link-title">
                                             <img src="{% static 'image/menu-img/image01.jpg' %}" alt="manu-image">
                                             <span>Free Games</span>
                                         </a>
@@ -283,7 +283,7 @@
                             <div class="banner-content">
                                 <span>Monthly Sale</span>
                                 <h2>Grab These <br>Early</h2>
-                                <a href="product-style-2.html">View Sale</a>
+                                <a href="{% url 'custom-groups' 'monthly_sale' %}">View Sale</a>
                             </div>
                         </div>
                         <div class="offer-banner game-banner">

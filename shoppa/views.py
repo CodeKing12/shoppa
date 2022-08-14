@@ -11,8 +11,10 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist
 import json
 from accounts.scripts import get_cart
+from products.scripts.add_items import random_foreign
 
 import environ
+
 env = environ.Env()
 
 project_email = env("PROJECT_EMAIL")
@@ -31,7 +33,8 @@ try:
 except ObjectDoesNotExist:
     api_admin = ApiUser.objects.create(user=admin_user, product_groups={
         "featured": [50, 242, 262, 48, 239, 258, 46, 235, 257, 45, 233, 255, 41, 230, 253, 40, 223, 251], 
-        "discounted": [48, 240, 260, 47, 238, 259, 40, 225, 258, 42, 218, 257, 29, 208, 255, 24, 204, 250]
+        "discounted": [48, 240, 260, 47, 238, 259, 40, 225, 258, 42, 218, 257, 29, 208, 255, 24, 204, 250],
+        "monthly_sale": [12, 34, 10, 16, 18, 20, 23, 40, 92, 17, 62, 8, 11, 100, 200, 201, 217]
     })
 product_groups = api_admin.product_groups
 
@@ -76,6 +79,13 @@ def home(request):
     popular_phones = Product.objects.filter(category="PHONE").order_by("?")[:24]
     popular_games = Product.objects.filter(category="GAME").order_by("?")[:24]
     current_site = request.build_absolute_uri()
+    home_featured_1 = random_foreign(Product)
+    home_featured_2 = random_foreign(Product)
+    home_featured_3 = random_foreign(Product)
+    home_featured_4 = random_foreign(Product)
+    home_featured_5 = random_foreign(Product)
+    home_featured_6 = random_foreign(Product)
+    home_featured_7 = random_foreign(Product)
     current_site = str(current_site.strip("/"))
     sub_total = 0
     # if request.user.is_authenticated:
@@ -92,7 +102,25 @@ def home(request):
     #         cart_product = Product.objects.get(id=product_id)
     #         cart_details.append([cart_product, details[0], details[1]])
 
-    return render(request, 'home.html', {'login_form': login, "register_form": register, "discounted_products": discounted_products, "featured_products": featured_products, "popular_phones": popular_phones, "affordable_laptops": affordable_laptops, "popular_games": popular_games, "domain": current_site, "cart_details": "cart_details", "cart_total": sub_total})
+    return render(request, 'home.html', {
+        'login_form': login, 
+        "register_form": register, 
+        "discounted_products": discounted_products, 
+        "featured_products": featured_products, 
+        "popular_phones": popular_phones, 
+        "affordable_laptops": affordable_laptops, 
+        "popular_games": popular_games, 
+        "domain": current_site, 
+        "cart_details": "cart_details", 
+        "cart_total": sub_total,
+        "home_featured_1": home_featured_1,
+        "home_featured_2": home_featured_2,
+        "home_featured_3": home_featured_3,
+        "home_featured_4": home_featured_4,
+        "home_featured_5": home_featured_5,
+        "home_featured_6": home_featured_6,
+        "home_featured_7": home_featured_7,
+    })
 
 # When the user is authenticated, the authenticated info will be sent the page in json and the success function will add them to their respective divs e.g. cart items will be sent and the JS will add them to the cart
 

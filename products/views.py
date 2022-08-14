@@ -14,6 +14,7 @@ from django.contrib.contenttypes.models import ContentType
 from accounts.scripts import add_to_wishlist, add_to_cart
 from django.contrib import messages
 from accounts.scripts import parse_message
+from shoppa.views import product_groups
 
 category_mapping = {"laptops": "pc", "phones": "phone", "games": "game"}
 
@@ -85,9 +86,12 @@ def product_group(request, category_url, field, field_value):
     return render(request, "products/product_field.html", {"field_products": field_products, "heading": page_heading})
 
 def products_category(request, category_url):
-    category = category_mapping[category_url]
-    category_name = category_url.title()
-    category_products = Product.objects.filter(category__icontains=category)
+    try:
+        category = category_mapping[category_url]
+        category_name = category_url.title()
+        category_products = Product.objects.filter(category__icontains=category)
+    except:
+        raise Http404
     return render(request, "products/category.html", {"category_products": category_products, "category": category_name})
 
 def search_products(request):
@@ -101,17 +105,28 @@ def search_products(request):
     return render(request, "products/search-results.html", {"search_results": results, "heading": heading})
 
 def game_franchises(request, franchise_name):
-    field_products = Game.objects.filter(product__name__icontains=franchise_name)
-    page_heading = f"{franchise_name} Franchise".upper()
+    try:
+        field_products = Game.objects.filter(product__name__icontains=franchise_name)
+        page_heading = f"{franchise_name} Franchise".upper()
+    except:
+        raise Http404
     return render(request, "products/product_field.html", {"field_products": field_products, "heading": page_heading})
 
 def game_genres(request, genre_name):
-    filter_results = Game.objects.filter(genre__name__icontains=genre_name)
-    heading = f"{genre_name.title()} Games"
+    try:
+        filter_results = Game.objects.filter(genre__name__icontains=genre_name)
+        heading = f"{genre_name.title()} Games"
+    except:
+        raise Http404
     return render(request, "products/game_genres.html", {"genre_titles": filter_results, "heading": heading})
 
 def user_groups(request, group_name):
-    return render(request, "accounts/custom-groups.html")
+    try:
+        grouped_products = Product.objects.filter(pk__in=product_groups[group_name])
+        heading = group_name.replace("_", " ").title()
+    except:
+        raise Http404
+    return render(request, "products/custom-groups.html", {"grouped_products": grouped_products, "heading": heading})
 
 # https://codeking12.github.io/Black-Hosting/
 # https://codeking12.github.io/HosTechno/
