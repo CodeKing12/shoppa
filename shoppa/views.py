@@ -66,24 +66,7 @@ def convert_to_list(list):
 def home(request):
     login = LoginForm()
     register = CreateAccountForm()
-    if 'action_message' in request.session:
-        message = request.session['action_message'][0]
-        level = request.session["action_message"][1]
-        del request.session['action_message']
-        if level == "success":
-            messages.success(request, message)
-        elif level == "warning":
-            messages.warning(request, message)
-        elif level == "error":
-            messages.error(request, message)
-        elif level == "info":
-            messages.info(request, message)
-
-    if 'open_login' in request.session:
-        open_login = request.session["open_login"]
-        del request.session['open_login']
-    else:
-        open_login = ["", "", False]
+    
     # messages.success(request, f"Form submitted successfully. Your email is {data}")
     featured_products = []
     discounted_products = []
@@ -109,7 +92,7 @@ def home(request):
     #         cart_product = Product.objects.get(id=product_id)
     #         cart_details.append([cart_product, details[0], details[1]])
 
-    return render(request, 'home.html', {'login_form': login, "register_form": register, "open_login": open_login, "discounted_products": discounted_products, "featured_products": featured_products, "popular_phones": popular_phones, "affordable_laptops": affordable_laptops, "popular_games": popular_games, "domain": current_site, "cart_details": "cart_details", "cart_total": sub_total})
+    return render(request, 'home.html', {'login_form': login, "register_form": register, "discounted_products": discounted_products, "featured_products": featured_products, "popular_phones": popular_phones, "affordable_laptops": affordable_laptops, "popular_games": popular_games, "domain": current_site, "cart_details": "cart_details", "cart_total": sub_total})
 
 # When the user is authenticated, the authenticated info will be sent the page in json and the success function will add them to their respective divs e.g. cart items will be sent and the JS will add them to the cart
 

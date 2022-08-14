@@ -1176,7 +1176,8 @@ button.navbar-toggler span.line::after{
 }
 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.dropdown-submenu.mega-menu{
     width: 100%;
-    left: 0px;
+    /* left: 0px; */
+    left: 110px;
     /* max-width: 800px; */
     max-width: 500px;
 }

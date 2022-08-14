@@ -2,10 +2,29 @@ from django.shortcuts import get_object_or_404
 from accounts.models import Cart, Wishlist
 from accounts.scripts import get_cart
 from products.models import Product
-import json 
+import json
+from django.contrib import messages
 from accounts.scripts import add_to_cart, add_to_wishlist, parse_message, remove_from_wishlist, remove_from_cart, clear_wishlist, clear_cart
 
 def cart(request):
+    if 'action_message' in request.session:
+        message = request.session['action_message'][0]
+        level = request.session["action_message"][1]
+        del request.session['action_message']
+        if level == "success":
+            messages.success(request, message)
+        elif level == "warning":
+            messages.warning(request, message)
+        elif level == "error":
+            messages.error(request, message)
+        elif level == "info":
+            messages.info(request, message)
+
+    if 'open_login' in request.session:
+        open_login = request.session["open_login"]
+        del request.session['open_login']
+    else:
+        open_login = ["", "", False]
     if request.method == "POST":
         if "add_to_cart" in request.POST:
             print(request.POST)
@@ -77,4 +96,4 @@ def cart(request):
         
         cart_item_count = len(cartlist)
     
-    return {"user_cart": cart, "cart_subtotal": subtotal, "cart_item_count": cart_item_count, "wishlist_item_count": wishlist_item_count}
+    return {"user_cart": cart, "cart_subtotal": subtotal, "cart_item_count": cart_item_count, "wishlist_item_count": wishlist_item_count, "open_login": open_login}

@@ -86,11 +86,19 @@ def product_group(request, category_url, field, field_value):
 
 def products_category(request, category_url):
     category = category_mapping[category_url]
+    category_name = category_url.title()
     category_products = Product.objects.filter(category__icontains=category)
-    return render(request, "products/category.html", {"category_products": category_products})
+    return render(request, "products/category.html", {"category_products": category_products, "category": category_name})
 
 def search_products(request):
-    return HttpResponse("Hello")
+    if request.method == "GET":
+        term = request.GET["search"]
+        heading = f"\"{term}\""
+        results = Product.objects.filter(Q(name__contains=term) | Q(description__contains=term))
+    else:
+        request.session['action_message'] = ["You haven't searched for anything", "info"]
+        return redirect("all_products")
+    return render(request, "products/search-results.html", {"search_results": results, "heading": heading})
 
 def game_franchises(request, franchise_name):
     field_products = Game.objects.filter(product__name__icontains=franchise_name)
