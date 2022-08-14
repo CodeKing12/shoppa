@@ -12,11 +12,11 @@ urlpatterns = [
     path('my-support-tickets/', views.support_tickets, name="support_tickets"),
     path("activation-link/", views.activate_button, name="activation_page"),
     path("confirm-password-email/", views.confirm_pass_email, name="password_page"),
-    path("activate/<uidb64>/<token>", views.activate_account, name="activate_account"),
+    path("activate/<uidb64>/<token>/", views.activate_account, name="activate_account"),
     path('resend/', views.resend_token, name='resend_token'),
     path('reset-password/', views.reset_password, name='reset_password'),
     path('update-password/', views.update_password, name='update_password'),
-    path('change-password/<uidb64>/<token>', views.change_password, name='change_password'),
+    path('change-password/<uidb64>/<token>/', views.change_password, name='change_password'),
     path('my-wishlist/', views.wishlist, name='wishlist'),
     path('my-cart/', views.cartview, name='cart'),
     path('add-to-cart/', views.add_to_cart, name="add_to_cart"),
@@ -27,3 +27,5 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
     # path('create_vendor', views.create_vendor, name='create_vendor')
 ]
+
+# I added a slash to both url mappings that end with <token>. Putting this here incase the code breaks

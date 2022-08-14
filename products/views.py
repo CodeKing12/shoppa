@@ -1,6 +1,6 @@
 from django.http import Http404, HttpResponse, JsonResponse
 from .serializers import ProductSerializer
-from products.models import Game, Product, ProductReviews, MoreProductImages
+from products.models import Game, Product, ProductReviews, MoreProductImages, GameGenres
 from accounts.models import Wishlist, Cart, CartDetails, CustomAccount
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -104,6 +104,11 @@ def game_franchises(request, franchise_name):
     field_products = Game.objects.filter(product__name__icontains=franchise_name)
     page_heading = f"{franchise_name} Franchise".upper()
     return render(request, "products/product_field.html", {"field_products": field_products, "heading": page_heading})
+
+def game_genres(request, genre_name):
+    filter_results = Game.objects.filter(genre__name__icontains=genre_name)
+    heading = f"{genre_name.title()} Games"
+    return render(request, "products/game_genres.html", {"genre_titles": filter_results, "heading": heading})
 
 def user_groups(request, group_name):
     return render(request, "accounts/custom-groups.html")

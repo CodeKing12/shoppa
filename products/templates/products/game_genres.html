@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load products_display %}
+
+{% block main-content %}
+    {% comment %} {{ field}} {% endcomment %}
+    <section class="featured-product section-tb-padding">
+        <div class="container">
+            <div class="row">
+                {% if genre_titles.count > 0 %}
+                    <div class="col">
+                        <div class="section-title3">
+                            <h2><span>{{ heading }}</span></h2>
+                        </div>
+                        {% products_grid genre_titles %}
+                    </div>
+                {% else %}
+                    <h5 class="text-center">There are no products belonging to this category</h5>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock main-content %}
