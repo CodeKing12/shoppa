@@ -131,8 +131,8 @@ def help_page(request):
 def privacy_policy(request):
     return render(request, "privacy-policy.html")
 
-def privacy_policy(request):
-    return render(request, "privacy-policy.html")
+# def privacy_policy(request):
+#     return render(request, "privacy-policy.html")
 
 def return_policy(request):
     return render(request, "returns-policy.html")

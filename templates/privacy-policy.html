@@ -10,17 +10,19 @@
 
 {% block main-content %}
     <!-- breadcrumb start -->
-    <section class="about-breadcrumb">
-        <div class="about-back section-tb-padding" style="background-image: url(image/about-image.jpg)">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="about-l">
-                            <ul class="about-link">
-                                <li class="go-home"><a href="index1.html">Home</a></li>
-                                <li class="about-p"><span>Our Privacy policy</span></li>
-                            </ul>
-                        </div>
+    <section class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumb-start">
+                        <ul class="breadcrumb-url">
+                            <li class="breadcrumb-url-li">
+                                <a href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="breadcrumb-url-li">
+                                <a href="#"><span>Our Privacy Policy</span></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
